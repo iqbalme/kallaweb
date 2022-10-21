@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Prodi;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -16,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-		
+		return view('admin.post');
     }
 
     /**
@@ -26,9 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-		$data['prodis'] = Prodi::all();
-		$data['categories'] = Category::all();
-        return view('admin.post', ['data' => $data]);
+        return view('admin.post-create', ['isUpdate' => false]);
     }
 
     /**
@@ -39,7 +38,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -61,7 +60,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('admin.post-create', ['isUpdate' => true, 'post' => $post]);
     }
 
     /**
@@ -86,4 +85,13 @@ class PostController extends Controller
     {
         //
     }
+	
+	public function upload_thumbnail(Request $request){
+		$file = $request->file('upload');
+		$name = $file->hashName(); // Generate a unique, random name...
+		//$extension = $file->extension();
+		//$fileName = $name.'.'.$extension;
+		$path = Storage::putFileAs('public/images', $file, $name);
+		return asset('storage/images/'.$name);
+	}
 }

@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
     <link href="{{ asset('admin/css/examples.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/vendors/@coreui/chartjs/css/coreui-chartjs.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/icons@2.0.0-rc.0/css/free.min.css" integrity="sha256-vejWHgYduBq3SYXJHSWSRJp7ktQpZ6d+8HGFtb9Fz9k=" crossorigin="anonymous">
+
+	@livewireStyles
   </head>
   <body>
     @include('admin.layout.sidebar')
@@ -47,13 +50,8 @@
     <!-- CoreUI and necessary plugins-->
     <script src="{{ asset('admin/vendors/@coreui/coreui/js/coreui.bundle.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/simplebar/js/simplebar.min.js') }}"></script>
-    <!-- Plugins and scripts required by this view-->
-    <script src="{{ asset('admin/vendors/chart.js/js/chart.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/@coreui/chartjs/js/coreui-chartjs.js') }}"></script>
-    <script src="{{ asset('admin/vendors/@coreui/utils/js/coreui-utils.js') }}"></script>
-    <script src="{{ asset('admin/js/main.js') }}"></script>
-    <script>
-    </script>
+    <!--script src="{{ asset('admin/js/main.js') }}"></script-->
 
+	@livewireScripts
   </body>
 </html>

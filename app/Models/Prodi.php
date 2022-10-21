@@ -10,8 +10,6 @@ class Prodi extends Model
 {
     use HasFactory;
 	
-	public function capability()
-    {
-        //return $this->belongsTo(Capability::class);
-    }
+	protected $guarded = [];
+	
 }

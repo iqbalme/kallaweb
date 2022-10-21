@@ -15,9 +15,7 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
-			$table->string('nama_tag');
-			$table->longText('deskripsi_tag')->nullable();
-			$table->unsignedBigInteger('parent_tag')->default(0);
+			$table->string('nama_tag')->unique();
             $table->timestamps();
         });
     }

@@ -20,9 +20,11 @@ return new class extends Migration
 			$table->string('judul', 100);
 			$table->string('thumbnail')->nullable();
 			$table->longText('konten')->nullable();
-			$table->foreignId('category_id')->constrained();
-			$table->foreignId('tag_id')->constrained();
-			$table->foreignId('prodi_id')->nullable()->constrained(); //jika null maka berlaku umum
+			$table->string('category_id')->nullable();
+			$table->string('tag_id')->nullable();
+			$table->string('prodi_id')->nullable(); // menampung array, jika null maka berlaku umum
+			$table->enum('status_post', ['draft', 'published'])->default('draft');
+			$table->string('slug', 100);
             $table->timestamps();
         });
     }

@@ -12,6 +12,11 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CKEditorController;
+use App\Http\Controllers\ProdiController;
+use App\Http\Controllers\KatalogController;
+use App\Http\Controllers\VoucherController;
+use App\Http\Livewire\Frontend\FrontendIndex;
 use App\Models\Prodi;
 
 /*
@@ -25,27 +30,34 @@ use App\Models\Prodi;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/lw', function () {
+    return view('teslivewire');
 });
 
-Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/login', [UserController::class, 'authenticate']);
-Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-Route::get('/dashboard', [UserController::class, 'dashboard']);
+Route::get('/', FrontendIndex::class);
+Route::get('tes', [TestController::class, 'index']);
+Route::get('login', [UserController::class, 'login'])->name('login');
+Route::post('login', [UserController::class, 'authenticate']);
 
-Route::get('/tes', [TestController::class, 'index']);
-Route::resource('post', PostController::class);
-Route::resource('category', CategoryController::class);
-Route::resource('tag', TagController::class);
-Route::resource('pendaftaran', PendaftarController::class);
-Route::resource('transaksi', TransaksiController::class);
-Route::resource('invoice', InvoiceController::class);
-Route::resource('setting', SettingController::class);
-Route::resource('menu', MenuController::class);
+Route::prefix('admin')->group(function () {
+	Route::get('dashboard', [UserController::class, 'dashboard'])->name('dashboard.admin');
+	Route::get('prodi', [ProdiController::class, 'index'])->name('prodi.index');
+	Route::get('register', [UserController::class, 'register'])->name('register');
+	Route::get('logout', [UserController::class, 'logout'])->name('logout');
+	Route::resource('user', UserController::class);
+	Route::resource('post', PostController::class);
+	Route::resource('katalog', KatalogController::class);
+	Route::resource('voucher', VoucherController::class);
+	Route::resource('category', CategoryController::class);
+	Route::resource('tag', TagController::class);
+	Route::resource('pendaftaran', PendaftarController::class);
+	Route::resource('transaksi', TransaksiController::class);
+	Route::resource('invoice', InvoiceController::class);
+	Route::resource('setting', SettingController::class);
+	Route::resource('menu', MenuController::class);
+	
+	//for ckeditor upload file
+	Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('ckeditor.image-upload');
+	Route::post('upload-thumbnail', [PostController::class, 'upload_thumbnail'])->name('thumbnail.upload');
+});
 Route::resource('payment', PaymentController::class);
-Route::resource('user', UserController::class);
-
-//for ckeditor upload file
-Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');

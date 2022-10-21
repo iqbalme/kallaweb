@@ -5,14 +5,15 @@
 	  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-menu') }}"></use>
 	</svg>
   </button><a class="header-brand d-md-none" href="#">
-	<svg width="118" height="46" alt="CoreUI Logo">
-	  <use xlink:href="{{ asset('admin/assets/brand/coreui.svg#full') }}"></use>
+	<svg width="118" height="46" alt="Kalla Institute Logo">
+	  <use xlink:href="https://i.postimg.cc/ZK5qzGVV/kalla-group.png"></use>
 	</svg></a>
-  <ul class="header-nav d-none d-md-flex">
-	<li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+  <!--ul class="header-nav d-none d-md-flex">
 	<li class="nav-item"><a class="nav-link" href="{{ route('user.index') }}">User</a></li>
-	<li class="nav-item"><a class="nav-link" href="{{ route('setting.index') }}">Setting</a></li>
-  </ul>
+  </ul-->
+  @auth
+	Halo, {{ Auth::user()->nama }}
+  @endauth
   <ul class="header-nav ms-auto">
 	<li class="nav-item"><a class="nav-link" href="#">
 		<svg class="icon icon-lg">
