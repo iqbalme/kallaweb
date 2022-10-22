@@ -16,7 +16,11 @@ use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\VoucherController;
-use App\Http\Livewire\Frontend\FrontendIndex;
+use App\Http\Livewire\Frontend\Home;
+use App\Http\Livewire\Frontend\SinglePost;
+use App\Http\Livewire\Frontend\Login;
+use App\Http\Livewire\Admin\Dashboard;
+use App\Http\Livewire\User\UserIndex;
 use App\Models\Prodi;
 
 /*
@@ -34,17 +38,18 @@ Route::get('/lw', function () {
     return view('teslivewire');
 });
 
-Route::get('/', FrontendIndex::class);
-Route::get('tes', [TestController::class, 'index']);
-Route::get('login', [UserController::class, 'login'])->name('login');
-Route::post('login', [UserController::class, 'authenticate']);
+Route::get('/', Home::class);
+Route::get('post/{post_id}', SinglePost::class);
+Route::get('tes/', [TestController::class, 'index']);
+Route::get('login/', Login::class)->name('login');
+Route::post('login/', [UserController::class, 'authenticate']);
 
 Route::prefix('admin')->group(function () {
-	Route::get('dashboard', [UserController::class, 'dashboard'])->name('dashboard.admin');
-	Route::get('prodi', [ProdiController::class, 'index'])->name('prodi.index');
-	Route::get('register', [UserController::class, 'register'])->name('register');
-	Route::get('logout', [UserController::class, 'logout'])->name('logout');
-	Route::resource('user', UserController::class);
+	Route::get('dashboard/', Dashboard::class)->name('dashboard.admin');
+	Route::get('prodi/', [ProdiController::class, 'index'])->name('prodi.index');
+	Route::get('register/', [UserController::class, 'register'])->name('register');
+	Route::get('logout/', [UserController::class, 'logout'])->name('logout');
+	Route::get('user/', UserIndex::class)->name('user.index');
 	Route::resource('post', PostController::class);
 	Route::resource('katalog', KatalogController::class);
 	Route::resource('voucher', VoucherController::class);

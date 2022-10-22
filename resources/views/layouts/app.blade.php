@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>{{ $title }}</title>
+    <title>{{ isset($title) ? $title : 'Judul' }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/">
 
@@ -24,11 +24,6 @@
 
 	@include('layouts.nav')
 	@yield('content')
-	<!--div class="container">
-		<div class="row">
-			@yield('content')
-		</div>
-	</div-->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

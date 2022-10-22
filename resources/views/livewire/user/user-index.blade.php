@@ -2,17 +2,8 @@
 	<div class="container-lg">
 		<div class="card mb-4">
             <div class="card-body">
-				<h3>Nama Kategori</h3><br>
-				@if ($isFormVisible)
-					@if($isUpdate)
-						<livewire:kategori.kategori-update />
-					@else
-						<livewire:kategori.kategori-create />
-					@endif
-				@endif
-				@if (!$isFormVisible)
-					<button type="button" class="btn btn-success text-white mb-2" wire:click="tambahKategori()">Tambah Kategori</button>
-				@endif
+				<h3>List User</h3><br>
+					<button type="button" class="btn btn-success text-white mb-2" wire:click="tambahUser"  data-coreui-toggle="modal" data-coreui-target="#userModal">Tambah User</button>
 				<div class="table-responsive">
                     <table class="table border mb-0 table-striped">
                       <thead class="table-light fw-semibold">
@@ -20,38 +11,45 @@
                           <th class="text-center">
                             No
                           </th>
-                          <th class="text-center">Kategori</th>
-                          <th class="text-center">Deskripsi</th>
+						  <th></th>
+                          <th class="text-center">Nama</th>
+                          <th class="text-center">Email</th>
 						  <th></th>
                         </tr>
                       </thead>
                       <tbody>
-					  @if(count($data) === 0)
+					  @if(empty($data))
 						<tr class="align-middle">
-                          <td class="text-center" colspan="4">
+                          <td class="text-center" colspan="6">
 						  Tidak ada data
 						  </td>
 						</tr>
-					  @endif
-					  @isset($data)
-						@foreach($data as $category)
+					  @else
+						@foreach($data as $user)
                         <tr class="align-middle">
                           <td class="text-center">
 						  {{ $loop->iteration }}
                           </td>
+						  <td>
+						  @if(isset($user->avatar))
+							  <div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('storage/images/'.$user->avatar) }}"></div>
+						  @else
+							  <div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('admin/user.png') }}"></div>
+						  @endif
+						  </td>
                           <td>
-                            {{ $category->nama_kategori }}
+                            {{ $user->nama }}
                           </td>
 						  <td>
-                            {{ $category->deskripsi_kategori }}
+                            {{ $user->email }}
                           </td>
                           <td>
-							<button type="button" class="btn btn-dark" wire:click="getKategori({{ $category->id }})" @if($isFormVisible) disabled @endif>Edit</button>
-							<button wire:click="setKategorId({{$category->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#categoryModalEdit" @if($isFormVisible) disabled @endif>Hapus</button>
+							<button type="button" class="btn btn-dark" wire:click="getUser({{ $user->id }})" @if($isFormVisible) disabled @endif>Edit</button>
+							<button wire:click="setKategorId({{$user->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#userModalHapus" @if($isFormVisible) disabled @endif>Hapus</button>
                           </td>
                         </tr>
 						@endforeach
-					@endisset
+					@endif
                       </tbody>
                     </table>
                   </div>
@@ -59,7 +57,7 @@
           </div>
 	</div>
 	<!-- Modal -->
-	<div class="modal fade" id="categoryModalEdit" tabindex="-1" wire:ignore.self>
+	<div class="modal fade" id="userModalHapus" tabindex="-1" wire:ignore.self>
 	  <div class="modal-dialog">
 		<div class="modal-content">
 		  <div class="modal-header">
@@ -71,9 +69,14 @@
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-secondary text-white" data-coreui-dismiss="modal">Tidak</button>
-			<button type="button" class="btn btn-danger text-white" wire:click="hapusKategori({{$category_id}})" data-coreui-toggle="modal" data-coreui-target="#categoryModalEdit">Ya, Hapus</button>
+			<button type="button" class="btn btn-danger text-white" wire:click="hapusKategori({{$user_id}})" data-coreui-toggle="modal" data-coreui-target="#userModalHapus">Ya, Hapus</button>
 		  </div>
 		</div>
 	  </div>
 	</div>
+	@if($isUpdate)
+		<livewire:user.user-update />
+	@else
+		<livewire:user.user-create />
+	@endif
 </div>

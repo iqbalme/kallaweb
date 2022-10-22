@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Frontend;
 use Livewire\Component;
 use App\Models\Post;
 
-class FrontendIndex extends Component
+class Home extends Component
 {
 	public $data;
 	
@@ -17,7 +17,7 @@ class FrontendIndex extends Component
     {
 		//dd($this->data['posts']);
 		$this->data['posts'] = Post::where('status_post', 'published')->orderBy('id', 'DESC')->take(5)->get();
-        return view('livewire.frontend.frontend-index')
+        return view('livewire.frontend.home')
 			->extends('layouts.app', ['title' => 'judulnya'	])
 			->section('content');
     }

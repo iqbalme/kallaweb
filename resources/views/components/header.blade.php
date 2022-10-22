@@ -13,7 +13,7 @@
   </ul-->
   @auth
 	<ul class="header-nav d-none d-md-flex">
-		<li class="nav-item">Halo, {{ Auth::user()->nama }}</li>
+		<li class="nav-item">Halo, <strong>{{ Auth::user()->nama }}</strong></li>
 	</ul>
   @endauth
   <!--ul class="header-nav ms-auto">
@@ -67,13 +67,17 @@
 		  <svg class="icon me-2">
 			<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-file') }}"></use>
 		  </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a-->
-		<div class="dropdown-divider"></div><a class="dropdown-item" href="#">
-		  <svg class="icon me-2">
-			<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-lock-locked') }}"></use>
-		  </svg> Lock Account</a><a class="dropdown-item" href="{{ route('logout') }}">
-		  <svg class="icon me-2">
-			<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}"></use>
-		  </svg> Logout</a>
+		<div class="dropdown-divider"></div>
+			<a class="dropdown-item" href="#">
+			  <svg class="icon me-2">
+				<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-lock-locked') }}"></use>
+			  </svg> Lock Account
+			</a>
+			<a class="dropdown-item" wire:click="logout">
+			  <svg class="icon me-2">
+				<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}"></use>
+			  </svg> Logout
+			</a>
 	  </div>
 	</li>
   </ul>

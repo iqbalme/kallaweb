@@ -8,6 +8,36 @@
 					<button type="button" class="btn btn-info text-white mb-2" data-coreui-toggle="modal" data-coreui-target="#voucherModal" wire:click="addFormVoucher">Tambah Voucher</button>
 					</div>
 				</div>
+				<hr>
+				<div class="row justify-content-md-between">
+				<!-- Perhalaman -->
+				<div class="col-lg-auto">
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<span class="input-group-text" id="basiaddon3">Perhalaman</span>
+					  </div>
+						  <select class="form-control" wire:model="perhalaman">
+							<option value="5" selected>5</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+						  </select>
+					</div>
+				</div>
+				<!-- End Perhalaman -->
+				
+				<!-- Pencarian -->
+				<div class="col-8">
+					<div class="input-group mb-3">
+					  <input type="text" class="form-control" placeholder="Ketik di sini..." wire:model="cari_voucher">
+					  <div class="input-group-append">
+						<span class="input-group-text" id="basiaddon2">Cari</span>
+					  </div>
+					</div>
+				</div>
+				<!-- End Pencarian -->
+				</div>
 				<div class="table-responsive">
                     <table class="table border mb-0 table-hover table-striped">
                       <thead class="table-light fw-semibold">
@@ -92,6 +122,7 @@
                   </div>
             </div>
           </div>
+		  {{ $data['vouchers']->links('vendor.livewire.bootstrap') }}
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="voucherModalHapus" tabindex="-1" wire:ignore.self>

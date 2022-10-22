@@ -3,7 +3,7 @@
 		<div class="card mb-4">
             <div class="card-body">
 				<h3>Daftar Publikasi</h3>
-				<hr>
+				
 				<!--div class="row mt-2 mb-2">
 					<div class="col-sm-2">
 						&nbsp;&nbsp;&nbsp;<strong>Per halaman</strong>
@@ -18,6 +18,38 @@
 						</select>
 					</div>
 				</div-->
+				<hr>
+				
+			<div class="row justify-content-md-between">
+				<!-- Perhalaman -->
+				<div class="col-lg-auto">
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<span class="input-group-text" id="basiaddon3">Perhalaman</span>
+					  </div>
+						  <select class="form-control" wire:model="perhalaman">
+							<option value="5" selected>5</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+						  </select>
+					</div>
+				</div>
+				<!-- End Perhalaman -->
+				
+				<!-- Pencarian -->
+				<div class="col-8">
+					<div class="input-group mb-3">
+					  <input type="text" class="form-control" placeholder="Ketik di sini..." wire:model="cari_post">
+					  <div class="input-group-append">
+						<span class="input-group-text" id="basiaddon2">Cari</span>
+					  </div>
+					</div>
+				</div>
+				<!-- End Pencarian -->
+			</div>
+				
 				<div class="table-responsive">
                     <table class="table border mb-0 table-striped">
                       <thead class="table-light fw-semibold">
@@ -91,7 +123,27 @@
                     </table>					
                   </div>
             </div>
-          </div>
+        </div>
+		  
+		  <!-- Pagination -->
+		  {{ $data['posts']->links('vendor.livewire.bootstrap') }}
+		  
+		  <!--nav aria-label="pagination">
+			  <ul class="pagination justify-content-center">
+				<li class="page-item disabled">
+				  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item active" aria-current="page">
+				  <a class="page-link" href="#">2</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+				  <a class="page-link" href="#">Next</a>
+				</li>
+			  </ul>
+			</nav-->
+		  <!-- End Pagination -->
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="postModalEdit" tabindex="-1" wire:ignore.self>

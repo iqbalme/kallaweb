@@ -9,14 +9,18 @@ use App\Models\Tag;
 use App\Models\Prodi;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
 
 class PostIndex extends Component
 {
+	use WithPagination;
+	
 	public $data;
 	public $isUpdate = false;
 	public $isFormVisible = false;
 	public $post_id = null;
 	public $perhalaman = 5;
+	public $cari_post = '';
 	
 	protected $listeners = [
 		'refreshPost'
@@ -28,7 +32,7 @@ class PostIndex extends Component
 	
     public function render()
     {
-		$posts = Post::orderBy('id', 'DESC')->paginate($this->perhalaman);
+		$posts = Post::orderBy('id', 'DESC')->where('judul', 'LIKE', '%'.$this->cari_post.'%')->paginate($this->perhalaman);
 		$posts_categories = [];
 		$posts_prodis = [];
 		$posts_user = [];

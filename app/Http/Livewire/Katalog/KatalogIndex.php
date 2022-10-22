@@ -13,6 +13,8 @@ class KatalogIndex extends Component
 	public $isUpdate = false;
 	public $isVoucherUpdate = false;
 	public $isVoucherForm = false;
+	public $perhalaman = 5;
+	public $cari_katalog = '';
 	
 	protected $listeners = [
 		'refreshKatalog', 'batalkanKatalog'
@@ -20,7 +22,7 @@ class KatalogIndex extends Component
 	
     public function render()
     {
-		$this->data['katalog'] = Katalog::all();
+		$this->data['katalog'] = Katalog::orderBy('id', 'DESC')->where('nama_katalog', 'LIKE', '%'.$this->cari_katalog.'%')->orWhere('deskripsi_katalog', 'LIKE', '%'.$this->cari_katalog.'%')->paginate($this->perhalaman);
         return view('livewire.katalog.katalog-index');
     }
 	
