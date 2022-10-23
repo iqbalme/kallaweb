@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prodis', function (Blueprint $table) {
+        Schema::create('post_tags', function (Blueprint $table) {
             $table->id();
-			$table->string('nama_prodi');
-			$table->longText('deskripsi_prodi')->nullable();
-			$table->string('thumbnail');
+			$table->foreignId('post_id')->constrained();
+			$table->foreignId('tag_id')->constrained();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prodis');
+        Schema::dropIfExists('post_tags');
     }
 };

@@ -50,6 +50,7 @@
     <!-- CoreUI and necessary plugins-->
     <script src="{{ asset('admin/vendors/@coreui/coreui/js/coreui.bundle.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/simplebar/js/simplebar.min.js') }}"></script>
+	<script src="https://kit.fontawesome.com/8b91ad4956.js" crossorigin="anonymous"></script>
     <!--script src="{{ asset('admin/js/main.js') }}"></script-->
 
 	@livewireScripts

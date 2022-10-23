@@ -30,6 +30,13 @@ class UserIndex extends Component
 		$this->isFormVisible = true;
 	}
 	
+	public function getUser($id){
+		$this->isUpdate = true;
+		$user = User::find($id);
+		$this->emit('getUser', $user);
+		$this->isFormVisible = true;
+	}
+	
 	public function refreshUser(){
 		
 	}

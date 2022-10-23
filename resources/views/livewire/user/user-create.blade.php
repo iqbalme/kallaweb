@@ -21,9 +21,6 @@
 				  <h6 class="card-title mb-2">Password</h6>
 				  <input type="password" class="form-control" wire:model.lazy="password">
 				</div>
-				@if($avatar == null)
-					avatarnya null
-				@endif
 				<div class="row mt-3">
 					<div class="d-flex justify-content-between">
 						<div>
@@ -31,7 +28,7 @@
 						  <!--div class="small text-medium-emphasis">January - July 2022</div-->
 						</div>
 					</div>
-					@if(null != $avatar)
+					@if(isset($avatar))
 					<div class="mb-1 rounded">
 						<img src="{{ $avatar->temporaryUrl() }}" alt="avatar" width="200" height="200">
 					</div>
@@ -46,9 +43,6 @@
 							</div>
 							@error('avatar') <span class="error">{{ $message }}</span> @enderror
 						</div>
-					@endif
-					@if(null !== $avatar)
-					{{ $avatar->temporaryUrl() }}
 					@endif
 				</div>	
             </div>

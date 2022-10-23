@@ -44,8 +44,8 @@
                             {{ $user->email }}
                           </td>
                           <td>
-							<button type="button" class="btn btn-dark" wire:click="getUser({{ $user->id }})" @if($isFormVisible) disabled @endif>Edit</button>
-							<button wire:click="setKategorId({{$user->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#userModalHapus" @if($isFormVisible) disabled @endif>Hapus</button>
+							<button type="button" class="btn btn-dark" wire:click="getUser({{ $user->id }})"  data-coreui-toggle="modal" data-coreui-target="#userModalEdit">Edit</button>
+							<button wire:click="getUser({{$user->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#userModalHapus">Hapus</button>
                           </td>
                         </tr>
 						@endforeach

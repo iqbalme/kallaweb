@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\User;
+//use Illuminate\Support\Facades\Hash;
 
 class UserCreate extends Component
 {
@@ -32,13 +33,20 @@ class UserCreate extends Component
 	}
 	
 	public function tambahUser(){
+		$avatar = null;
+		if(isset($this->avatar)){
+			$this->avatar->storeAs('public/images', $this->avatar->getFilename());
+			$avatar = $this->avatar->getFilename();
+			$this->avatar->delete();
+		}
 		$newUser = [
 			'nama' => $this->nama,
 			'email' => $this->email,
 			'password' => bcrypt($this->password),
-			'avatar' => $this->avatar
+			'avatar' => $avatar
 		];
-		dd($newUser);
-		//User::create($newUser);
+		//dd($newUser);
+		User::create($newUser);
+		$this->emit('refreshUser');
 	}
 }

@@ -29,6 +29,9 @@
 		<li class="nav-item"><a class="nav-link" href="{{ route('post.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-library') }}"></use>
 		</svg> List</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ route('post.create') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg class="nav-icon">
+		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-pencil') }}"></use>
+		</svg> Carousel</a></li>
 	  </ul>
 	</li>
 	
@@ -56,10 +59,15 @@
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-chart-pie') }}"></use>
 		</svg> Statistik</a></li-->
 	<li class="nav-divider"></li>
+	<li class="nav-item"><a class="nav-link" href="{{ route('role.index') }}">
+		<svg class="nav-icon">
+		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-key	') }}"></use>
+		</svg> Role</a></li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('user.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>
 		</svg> User</a></li>
+	
 	<li class="nav-item"><a class="nav-link" href="{{ route('setting.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-settings') }}"></use>

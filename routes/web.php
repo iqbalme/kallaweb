@@ -21,6 +21,7 @@ use App\Http\Livewire\Frontend\SinglePost;
 use App\Http\Livewire\Frontend\Login;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\User\UserIndex;
+use App\Http\Livewire\Role\RoleIndex;
 use App\Models\Prodi;
 
 /*
@@ -49,7 +50,8 @@ Route::prefix('admin')->group(function () {
 	Route::get('prodi/', [ProdiController::class, 'index'])->name('prodi.index');
 	Route::get('register/', [UserController::class, 'register'])->name('register');
 	Route::get('logout/', [UserController::class, 'logout'])->name('logout');
-	Route::get('user/', UserIndex::class)->name('user.index');
+	Route::get('users/', UserIndex::class)->name('user.index');
+	Route::get('roles/', RoleIndex::class)->name('role.index');
 	Route::resource('post', PostController::class);
 	Route::resource('katalog', KatalogController::class);
 	Route::resource('voucher', VoucherController::class);
