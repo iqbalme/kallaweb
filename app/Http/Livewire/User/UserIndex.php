@@ -38,6 +38,6 @@ class UserIndex extends Component
 	}
 	
 	public function refreshUser(){
-		
+	
 	}
 }

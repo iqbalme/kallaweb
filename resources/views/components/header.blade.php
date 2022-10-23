@@ -30,7 +30,7 @@
 		<div class="dropdown-header bg-light py-2">
 		  <div class="fw-semibold">Settings</div>
 		</div>
-		<a class="dropdown-item" href="#">
+		<a class="dropdown-item" href="{{ route('profil') }}">
 		  <svg class="icon me-2">
 			<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>
 		  </svg> Profile</a>

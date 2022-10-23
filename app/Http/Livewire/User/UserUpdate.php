@@ -17,7 +17,7 @@ class UserUpdate extends Component
 	public $user_id;
 	
 	protected $listeners = [
-		'getUser'
+		'getUser', 'updateUser'
 	];
 	
 	public function mount(){
@@ -36,6 +36,11 @@ class UserUpdate extends Component
 		$this->avatar = $user['avatar'];
 		$this->password = null;
 	}
+	
+	public function updatedAvatar(){
+		//$this->emit('refreshUser');
+	}
+	
 	
 	public function update(){
 		$avatar = null;
