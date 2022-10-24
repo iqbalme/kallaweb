@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 class TestController extends Controller
 {
     public function index(){
-		$voucher = Voucher::find(2);
-		return $voucher;
+		return bcrypt('123');
 	}
 }
