@@ -35,7 +35,8 @@ class Profil extends Component
 	
 	public function removeAvatar(){
 		if($this->avatarInitState){
-			
+			$this->avatar = null;
+			$this->avatarInitState = false;
 		} else {
 			$this->avatar->delete();
 			$this->avatar = null;
