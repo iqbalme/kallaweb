@@ -34,14 +34,15 @@ class Profil extends Component
     }
 	
 	public function removeAvatar(){
-		$this->avatar->delete();
-		$this->avatar = null;
 		if($this->avatarInitState){
-			$this->avatarInitState = false;
+			
+		} else {
+			$this->avatar->delete();
+			$this->avatar = null;
+			if($this->avatarInitState){
+				$this->avatarInitState = false;
+			}
 		}
-		// else {
-			// $this->avatarInitState = true;
-		// }
 	}
 	
 	public function updatedAvatar(){
@@ -51,14 +52,16 @@ class Profil extends Component
 	public function update(){
 		$avatar = null;
 		if(isset($this->avatar)){
-			$this->avatar->storeAs('public/images', $this->avatar->getFilename());
-			$avatar = $this->avatar->getFilename();
-			$this->avatar->delete();
+			if(!$this->avatarInitState){
+				$this->avatar->storeAs('public/images', $this->avatar->getFilename());
+				$avatar = $this->avatar->getFilename();
+				$this->avatar->delete();
+				$user->avatar = $avatar;
+			}
 		}
 		$user = $this->user;
 		$user->nama = $this->nama;
 		$user->email = $this->email;
-		$user->avatar = $avatar;
 		if($this->password !== null){
 			$user->password = bcrypt($this->password);
 		}

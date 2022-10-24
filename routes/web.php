@@ -46,7 +46,7 @@ Route::get('tes/', [TestController::class, 'index']);
 Route::get('login/', Login::class)->name('login');
 Route::post('login/', [UserController::class, 'authenticate']);
 
-Route::prefix('admin')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 	Route::get('dashboard/', Dashboard::class)->name('dashboard.admin');
 	Route::get('prodi/', [ProdiController::class, 'index'])->name('prodi.index');
 	Route::get('register/', [UserController::class, 'register'])->name('register');

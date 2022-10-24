@@ -11,11 +11,9 @@
   <!--ul class="header-nav d-none d-md-flex">
 	<li class="nav-item"><a class="nav-link" href="{{ route('user.index') }}">User</a></li>
   </ul-->
-  @auth
 	<ul class="header-nav d-none d-md-flex">
 		<li class="nav-item">Halo, <strong>{{ Auth::user()->nama }}</strong></li>
 	</ul>
-  @endauth
   <ul class="header-nav ms-3">
 	<li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 		<div class="avatar avatar-md">
