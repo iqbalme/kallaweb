@@ -25,7 +25,7 @@
 						  <!--div class="small text-medium-emphasis">January - July 2022</div-->
 						</div>
 					</div>
-					{{ status avatar : $avatarInitState }}
+					{{ 'status avatar :' . $avatarInitState }}
 					@if(isset($avatar))
 					<div class="mb-1 rounded">
 						@if($avatarInitState)
