@@ -29,7 +29,7 @@ class VoucherIndex extends Component
 		$this->data['vouchers'] = Voucher::orderBy('id', 'DESC')->where('nama_voucher', 'LIKE', '%'.$this->cari_voucher.'%')->orWhere('deskripsi_voucher', 'LIKE', '%'.$this->cari_voucher.'%')->orWhere('kode_voucher', 'LIKE', '%'.$this->cari_voucher.'%')->paginate($this->perhalaman);
 		$this->emit('getVoucher', $this->voucher);
         return view('livewire.voucher.voucher-index')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Katalog / Voucher']);
     }
 	
 	public function tambahVoucher(){

@@ -25,6 +25,10 @@
     <link href="{{ asset('admin/css/examples.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/vendors/@coreui/chartjs/css/coreui-chartjs.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/icons@2.0.0-rc.0/css/free.min.css" integrity="sha256-vejWHgYduBq3SYXJHSWSRJp7ktQpZ6d+8HGFtb9Fz9k=" crossorigin="anonymous">
+	
+	<!-- Font Awesome -->
+	<!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/8b91ad4956.js" crossorigin="anonymous"></script>
 
 	@livewireStyles
   </head>
@@ -39,7 +43,7 @@
 			  <li class="breadcrumb-item">
 				<!-- if breadcrumb is single--><span>Home</span>
 			  </li>
-			  <li class="breadcrumb-item active"><span>Dashboard</span></li>
+			  <li class="breadcrumb-item active"><span>{{ $breadcrumb }}</span></li>
 			</ol>
 		  </nav>
 		</div>

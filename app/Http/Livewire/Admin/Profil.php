@@ -30,7 +30,7 @@ class Profil extends Component
     public function render()
     {
         return view('livewire.admin.profil')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Profil']);
     }
 	
 	public function removeAvatar(){

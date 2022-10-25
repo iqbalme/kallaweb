@@ -20,7 +20,7 @@ class ProdiIndex extends Component
     {
 		$this->data = Prodi::all();
         return view('livewire.prodi.prodi-index')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Program Studi']);
     }
 	
 	public function setProdiId($id){

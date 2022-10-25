@@ -13,6 +13,7 @@ use App\Http\Controllers\CKEditorController;
 use App\Http\Livewire\Frontend\Home;
 use App\Http\Livewire\Frontend\SinglePost;
 use App\Http\Livewire\Frontend\Login;
+use App\Http\Livewire\Frontend\Arsip;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Profil;
 use App\Http\Livewire\User\UserIndex;
@@ -44,6 +45,7 @@ Route::get('/lw', function () {
 Route::get('/', Home::class);
 Route::get('post/{post_val}', SinglePost::class)->name('post.single');
 Route::get('tes/', [TestController::class, 'index']);
+Route::get('arsip/{meta_type}/{meta_val}', Arsip::class);
 Route::get('login/', Login::class)->name('login');
 Route::post('login/', [UserController::class, 'authenticate']);
 

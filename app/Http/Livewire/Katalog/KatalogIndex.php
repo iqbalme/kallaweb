@@ -24,7 +24,7 @@ class KatalogIndex extends Component
     {
 		$this->data['katalog'] = Katalog::orderBy('id', 'DESC')->where('nama_katalog', 'LIKE', '%'.$this->cari_katalog.'%')->orWhere('deskripsi_katalog', 'LIKE', '%'.$this->cari_katalog.'%')->paginate($this->perhalaman);
         return view('livewire.katalog.katalog-index')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Katalog / List']);
     }
 	
 	public function tambahKatalog(){

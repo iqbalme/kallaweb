@@ -11,7 +11,7 @@ class Dashboard extends Component
     public function render()
     {
         return view('livewire.admin.dashboard')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Dashboard']);
     }
 	
 	public function logout()

@@ -9,6 +9,6 @@ class RoleIndex extends Component
     public function render()
     {
         return view('livewire.role.role-index')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Role']);
     }
 }

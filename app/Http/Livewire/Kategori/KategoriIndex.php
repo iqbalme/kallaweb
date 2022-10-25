@@ -20,7 +20,7 @@ class KategoriIndex extends Component
     {
 		$this->data = Category::all();
         return view('livewire.kategori.kategori-index')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Kategori']);
     }
 	
 	public function setKategorId($id){

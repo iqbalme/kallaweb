@@ -10,9 +10,7 @@
 		</svg> Home</a></li>
 	<li class="nav-title">MENU</li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('kategori.index') }}">
-		<svg class="nav-icon">
-		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-drop') }}"></use>
-		</svg> Kategori</a></li>
+		<i class="fa-solid fa-code-branch nav-icon"></i> Kategori</a></li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('prodi.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-school') }}"></use>
@@ -29,9 +27,7 @@
 		<li class="nav-item"><a class="nav-link" href="{{ route('post.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-library') }}"></use>
 		</svg> List</a></li>
-		<li class="nav-item"><a class="nav-link" href="{{ route('post.create') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg class="nav-icon">
-		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-pencil') }}"></use>
-		</svg> Carousel</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ route('post.create') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-sliders nav-icon"></i> Carousel</a></li>
 	  </ul>
 	</li>
 	
@@ -60,9 +56,7 @@
 		</svg> Statistik</a></li-->
 	<li class="nav-divider"></li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('role.index') }}">
-		<svg class="nav-icon">
-		  
-		</svg> Role</a></li>
+		<i class="fa-solid fa-list-check nav-icon"></i> Role</a></li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('user.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>

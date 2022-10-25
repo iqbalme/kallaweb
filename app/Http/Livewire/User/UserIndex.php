@@ -22,7 +22,7 @@ class UserIndex extends Component
     public function render()
     {
         return view('livewire.user.user-index')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'User']);
     }
 	
 	public function tambahUser(){

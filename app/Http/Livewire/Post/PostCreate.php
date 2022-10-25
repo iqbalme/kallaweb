@@ -31,7 +31,7 @@ class PostCreate extends Component
 		$this->data['categories'] = Category::all();
 		$this->data['prodis'] = Prodi::all();
         return view('livewire.post.post-create')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / Buat Baru']);
     }
 	
 	public function saveThumbnail()

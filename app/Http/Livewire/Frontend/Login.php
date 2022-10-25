@@ -16,6 +16,9 @@ class Login extends Component
 	];
 	
 	public function mount(){
+		if (Auth::check()) {
+			return redirect()->route('dashboard.admin');
+		}
 	}
 	
     public function render()

@@ -76,7 +76,7 @@ class PostIndex extends Component
 		$this->data['nama_prodi'] = $posts_prodis;
 		$this->data['nama_user'] = $posts_user;
         return view('livewire.post.post-index')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / List']);
     }
 	
 	public function setPostId($id){

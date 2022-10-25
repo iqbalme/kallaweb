@@ -64,7 +64,7 @@ class PostUpdate extends Component
 		$this->data['categories'] = Category::all();
 		$this->data['prodis'] = Prodi::all();
         return view('livewire.post.post-update')
-			->layout(\App\View\Components\AdminLayout::class);
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / Update Post']);
     }
 	
 	public function removeThumbnail(){
