@@ -9,7 +9,7 @@
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-home') }}"></use>
 		</svg> Home</a></li>
 	<li class="nav-title">MENU</li>
-	<li class="nav-item"><a class="nav-link" href="{{ route('category.index') }}">
+	<li class="nav-item"><a class="nav-link" href="{{ route('kategori.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-drop') }}"></use>
 		</svg> Kategori</a></li>
@@ -61,14 +61,14 @@
 	<li class="nav-divider"></li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('role.index') }}">
 		<svg class="nav-icon">
-		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-key	') }}"></use>
+		  
 		</svg> Role</a></li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('user.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>
 		</svg> User</a></li>
 	
-	<li class="nav-item"><a class="nav-link" href="{{ route('setting.index') }}">
+	<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-settings') }}"></use>
 		</svg> Pengaturan</a></li>

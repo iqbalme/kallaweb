@@ -21,6 +21,7 @@ class PengaturanIndex extends Component
 		foreach($settings as $key => $setting){
 			$this->settings[$key] = $setting;
 		}
-        return view('livewire.pengaturan.pengaturan-index');
+        return view('livewire.pengaturan.pengaturan-index')
+			->layout(\App\View\Components\AdminLayout::class);
     }
 }

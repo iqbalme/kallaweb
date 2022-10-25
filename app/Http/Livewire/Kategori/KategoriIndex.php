@@ -19,7 +19,8 @@ class KategoriIndex extends Component
     public function render()
     {
 		$this->data = Category::all();
-        return view('livewire.kategori.kategori-index');
+        return view('livewire.kategori.kategori-index')
+			->layout(\App\View\Components\AdminLayout::class);
     }
 	
 	public function setKategorId($id){

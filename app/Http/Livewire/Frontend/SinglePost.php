@@ -8,6 +8,7 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Prodi;
+use App\Models\Setting;
 
 class SinglePost extends Component
 {
@@ -19,24 +20,34 @@ class SinglePost extends Component
 	public $author;
 	public $data;
 	
-	public function mount($post_id){
-		$post = Post::find($post_id);
+	public function mount($post_val){
+		$post = null;
+		$setting_slug = Setting::where('nama_setting', 'post_slug')->first();
+		if($setting_slug){
+			if($setting_slug->isi_setting){
+				$post = Post::where('slug', $post_val)->first();
+			} else {
+				$post = Post::find($post_val);
+			}
+		} else {
+			$post = Post::find($post_val);
+		}
 		$tags = [];
 		$categories = [];
 		$prodis = [];
-		if($post->tag_id !== '0'){
+		if($post->tag_id){
 			$tags_id = explode(',',trim($post->tag_id));
 			foreach($tags_id as $tag_id){
 				$tags[] = Tag::find($tag_id)->nama_tag;
 			}
 		}
-		if($post->category_id !== '0'){
+		if($post->category_id){
 			$categories_id = explode(',',trim($post->category_id));
 			foreach($categories_id as $category_id){
 				$categories[] = Category::find($category_id)->nama_kategori;
 			}
 		}
-		if($post->prodi_id !== '0'){
+		if($post->prodi_id){
 			$prodis_id = explode(',',trim($post->prodi_id));
 			foreach($prodis_id as $prodi_id){
 				$prodis[] = Prodi::find($prodi_id)->nama_prodi;
@@ -53,7 +64,7 @@ class SinglePost extends Component
     public function render()
     {
         return view('livewire.frontend.single-post')
-			->extends('layouts.app', ['title' => 'judulnya'	])
+			->extends('layouts.app', ['title' => $this->post->judul ])
 			->section('content');
     }
 }

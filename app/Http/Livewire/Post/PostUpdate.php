@@ -26,8 +26,9 @@ class PostUpdate extends Component
 	public $prodis = [];
 	public $post_id;
 	
-	public function mount(){
-		$updatingPost = Post::find($this->post_id);
+	public function mount($post){
+		$this->post_id = $post;
+		$updatingPost = Post::find($post);
 		$this->judul = $updatingPost->judul;
 		$this->konten = $updatingPost->konten;
 		if(isset($updatingPost->thumbnail)){
@@ -62,7 +63,8 @@ class PostUpdate extends Component
     {
 		$this->data['categories'] = Category::all();
 		$this->data['prodis'] = Prodi::all();
-        return view('livewire.post.post-update');
+        return view('livewire.post.post-update')
+			->layout(\App\View\Components\AdminLayout::class);
     }
 	
 	public function removeThumbnail(){

@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Prodi;
 use App\Models\User;
+use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 
@@ -21,13 +22,23 @@ class PostIndex extends Component
 	public $post_id = null;
 	public $perhalaman = 5;
 	public $cari_post = '';
+	public $isPostSlug = false;
 	
 	protected $listeners = [
 		'refreshPost'
 	];
 	
 	public function mount(){
-		
+		$setting_slug = Setting::where('nama_setting', 'post_slug')->first();
+		if(!$setting_slug){
+			$this->isPostSlug = false;
+		} else {
+			if($setting_slug->isi_setting){
+				$this->isPostSlug = true;
+			} else {
+				$this->isPostSlug = false;
+			}
+		}
 	}
 	
     public function render()
@@ -40,8 +51,6 @@ class PostIndex extends Component
 		foreach($posts as $post){
 			$categories = [];
 			$prodis = [];
-			
-			//dd($post->category_id);
 			if($post->category_id == 0){ //msh error di sini
 				$posts_categories[] = 0;
 			} else {
@@ -58,19 +67,16 @@ class PostIndex extends Component
 			} else {
 				$posts_prodis[] = 0;
 			}
-			// foreach(explode(',', $post->tag_id) as $tag_id){
-				// $tags[] = Tag::find($tag_id)->nama_tag;
-			// }
 			
 			$posts_user[] = User::find($post->user_id)->nama;
-			// $posts_tags[] = implode(',',$tags);
 		}
 		
 		$this->data['posts'] = $posts;
 		$this->data['nama_kategori'] = $posts_categories;
 		$this->data['nama_prodi'] = $posts_prodis;
 		$this->data['nama_user'] = $posts_user;
-        return view('livewire.post.post-index');
+        return view('livewire.post.post-index')
+			->layout(\App\View\Components\AdminLayout::class);
     }
 	
 	public function setPostId($id){

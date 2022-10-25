@@ -19,7 +19,8 @@ class ProdiIndex extends Component
     public function render()
     {
 		$this->data = Prodi::all();
-        return view('livewire.prodi.prodi-index');
+        return view('livewire.prodi.prodi-index')
+			->layout(\App\View\Components\AdminLayout::class);
     }
 	
 	public function setProdiId($id){
