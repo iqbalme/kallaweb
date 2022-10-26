@@ -20,6 +20,7 @@
                           <th class="text-center">
                             No
                           </th>
+						  <th></th>
                           <th class="text-center">Prodi</th>
                           <th class="text-center">Deskripsi</th>
 						  <th></th>
@@ -28,7 +29,7 @@
                       <tbody>
 					  @if(count($data) === 0)
 						<tr class="align-middle">
-                          <td class="text-center" colspan="3">
+                          <td class="text-center" colspan="5">
 						  Tidak ada data
 						  </td>
 						</tr>
@@ -40,6 +41,9 @@
 						  {{ $loop->iteration }}
                           </td>
                           <td>
+                            Gambar
+                          </td>
+						  <td>
                             {{ $prodi->nama_prodi }}
                           </td>
 						  <td>

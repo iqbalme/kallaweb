@@ -8,11 +8,13 @@ use App\Models\Prodi;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
+use App\Http\Traits\CommonTrait;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PostCreate extends Component
 {
+	use CommonTrait;
 	use WithFileUploads;
 	
 	public $data;
@@ -56,7 +58,7 @@ class PostCreate extends Component
 			foreach(explode(',',$this->tags) as $tag){
 				$post_tag = Tag::updateOrCreate(
 				['nama_tag' => trim($tag)],
-				['nama_tag' => trim($tag)]);
+				['nama_tag' => trim($tag), 'slug' => $this->setSlug($tag)]);
 				$post_tags[] = $post_tag->id;
 			}
 		}
@@ -79,11 +81,6 @@ class PostCreate extends Component
 		];
 		Post::create($submittedData);
 		return redirect()->route('post.index');
-	}
-	
-	public function setSlug($string) {
-	   $string = substr(str_replace(' ', '-', $string),0,100); // Replaces all spaces with hyphens with max 100 characters
-	   return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 	}
 	
 }

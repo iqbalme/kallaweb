@@ -12,7 +12,7 @@ use App\Models\Setting;
 
 class SinglePost extends Component
 {
-	//public $post_id;
+	
 	public $post;
 	public $tags;
 	public $prodis;

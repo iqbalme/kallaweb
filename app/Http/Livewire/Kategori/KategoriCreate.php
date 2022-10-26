@@ -4,11 +4,15 @@ namespace App\Http\Livewire\Kategori;
 
 use Livewire\Component;
 use App\Models\Category;
+use App\Http\Traits\CommonTrait;
 
 class KategoriCreate extends Component
 {
+	use CommonTrait;
+	
 	public $nama_kategori;
 	public $deskripsi_kategori;
+	public $slug;
 	
     public function render()
     {
@@ -16,12 +20,13 @@ class KategoriCreate extends Component
     }
 	
 	public function create(){
-		$prodi = Category::create([
+		$kategori = Category::create([
 			'nama_kategori' => $this->nama_kategori,
-			'deskripsi_kategori' => $this->deskripsi_kategori
+			'deskripsi_kategori' => $this->deskripsi_kategori,
+			'slug' => $this->setSlug($this->nama_kategori)
 		]);
 		$this->resetInput();
-		$this->emit('refreshKategori', $prodi);
+		$this->emit('refreshKategori', $kategori);
 	}
 	
 	public function resetInput(){

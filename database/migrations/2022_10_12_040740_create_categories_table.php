@@ -18,6 +18,7 @@ return new class extends Migration
 			$table->string('nama_kategori');
 			$table->longText('deskripsi_kategori')->nullable();
 			$table->unsignedBigInteger('parent_kategori')->default(0);
+			$table->string('slug')->unique();
             $table->timestamps();
         });
     }

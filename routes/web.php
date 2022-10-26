@@ -28,6 +28,7 @@ use App\Http\Livewire\Post\PostCreate;
 use App\Http\Livewire\Post\PostUpdate;
 use App\Http\Livewire\Katalog\KatalogIndex;
 use App\Http\Livewire\Voucher\VoucherIndex;
+use App\Http\Livewire\Carousel\CarouselIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::get('/lw', function () {
     return view('teslivewire');
 });
 
-Route::get('/', Home::class);
+Route::get('/', Home::class)->name('home');
 Route::get('post/{post_val}', SinglePost::class)->name('post.single');
 Route::get('tes/', [TestController::class, 'index']);
 Route::get('arsip/{meta_type}/{meta_val}', Arsip::class);
@@ -68,6 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 	Route::get('pengaturan/dasar/', PengaturanDasar::class)->name('pengaturan.dasar');
 	Route::get('pengaturan/tema/', PengaturanTema::class)->name('pengaturan.tema');
 	Route::get('pengaturan/menu/', PengaturanMenu::class)->name('pengaturan.menu');
+	Route::get('carousel/', CarouselIndex::class)->name('carousel.index');
 	Route::resource('tag', TagController::class);
 	Route::resource('pendaftaran', PendaftarController::class);
 	Route::resource('transaksi', TransaksiController::class);

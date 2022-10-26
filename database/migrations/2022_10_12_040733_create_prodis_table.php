@@ -18,6 +18,7 @@ return new class extends Migration
 			$table->string('nama_prodi');
 			$table->longText('deskripsi_prodi')->nullable();
 			$table->string('thumbnail')->nullable();
+			$table->string('slug')->unique();
             $table->timestamps();
         });
     }
