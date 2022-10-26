@@ -123,6 +123,18 @@
 						</div>
 					</div>
 					<div class="row mt-3">
+						<div class="d-flex justify-content-between mb-1">
+							<div>
+							  <h4 class="card-title mb-0">Warna Tema</h4>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="">
+							  <input type="color" width="100" height="100" wire:model="settings.theme_color" />
+							</div>
+						</div>
+					</div>
+					<div class="row mt-3">
 						<div class="d-flex justify-content-between">
 							<div>
 							  <h4 class="card-title mb-0">Mode Pembayaran</h4>

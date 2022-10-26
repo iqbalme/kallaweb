@@ -38,6 +38,7 @@ class PengaturanIndex extends Component
 		$this->settings['google_analytics'] = Setting::firstOrCreate(['nama_setting' => 'google_analytics'], ['isi_setting' => null])->isi_setting;
 		$this->settings['xendit_key_public'] = Setting::firstOrCreate(['nama_setting' => 'xendit_key_public'], ['isi_setting' => null])->isi_setting;
 		$this->settings['xendit_key_secret'] = Setting::firstOrCreate(['nama_setting' => 'xendit_key_secret'], ['isi_setting' => null])->isi_setting;
+		$this->settings['theme_color'] = Setting::firstOrCreate(['nama_setting' => 'theme_color'], ['isi_setting' => null])->isi_setting;
 	}
 	
     public function render()
@@ -85,5 +86,6 @@ class PengaturanIndex extends Component
 			);			
 		}
 		$this->messageSave = true;
+		return redirect()->route('pengaturan.index');
 	}
 }

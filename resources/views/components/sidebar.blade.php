@@ -72,4 +72,9 @@
 		  </ul>			
 	</li>
   </ul>
+  <style>
+	.sidebar {
+		--cui-sidebar-bg: {{ $theme_color }} !important
+	};
+  </style>
 </div>
