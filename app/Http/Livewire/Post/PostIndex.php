@@ -33,7 +33,7 @@ class PostIndex extends Component
 		if(!$setting_slug){
 			$this->isPostSlug = false;
 		} else {
-			if($setting_slug->isi_setting){
+			if((int) $setting_slug->isi_setting){
 				$this->isPostSlug = true;
 			} else {
 				$this->isPostSlug = false;

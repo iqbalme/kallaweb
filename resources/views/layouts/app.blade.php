@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <meta name="keyword" content="{{ $web_keywords }}">
+	<meta name="description" content="{{ $web_description }}">
+    <meta name="author" content="Kalla Institute">
+    <link rel="icon" type="image/png" href="{{ asset('storage/images/'.$web_icon) }}">
 
-    <title>{{ isset($title) ? $title : 'Judul' }}</title>
+    <title>{{ $title }} - {{ $web_title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/">
 

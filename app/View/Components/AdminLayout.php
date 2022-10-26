@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 
 class AdminLayout extends Component
 {
+
     /**
      * Create a new component instance.
      *
@@ -13,7 +14,7 @@ class AdminLayout extends Component
      */
     public function __construct()
     {
-        //
+
     }
 
     /**

@@ -1,7 +1,7 @@
 <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
   <div class="sidebar-brand d-none d-md-flex">
-	<img class="sidebar-brand-full" width="118" height="46" alt="Kalla Group Logo" src="https://i.postimg.cc/ZK5qzGVV/kalla-group.png">
-	<img class="sidebar-brand-narrow" width="46" height="46" alt="Kalla Group Logo" src="https://i.postimg.cc/ZK5qzGVV/kalla-group.png">
+	<img class="sidebar-brand-full" width="118" height="46" alt="Web Logo" src="{{ asset('storage/images/'.$web_logo) }}">
+	<img class="sidebar-brand-narrow" width="46" height="46" alt="Web Logo" src="{{ asset('storage/images/'.$web_logo) }}">
   </div>
   <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
 	<li class="nav-item"><a class="nav-link" href="{{ route('dashboard.admin') }}">
@@ -62,9 +62,14 @@
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>
 		</svg> User</a></li>
 	
-	<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.index') }}">
+	<li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-settings') }}"></use>
-		</svg> Pengaturan</a></li>
+		</svg> Pengaturan</a>
+		<ul class="nav-group-items">
+			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-mobile-retro nav-icon"></i> Umum</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{ route('voucher.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-brands fa-mendeley nav-icon"></i> Menu</a></li>
+		  </ul>			
+	</li>
   </ul>
 </div>

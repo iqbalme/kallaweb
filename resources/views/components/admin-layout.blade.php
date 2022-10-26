@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="Website Resmi Kalla Institute">
+    <meta name="description" content="{{ $web_description }}">
     <meta name="author" content="Kalla Institute">
-    <meta name="keyword" content="Website Kalla Institute, Kalla Institute">
-    <title>Admin Dashboard - Kalla Institute</title>
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('admin/kbs-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="114x114" href="{{ asset('admin/kbs-icon.png') }}">
+    <meta name="keyword" content="{{ $web_keywords }}">
+    <title>Admin Dashboard - {{ $web_title }}</title>
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('storage/images/'.$web_icon) }}">
+    <link rel="icon" type="image/png" sizes="114x114" href="{{ asset('storage/images/'.$web_icon) }}">
     <link rel="manifest" href="{{ asset('admin/assets/favicon/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('admin/kbs-icon.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('storage/images/'.$web_icon) }}">
     <meta name="theme-color" content="#ffffff">
     <!-- Vendors styles-->
     <link rel="stylesheet" href="{{ asset('admin/vendors/simplebar/css/simplebar.css') }}">
@@ -23,7 +23,6 @@
     <!-- We use those styles to show code examples, you should remove them in your application.-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
     <link href="{{ asset('admin/css/examples.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin/vendors/@coreui/chartjs/css/coreui-chartjs.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/icons@2.0.0-rc.0/css/free.min.css" integrity="sha256-vejWHgYduBq3SYXJHSWSRJp7ktQpZ6d+8HGFtb9Fz9k=" crossorigin="anonymous">
 	
 	<!-- Font Awesome -->

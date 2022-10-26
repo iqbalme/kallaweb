@@ -69,13 +69,13 @@
 						</div>
 					@endif
 					<div class="row mt-5">
-					<hr>
-					<div class="col-lg-6 mb-2">
-							<button type="button" class="btn btn-warning btn-lg text-white w-100" wire:click="publishPost(false)">Simpan</button>
-					</div>
-					<div class="col-lg-6 mb-2">
-						<button type="submit" class="btn btn-primary btn-lg w-100">Publish</button>
-					</div>
+						<hr>
+						<div class="col-lg-6 mb-2">
+								<button type="button" class="btn btn-warning btn-lg text-white w-100" wire:click="publishPost(false)">Simpan</button>
+						</div>
+						<div class="col-lg-6 mb-2">
+							<button type="submit" class="btn btn-primary btn-lg w-100">Publish</button>
+						</div>
 					</div>
 				</div>	
             </div>

@@ -32,22 +32,22 @@
 						<div class="col-md-7">: {{ $author }}</div>
 					</div>
 				</div>
-				@isset($categories)
+				@if(is_null($categories))
 					<div class="blog-post-meta">
 						<div class="row ml-1">
 							<div class="col-md-5">Kategori</div>
 							<div class="col-md-7">: {{ $categories }}</div>
 						</div>
 					</div>
-				@endisset
-				@isset($prodis)
+				@endif
+				@if(is_null($prodis))
 					<div class="blog-post-meta">
 						<div class="row ml-1">
 							<div class="col-md-5">Program Studi</div>
 							<div class="col-md-7">: {{ $prodis }}</div>
 						</div>
 					</div>
-				@endisset
+				@endif
           </div>
 		@isset($data['prodis'])
           <div class="p-3">

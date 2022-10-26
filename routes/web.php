@@ -16,6 +16,7 @@ use App\Http\Livewire\Frontend\Login;
 use App\Http\Livewire\Frontend\Arsip;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Profil;
+use App\Http\Livewire\Admin\PengaturanIndex;
 use App\Http\Livewire\User\UserIndex;
 use App\Http\Livewire\Role\RoleIndex;
 use App\Http\Livewire\Prodi\ProdiIndex;
@@ -25,7 +26,6 @@ use App\Http\Livewire\Post\PostCreate;
 use App\Http\Livewire\Post\PostUpdate;
 use App\Http\Livewire\Katalog\KatalogIndex;
 use App\Http\Livewire\Voucher\VoucherIndex;
-use App\Http\Livewire\Pengaturan\PengaturanIndex;
 
 /*
 |--------------------------------------------------------------------------

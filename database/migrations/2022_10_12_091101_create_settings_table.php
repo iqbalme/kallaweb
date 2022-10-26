@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
 			$table->string('nama_setting');
-			$table->string('deskripsi_setting')->nullable();
 			$table->string('isi_setting')->nullable();
             $table->timestamps();
         });

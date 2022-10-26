@@ -1,6 +1,6 @@
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
 		<a class="navbar-brand" href="/">
-			<img src="https://kallainstitute.ac.id/itbk/images/kalla_group.png" alt="" style="max-height:58px;">
+			<img src="{{ asset('storage/images/'.$web_logo) }}" alt="" style="max-height:58px;">
 		</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
