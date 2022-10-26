@@ -31,30 +31,17 @@ class AppServiceProvider extends ServiceProvider
 		$this->data['web_icon'] = Setting::firstOrCreate(['nama_setting' => 'web_icon'], ['isi_setting' => null])->isi_setting;
 		$this->data['web_description'] = Setting::firstOrCreate(['nama_setting' => 'web_description'], ['isi_setting' => null])->isi_setting;
 		$this->data['web_keywords'] = Setting::firstOrCreate(['nama_setting' => 'web_keywords'], ['isi_setting' => null])->isi_setting;
-		$this->data['theme_color'] = Setting::firstOrCreate(['nama_setting' => 'theme_color'], ['isi_setting' => null])->isi_setting;
-        view()->composer('components.admin-layout', function($view)
-		{
-			$view->with(['web_title' => $this->data['web_title'], 'web_icon' => $this->data['web_icon'], 'web_description' => $this->data['web_description'], 'web_keywords' => $this->data['web_keywords']]);
-		});
-		
-		view()->composer('components.sidebar', function($view)
-		{
-			$view->with(['web_logo' => $this->data['web_logo'], 'theme_color' => $this->data['theme_color']]);
-		});
-		
-		view()->composer('components.header', function($view)
-		{
-			$view->with('web_logo', $this->data['web_logo']);
-		});
-		
-		view()->composer('layouts.app', function($view)
-		{
-			$view->with(['web_title' => $this->data['web_title'], 'web_icon' => $this->data['web_icon'], 'web_description' => $this->data['web_description'], 'web_keywords' => $this->data['web_keywords']]);
-		});
-		
-		view()->composer('layouts.nav', function($view)
-		{
-			$view->with('web_logo', $this->data['web_logo']);
-		});
+		$this->data['theme_color_sidebar_bg'] = Setting::firstOrCreate(['nama_setting' => 'theme_color_sidebar_bg'], ['isi_setting' => '#ffffff'])->isi_setting;
+		$this->data['theme_color_link'] = Setting::firstOrCreate(['nama_setting' => 'theme_color_link'], ['isi_setting' => '#ffffff'])->isi_setting;
+		$this->data['theme_color_link_active'] = Setting::firstOrCreate(['nama_setting' => 'theme_color_link_active'], ['isi_setting' => '#ffffff'])->isi_setting;
+		$this->data['theme_color_link_active_bg'] = Setting::firstOrCreate(['nama_setting' => 'theme_color_link_active_bg'], ['isi_setting' => '#ffffff'])->isi_setting;
+		$this->data['theme_color_icon_active'] = Setting::firstOrCreate(['nama_setting' => 'theme_color_icon_active'], ['isi_setting' => '#ffffff'])->isi_setting;
+		$this->data['theme_color_link_hover'] = Setting::firstOrCreate(['nama_setting' => 'theme_color_link_hover'], ['isi_setting' => '#ffffff'])->isi_setting;
+		$this->data['theme_color_icon_hover'] = Setting::firstOrCreate(['nama_setting' => 'theme_color_icon_hover'], ['isi_setting' => '#ffffff'])->isi_setting;
+		view()->composer('components.admin-layout', function($view){ $view->with('data', $this->data); });
+		view()->composer('components.sidebar', function($view){ $view->with('data', $this->data); });
+		view()->composer('components.header', function($view){ $view->with('data', $this->data); });
+		view()->composer('layouts.app', function($view){ $view->with('data', $this->data); });
+		view()->composer('layouts.nav', function($view){ $view->with('data', $this->data); });
     }
 }

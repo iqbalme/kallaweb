@@ -1,18 +1,22 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Pengaturan;
 
 use Livewire\Component;
 use App\Models\Setting;
 use Livewire\WithFileUploads;
 
-class PengaturanIndex extends Component
+class PengaturanDasar extends Component
 {
 	use WithFileUploads;
 	public $settings;
 	public $messageSave = false;
 	public $isLogoInitialized = false; //is web logo showed for the first time from database
 	public $isIconInitialized = false; //is web icon showed for the first time from database
+	
+	protected $listeners = [
+		'setMessageSaveFalse'
+	];
 	
 	protected $rules = [
         //"settings['web_title']" => "required"
@@ -38,13 +42,12 @@ class PengaturanIndex extends Component
 		$this->settings['google_analytics'] = Setting::firstOrCreate(['nama_setting' => 'google_analytics'], ['isi_setting' => null])->isi_setting;
 		$this->settings['xendit_key_public'] = Setting::firstOrCreate(['nama_setting' => 'xendit_key_public'], ['isi_setting' => null])->isi_setting;
 		$this->settings['xendit_key_secret'] = Setting::firstOrCreate(['nama_setting' => 'xendit_key_secret'], ['isi_setting' => null])->isi_setting;
-		$this->settings['theme_color'] = Setting::firstOrCreate(['nama_setting' => 'theme_color'], ['isi_setting' => null])->isi_setting;
 	}
 	
     public function render()
     {
-        return view('livewire.admin.pengaturan-index')
-			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Pengaturan']);
+        return view('livewire.pengaturan.pengaturan-dasar')
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Pengaturan / Dasar']);
     }
 	
 	public function removeIcon(){
@@ -63,29 +66,47 @@ class PengaturanIndex extends Component
 		$this->settings['web_logo'] = null;
 	}
 	
+	public function setMessageSaveFalse(){
+		$this->messageSave = false;
+	}
+	
 	public function saveSettings(){
 		$datas = [];
-		foreach($this->settings as $key => $val){
+		$web_logo = null;
+		$web_icon = null;
+		
+		if(isset($this->settings['web_logo'])){
 			if(!$this->isLogoInitialized){
-				if($key == 'web_logo'){
-					$datas[] = [$key, $val];
-				}
+				$logo_name = $this->settings['web_logo']->getFilename();
+				$this->settings['web_logo']->storeAs('public/images', $logo_name);
+				$this->settings['web_logo']->delete();
+				$datas[] = ['web_logo', $logo_name];
 			}
+		} else {
+			$datas[] = ['web_logo', null];
+		}
+		if(isset($this->settings['web_icon'])){
 			if(!$this->isIconInitialized){
-				if($key == 'web_icon'){
-					$datas[] = [$key, $val];
-				}
+				$icon_name = $this->settings['web_icon']->getFilename();
+				$this->settings['web_icon']->storeAs('public/images', $icon_name);
+				$this->settings['web_icon']->delete();
+				$datas[] = ['web_icon', $icon_name];
 			}
+		} else {
+			$datas[] = ['web_icon', null];
+		}
+		foreach($this->settings as $key => $val){
 			if(($key != 'web_logo') && ($key != 'web_icon')){
 				$datas[] = [$key, $val];
 			}
 		}
+		//dd($datas);
 		foreach($datas as $data){
 			Setting::updateOrCreate(
 				['nama_setting' => $data[0]], ['isi_setting' => $data[1]]
 			);			
 		}
 		$this->messageSave = true;
-		return redirect()->route('pengaturan.index');
+		return redirect()->route('pengaturan.dasar');
 	}
 }

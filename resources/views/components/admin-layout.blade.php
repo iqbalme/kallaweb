@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="{{ $web_description }}">
+    <meta name="description" content="{{ $data['web_description'] }}">
     <meta name="author" content="Kalla Institute">
-    <meta name="keyword" content="{{ $web_keywords }}">
-    <title>Admin Dashboard - {{ $web_title }}</title>
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('storage/images/'.$web_icon) }}">
-    <link rel="icon" type="image/png" sizes="114x114" href="{{ asset('storage/images/'.$web_icon) }}">
+    <meta name="keyword" content="{{ $data['web_keywords'] }}">
+    <title>Admin Dashboard - {{ $data['web_title'] }}</title>
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('storage/images/'.$data['web_icon']) }}">
+    <link rel="icon" type="image/png" sizes="114x114" href="{{ asset('storage/images/'.$data['web_icon']) }}">
     <link rel="manifest" href="{{ asset('admin/assets/favicon/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('storage/images/'.$web_icon) }}">
+    <meta name="msapplication-TileImage" content="{{ asset('storage/images/'.$data['web_icon']) }}">
     <meta name="theme-color" content="#ffffff">
     <!-- Vendors styles-->
     <link rel="stylesheet" href="{{ asset('admin/vendors/simplebar/css/simplebar.css') }}">

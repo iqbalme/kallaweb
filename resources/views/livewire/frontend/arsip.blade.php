@@ -1,3 +1,5 @@
 <div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
+	<main role="main" class="container" style="margin-top:70px;">
+		{{ $meta['type']. ' dan ' . $meta['value'] }}
+	</div>
 </div>

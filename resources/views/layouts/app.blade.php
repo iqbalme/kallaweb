@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keyword" content="{{ $web_keywords }}">
-	<meta name="description" content="{{ $web_description }}">
+    <meta name="keyword" content="{{ $data['web_keywords'] }}">
+	<meta name="description" content="{{ $data['web_description'] }}">
     <meta name="author" content="Kalla Institute">
-    <link rel="icon" type="image/png" href="{{ asset('storage/images/'.$web_icon) }}">
+    <link rel="icon" type="image/png" href="{{ asset('storage/images/'.$data['web_icon']) }}">
 
-    <title>{{ $title }} - {{ $web_title }}</title>
+    <title>{{ $title }} - {{ $data['web_title'] }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/">
 

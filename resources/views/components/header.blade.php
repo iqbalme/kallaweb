@@ -5,7 +5,7 @@
 	  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-menu') }}"></use>
 	</svg>
   </button><a class="header-brand d-md-none" href="#">
-	<img width="118" height="46" alt="Web Logo" src="{{ asset('storage/images/'.$web_logo) }}"></a>
+	<img width="118" height="46" alt="Web Logo" src="{{ asset('storage/images/'.$data['web_logo']) }}"></a>
   <!--ul class="header-nav d-none d-md-flex">
 	<li class="nav-item"><a class="nav-link" href="{{ route('user.index') }}">User</a></li>
   </ul-->
