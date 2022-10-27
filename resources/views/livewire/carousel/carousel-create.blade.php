@@ -31,7 +31,7 @@
 							</select>
 						</div>
 						@endisset
-						@if($carousel['tipe'] == 'custom')
+						@if($carousel_tipe == 'custom')
 						<div class="col-lg-9">
 							<div class="mb-2">
 							  <h6 class="card-title mb-0">Judul</h6>
@@ -40,7 +40,7 @@
 						</div>
 						@endif
 					</div>
-					@if($carousel['tipe'] == 'custom')
+					@if($carousel_tipe === 'custom')
 					<div class="row mt-3">
 						<div class="col-lg-12">
 							<div class="mb-2">

@@ -57,13 +57,13 @@ class PostIndex extends Component
 				foreach(explode(',', $post->category_id) as $cat_id){
 					$categories[] = Category::find($cat_id)->nama_kategori;
 				}
-				$posts_categories[] = implode(',',$categories);
+				$posts_categories[] = implode(', ',$categories);
 			}
 			if(!empty($post->prodi_id)){
 				foreach(explode(',', $post->prodi_id) as $prodi_id){
 					$prodis[] = Prodi::find($prodi_id)->nama_prodi;
 				}
-				$posts_prodis[] = implode(',',$prodis);
+				$posts_prodis[] = implode(', ',$prodis);
 			} else {
 				$posts_prodis[] = 0;
 			}

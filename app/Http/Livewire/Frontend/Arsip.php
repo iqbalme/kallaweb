@@ -3,6 +3,9 @@
 namespace App\Http\Livewire\Frontend;
 
 use Livewire\Component;
+use App\Models\Category;
+use App\Models\Tag;
+use App\Models\Prodi;
 
 class Arsip extends Component
 {
@@ -12,7 +15,9 @@ class Arsip extends Component
 		//$meta = kategori atau prodi atau tag
 		if((strtolower($meta_type) == 'kategori') || (strtolower($meta_type) == 'prodi') || (strtolower($meta_type) == 'tag')){
 			$this->meta['type'] = $meta_type;
-			$this->meta['value'] = $meta_val;
+			if(strtolower($meta_type) == 'kategori'){
+				//belum selesai
+			}
 		} else {
 			return redirect()->to('/');
 		}		

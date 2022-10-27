@@ -11,6 +11,9 @@ class CarouselCreate extends Component
 	public $carousel = null;
 	public $isImageInitialized = false;
 	public $posts;
+	public $carousel_tipe = 'post';
+	
+	protected $listeners = ['refreshCarouselCreate'];
 	
     public function mount()
     {
@@ -20,12 +23,19 @@ class CarouselCreate extends Component
 	
 	public function render()
     {
+		$this->carousel_tipe = $this->carousel['tipe'];
         return view('livewire.carousel.carousel-create');
     }
+	
+	public function updatedCarouselTipe(){
+		//dd('tes');
+	}
 	
 	public function removeImage(){
 		
 	}
 	
-	
+	public function refreshCarouselCreate(){
+		
+	}
 }

@@ -5,6 +5,9 @@ namespace App\Http\Livewire\Post;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Prodi;
+use App\Models\PostCategory;
+use App\Models\PostProdis;
+use App\Models\PostTags;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
@@ -116,7 +119,35 @@ class PostUpdate extends Component
 		$post->prodi_id = $submittedData['prodi_id'];
 		$post->status_post = $submittedData['status_post'];
 		$post->user_id = $submittedData['user_id'];
-		$post->save();	
+		$post->save();
+		
+		if(isset($this->categories)){
+			PostCategory::where('post_id', $this->post_id)->delete();
+			foreach($this->categories as $post_category){
+				PostCategory::create([
+					'post_id' => $this->post_id,
+					'category_id' => $post_category
+				]);
+			}
+		}
+		if(isset($this->prodis)){
+			PostProdis::where('post_id', $this->post_id)->delete();
+			foreach($this->prodis as $post_prodi){
+				PostProdis::create([
+					'post_id' => $this->post_id,
+					'prodi_id' => $post_prodi
+				]);
+			}
+		}
+		if(isset($post_tags)){
+			PostTags::where('post_id', $this->post_id)->delete();
+			foreach($post_tags as $post_tag){
+				PostTags::create([
+					'post_id' => $this->post_id,
+					'tag_id' => $post_tag
+				]);
+			}
+		}		
 		return redirect()->route('post.index');
 	}
 }
