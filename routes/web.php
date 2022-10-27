@@ -48,7 +48,7 @@ Route::get('/lw', function () {
 Route::get('/', Home::class)->name('home');
 Route::get('post/{post_val}', SinglePost::class)->name('post.single');
 Route::get('tes/', [TestController::class, 'index']);
-Route::get('arsip/{meta_type}/{meta_val}', Arsip::class);
+Route::get('arsip/{meta_type}/{meta_val}', Arsip::class)->name('arsip');
 Route::get('login/', Login::class)->name('login');
 Route::post('login/', [UserController::class, 'authenticate']);
 

@@ -18,7 +18,7 @@ class Home extends Component
 		//dd($this->data['posts']);
 		$this->data['posts'] = Post::where('status_post', 'published')->orderBy('id', 'DESC')->take(5)->get();
         return view('livewire.frontend.home')
-			->extends('layouts.app', ['title' => 'judulnya'	])
+			->extends('layouts.app', ['title' => 'Beranda'])
 			->section('content');
     }
 }

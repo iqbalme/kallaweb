@@ -10,7 +10,7 @@
 		@if($tags)
           <nav class="blog-pagination">
 			@foreach($tags as $tag)
-            <a class="btn btn-outline-primary" href="#">{{ $tag }}</a>
+				<a class="btn btn-outline-primary" href="{{ route('arsip', ['meta_type' => 'tag', 'meta_val' => strtolower($tag->slug)]) }}">{{ $tag->nama_tag }}</a>
 			@endforeach
           </nav>
 		@endif
@@ -54,7 +54,7 @@
             <h4 class="font-italic">Prodi</h4>
             <ol class="list-unstyled mb-0">
 				@foreach($data['prodis'] as $prodi)
-					<li><a href="#">{{ $prodi->nama_prodi }}</a></li>
+					<li><a href="{{ route('arsip', ['meta_type' => 'prodi', 'meta_val' => strtolower($prodi->slug)]) }}">{{ $prodi->nama_prodi }}</a></li>
 				@endforeach
 				</ol>
           </div>
@@ -64,7 +64,7 @@
             <h4 class="font-italic">Kategori</h4>
             <ol class="list-unstyled">
 				@foreach($data['categories'] as $category)
-					<li><a href="#">{{ $category->nama_kategori }}</a></li>
+					<li><a href="{{ route('arsip', ['meta_type' => 'kategori', 'meta_val' => strtolower($category->slug)]) }}">{{ $category->nama_kategori }}</a></li>
 				@endforeach
             </ol>
           </div>
