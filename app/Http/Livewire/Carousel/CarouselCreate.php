@@ -23,7 +23,7 @@ class CarouselCreate extends Component
 	
 	public function render()
     {
-		$this->carousel_tipe = $this->carousel['tipe'];
+		//$this->carousel_tipe = $this->carousel['tipe'];
         return view('livewire.carousel.carousel-create');
     }
 	

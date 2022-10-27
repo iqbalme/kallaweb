@@ -14,6 +14,7 @@ use App\Http\Livewire\Frontend\Home;
 use App\Http\Livewire\Frontend\SinglePost;
 use App\Http\Livewire\Frontend\Login;
 use App\Http\Livewire\Frontend\Arsip;
+use App\Http\Livewire\Frontend\PendaftarForm;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Profil;
 use App\Http\Livewire\Pengaturan\PengaturanDasar;
@@ -49,6 +50,7 @@ Route::get('/', Home::class)->name('home');
 Route::get('post/{post_val}', SinglePost::class)->name('post.single');
 Route::get('tes/', [TestController::class, 'index']);
 Route::get('arsip/{meta_type}/{meta_val}', Arsip::class)->name('arsip');
+Route::get('registrasi/', PendaftarForm::class)->name('registrasi');
 Route::get('login/', Login::class)->name('login');
 Route::post('login/', [UserController::class, 'authenticate']);
 

@@ -16,7 +16,7 @@
 						@endif
 					  </h3>
 					  <div class="mb-1 text-muted">{{ $post->created_at->format('d F Y') }}</div>
-					  <p class="card-text mb-auto">{!! $post->konten !!}</p>
+					  <p class="card-text mb-auto">{!! substr(preg_replace('/<(\s*)img[^<>]*>/i', '', $post->konten),0,200) !!}</p>
 					  @if($data['is_seo_post'])
 						<a href="{{ route('post.single', $post->slug) }}">Baca selengkapnya ...</a>
 					  @else

@@ -8,7 +8,7 @@
     <meta name="author" content="Kalla Institute">
     <link rel="icon" type="image/png" href="{{ asset('storage/images/'.$data['web_icon']) }}">
 
-    <title>{{ $title }} - {{ $data['web_title'] }}</title>
+    <title>{{ isset($title) ? $title : '' }} - {{ $data['web_title'] }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/">
 
@@ -18,6 +18,9 @@
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/navbar-top-fixed.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css" rel="stylesheet">
+	<!-- Font Awesome -->
+	<!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/8b91ad4956.js" crossorigin="anonymous"></script>
 	@livewireStyles
   </head>
 

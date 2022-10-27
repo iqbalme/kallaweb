@@ -14,7 +14,7 @@
 							<div class="mb-2">
 							  <h6 class="card-title mb-0">Tipe</h6>
 							</div>
-							<select class="form-control" wire:model="carousel.tipe">
+							<select class="form-control" wire:model="carousel_tipe">
 								<option value="post">Post</option>
 								<option value="custom">Custom</option>
 							</select>
