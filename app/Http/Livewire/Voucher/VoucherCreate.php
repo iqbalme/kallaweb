@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Voucher;
 use Livewire\Component;
 use App\Models\Voucher;
 use App\Models\Katalog;
+use Carbon\Carbon;
 
 class VoucherCreate extends Component
 {
@@ -51,8 +52,20 @@ class VoucherCreate extends Component
 	
 	public function create(){
 		$katalog_id = 0;
+		$awal_berlaku = null;
+		$akhir_berlaku = null;
 		if(count($this->katalog_id)){
 			$katalog_id = implode(',',$this->katalog_id);
+		}
+		if((!isset($this->awal_berlaku)) || ($this->awal_berlaku == '')){
+			$awal_berlaku = null;
+		} else {
+			$awal_berlaku = $this->awal_berlaku;
+		}
+		if((!isset($this->akhir_berlaku)) || ($this->akhir_berlaku == '')){
+			$akhir_berlaku = null;
+		} else {
+			$akhir_berlaku = $this->akhir_berlaku;
 		}
 		$data = [
 			'kode_voucher' => $this->kode_voucher,
@@ -61,8 +74,8 @@ class VoucherCreate extends Component
 			'tipe_diskon' => $this->tipe_diskon,
 			'deskripsi_voucher' => $this->deskripsi_voucher,
 			'nama_voucher' => $this->nama_voucher,
-			'awal_berlaku' => $this->awal_berlaku,
-			'akhir_berlaku' => $this->akhir_berlaku,
+			'awal_berlaku' => $awal_berlaku,
+			'akhir_berlaku' => $akhir_berlaku,
 			'aktif' => $this->aktif
 		];
 		//dd($data);

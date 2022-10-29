@@ -125,6 +125,23 @@
 					<div class="row mt-3">
 						<div class="d-flex justify-content-between">
 							<div>
+							  <h4 class="card-title mb-0">Penautan Katalog dan Admisi</h4>
+							</div>
+						</div>
+						<div class="col-lg-9">
+							<div class="input-group mb-3 mt-2">
+							  <select class="form-control" wire:model="settings.katalog_admission_assigned">
+								<option value="">Pilih Katalog</option>
+								@foreach($katalogs as $katalog)
+									<option value="{{ $katalog->id }}">{{ $katalog->nama_katalog }}</option>
+								@endforeach
+							  </select>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="d-flex justify-content-between">
+							<div>
 							  <h4 class="card-title mb-0">Mode Pembayaran</h4>
 							</div>
 						</div>
@@ -150,9 +167,16 @@
 							<div>
 							  <h4 class="card-title mb-0">Xendit Secret Key</h4>
 							</div>
-						
 							<div class="input-group mb-3 mt-2">
 							  <input type="text" class="form-control" wire:model.defer="settings.xendit_key_secret">
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div>
+							  <h4 class="card-title mb-0">Xendit Callback Token</h4>
+							</div>
+							<div class="input-group mb-3 mt-2">
+							  <input type="text" class="form-control" wire:model.defer="settings.xendit_callback_token">
 							</div>
 						</div>
 					</div>

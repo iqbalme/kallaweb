@@ -52,13 +52,13 @@
 		<div class="col-sm-6 mb-2">
 			<label class="col-form-label"><strong>Berlaku Mulai</strong></label>
 			<div class="col">
-				<div data-coreui-locale="en-US" data-coreui-toggle="date-picker" id="datePicker1" wire:model="awal_berlaku"></div>
+				<input type="date" class="form-control" wire:model="awal_berlaku">
 			</div>
 		</div>
 		<div class="col-sm-6 mb-2">
 			<label class="col-form-label"><strong>Berlaku hingga</strong></label>
 			<div class="col">
-				<div data-coreui-locale="en-US" data-coreui-toggle="date-picker" id="datePicker2" wire:model="akhir_berlaku"></div>
+				<input type="date" class="form-control" wire:model="akhir_berlaku">
 			</div>
 		</div>
 		<div class="col mb-2">

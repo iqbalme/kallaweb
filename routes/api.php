@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('upload-thumbnail', [PostController::class, 'upload_thumbnail'])->name('thumbnail.upload');
+Route::post('xendit_cb', [PaymentController::class, 'getPayment']);
+Route::get('success_payment_callback', [PaymentController::class, 'success_payment_callback'])->name('xendit.success.route');
+Route::get('failed_payment_callback', [PaymentController::class, 'failed_payment_callback'])->name('xendit.failed.route');

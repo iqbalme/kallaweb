@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
 			$table->string('no_invoice', 100);
-			$table->float('total', 8, 2); //untuk capture total saat itu mengantisipasi terjadi perubahan harga di kemudian hari
+			$table->float('total', 13, 2); //untuk capture total saat itu mengantisipasi terjadi perubahan harga di kemudian hari
+			$table->boolean('use_voucher')->default(0);
+			$table->string('xendit_invoice_id');
+			$table->enum('status_payment', ['PENDING', 'PAID', 'EXPIRED'])->default('PENDING');
             $table->timestamps();
         });
     }

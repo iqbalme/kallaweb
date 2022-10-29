@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('hp');
 			$table->foreignId('prodi_id')->constrained();
-			$table->foreignId('transaksi_id')->constrained();
 			$table->boolean('aktif')->default(0);
             $table->timestamps();
         });

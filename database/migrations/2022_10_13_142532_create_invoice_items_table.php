@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 			$table->foreignId('invoice_id')->constrained();
 			$table->foreignId('katalog_id')->constrained();
-			$table->float('harga', 8, 2); //untuk capture harga saat itu mengantisipasi terjadi perubahan harga di kemudian hari
+			$table->float('harga', 13, 2); //untuk capture harga saat itu mengantisipasi terjadi perubahan harga di kemudian hari
             $table->timestamps();
         });
     }
