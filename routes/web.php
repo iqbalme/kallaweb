@@ -29,6 +29,8 @@ use App\Http\Livewire\Post\PostUpdate;
 use App\Http\Livewire\Katalog\KatalogIndex;
 use App\Http\Livewire\Voucher\VoucherIndex;
 use App\Http\Livewire\Carousel\CarouselIndex;
+use App\Http\Livewire\Page\SuccessPaymentPage;
+use App\Http\Livewire\Page\ExpiredPaymentPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,8 @@ Route::get('post/{post_val}', SinglePost::class)->name('post.single');
 Route::get('tes/', [TestController::class, 'index']);
 Route::get('arsip/{meta_type}/{meta_val}', Arsip::class)->name('arsip');
 Route::get('registrasi/', PendaftarForm::class)->name('registrasi');
+Route::get('success-payment/', SuccessPaymentPage::class)->name('payment.success');
+Route::get('expired-payment/', ExpiredPaymentPage::class)->name('payment.expired');
 Route::get('login/', Login::class)->name('login');
 Route::post('login/', [UserController::class, 'authenticate']);
 
@@ -71,11 +75,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 	Route::get('pengaturan/tema/', PengaturanTema::class)->name('pengaturan.tema');
 	Route::get('pengaturan/menu/', PengaturanMenu::class)->name('pengaturan.menu');
 	Route::get('carousel/', CarouselIndex::class)->name('carousel.index');
-	Route::resource('tag', TagController::class);
-	Route::resource('pendaftaran', PendaftarController::class);
-	Route::resource('transaksi', TransaksiController::class);
-	Route::resource('invoice', InvoiceController::class);
-	Route::resource('setting', SettingController::class);
 	Route::resource('menu', MenuController::class);
 	
 	//for ckeditor upload file

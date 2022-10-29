@@ -19,8 +19,9 @@ return new class extends Migration
 			$table->string('nama');
             $table->string('email')->unique();
             $table->string('hp');
-			$table->foreignId('prodi_id')->constrained();
+			$table->foreignId('prodi_id')->nullable()->constrained()->nullOnDelete();
 			$table->boolean('aktif')->default(0);
+			$table->foreignId('invoice_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

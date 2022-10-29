@@ -127,29 +127,29 @@ class PendaftarForm extends Component
 				'mobile_number' => $this->data['no_hp']
 			],
 			'customer_notification_preference' => [
-				'invoice_created' => [
-					'whatsapp',
-					'sms',
-					'email'
-				],
-				'invoice_reminder' => [
-					'whatsapp',
-					'sms',
-					'email'
-				],
-				'invoice_paid' => [
-					'whatsapp',
-					'sms',
-					'email'
-				],
+				// 'invoice_created' => [
+					// 'whatsapp',
+					// 'sms',
+					// 'email'
+				// ],
+				// 'invoice_reminder' => [
+					// 'whatsapp',
+					// 'sms',
+					// 'email'
+				// ],
+				// 'invoice_paid' => [
+					// 'whatsapp',
+					// 'sms',
+					// 'email'
+				// ],
 				'invoice_expired' => [
 					'whatsapp',
 					'sms',
 					'email'
 				]
 			],
-			'success_redirect_url' => 'https://c427-140-213-227-55.ngrok.io/api/success_payment_callback', //route('xendit.success.route'),
-			'failure_redirect_url' => 'https://c427-140-213-227-55.ngrok.io/api/failed_payment_callback', //route('xendit.failed.route'),
+			'success_redirect_url' => 'https://1a91-114-5-247-133.ngrok.io/api/success_payment_callback', //route('xendit.success.route'),
+			'failure_redirect_url' => 'https://1a91-114-5-247-133.ngrok.io/api/failed_payment_callback', //route('xendit.failed.route'),
 			'currency' => 'IDR',
 			'items' => [
 				[

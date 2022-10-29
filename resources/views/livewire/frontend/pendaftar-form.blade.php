@@ -76,7 +76,7 @@
 				  @error('data.email') <span class="error">{{ $message }}</span> @enderror
 				</div>
 				<div class="mb-3">
-				  <label class="form-label">No. HP</label>
+				  <label class="form-label">No. HP (Format: 6285xxx)</label>
 				  <input type="text" class="form-control" wire:model="data.no_hp" maxLength="13">
 				  @error('data.no_hp') <span class="error">{{ $message }}</span> @enderror
 				</div>

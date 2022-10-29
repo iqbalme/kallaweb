@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('post_prodis', function (Blueprint $table) {
             $table->id();
-			$table->foreignId('post_id')->constrained();
-			$table->foreignId('prodi_id')->constrained();
+			$table->foreignId('post_id')->nullable()->constrained()->nullOnDelete();
+			$table->foreignId('prodi_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }

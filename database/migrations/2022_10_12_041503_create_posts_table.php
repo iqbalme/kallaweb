@@ -16,7 +16,7 @@ return new class extends Migration
 		Schema::dropIfExists('posts');
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-			$table->foreignId('user_id')->constrained();
+			$table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
 			$table->string('judul', 100);
 			$table->string('thumbnail')->nullable();
 			$table->longText('konten')->nullable();

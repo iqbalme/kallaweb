@@ -37,22 +37,21 @@ trait CommonTrait
 				'status_payment' => $createdInvoice['status']
 			]);
 			foreach($katalogs as $katalog){
-				InvoiceItem::create([
-					'invoice_id' => $invoice->id,
+				$invoice_items = new InvoiceItem([
 					'katalog_id' => $katalog->id,
 					'harga' => $katalog->harga
 				]);
+				$invoice->invoice_items()->save($invoice_items);
 			}
-			Pendaftar::create([
+			$pendaftar = new Pendaftar([
 				'nama' => $data['nama_lengkap'],
 				'email' => $data['email'],
 				'hp' => $data['no_hp'],
 				'prodi_id' => $data['prodi'],
-				'aktif' => false,
+				'aktif' => false
 			]);
+			$invoice->pendaftar()->save($pendaftar);				
 			return redirect()->away($createdInvoice['invoice_url']);
-		} else {
-			return 'gagal';
 		}		
 	}
 }
