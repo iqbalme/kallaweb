@@ -43,7 +43,7 @@
 	  </ul>
 	</li>
 	
-	<li class="nav-item"><a class="nav-link" href="#">
+	<li class="nav-item"><a class="nav-link" href="{{ route('pendaftar.index') }}">
 		<i class="fa-regular fa-address-card nav-icon"></i> Pendaftar</a></li>
 	
 	<!--li class="nav-item"><a class="nav-link" href="#">

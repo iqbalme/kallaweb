@@ -16,6 +16,7 @@ use App\Http\Livewire\Frontend\Arsip;
 use App\Http\Livewire\Frontend\PendaftarForm;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Profil;
+use App\Http\Livewire\Admin\PendaftarCtrl;
 use App\Http\Livewire\Pengaturan\PengaturanDasar;
 use App\Http\Livewire\Pengaturan\PengaturanTema;
 use App\Http\Livewire\Pengaturan\PengaturanMenu;
@@ -75,6 +76,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 	Route::get('pengaturan/tema/', PengaturanTema::class)->name('pengaturan.tema');
 	Route::get('pengaturan/menu/', PengaturanMenu::class)->name('pengaturan.menu');
 	Route::get('carousel/', CarouselIndex::class)->name('carousel.index');
+	Route::get('pendaftar/', PendaftarCtrl::class)->name('pendaftar.index');
 	Route::resource('menu', MenuController::class);
 	
 	//for ckeditor upload file

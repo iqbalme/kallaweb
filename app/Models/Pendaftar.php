@@ -10,4 +10,12 @@ class Pendaftar extends Model
     use HasFactory;
 	
 	protected $guarded = [];
+	
+	public function invoice(){
+		return $this->belongsTo(Invoice::class);
+	}
+	
+	public function prodi(){
+		return $this->belongsTo(Prodi::class);
+	}
 }

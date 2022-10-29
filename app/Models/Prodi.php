@@ -12,4 +12,8 @@ class Prodi extends Model
 	
 	protected $guarded = [];
 	
+	public function prodi(){
+		return $this->hasOne(Pendaftar::class);
+	}
+	
 }
