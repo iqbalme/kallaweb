@@ -148,8 +148,10 @@ class PendaftarForm extends Component
 					'email'
 				]
 			],
-			'success_redirect_url' => 'https://1a91-114-5-247-133.ngrok.io/api/success_payment_callback', //route('xendit.success.route'),
-			'failure_redirect_url' => 'https://1a91-114-5-247-133.ngrok.io/api/failed_payment_callback', //route('xendit.failed.route'),
+			'success_redirect_url' => route('xendit.success.route'),
+			//'success_redirect_url' => 'https://1a91-114-5-247-133.ngrok.io/api/success_payment_callback',
+			'failure_redirect_url' => route('xendit.failed.route'),
+			//'failure_redirect_url' => 'https://1a91-114-5-247-133.ngrok.io/api/failed_payment_callback',
 			'currency' => 'IDR',
 			'items' => [
 				[
