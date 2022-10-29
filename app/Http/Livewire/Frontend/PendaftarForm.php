@@ -127,21 +127,21 @@ class PendaftarForm extends Component
 				'mobile_number' => $this->data['no_hp']
 			],
 			'customer_notification_preference' => [
-				// 'invoice_created' => [
-					// 'whatsapp',
-					// 'sms',
-					// 'email'
-				// ],
+				'invoice_created' => [
+					'whatsapp',
+					'sms',
+					'email'
+				],
 				// 'invoice_reminder' => [
 					// 'whatsapp',
 					// 'sms',
 					// 'email'
 				// ],
-				// 'invoice_paid' => [
-					// 'whatsapp',
-					// 'sms',
-					// 'email'
-				// ],
+				'invoice_paid' => [
+					'whatsapp',
+					'sms',
+					'email'
+				],
 				'invoice_expired' => [
 					'whatsapp',
 					'sms',
