@@ -28,7 +28,7 @@ class PaymentController extends Controller
 					};
 					return response()->json($invoice_data, 200);
 				};
-				//return response()->json(['message' => 'no invoice matched'], 401);
+				return response()->json(['message' => 'for callback setting only'], 200);
 			}
 		}
 		return response()->json(['message' => 'verification failed'], 401);		

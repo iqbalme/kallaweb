@@ -139,7 +139,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row mt-3">
+					<!--div class="row mt-3">
 						<div class="d-flex justify-content-between">
 							<div>
 							  <h4 class="card-title mb-0">Mode Pembayaran</h4>
@@ -153,7 +153,7 @@
 							  </select>
 							</div>
 						</div>
-					</div>
+					</div-->
 					<div class="row mt-3 mb-4">
 						<div class="col-lg-6">
 							<div>

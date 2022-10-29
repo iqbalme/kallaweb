@@ -48,6 +48,7 @@ trait CommonTrait
 				'email' => $data['email'],
 				'hp' => $data['no_hp'],
 				'prodi_id' => $data['prodi'],
+				'no_ktp' => $data['no_ktp'],
 				'aktif' => false
 			]);
 			$invoice->pendaftar()->save($pendaftar);				
