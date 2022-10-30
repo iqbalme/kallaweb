@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 			$table->string('nama_role')->unique();
 			$table->longText('deskripsi_role')->nullable();
-			$table->foreignId('prodi_id')->nullable()->constrained();
+			$table->foreignId('prodi_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

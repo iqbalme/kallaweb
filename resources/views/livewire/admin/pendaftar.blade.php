@@ -1,4 +1,5 @@
-<div class="body flex-grow-1 px-3">
+<div>
+	<div class="body flex-grow-1 px-3">
 	<div class="container-lg">
 		<div class="card mb-4">
             <div class="card-body">
@@ -70,12 +71,13 @@
 						  <td>{{ $pendaftar['hp'] }}</td>
 						  <td>{{ $pendaftar['no_ktp'] }}</td>
 						  <td>{{ $pendaftar['prodi']['nama_prodi'] }}</td>
-						  <td>
+						  <td class="text-center">
 							@if($pendaftar['aktif'])
 								<span class="badge text-bg-success text-white">Ya</span>
 							@else
 								<span class="badge text-bg-dark">Tidak</span>
 							@endif
+							<div class="small text-medium-emphasis">{{ date('d-m-Y', strtotime($pendaftar->created_at)) }}</div>
                           </td>
 						  <!--td><button type="button" class="btn btn-primary">Invoice</button></td-->
                         </tr>
@@ -87,5 +89,5 @@
             </div>
         </div>
 	</div>
-
+	</div>
 </div>

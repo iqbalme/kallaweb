@@ -2,8 +2,11 @@
 	<div class="container-lg">
 		<div class="card mb-4">
             <div class="card-body">
-				<h3>List User</h3><br>
-					<button type="button" class="btn btn-success text-white mb-2" wire:click="tambahUser"  data-coreui-toggle="modal" data-coreui-target="#userModal">Tambah User</button>
+				<div class="row justify-content-between p-3">
+					<div class="col-4"><h3>List User</h3></div>
+					<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" wire:click="tambahUser"  data-coreui-toggle="modal" data-coreui-target="#userModal">Tambah User</button></div>
+					<hr>
+				</div>
 				<div class="table-responsive">
                     <table class="table border mb-0 table-striped">
                       <thead class="table-light fw-semibold">
@@ -14,11 +17,12 @@
 						  <th></th>
                           <th class="text-center">Nama</th>
                           <th class="text-center">Email</th>
+                          <th class="text-center">Role</th>
 						  <th></th>
                         </tr>
                       </thead>
                       <tbody>
-					  @if(empty($data))
+					  @if($data->count() < 2)
 						<tr class="align-middle">
                           <td class="text-center" colspan="6">
 						  Tidak ada data
@@ -26,9 +30,10 @@
 						</tr>
 					  @else
 						@foreach($data as $user)
+						@if($loop->index > 0)
                         <tr class="align-middle">
                           <td class="text-center">
-						  {{ $loop->iteration }}
+						  {{ $loop->index }}
                           </td>
 						  <td>
 						  @if(isset($user->avatar))
@@ -43,11 +48,15 @@
 						  <td>
                             {{ $user->email }}
                           </td>
-                          <td>
+						  <td>
+							<button type="button" class="btn btn-info text-white"  data-coreui-toggle="modal" data-coreui-target="#roleModalView" wire:click="getUserRole({{$user->id}})">Lihat</button>
+                          </td>
+                          <td class="text-center">
 							<button type="button" class="btn btn-dark" wire:click="getUser({{ $user->id }})"  data-coreui-toggle="modal" data-coreui-target="#userModalEdit">Edit</button>
 							<button wire:click="getUser({{$user->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#userModalHapus">Hapus</button>
                           </td>
                         </tr>
+						@endif
 						@endforeach
 					@endif
                       </tbody>
@@ -70,6 +79,23 @@
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-secondary text-white" data-coreui-dismiss="modal">Tidak</button>
 			<button type="button" class="btn btn-danger text-white" wire:click="hapusKategori({{$user_id}})" data-coreui-toggle="modal" data-coreui-target="#userModalHapus">Ya, Hapus</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="roleModalView" tabindex="-1" wire:ignore.self>
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Role</h5>
+			<button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			Apakah Anda yakin ingin menghapusnya?
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary text-white" data-coreui-dismiss="modal">Tutup</button>
 		  </div>
 		</div>
 	  </div>

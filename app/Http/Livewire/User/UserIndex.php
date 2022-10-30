@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use Livewire\Component;
 use App\Models\User;
+use App\Models\RoleUser;
 
 class UserIndex extends Component
 {
@@ -16,11 +17,12 @@ class UserIndex extends Component
 		'refreshUser'
 	];
 	public function mount(){
-		$this->data = User::all();
+		
 	}
 	
     public function render()
     {
+		$this->data = User::all();
         return view('livewire.user.user-index')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'User']);
     }
@@ -39,5 +41,10 @@ class UserIndex extends Component
 	
 	public function refreshUser(){
 	
+	}
+	
+	public function getUserRole($id){
+		$data = User::find($id)->role_users;
+		dd($data->roles());
 	}
 }

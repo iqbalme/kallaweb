@@ -10,8 +10,15 @@ class RoleUser extends Model
 {
     use HasFactory;
 	
+	protected $guarded = [];
+	
 	public function roles()
     {
-        return $this->belongTo(Role::class, 'role_id');
+        return $this->hasOne(Role::class);
+    }
+	
+	public function users()
+    {
+        return $this->belongsTo(User::class);
     }
 }

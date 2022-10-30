@@ -47,6 +47,6 @@ class UserCreate extends Component
 		];
 		//dd($newUser);
 		User::create($newUser);
-		$this->emit('refreshUser');
+		$this->emitUp('refreshUser');
 	}
 }

@@ -1,65 +1,65 @@
 <div>
     <div class="body flex-grow-1 px-3">
-	<div class="container-lg">
-		<div class="card mb-4">
+		<div class="container-lg">
+			<div class="card mb-4">
 			<form wire:submit.prevent="publishPost">
 			@csrf
-			<div class="card-body">
-				<div class="mb-3">
-				  <h6 class="card-title mb-2">Judul</h6>
-				  <input type="text" class="form-control" wire:model.lazy="judul">
-				</div>
-				<div class="mb-3">
-				  <h6 class="card-title mb-2">Isi Post</h6>
-						<div class="form-group" wire:ignore>
-							<textarea name="konten" id="editor" wire:model.defer="konten"></textarea>
+				<div class="card-body">
+					<div class="mb-3">
+					  <h6 class="card-title mb-2">Judul</h6>
+					  <input type="text" class="form-control" wire:model.lazy="judul">
+					</div>
+					<div class="mb-3">
+					  <h6 class="card-title mb-2">Isi Post</h6>
+							<div class="form-group" wire:ignore>
+								<textarea name="konten" id="editor" wire:model.defer="konten"></textarea>
+							</div>
+					</div>
+					@if(count($data['categories']))
+					<div class="mb-3">
+						<h6 class="card-title mb-2">Kategori</h6>
+						@foreach($data['categories'] as $category)
+						<div class="form-check">
+						  <input class="form-check-input" type="checkbox" value="{{ $category->id }}" wire:model.defer="categories">
+						  <label class="form-check-label">
+						  {{ $category->nama_kategori }}
+						  </label>
 						</div>
-				</div>
-				@if(count($data['categories']))
-				<div class="mb-3">
-					<h6 class="card-title mb-2">Kategori</h6>
-					@foreach($data['categories'] as $category)
-					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" value="{{ $category->id }}" wire:model.defer="categories">
-					  <label class="form-check-label">
-					  {{ $category->nama_kategori }}
-					  </label>
+						@endforeach
 					</div>
-					@endforeach
-				</div>
-				@endif
-				@if(count($data['prodis']))
-				<div class="mb-3">
-					<h6 class="card-title mb-1">Prodi</h6>
-					@foreach($data['prodis'] as $prodi)
-					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" value="{{ $prodi->id }}" wire:model.defer="prodis">
-					  <label class="form-check-label">
-					  {{ $prodi->nama_prodi}}
-					  </label>
-					</div>
-					@endforeach
-				</div>
-				@endif
-				<div class="mb-3">
-				  <h6 class="card-title mb-2">Tag (Pisahkan dengan koma)</h6>
-				  <input type="text" class="form-control" wire:model.lazy="tags">
-				</div>
-				<div class="row mt-3">
-					<div class="d-flex justify-content-between">
-						<div>
-						  <h6 class="card-title mb-2">Thumbnail</h6>
-						  <!--div class="small text-medium-emphasis">January - July 2022</div-->
+					@endif
+					@if(count($data['prodis']))
+					<div class="mb-3">
+						<h6 class="card-title mb-1">Prodi</h6>
+						@foreach($data['prodis'] as $prodi)
+						<div class="form-check">
+						  <input class="form-check-input" type="checkbox" value="{{ $prodi->id }}" wire:model.defer="prodis">
+						  <label class="form-check-label">
+						  {{ $prodi->nama_prodi}}
+						  </label>
 						</div>
+						@endforeach
 					</div>
-					@if($thumbnail !== null)
-					<div class="mb-1 rounded">
-						<img src="{{ $thumbnail->temporaryUrl() }}" alt="thumbnail post" width="200" height="200">
+					@endif
+					<div class="mb-3">
+					  <h6 class="card-title mb-2">Tag (Pisahkan dengan koma)</h6>
+					  <input type="text" class="form-control" wire:model.lazy="tags">
 					</div>
-					<div class="d-grid gap-2 d-md-block">
-					  <button class="btn btn-danger text-white" type="button" wire:click="removeThumbnail">Hapus</button>
-					</div>
-					@else
+					<div class="row mt-3">
+						<div class="d-flex justify-content-between">
+							<div>
+							  <h6 class="card-title mb-2">Thumbnail</h6>
+							  <!--div class="small text-medium-emphasis">January - July 2022</div-->
+							</div>
+						</div>
+						@if($thumbnail !== null)
+						<div class="mb-1 rounded">
+							<img src="{{ $thumbnail->temporaryUrl() }}" alt="thumbnail post" width="200" height="200">
+						</div>
+						<div class="d-grid gap-2 d-md-block">
+						  <button class="btn btn-danger text-white" type="button" wire:click="removeThumbnail">Hapus</button>
+						</div>
+						@else
 						<div class="col-lg-7">
 							<div class="input-group mb-3 mt-2">
 							  <input type="file" class="form-control" wire:model.lazy="thumbnail">
@@ -67,7 +67,8 @@
 							</div>
 							@error('thumbnail') <span class="error">{{ $message }}</span> @enderror
 						</div>
-					@endif
+						@endif
+					</div>
 					<div class="row mt-5">
 						<hr>
 						<div class="col-lg-6 mb-2">
@@ -77,11 +78,10 @@
 							<button type="submit" class="btn btn-primary btn-lg w-100">Publish</button>
 						</div>
 					</div>
-				</div>	
-            </div>
-			</form>			
-          </div>
-		</div>
+				</div>
+			</form>	
+            </div>		
+        </div>
 	</div>
 	<script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
 	<script type="text/javascript">
@@ -101,8 +101,8 @@
 		});
 	</script>
 	<style>
-	.ck-editor__editable_inline {
-		min-height: 250px !important;
-	}
+		.ck-editor__editable_inline {
+			min-height: 250px !important;
+		}
 	</style>
 </div>

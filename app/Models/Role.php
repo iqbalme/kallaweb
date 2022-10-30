@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-//use App\Models\Capability;
 
 class Role extends Model
 {
@@ -12,7 +11,11 @@ class Role extends Model
 	
 	protected $guarded = [];
 	
-	public function capability(){
-		// $this->hasOne(Capability::class);
+	public function role_user(){
+		return $this->hasMany(RoleUser::class);
+	}
+	
+	public function prodi(){
+		return $this->belongsTo(Prodi::class);
 	}
 }
