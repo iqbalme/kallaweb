@@ -36,7 +36,7 @@
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-notes') }}"></use>
 		</svg> Katalog</a>
 	  <ul class="nav-group-items">
-		<li class="nav-item"><a class="nav-link" href="{{ route('katalog.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-sheet-plastic nav-icon"></i> List</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ route('katalog.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bars-staggered nav-icon"></i> List</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('voucher.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-gift') }}"></use>
 		</svg> Voucher</a></li>

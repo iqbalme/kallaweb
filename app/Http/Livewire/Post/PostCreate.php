@@ -39,15 +39,6 @@ class PostCreate extends Component
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / Buat Baru']);
     }
 	
-	public function saveThumbnail()
-    {
-        $this->validate([
-            'thumbnail' => 'image|max:2048', // 2MB Max
-        ]);
- 
-        $this->thumbnail->store('images');
-    }
-	
 	public function removeThumbnail(){
 		$this->thumbnail->delete();
 		$this->thumbnail = null;
@@ -67,9 +58,8 @@ class PostCreate extends Component
 		}
 		$post_tags_insert = implode(',',array_unique($post_tags));
 		if(isset($this->thumbnail)){
-			$this->thumbnail->storeAs('public/images', $this->thumbnail->getFilename());
 			$thumbnail = $this->thumbnail->getFilename();
-			$this->thumbnail->delete();
+			$this->thumbnail->storeAs('public/images', $thumbnail);
 		}
 		$submittedData = [
 			'judul' => $this->judul,
@@ -107,6 +97,7 @@ class PostCreate extends Component
 				]);
 			}
 		}
+		$this->removeThumbnail();
 		return redirect()->route('post.index');
 	}
 	

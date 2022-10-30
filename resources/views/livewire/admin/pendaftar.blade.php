@@ -26,7 +26,7 @@
 				<!-- Pencarian -->
 				<div class="col-8">
 					<div class="input-group mb-3">
-					  <input type="text" class="form-control" placeholder="Ketik di sini..." wire:model="cari_post">
+					  <input type="text" class="form-control" placeholder="Ketik di sini..." wire:model="cari_pendaftar">
 					  <div class="input-group-append">
 						<span class="input-group-text" id="basiaddon2">Cari</span>
 					  </div>
@@ -65,7 +65,7 @@
                           <td class="text-center">
 						  {{ $loop->iteration }}
                           </td>
-                          <td>{{ ucfirst($pendaftar['nama']) }}</td>
+                          <td>{{ $pendaftar['nama'] }}</td>
 						  <td>{{ $pendaftar['email'] }}</td>
 						  <td>{{ $pendaftar['hp'] }}</td>
 						  <td>{{ $pendaftar['no_ktp'] }}</td>
@@ -86,9 +86,6 @@
                   </div>
             </div>
         </div>
-		  
-		  
-		  
 	</div>
 
 </div>

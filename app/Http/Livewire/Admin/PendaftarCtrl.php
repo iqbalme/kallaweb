@@ -4,26 +4,18 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Pendaftar;
+use App\Http\Traits\CommonTrait;
 
 class PendaftarCtrl extends Component
 {
+	use CommonTrait;
 	public $data;
+	public $perhalaman = 5;
+	public $cari_pendaftar;
 	
 	public function mount(){
-		$data = [];
-		$pendaftars = Pendaftar::all();
-		foreach($pendaftars as $pendaftar){
-			$data[] = [
-						'nama' => $pendaftar->nama,
-						'email' => $pendaftar->email,
-						'hp' => $pendaftar->hp,
-						'no_ktp' => $pendaftar->no_ktp,
-						'aktif' => $pendaftar->aktif,
-						'prodi' => $pendaftar->prodi,
-						'invoice' => $pendaftar->invoice
-					];
-		}
-		$this->data['pendaftars'] = $data;
+		//$this->data['pendaftars'] = Pendaftar::orderBy('id', 'DESC')->where('nama', 'LIKE', '%'.$this->cari_pendaftar.'%')->orWhere('email', 'LIKE', '%'.$this->cari_pendaftar.'%')->orWhere('no_ktp', 'LIKE', '%'.$this->cari_pendaftar.'%')->orWhere('hp', 'LIKE', '%'.$this->cari_pendaftar.'%')->paginate($this->perhalaman);
+		$this->data['pendaftars'] = Pendaftar::where('nama', 'LIKE', '%'.$this->cari_pendaftar.'%')->get();
 	}
 	
     public function render()

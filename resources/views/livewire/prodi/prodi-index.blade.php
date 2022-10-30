@@ -41,7 +41,11 @@
 						  {{ $loop->iteration }}
                           </td>
                           <td>
-                            Gambar
+                            @if(isset($prodi->thumbnail))
+								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('storage/images/'.$prodi->thumbnail) }}"></div>
+							@else
+								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('admin/thumbnail-default.jpg') }}"></div>
+							@endif
                           </td>
 						  <td>
                             {{ $prodi->nama_prodi }}
