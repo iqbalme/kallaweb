@@ -17,7 +17,7 @@ class Home2 extends Component
 			$post_ids[] = $post->post_id;
 		}
 		$posts = Post::whereIn('id', $post_ids)->get();
-		dd($posts);
+		$this->data['posts'] = $posts;
 	}
 	
     public function render()

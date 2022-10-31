@@ -130,6 +130,8 @@
     </div><!--end row-->
 
     <div class="row">
+		@if(isset($data['posts']))
+		@foreach($data['posts'] as $post)
         <div class="col-lg-4 col-md-6 mt-4 pt-2">
             <div class="blog-post rounded border">
                 <div class="blog-img d-block overflow-hidden position-relative">
@@ -137,14 +139,14 @@
                     <div class="overlay rounded-top bg-dark"></div>
                 </div>
                 <div class="content p-3">
-                    <small class="text-muted p float-right">19th Oct, 19</small>
-                    <small><a href="javascript:void(0)" class="text-primary">Marketing</a></small>
-                    <h4 class="mt-2"><a href="javascript:void(0)" class="text-dark title">Quick guide on business with friends.</a></h4>
-                    <p class="text-muted mt-2">There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space.</p>
+                    <small class="text-muted p float-right">{{ $post->created_at->format('d F Y') }}</small>
+                    <h4 class="mt-2"><a href="{{ route('post.single', ['post_val' => $post->slug ]) }}" class="text-dark title">{{ ucfirst($post->judul) }}</a></h4>
+					{!! $post->konten !!}
                 </div>
             </div><!--end blog post-->
         </div><!--end col-->
-        
+        @endforeach
+		@endisset
 	<!--end col-->
     </div><!--end row-->
 </div>
