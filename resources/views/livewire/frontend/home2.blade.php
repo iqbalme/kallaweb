@@ -132,7 +132,7 @@
     <div class="row">
 		@if(isset($data['posts']))
 		@foreach($data['posts'] as $post)
-		@if($loop->iteration < 3)
+		@if($loop->index < 3)
         <div class="col-lg-4 col-md-6 mt-4 pt-2">
             <div class="blog-post rounded border">
                 <div class="blog-img d-block overflow-hidden position-relative">
