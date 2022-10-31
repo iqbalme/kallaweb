@@ -155,6 +155,11 @@
 		@endisset
 	<!--end col-->
     </div><!--end row-->
+	<div class="row">
+		<div class="col-12">
+			<a class="btn btn-lg" href="{{ route('arsip', ['meta_type' => 'kategori', 'meta_val' => 'berita']) }}">Selengkapnya</a>
+		</div>
+	</div>
 </div>
 	
 	  <style>
