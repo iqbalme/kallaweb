@@ -97,7 +97,6 @@ class PostCreate extends Component
 				]);
 			}
 		}
-		$this->removeThumbnail();
 		return redirect()->route('post.index');
 	}
 	
