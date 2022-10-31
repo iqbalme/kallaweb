@@ -1,5 +1,5 @@
 <div>
-    <div style="margin-top:70px"></div>
+    <div style="margin-top:50px"></div>
 	<div class="container">
 		<div class="row justify-content-center align-items-center mb-3">
 			<div class="col-12 text-center mb-1">

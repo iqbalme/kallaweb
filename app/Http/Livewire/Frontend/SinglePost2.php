@@ -10,9 +10,8 @@ use App\Models\Category;
 use App\Models\Prodi;
 use App\Models\Setting;
 
-class SinglePost extends Component
+class SinglePost2 extends Component
 {
-	
 	public $post;
 	public $tags;
 	public $prodis;
@@ -64,7 +63,7 @@ class SinglePost extends Component
 	
     public function render()
     {
-        return view('livewire.frontend.single-post')
+        return view('livewire.frontend.single-post2')
 			->extends('layouts.app', ['title' => $this->post->judul ])
 			->section('content');
     }

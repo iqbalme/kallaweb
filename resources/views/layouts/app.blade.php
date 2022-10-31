@@ -10,18 +10,18 @@
 
     <title>{{ isset($title) ? $title : '' }} - {{ $data['web_title'] }}</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/">
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ asset('frontend/assets/css/style-nav.css') }}">
 
     <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/navbar-top-fixed.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css" rel="stylesheet">
+    <!--link href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/navbar-top-fixed.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css" rel="stylesheet"-->
 	<!-- Font Awesome -->
 	<!-- Place your kit's code here -->
     <script src="https://kit.fontawesome.com/8b91ad4956.js" crossorigin="anonymous"></script>
 
+	@isset($data['google_analytics'])
 	<!-- Google tag (gtag.js) -->
 	<script async src="{{ 'https://www.googletagmanager.com/gtag/js?id=' . $data['google_analytics'] }}"></script>
 	<script>
@@ -31,7 +31,8 @@
 
 	  gtag('config', {{ $data['google_analytics'] }});
 	</script>
-	
+	@endisset
+	@isset($data['fb_pixel'])
 	<!-- Facebook Pixel Code -->
 	<script>
 	  !function(f,b,e,v,n,t,s)
@@ -49,13 +50,16 @@
 	  <img height="1" width="1" style="display:none" src="{{ 'https://www.facebook.com/tr?id=' . $data['fb_pixel'] . '&ev=PageView&noscript=1' }}/>
 	</noscript>
 	<!-- End Facebook Pixel Code -->
+	@endisset
+	
 	@livewireStyles
   </head>
 
   <body>
 
-	@include('layouts.nav')
+	@include('layouts.nav-temp')
 	@yield('content')
+	@include('layouts.footer-temp')
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -63,6 +67,41 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script>
+		jQuery(function($) {
+			$(window).on('scroll', function() {
+				if ($(this).scrollTop() >= 200) {
+					$('.navbar').addClass('fixed-top');
+				} else if ($(this).scrollTop() == 0) {
+					$('.navbar').removeClass('fixed-top');
+				}
+			});
+			
+			function adjustNav() {
+				var winWidth = $(window).width(),
+					dropdown = $('.dropdown'),
+					dropdownMenu = $('.dropdown-menu');
+				
+				if (winWidth >= 768) {
+					dropdown.on('mouseenter', function() {
+						$(this).addClass('show')
+							.children(dropdownMenu).addClass('show');
+					});
+					
+					dropdown.on('mouseleave', function() {
+						$(this).removeClass('show')
+							.children(dropdownMenu).removeClass('show');
+					});
+				} else {
+					dropdown.off('mouseenter mouseleave');
+				}
+			}
+			
+			$(window).on('resize', adjustNav);
+			
+			adjustNav();
+		});
+  </script>
 	@livewireScripts
   </body>
 </html>

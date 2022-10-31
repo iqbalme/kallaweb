@@ -10,7 +10,9 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\CKEditorController;
 use App\Http\Livewire\Frontend\Home;
+use App\Http\Livewire\Frontend\Home2;
 use App\Http\Livewire\Frontend\SinglePost;
+use App\Http\Livewire\Frontend\SinglePost2;
 use App\Http\Livewire\Frontend\Login;
 use App\Http\Livewire\Frontend\Arsip;
 use App\Http\Livewire\Frontend\PendaftarForm;
@@ -48,8 +50,10 @@ Route::get('/lw', function () {
     return view('teslivewire');
 });
 
-Route::get('/', Home::class)->name('home');
-Route::get('post/{post_val}', SinglePost::class)->name('post.single');
+//Route::get('/', Home::class)->name('home');
+Route::get('/', Home2::class)->name('home');
+//Route::get('post/{post_val}', SinglePost::class)->name('post.single');
+Route::get('post/{post_val}', SinglePost2::class)->name('post.single');
 Route::get('tes/', [TestController::class, 'index']);
 Route::get('arsip/{meta_type}/{meta_val}', Arsip::class)->name('arsip');
 Route::get('registrasi/', PendaftarForm::class)->name('registrasi');
