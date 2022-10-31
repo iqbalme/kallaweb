@@ -24,6 +24,11 @@ trait CommonTrait
 	   return preg_replace('/[^A-Za-z0-9\-]/', '', strtolower(trim($string_slug))); // Removes special chars.
 	}
 	
+	public function removeContentTag($string){
+		$content = preg_replace("/<img[^>]+\>/i", "", $string); 
+		return $content;
+	}
+	
 	public function generateInvoiceNo(){
 		$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
 		return strtoupper(substr(str_shuffle($permitted_chars), 0, 17));

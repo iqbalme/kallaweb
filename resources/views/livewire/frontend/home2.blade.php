@@ -146,7 +146,7 @@
                 <div class="content p-3">
                     <small class="text-muted p float-right">{{ $post->created_at->format('d F Y') }}</small>
                     <h4 class="mt-2"><a href="{{ route('post.single', ['post_val' => $post->slug ]) }}" class="text-dark title">{{ ucfirst($post->judul) }}</a></h4>
-					{!! $post->konten !!}
+					{!! substr($post->konten,0,200) !!}
                 </div>
             </div><!--end blog post-->
         </div><!--end col-->
