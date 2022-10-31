@@ -62,27 +62,27 @@
 			  <hr>
 				<div class="mb-3">
 				  <label class="form-label">Nama Lengkap</label>
-				  <input type="text" class="form-control" wire:model="data.nama_lengkap">
+				  <input type="text" class="form-control form-control-lg" wire:model="data.nama_lengkap">
 				  @error('data.nama_lengkap') <span class="error">{{ $message }}</span> @enderror
 				</div>
 				<div class="mb-3">
 				  <label class="form-label">No. KTP</label>
-				  <input type="text" class="form-control" wire:model="data.no_ktp" maxLength="16">
+				  <input type="text" class="form-control form-control-lg" wire:model="data.no_ktp" maxLength="16">
 				  @error('data.no_ktp') <span class="error">{{ $message }}</span> @enderror
 				</div>
 				<div class="mb-3">
 				  <label class="form-label">Email</label>
-				  <input type="email" class="form-control" placeholder="name@domain.com" wire:model="data.email">
+				  <input type="email" class="form-control form-control-lg" placeholder="name@domain.com" wire:model="data.email">
 				  @error('data.email') <span class="error">{{ $message }}</span> @enderror
 				</div>
 				<div class="mb-3">
 				  <label class="form-label">No. HP (Format: 6285xxx)</label>
-				  <input type="text" class="form-control" wire:model="data.no_hp" maxLength="13">
+				  <input type="text" class="form-control form-control-lg" wire:model="data.no_hp" maxLength="13">
 				  @error('data.no_hp') <span class="error">{{ $message }}</span> @enderror
 				</div>
 				<div class="mb-3">
 				  <label class="form-label">Pilihan Program Studi</label>
-				  <select class="form-control" wire:model="data.prodi">
+				  <select class="form-control form-control-lg" wire:model="data.prodi">
 					@foreach($prodis as $prodi)
 						<option value="{{ $prodi->id }}">{{ $prodi->nama_prodi }}</option>
 					@endforeach
@@ -230,15 +230,15 @@
 				<div class="mb-5"></div>
 				<div class="row justify-content-between">
 					@if($currentStep > 1)
-						<button type="button" wire:click="previous" class="btn btn-dark">Sebelumnya</button>
+						<button type="button" wire:click="previous" class="btn btn-lg btn-dark">Sebelumnya</button>
 						<a href="" class=""></a>
 					@endif
 					@if($currentStep < 3)
 						<a href="" class=""></a>
-						<button type="button" wire:click="next" class="btn btn-primary">Selanjutnya</button>
+						<button type="button" wire:click="next" class="btn btn-lg btn-primary">Selanjutnya</button>
 					@endif
 					@if($currentStep == 3)
-						<button type="submit" class="btn btn-primary">Daftar</button>
+						<button type="submit" class="btn btn-lg btn-primary">Daftar</button>
 					@endif
 				</div>
 			  </div>

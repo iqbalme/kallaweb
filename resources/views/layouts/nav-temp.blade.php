@@ -77,6 +77,7 @@
 	}
 
 	.navbar .navbar-toggler {
+	  font-size: 62.5%;
 	  position: relative;
 	  height: 50px;
 	  width: 50px;
