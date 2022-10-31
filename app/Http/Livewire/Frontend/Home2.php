@@ -16,7 +16,7 @@ class Home2 extends Component
 		foreach($postscategory as $post){
 			$post_ids[] = $post->post_id;
 		}
-		$posts = Post::whereIn('id', $post_ids);
+		$posts = Post::whereIn('id', $post_ids)->get();
 		dd($posts);
 	}
 	
