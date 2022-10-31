@@ -19,7 +19,8 @@ trait CommonTrait
 	}
 	
 	public function setSlug($string) {
-	   $string = substr(str_replace(' ', '-', $string),0,100); // Replaces all spaces with hyphens with max 100 characters
+	   $string = str_replace(' ', '-', $string);
+	   $string_slug = substr($string,0,100); // Replaces all spaces with hyphens with max 100 characters
 	   return preg_replace('/[^A-Za-z0-9\-]/', '', strtolower($string)); // Removes special chars.
 	}
 	
