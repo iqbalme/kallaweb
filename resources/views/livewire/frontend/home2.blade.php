@@ -136,7 +136,11 @@
         <div class="col-lg-4 col-md-6 mt-4 pt-2">
             <div class="blog-post rounded border">
                 <div class="blog-img d-block overflow-hidden position-relative">
-                    <img src="https://via.placeholder.com/350x280/FF7F50/000000" class="img-fluid rounded-top" alt="">
+					@if($post->thumbnail)
+                    <img src="{{ asset('storage/images/'.$post->thumbnail) }}" class="img-fluid rounded-top" alt="">
+					@else
+					<img src="{{asset('public/admin/thumbnail-default.jpg')}}" class="img-fluid rounded-top" alt="">	
+					@endif
                     <div class="overlay rounded-top bg-dark"></div>
                 </div>
                 <div class="content p-3">
