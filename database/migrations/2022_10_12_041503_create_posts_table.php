@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
 			$table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
-			$table->string('judul', 100);
+			$table->string('judul', 150);
 			$table->string('thumbnail')->nullable();
 			$table->longText('konten')->nullable();
 			$table->string('category_id')->nullable();

@@ -12,7 +12,7 @@
 					<div class="mb-3">
 					  <h6 class="card-title mb-2">Isi Post</h6>
 							<div class="form-group" wire:ignore>
-								<textarea name="konten" id="editor" wire:model.defer="konten"></textarea>
+								<textarea name="konten" id="editor">{{ $konten }}</textarea>
 							</div>
 					</div>
 					@if(count($data['categories']))
