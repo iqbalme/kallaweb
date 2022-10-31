@@ -72,7 +72,6 @@
                           </td>
 						  <td>
                             <div>{{ ucfirst($post->judul) }}</div>
-								{{ $isPostSlug }}
 							@if($isPostSlug)
 								<a href="{{ route('post.single', ['post_val' => $post->slug]) }}" target="_blank"><span class="badge text-bg-warning text-white">Lihat</span></a>	
 							@else
