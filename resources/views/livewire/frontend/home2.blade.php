@@ -155,9 +155,11 @@
 		@endisset
 	<!--end col-->
     </div><!--end row-->
-	<div class="row">
-		<div class="col-12">
-			<a class="btn btn-lg" href="{{ route('arsip', ['meta_type' => 'kategori', 'meta_val' => 'berita']) }}">Selengkapnya</a>
+	<div class="row justify-content-between mt-5">
+		<div class="col-10">
+		</div>
+		<div class="col-2">
+			<a class="btn btn-lg btn-primary col-auto" href="{{ route('arsip', ['meta_type' => 'kategori', 'meta_val' => 'berita']) }}">Selengkapnya</a>
 		</div>
 	</div>
 </div>
