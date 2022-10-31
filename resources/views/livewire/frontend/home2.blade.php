@@ -139,7 +139,7 @@
 					@if($post->thumbnail)
                     <img src="{{ asset('storage/images/'.$post->thumbnail) }}" class="img-fluid rounded-top" alt="">
 					@else
-					<img src="{{asset('public/admin/thumbnail-default.jpg')}}" class="img-fluid rounded-top" alt="">	
+					<img src="{{asset('admin/thumbnail-default.jpg')}}" class="img-fluid rounded-top" alt="">	
 					@endif
                     <div class="overlay rounded-top bg-dark"></div>
                 </div>
