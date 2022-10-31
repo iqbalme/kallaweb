@@ -131,7 +131,8 @@
 
     <div class="row">
 		@if(isset($data['posts']))
-		@for($i=0;$data['posts']<3;$i++)
+		@foreach($data['posts'] as $post)
+		@if($loop->iteration < 3)
         <div class="col-lg-4 col-md-6 mt-4 pt-2">
             <div class="blog-post rounded border">
                 <div class="blog-img d-block overflow-hidden position-relative">
@@ -139,13 +140,14 @@
                     <div class="overlay rounded-top bg-dark"></div>
                 </div>
                 <div class="content p-3">
-                    <small class="text-muted p float-right">{{ $data['posts'][$i]->created_at->format('d F Y') }}</small>
-                    <h4 class="mt-2"><a href="{{ route('post.single', ['post_val' => $post->slug ]) }}" class="text-dark title">{{ ucfirst($data['posts'][$i]->judul) }}</a></h4>
-					{!! $data['posts'][$i]->konten !!}
+                    <small class="text-muted p float-right">{{ $post->created_at->format('d F Y') }}</small>
+                    <h4 class="mt-2"><a href="{{ route('post.single', ['post_val' => $post->slug ]) }}" class="text-dark title">{{ ucfirst($post->judul) }}</a></h4>
+					{!! $post->konten !!}
                 </div>
             </div><!--end blog post-->
         </div><!--end col-->
-        @endfor
+		@endif
+        @endforeach
 		@endisset
 	<!--end col-->
     </div><!--end row-->
