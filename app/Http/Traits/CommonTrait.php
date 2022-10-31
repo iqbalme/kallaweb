@@ -21,7 +21,7 @@ trait CommonTrait
 	public function setSlug($string) {
 	   $string = str_replace(' ', '-', $string);
 	   $string_slug = substr($string,0,100); // Replaces all spaces with hyphens with max 100 characters
-	   return preg_replace('/[^A-Za-z0-9\-]/', '', strtolower($string)); // Removes special chars.
+	   return preg_replace('/[^A-Za-z0-9\-]/', '', strtolower($string_slug)); // Removes special chars.
 	}
 	
 	public function generateInvoiceNo(){
