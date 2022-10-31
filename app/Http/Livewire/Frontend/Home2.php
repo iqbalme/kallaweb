@@ -3,9 +3,23 @@
 namespace App\Http\Livewire\Frontend;
 
 use Livewire\Component;
+use App\Models\PostCategory;
+use App\Models\Post;
 
 class Home2 extends Component
 {
+	public $data;
+	
+	public function mount(){
+		$postscategory = PostCategory::find(2);
+		$post_ids = [];
+		foreach($postscategory as $post){
+			$post_ids[] = $post->post_id;
+		}
+		$posts = Post::whereIn('id', $post_ids);
+		dd($posts);
+	}
+	
     public function render()
     {
         return view('livewire.frontend.home2')
