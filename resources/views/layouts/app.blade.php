@@ -57,7 +57,7 @@
 
   <body>
 
-	@include('layouts.nav-temp')
+	@include('layouts.nav')
 	@yield('content')
 	@include('layouts.footer-temp')
 

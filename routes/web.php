@@ -9,6 +9,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\CKEditorController;
+use App\Http\Livewire\Teslw;
 use App\Http\Livewire\Frontend\Home;
 use App\Http\Livewire\Frontend\Home2;
 use App\Http\Livewire\Frontend\SinglePost;
@@ -34,6 +35,7 @@ use App\Http\Livewire\Voucher\VoucherIndex;
 use App\Http\Livewire\Carousel\CarouselIndex;
 use App\Http\Livewire\Page\SuccessPaymentPage;
 use App\Http\Livewire\Page\ExpiredPaymentPage;
+use App\Http\Livewire\Menu\MenuIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,14 +48,11 @@ use App\Http\Livewire\Page\ExpiredPaymentPage;
 |
 */
 
-Route::get('/lw', function () {
-    return view('teslivewire');
-});
-
-//Route::get('/', Home::class)->name('home');
-Route::get('/', Home2::class)->name('home');
-//Route::get('post/{post_val}', SinglePost::class)->name('post.single');
-Route::get('post/{post_val}', SinglePost2::class)->name('post.single');
+Route::get('teslw', Teslw::class);
+Route::get('/', Home::class)->name('home');
+//Route::get('/', Home2::class)->name('home');
+Route::get('post/{post_val}', SinglePost::class)->name('post.single');
+// Route::get('post/{post_val}', SinglePost2::class)->name('post.single');
 Route::get('tes/', [TestController::class, 'index']);
 Route::get('arsip/{meta_type}/{meta_val}', Arsip::class)->name('arsip');
 Route::get('registrasi/', PendaftarForm::class)->name('registrasi');
@@ -81,7 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 	Route::get('pengaturan/menu/', PengaturanMenu::class)->name('pengaturan.menu');
 	Route::get('carousel/', CarouselIndex::class)->name('carousel.index');
 	Route::get('pendaftar/', PendaftarCtrl::class)->name('pendaftar.index');
-	Route::resource('menu', MenuController::class);
+	Route::get('menu/', MenuIndex::class)->name('pengaturan.menu');
 	
 	//for ckeditor upload file
 	Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('ckeditor.image-upload');

@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light	">
 		<a class="navbar-brand" href="/">
 			<img src="{{ asset('storage/images/'.$data['web_logo']) }}" alt="" style="max-height:58px;">
 		</a>
@@ -6,12 +6,18 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto mr-10">
+        <ul class="navbar-nav ml-auto mr-20">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Beranda<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Profil</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="#">Akademik</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="#">Admisi</a>
           </li>
         </ul>
       </div>

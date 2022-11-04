@@ -15,6 +15,7 @@ class UserUpdate extends Component
 	public $email;
 	public $password;
 	public $user_id;
+	public $loading = false;
 	
 	protected $listeners = [
 		'getUser', 'updateUser'
@@ -43,6 +44,7 @@ class UserUpdate extends Component
 	
 	
 	public function update(){
+		$this->loading = true;
 		$avatar = null;
 		if(isset($this->avatar)){
 			$this->avatar->storeAs('public/images', $this->avatar->getFilename());
@@ -58,5 +60,11 @@ class UserUpdate extends Component
 		}
 		$user->save();
 		$this->emit('refreshUser');
+		$this->closeModal();
+	}
+	
+	public function closeModal(){
+		$this->loading = false;
+		$this->dispatchBrowserEvent('closeModalUserUpdate');
 	}
 }

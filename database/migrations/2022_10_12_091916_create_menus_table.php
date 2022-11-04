@@ -18,6 +18,7 @@ return new class extends Migration
 			$table->integer('parent')->unsigned()->default(0);
 			$table->string('menu');
 			$table->string('link')->nullable()->default('#');
+			$table->integer('urutan')->unsigned(); //urutan
             $table->timestamps();
         });
     }

@@ -105,4 +105,9 @@
 	@else
 		<livewire:user.user-create />
 	@endif
+	<script>
+	window.addEventListener('closeModalUserUpdate', event => {
+		jQuery('#userModalEdit').modal('hide');
+	});
+	 </script>
 </div>

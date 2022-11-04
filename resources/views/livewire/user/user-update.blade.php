@@ -1,5 +1,5 @@
 <div>
-    <div class="modal fade" id="userModalEdit" tabindex="-1" wire:ignore>
+    <div class="modal fade" id="userModalEdit" tabindex="-1" data-backdrop="false" wire:ignore>
 	  <div class="modal-dialog">
 		<div class="modal-content">
 			<form wire:submit.prevent="update">
@@ -9,6 +9,13 @@
 				<button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
+				@if($loading)
+				<div class="mb-3">
+					<div class="alert alert-warning" role="alert">
+					  Sedang mengupdate data ...
+					</div>
+				</div>
+				@endif
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Nama</h6>
 				  <input type="text" class="form-control" wire:model.lazy="nama">
@@ -48,10 +55,15 @@
             </div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary text-white" data-coreui-dismiss="modal">Tidak</button>
-				<button type="submit" class="btn btn-primary text-white" data-coreui-toggle="modal" data-coreui-target="#userModalEdit">Simpan</button>
+				<button type="submit" class="btn btn-primary text-white">Simpan</button>
 			</div>
 			</form>			
           </div>
 		</div>
 	</div>
+	<script>
+	window.addEventListener('closeModalUserUpdate', event => {
+		jQuery('#userModalEdit').modal('hide');
+	});
+	 </script>
 </div>
