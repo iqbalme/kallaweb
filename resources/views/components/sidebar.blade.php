@@ -27,11 +27,16 @@
 		<li class="nav-item"><a class="nav-link" href="{{ route('post.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-library') }}"></use>
 		</svg> List</a></li>
-		<li class="nav-item"><a class="nav-link" href="{{ route('carousel.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-sliders nav-icon"></i> Carousel</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ route('carousel.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-calendar-days nav-icon"></i> Event</a></li>
+		<!--li class="nav-item"><a class="nav-link" href="{{ route('carousel.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-sliders nav-icon"></i> Carousel</a></li-->
 	  </ul>
 	</li>
-	
-	<li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+	<li class="nav-item"><a class="nav-link" href="{{ route('voucher.index') }}">
+		<svg class="nav-icon">
+		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-gift') }}"></use>
+		</svg> Voucher</a></li>
+		
+	<!--li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-notes') }}"></use>
 		</svg> Katalog</a>
@@ -41,7 +46,7 @@
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-gift') }}"></use>
 		</svg> Voucher</a></li>
 	  </ul>
-	</li>
+	</li-->
 	
 	<li class="nav-item"><a class="nav-link" href="{{ route('pendaftar.index') }}">
 		<i class="fa-regular fa-address-card nav-icon"></i> Pendaftar</a></li>

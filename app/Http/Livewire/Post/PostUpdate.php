@@ -28,12 +28,14 @@ class PostUpdate extends Component
 	public $tags;
 	public $prodis = [];
 	public $post_id;
+	public $is_headline = false;
 	
 	public function mount($post){
 		$this->post_id = $post;
 		$updatingPost = Post::find($post);
 		$this->judul = $updatingPost->judul;
 		$this->konten = $updatingPost->konten;
+		$this->is_headline = $updatingPost->is_headline;
 		if(isset($updatingPost->thumbnail)){
 			$this->thumbnail = $updatingPost->thumbnail;
 		} else {
@@ -108,7 +110,8 @@ class PostUpdate extends Component
 			'tag_id' => isset($this->tags) ? $post_tags_insert : 0,
 			'prodi_id' => count($this->prodis) ? implode(",",array_filter(array_unique($this->prodis))) : 0,
 			'status_post' => ($isPublished) ? 'published' : 'draft',
-			'user_id' => Auth::user()->id
+			'user_id' => Auth::user()->id,
+			'is_headline' => $this->is_headline
 		];
 		$post = Post::find($this->post_id);
 		$post->judul = $submittedData['judul'];

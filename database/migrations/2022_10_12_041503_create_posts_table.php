@@ -25,6 +25,7 @@ return new class extends Migration
 			$table->string('prodi_id')->nullable(); // menampung array, jika null maka berlaku umum
 			$table->enum('status_post', ['draft', 'published'])->default('draft');
 			$table->string('slug', 100)->unique();
+			$table->boolean('is_headline')->default(0);
             $table->timestamps();
         });
     }

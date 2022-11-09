@@ -48,6 +48,12 @@ use App\Http\Livewire\Menu\MenuIndex;
 |
 */
 
+Route::domain('testing' . env('APP_URL'))->group(function () {
+    Route::get('/', function () {
+        return 'ini adalah subdomain';
+    });
+});
+
 Route::get('teslw', Teslw::class);
 Route::get('/', Home::class)->name('home');
 //Route::get('/', Home2::class)->name('home');

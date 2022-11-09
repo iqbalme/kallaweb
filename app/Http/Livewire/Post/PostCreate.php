@@ -30,6 +30,7 @@ class PostCreate extends Component
 	public $tags;
 	public $prodis = [];
 	public $post_id;
+	public $is_headline = false;
 	
     public function render()
     {
@@ -70,7 +71,8 @@ class PostCreate extends Component
 			'prodi_id' => count($this->prodis) ? implode(",",array_filter(array_unique($this->prodis))) : 0,
 			'status_post' => ($isPublished) ? 'published' : 'draft',
 			'user_id' => Auth::user()->id,
-			'slug' => $this->setSlug($this->judul)
+			'slug' => $this->setSlug($this->judul),
+			'is_headline' => $this->is_headline
 		];
 		$createdPost = Post::create($submittedData);
 		if(isset($this->categories)){

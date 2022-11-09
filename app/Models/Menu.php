@@ -11,6 +11,6 @@ class Menu extends Model
 	
 	public function children()
 	{
-	    return $this->hasMany(Menu::class, 'parent', 'id')->with('children')->orderBy('sort', 'ASC');
+	    return $this->hasMany(Menu::class, 'parent', 'id')->with('children')->orderBy('urutan', 'ASC');
 	}
 }

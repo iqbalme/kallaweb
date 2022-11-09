@@ -15,6 +15,14 @@
 								<textarea name="konten" id="editor">{{ $konten }}</textarea>
 							</div>
 					</div>
+					<div class="mb-3">
+						<div class="form-check">
+						  <input class="form-check-input" type="checkbox" wire:model.defer="is_headline">
+						  <label class="form-check-label">
+						  <strong>&nbsp;&nbsp;Jadikan Headline</strong>
+						  </label>
+						</div>
+					</div>
 					@if(count($data['categories']))
 					<div class="mb-3">
 						<h6 class="card-title mb-2">Kategori</h6>

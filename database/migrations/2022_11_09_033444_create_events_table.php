@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
-			$table->integer('parent')->unsigned()->default(0);
-			$table->string('menu');
-			$table->string('link')->nullable()->default('#');
-			$table->integer('urutan')->unsigned()->default(0); //urutan
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('events');
     }
 };

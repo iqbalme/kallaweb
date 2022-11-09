@@ -28,26 +28,27 @@
 					<div id="list_menu" class="dd" wire:ignore>
 						@php
 				    		function get_menu($menus, $class = 'dd-list') {
-
+								
 				    			$html = '<ol class="'.$class.'">';
-
 				    			foreach($menus as $key => $value) {
-				    				$html .= '<li class="dd-item" data-id="'.$value['id'].'">
-								    				<div class="float-end btn-handle">
-								    					<button class="badge bg-primary border-0" wire:click.prevent="editMenu('.$value['id'].')">'.__('Edit').'</button>
-								    					<button class="badge bg-danger border-0" wire:click.prevent="removeMenu('.$value['id'].')">'.__('Delete').'</button>
-								    				</div>
-
-								    				<div class="dd-handle">
-								    					<span><i class="'.$value['icon'].' pe-1"></i>'.$value['text'].'</span>
-								    					<small class="url">'.$value['url'].'</small>
+				    				$html .= '<li class="dd-item"  data-id="'.uniqid().'" data-menu="'.$value['menu'].'" data-link="'.$value['link'].'">
+													<div class="container">
+														<div class="row justify-content-between">
+															<div class="dd-handle col">
+																'.$value['menu'].'
+															</div>
+															<div class="dd-handle col-auto">
+																<button class="badge bg-primary border-0" wire:click.prevent="">Edit</button>&nbsp;
+																<button class="badge bg-danger border-0" wire:click.prevent="">Hapus</button>
+															</div>
+														</div>
 								    				</div>';
-
 											        if( !empty($value['children']) ) {
 											            $html .= get_menu($value['children'],'children');
 											        }
-
+													
 							    	$html .'</li>';
+									
 				    			}
 
 				    			$html .= '</ol>';
@@ -62,8 +63,17 @@
 				</div>
 			</div>
 		</div>
+		<hr>
+		<div class="row justify-content-end">
+			<div class="col-lg-3">
+				<!-- Button trigger modal -->
+					<button type="button" class="btn btn-success text-white" onclick="getMenuData()">
+					  Simpan Pengaturan Menu
+					</button>
+			</div>
+		</div>
 	</div>
-	<button onclick="liatdata()">tes</button>
+	<button onclick="getNested()">tes</button>
 	<livewire:menu.menu-create />
 	<style>
 		.panah {
@@ -87,6 +97,13 @@
 		.dd-item {
 			cursor: move;
 		}
+		.dd-handle {
+			border: none !important;
+			border-radius: 0px !important;
+		}
+		.dd-collapse, .dd-expand {
+			display: none !important;
+		}		
 		
 	</style>
 	<link rel="stylesheet" href="{{ asset('admin/css/jquery.nestable.min.css') }}">
@@ -95,15 +112,15 @@
 		window.addEventListener('addDragMenu', event => {
 			let r = (Math.random() + 1).toString(36).substring(7);
 			if (jQuery('.menu-origin .dd').children('.dd-list').length){
-				jQuery('.menu-origin .dd .dd-list').append('<li class="dd-item" data-id="'+ event.detail.menu.element_id +'" data-link="'+ event.detail.menu.link +'"><div class="dd-handle">'+ event.detail.menu.nama_menu +'</div></li>');
+				jQuery('.menu-origin .dd .dd-list').append('<li class="dd-item" data-menu="'+event.detail.menu.nama_menu+'" data-link="'+event.detail.menu.link+'"><div class="container"><div class="row justify-content-between"><div class="dd-handle col">'+event.detail.menu.nama_menu+'</div><div class="dd-handle col-auto"><button class="badge bg-primary border-0" wire:click.prevent="">Edit</button>&nbsp;<button class="badge bg-danger border-0" wire:click.prevent="">Hapus</button></div></div></div></li>');
 			} else {
-				jQuery('.menu-origin .dd').append('<ol class="dd-list"><li class="dd-item" data-id="'+ event.detail.menu.element_id +'" data-link="'+ event.detail.menu.link +'"><div class="dd-handle">'+ event.detail.menu.nama_menu +'</div></li></ol>');
+				jQuery('.menu-origin .dd').append('<ol class="dd-list"><li class="dd-item" data-menu="'+event.detail.menu.nama_menu+'" data-link="'+event.detail.menu.link+'"><div class="container"><div class="row justify-content-between"><div class="dd-handle col">'+event.detail.menu.nama_menu+'</div><div class="dd-handle col-auto"><button class="badge bg-primary border-0" wire:click.prevent="">Edit</button>&nbsp;<button class="badge bg-danger border-0" wire:click.prevent="">Hapus</button></div></div></div></li></ol>');
 				jQuery('.menu-origin .dd .dd-empty').remove();
 			};
 		});
 		jQuery('.dd').nestable();
-		function liatdata(){
-			console.log(jQuery('#list_menu').nestable('serialize'));
+		function getMenuData(){
+			Livewire.emit('simpanMenu', jQuery('#list_menu').nestable('serialize'));
 		};
 	</script>
 	
