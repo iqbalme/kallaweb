@@ -1,68 +1,560 @@
-<div>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-		@if(isset($data['carousels']))
-		  @foreach($data['carousels'] as $carousel)
-          <li data-target="#myCarousel" data-slide-to="{{ $loop->index }}" @if($loop->index == 0) class="active" @else class="" @endif></li>
-		  @endforeach
-		@endisset
-        </ol>
-        <div class="carousel-inner">
-		@if(isset($data['carousels']))
-			@foreach($data['carousels'] as $carousel)
-			<div @if($loop->index == 0) class="carousel-item active" @else class="carousel-item" @endif>
-				<img class="" src="{{ asset('storage/images/'.$post->thumbnail) }}" alt="First slide">
-				<div class="container">
-				  <div class="carousel-caption text-left">
-					<h1><span style="background-color:rgba(104, 103, 103, 0.8);padding:3px 9px;">{{ strtoupper($carousel->judul) }}</span></h1>
-					<p class="mt-3"><span style="background-color:rgba(73, 124, 253, 0.53);padding:3px 9px;">{{ substr($carousel->konten,0,50).'...' }}</span></p>
-					<p><a class="btn btn-lg btn-primary" href="#" role="button">Selengkapnya</a></p>
-				  </div>
-				</div>
-			</div>
-			@endforeach
-		@endisset
-        </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-	  
-	  <div class="container">
-	  <div class="row mb-2">
-        <div class="col-md-6">
-          <div class="card flex-md-row mb-4 box-shadow h-md-250">
-            <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-primary">World</strong>
-              <h3 class="mb-0">
-                <a class="text-dark" href="#">Featured post</a>
-              </h3>
-              <div class="mb-1 text-muted">Nov 12</div>
-              <p class="card-text mb-auto">{!! substr(preg_replace('/<(\s*)img[^<>]*>/i', '', 'This is a wider card with supporting text below as a natural lead-in to additional content.'),0,200) !!}</p>
-              <a href="#">Continue reading</a>
+      <section class="flexslider">
+        <ul class="slides">
+          <li style="background-image: url(img/slider_1.jpg)" class="overlay">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="probootstrap-slider-text text-center">
+                    <h1 class="probootstrap-heading probootstrap-animate">Your Bright Future is Our Mission</h1>
+                  </div>
+                </div>
+              </div>
             </div>
-            <img class="card-img-left flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_183fafe89f1%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_183fafe89f1%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.1953125%22%20y%3D%22131%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+          </li>
+          <li style="background-image: url({{asset('frontend/theme/img/slider_2.jpg')}})" class="overlay">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="probootstrap-slider-text text-center">
+                    <h1 class="probootstrap-heading probootstrap-animate">Education is Life</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </li>
+          <li style="background-image: url(img/slider_3.jpg)" class="overlay">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="probootstrap-slider-text text-center">
+                    <h1 class="probootstrap-heading probootstrap-animate">Helping Each of Our Students Fulfill the Potential</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+      
+      <section class="probootstrap-section probootstrap-section-colored">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-left section-heading probootstrap-animate">
+              <h2>Welcome to School of Excellence</h2>
+            </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card flex-md-row mb-4 box-shadow h-md-250">
-            <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-success">Design</strong>
-              <h3 class="mb-0">
-                <a class="text-dark" href="#">Post title</a>
-              </h3>
-              <div class="mb-1 text-muted">Nov 11</div>
-              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-              <a href="#">Continue reading</a>
+      </section>
+
+      <section class="probootstrap-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="probootstrap-flex-block">
+                <div class="probootstrap-text probootstrap-animate">
+                  <h3>About School</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis explicabo veniam labore ratione illo vero voluptate a deserunt incidunt odio aliquam commodi blanditiis voluptas error non rerum temporibus optio accusantium!</p>
+                  <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                </div>
+                <div class="probootstrap-image probootstrap-animate" style="background-image: url({{asset('frontend/theme/img/slider_3.jpg') }})">
+                  <a href="https://www.youtube.com/watch?v=dVCJlFXY9r0" class="btn-video popup-vimeo"><i class="icon-play3"></i></a>
+                </div>
+              </div>
             </div>
-            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_183fafe89f5%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_183fafe89f5%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.1953125%22%20y%3D%22131%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 200px; height: 250px;">
           </div>
         </div>
-      </div>
-	  </div>
-</div>
+      </section>
+
+      <section class="probootstrap-section" id="probootstrap-counter">
+        <div class="container">
+          
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+              <div class="probootstrap-counter-wrap">
+                <div class="probootstrap-icon">
+                  <i class="icon-users2"></i>
+                </div>
+                <div class="probootstrap-text">
+                  <span class="probootstrap-counter">
+                    <span class="js-counter" data-from="0" data-to="20203" data-speed="5000" data-refresh-interval="50">1</span>
+                  </span>
+                  <span class="probootstrap-counter-label">Students Enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+              <div class="probootstrap-counter-wrap">
+                <div class="probootstrap-icon">
+                  <i class="icon-user-tie"></i>
+                </div>
+                <div class="probootstrap-text">
+                  <span class="probootstrap-counter">
+                    <span class="js-counter" data-from="0" data-to="139" data-speed="5000" data-refresh-interval="50">1</span>
+                  </span>
+                  <span class="probootstrap-counter-label">Certified Teachers</span>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix visible-sm-block visible-xs-block"></div>
+            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+              <div class="probootstrap-counter-wrap">
+                <div class="probootstrap-icon">
+                  <i class="icon-library"></i>
+                </div>
+                <div class="probootstrap-text">
+                  <span class="probootstrap-counter">
+                    <span class="js-counter" data-from="0" data-to="99" data-speed="5000" data-refresh-interval="50">1</span>%
+                  </span>
+                  <span class="probootstrap-counter-label">Passing to Universities</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+               
+               <div class="probootstrap-counter-wrap">
+                <div class="probootstrap-icon">
+                  <i class="icon-smile2"></i>
+                </div>
+                <div class="probootstrap-text">
+                  <span class="probootstrap-counter">
+                    <span class="js-counter" data-from="0" data-to="100" data-speed="5000" data-refresh-interval="50">1</span>%
+                  </span>
+                  <span class="probootstrap-counter-label">Parents Satisfaction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="probootstrap-section probootstrap-section-colored probootstrap-bg probootstrap-custom-heading probootstrap-tab-section" style="background-image: url(img/slider_2.jpg)">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center section-heading probootstrap-animate">
+              <h2 class="mb0">Highlights</h2>
+            </div>
+          </div>
+        </div>
+        <div class="probootstrap-tab-style-1">
+          <ul class="nav nav-tabs probootstrap-center probootstrap-tabs no-border">
+            <li class="active"><a data-toggle="tab" href="#featured-news">Featured News</a></li>
+            <li><a data-toggle="tab" href="#upcoming-events">Upcoming Events</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="probootstrap-section probootstrap-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              
+              <div class="tab-content">
+
+                <div id="featured-news" class="tab-pane fade in active">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="owl-carousel" id="owl1">
+                        <div class="item">
+                          <a href="#" class="probootstrap-featured-news-box">
+                            <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                            <div class="probootstrap-text">
+                              <h3>Tempora consectetur unde nisi</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, ut.</p>
+                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                              
+                            </div>
+                          </a>
+                        </div>
+                        <!-- END item -->
+                        <div class="item">
+                          <a href="#" class="probootstrap-featured-news-box">
+                            <figure class="probootstrap-media"><img src="img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                            <div class="probootstrap-text">
+                              <h3>Tempora consectetur unde nisi</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, officia.</p>
+                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                              
+                            </div>
+                          </a>
+                        </div>
+                        <!-- END item -->
+                        <div class="item">
+                          <a href="#" class="probootstrap-featured-news-box">
+                            <figure class="probootstrap-media"><img src="img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                            <div class="probootstrap-text">
+                              <h3>Tempora consectetur unde nisi</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, dolores.</p>
+                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                              
+                            </div>
+                          </a>
+                        </div>
+                        <!-- END item -->
+                        <div class="item">
+                          <a href="#" class="probootstrap-featured-news-box">
+                            <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                            <div class="probootstrap-text">
+                              <h3>Tempora consectetur unde nisi</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, earum.</p>
+                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                              
+                              
+                            </div>
+                          </a>
+                        </div>
+                        <!-- END item -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END row -->
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <p><a href="#" class="btn btn-primary">View all news</a></p>  
+                    </div>
+                  </div>
+                </div>
+                <div id="upcoming-events" class="tab-pane fade">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="owl-carousel" id="owl2">
+                        <div class="item">
+                          <a href="#" class="probootstrap-featured-news-box">
+                            <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                            <div class="probootstrap-text">
+                              <h3>Tempora consectetur unde nisi</h3>
+                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
+                            </div>
+                          </a>
+                        </div>
+                        <!-- END item -->
+                        <div class="item">
+                          <a href="#" class="probootstrap-featured-news-box">
+                            <figure class="probootstrap-media"><img src="img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                            <div class="probootstrap-text">
+                              <h3>Tempora consectetur unde nisi</h3>
+                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
+                            </div>
+                          </a>
+                        </div>
+                        <!-- END item -->
+                        <div class="item">
+                          <a href="#" class="probootstrap-featured-news-box">
+                            <figure class="probootstrap-media"><img src="img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                            <div class="probootstrap-text">
+                              <h3>Tempora consectetur unde nisi</h3>
+                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
+                            </div>
+                          </a>
+                        </div>
+                        <!-- END item -->
+                        <div class="item">
+                          <a href="#" class="probootstrap-featured-news-box">
+                            <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                            <div class="probootstrap-text">
+                              <h3>Tempora consectetur unde nisi</h3>
+                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
+                            </div>
+                          </a>
+                        </div>
+                        <!-- END item -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <p><a href="#" class="btn btn-primary">View all events</a></p>  
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="probootstrap-section probootstrap-bg-white probootstrap-border-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+              <h2>Our Featured Courses</h2>
+              <p class="lead">Sed a repudiandae impedit voluptate nam Deleniti dignissimos perspiciatis nostrum porro nesciunt</p>
+            </div>
+          </div>
+          <!-- END row -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="probootstrap-service-2 probootstrap-animate">
+                <div class="image">
+                  <div class="image-bg">
+                    <img src="img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                  </div>
+                </div>
+                <div class="text">
+                  <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
+                  <h3>Application Design</h3>
+                  <p>Laboriosam pariatur modi praesentium deleniti molestiae officiis atque numquam quos quis nisi voluptatum architecto rerum error.</p>
+                  <p><a href="#" class="btn btn-primary">Enroll now</a> <span class="enrolled-count">2,928 students enrolled</span></p>
+                </div>
+              </div>
+
+              <div class="probootstrap-service-2 probootstrap-animate">
+                <div class="image">
+                  <div class="image-bg">
+                    <img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                  </div>
+                </div>
+                <div class="text">
+                  <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
+                  <h3>Chemical Engineering</h3>
+                  <p>Laboriosam pariatur modi praesentium deleniti molestiae officiis atque numquam quos quis nisi voluptatum architecto rerum error.</p>
+                  <p><a href="#" class="btn btn-primary">Enroll now</a> <span class="enrolled-count">7,202 students enrolled</span></p>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="probootstrap-service-2 probootstrap-animate">
+                <div class="image">
+                  <div class="image-bg">
+                    <img src="img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                  </div>
+                </div>
+                <div class="text">
+                  <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
+                  <h3>Math Major</h3>
+                  <p>Laboriosam pariatur modi praesentium deleniti molestiae officiis atque numquam quos quis nisi voluptatum architecto rerum error.</p>
+                  <p><a href="#" class="btn btn-primary">Enroll now</a> <span class="enrolled-count">12,582 students enrolled</span></p>
+                </div>
+              </div>
+
+              <div class="probootstrap-service-2 probootstrap-animate">
+                <div class="image">
+                  <div class="image-bg">
+                    <img src="img/img_sm_4.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                  </div>
+                </div>
+                <div class="text">
+                  <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
+                  <h3>English Major</h3>
+                  <p>Laboriosam pariatur modi praesentium deleniti molestiae officiis atque numquam quos quis nisi voluptatum architecto rerum error.</p>
+                  <p><a href="#" class="btn btn-primary">Enroll now</a> <span class="enrolled-count">9,582 students enrolled</span></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      
+      <section class="probootstrap-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+              <h2>Meet Our Qualified Teachers</h2>
+              <p class="lead">Sed a repudiandae impedit voluptate nam Deleniti dignissimos perspiciatis nostrum porro nesciunt</p>
+            </div>
+          </div>
+          <!-- END row -->
+
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="img/person_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3>Chris Worth</h3>
+                  <p>Physical Education</p>
+                  <ul class="probootstrap-footer-social">
+                    <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
+                    <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="img/person_5.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3>Janet Morris</h3>
+                  <p>English Teacher</p>
+                  <ul class="probootstrap-footer-social">
+                    <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
+                    <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix visible-sm-block visible-xs-block"></div>
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="img/person_6.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3>Linda Reyez</h3>
+                  <p>Math Teacher</p>
+                  <ul class="probootstrap-footer-social">
+                    <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
+                    <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="probootstrap-teacher text-center probootstrap-animate">
+                <figure class="media">
+                  <img src="img/person_7.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive">
+                </figure>
+                <div class="text">
+                  <h3>Jessa Sy</h3>
+                  <p>Physics Teacher</p>
+                  <ul class="probootstrap-footer-social">
+                    <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
+                    <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
+                    <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <section class="probootstrap-section probootstrap-bg probootstrap-section-colored probootstrap-testimonial" style="background-image: url(img/slider_4.jpg);">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+              <h2>Alumni Testimonial</h2>
+              <p class="lead">Sed a repudiandae impedit voluptate nam Deleniti dignissimos perspiciatis nostrum porro nesciunt</p>
+            </div>
+          </div>
+          <!-- END row -->
+          <div class="row">
+            <div class="col-md-12 probootstrap-animate">
+              <div class="owl-carousel owl-carousel-testimony owl-carousel-fullwidth">
+                <div class="item">
+
+                  <div class="probootstrap-testimony-wrap text-center">
+                    <figure>
+                      <img src="img/person_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                    </figure>
+                    <blockquote class="quote">&ldquo;Design must be functional and functionality must be translated into visual aesthetics, without any reliance on gimmicks that have to be explained.&rdquo; <cite class="author"> &mdash; <span>Mike Fisher</span></cite></blockquote>
+                  </div>
+
+                </div>
+                <div class="item">
+                  <div class="probootstrap-testimony-wrap text-center">
+                    <figure>
+                      <img src="img/person_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                    </figure>
+                    <blockquote class="quote">&ldquo;Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.&rdquo; <cite class="author"> &mdash;<span>Jorge Smith</span></cite></blockquote>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="probootstrap-testimony-wrap text-center">
+                    <figure>
+                      <img src="img/person_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                    </figure>
+                    <blockquote class="quote">&ldquo;I think design would be better if designers were much more skeptical about its applications. If you believe in the potency of your craft, where you choose to dole it out is not something to take lightly.&rdquo; <cite class="author">&mdash; <span>Brandon White</span></cite></blockquote>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <!-- END row -->
+        </div>
+      </section>
+
+      <section class="probootstrap-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+              <h2>Why Choose Enlight School</h2>
+              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="service left-icon probootstrap-animate">
+                <div class="icon"><i class="icon-checkmark"></i></div>
+                <div class="text">
+                  <h3>Consectetur Adipisicing</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                </div>  
+              </div>
+              <div class="service left-icon probootstrap-animate">
+                <div class="icon"><i class="icon-checkmark"></i></div>
+                <div class="text">
+                  <h3>Aliquid Dolorum Saepe</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                </div>
+              </div>
+              <div class="service left-icon probootstrap-animate">
+                <div class="icon"><i class="icon-checkmark"></i></div>
+                <div class="text">
+                  <h3>Eveniet Tempora Anisi</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="service left-icon probootstrap-animate">
+                <div class="icon"><i class="icon-checkmark"></i></div>
+                <div class="text">
+                  <h3>Laboriosam Quod Dignissimos</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                </div>  
+              </div>
+              
+              <div class="service left-icon probootstrap-animate">
+                <div class="icon"><i class="icon-checkmark"></i></div>
+                <div class="text">
+                  <h3>Asperiores Maxime Modi</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                </div>
+              </div>
+              
+              <div class="service left-icon probootstrap-animate">
+                <div class="icon"><i class="icon-checkmark"></i></div>
+                <div class="text">
+                  <h3>Libero Maxime Molestiae</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- END row -->
+        </div>
+      </section>
+      
+      <section class="probootstrap-cta">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Get your admission now!</h2>
+              <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Enroll</a>
+            </div>
+          </div>
+        </div>
+      </section>

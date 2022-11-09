@@ -23,6 +23,8 @@ use App\Http\Livewire\Admin\PendaftarCtrl;
 use App\Http\Livewire\Pengaturan\PengaturanDasar;
 use App\Http\Livewire\Pengaturan\PengaturanTema;
 use App\Http\Livewire\Pengaturan\PengaturanMenu;
+use App\Http\Livewire\Pengaturan\PengaturanAdmisi;
+use App\Http\Livewire\Pengaturan\PengaturanPembayaran;
 use App\Http\Livewire\User\UserIndex;
 use App\Http\Livewire\Role\RoleIndex;
 use App\Http\Livewire\Prodi\ProdiIndex;
@@ -84,6 +86,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 	Route::get('pengaturan/dasar/', PengaturanDasar::class)->name('pengaturan.dasar');
 	Route::get('pengaturan/tema/', PengaturanTema::class)->name('pengaturan.tema');
 	Route::get('pengaturan/menu/', PengaturanMenu::class)->name('pengaturan.menu');
+	Route::get('pengaturan/pembayaran/', PengaturanPembayaran::class)->name('pengaturan.pembayaran');
+	Route::get('pengaturan/admisi/', PengaturanAdmisi::class)->name('pengaturan.admisi');
 	Route::get('carousel/', CarouselIndex::class)->name('carousel.index');
 	Route::get('pendaftar/', PendaftarCtrl::class)->name('pendaftar.index');
 	Route::get('menu/', MenuIndex::class)->name('pengaturan.menu');

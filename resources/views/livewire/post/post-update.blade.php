@@ -17,7 +17,7 @@
 				</div>
 				<div class="mb-3">
 						<div class="form-check">
-						  <input class="form-check-input" type="checkbox" wire:model.defer="is_headline">
+						  <input class="form-check-input" type="checkbox" wire:model="is_headline">
 						  <label class="form-check-label">
 						  <strong>&nbsp;&nbsp;Jadikan Headline</strong>
 						  </label>

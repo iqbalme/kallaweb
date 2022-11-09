@@ -61,16 +61,6 @@
 				<input type="date" class="form-control" wire:model="akhir_berlaku">
 			</div>
 		</div>
-		<div class="col mb-2">
-			<label class="col-form-label"><strong>Katalog Khusus</strong></label>
-			<div class="col">
-				<select wire:model="katalog_id" class="form-select" multiple>
-					@foreach($katalogs as $katalog)
-					  <option value="{{$katalog->id}}">{{$katalog->nama_katalog}}</option>
-					@endforeach
-				</select>
-			</div>
-		</div>
 		<div class="mb-3 mt-3">
 			<div class="form-check" wire:ignore.self>
 			  <input class="form-check-input" type="checkbox" wire:model.defer="aktif">

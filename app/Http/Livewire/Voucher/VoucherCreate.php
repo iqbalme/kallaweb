@@ -17,7 +17,7 @@ class VoucherCreate extends Component
 	public $awal_berlaku = null;
 	public $akhir_berlaku = null;
 	public $aktif = false;
-	public $katalog_id = [];
+	//public $katalog_id = [];
 	
 	protected $listeners = [
 		
@@ -25,7 +25,7 @@ class VoucherCreate extends Component
 	
 	public function mount(){
 		$this->resetInput();
-		$this->katalogs = Katalog::all();
+		//$this->katalogs = Katalog::all();
 	}
 	
     public function render()
@@ -47,7 +47,7 @@ class VoucherCreate extends Component
 		$this->awal_berlaku = null;
 		$this->akhir_berlaku = null;
 		$this->aktif = false;
-		$this->katalog_id = [];
+		//$this->katalog_id = [];
 	}
 	
 	public function create(){
@@ -69,7 +69,7 @@ class VoucherCreate extends Component
 		}
 		$data = [
 			'kode_voucher' => $this->kode_voucher,
-			'katalog_id' => $katalog_id,
+			//'katalog_id' => $katalog_id,
 			'nominal_diskon' => $this->nominal_diskon,
 			'tipe_diskon' => $this->tipe_diskon,
 			'deskripsi_voucher' => $this->deskripsi_voucher,

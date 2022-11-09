@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
+			$table->string('nama');
+			$table->longText('deskripsi');
+			$table->string('gambar');
+			$table->string('keterangan');
             $table->timestamps();
         });
     }

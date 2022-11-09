@@ -4,11 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
+use App\Models\PostCategory;
 
 class Category extends Model
 {
     use HasFactory;
 	
+	protected $table = 'categories';
+	
 	protected $guarded = [];
+	
+	public function postCategory(){
+		return $this->hasMany(PostCategory::class);
+	}
 
 }

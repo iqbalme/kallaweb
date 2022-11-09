@@ -18,7 +18,7 @@ class VoucherUpdate extends Component
 	public $akhir_berlaku;
 	public $aktif;
 	public $voucher = null;
-	public $katalog_id = [];
+	//public $katalog_id = [];
 	
 	protected $listeners = [
 		'getVoucher'
@@ -34,14 +34,14 @@ class VoucherUpdate extends Component
 		$this->awal_berlaku = $voucher['awal_berlaku'];
 		$this->akhir_berlaku = $voucher['akhir_berlaku'];
 		$this->aktif = $voucher['aktif'];
-		$katalogs = Katalog::whereIn('id', explode(',',$voucher['katalog_id']))->get();
-		foreach($katalogs as $katalog){
-			$this->katalog_id[] = $katalog->id;
-		}
+		// $katalogs = Katalog::whereIn('id', explode(',',$voucher['katalog_id']))->get();
+		// foreach($katalogs as $katalog){
+			// $this->katalog_id[] = $katalog->id;
+		// }
 	}
 	
 	public function mount(){
-		$this->katalogs = Katalog::all();
+		//$this->katalogs = Katalog::all();
 	}
 	
 	public function render()
@@ -64,11 +64,11 @@ class VoucherUpdate extends Component
 		$this->awal_berlaku = null;
 		$this->akhir_berlaku = null;
 		$this->aktif = false;
-		$this->katalog_id = [];
+		//$this->katalog_id = [];
 	}
 	
 	public function update(){
-		$katalog_id = 0;
+		//$katalog_id = 0;
 		if(count($this->katalog_id)){
 			$katalog_id = implode(',',$this->katalog_id);
 		}
@@ -80,8 +80,8 @@ class VoucherUpdate extends Component
 			'nama_voucher' => $this->nama_voucher,
 			'awal_berlaku' => $this->awal_berlaku,
 			'akhir_berlaku' => $this->akhir_berlaku,
-			'aktif' => $this->aktif,
-			'katalog_id' => $katalog_id
+			'aktif' => $this->aktif
+			//'katalog_id' => $katalog_id
 		];
 		$voucher = Voucher::find($this->voucher_id);
 		$voucher->update($data);

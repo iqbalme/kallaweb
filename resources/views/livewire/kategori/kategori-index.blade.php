@@ -2,16 +2,19 @@
 	<div class="container-lg">
 		<div class="card mb-4">
             <div class="card-body">
-				<h3>Nama Kategori</h3><br>
+				<div class="row justify-content-between p-3">
+					<div class="col-4"><h3>List Kategori</h3></div>
+					@if(!$isFormVisible)
+						<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" wire:click="tambahKategori()">Tambah Kategori</button></div>
+					@endif
+					<hr>
+				</div>
 				@if ($isFormVisible)
 					@if($isUpdate)
 						<livewire:kategori.kategori-update />
 					@else
 						<livewire:kategori.kategori-create />
 					@endif
-				@endif
-				@if (!$isFormVisible)
-					<button type="button" class="btn btn-success text-white mb-2" wire:click="tambahKategori()">Tambah Kategori</button>
 				@endif
 				<div class="table-responsive">
                     <table class="table border mb-0 table-striped">

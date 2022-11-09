@@ -19,7 +19,7 @@ return new class extends Migration
 			$table->longText('deskripsi_voucher')->nullable();
 			$table->string('kode_voucher', 10)->unique();
 			//$table->foreignId('katalog_id')->nullable()->constrained(); //berlaku hanya untuk katalog ini, jika null maka berlaku untuk semua
-			$table->string('katalog_id')->nullable()->default('0');
+			//$table->string('katalog_id')->nullable()->default('0');
 			$table->enum('tipe_diskon', ['persen', 'nominal'])->default('persen');
 			$table->integer('nominal_diskon')->unsigned();
 			$table->dateTime('awal_berlaku')->nullable()->default(null);

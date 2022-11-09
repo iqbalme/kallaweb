@@ -3,7 +3,7 @@
 		<div class="card mb-4">
             <div class="card-body">
 				<div class="row justify-content-between p-3">
-					<div class="col-4"><h3>Daftar Role</h3></div>
+					<div class="col-4"><h3>List Role</h3></div>
 					@if(!$isFormVisible)
 						<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" wire:click="tambahRole()">Tambah Role</button></div>
 					@endif

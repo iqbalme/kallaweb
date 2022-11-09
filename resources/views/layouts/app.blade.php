@@ -10,17 +10,11 @@
 
     <title>{{ isset($title) ? $title : '' }} - {{ $data['web_title'] }}</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="{{ asset('frontend/assets/css/style-nav.css') }}">
-
-    <!-- Custom styles for this template -->
-    <!--link href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/navbar-top-fixed.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css" rel="stylesheet"-->
-	<!-- Font Awesome -->
-	<!-- Place your kit's code here -->
-    <script src="https://kit.fontawesome.com/8b91ad4956.js" crossorigin="anonymous"></script>
-
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('frontend/theme/css/styles-merged.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/theme/css/style.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/theme/css/custom.css') }}">
+    
 	@isset($data['google_analytics'])
 	<!-- Google tag (gtag.js) -->
 	<script async src="{{ 'https://www.googletagmanager.com/gtag/js?id=' . $data['google_analytics'] }}"></script>
@@ -59,49 +53,11 @@
 
 	@include('layouts.nav')
 	@yield('content')
-	@include('layouts.footer-temp')
+	@include('layouts.footer')
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script>
-		jQuery(function($) {
-			$(window).on('scroll', function() {
-				if ($(this).scrollTop() >= 200) {
-					$('.navbar').addClass('fixed-top');
-				} else if ($(this).scrollTop() == 0) {
-					$('.navbar').removeClass('fixed-top');
-				}
-			});
-			
-			function adjustNav() {
-				var winWidth = $(window).width(),
-					dropdown = $('.dropdown'),
-					dropdownMenu = $('.dropdown-menu');
-				
-				if (winWidth >= 768) {
-					dropdown.on('mouseenter', function() {
-						$(this).addClass('show')
-							.children(dropdownMenu).addClass('show');
-					});
-					
-					dropdown.on('mouseleave', function() {
-						$(this).removeClass('show')
-							.children(dropdownMenu).removeClass('show');
-					});
-				} else {
-					dropdown.off('mouseenter mouseleave');
-				}
-			}
-			
-			$(window).on('resize', adjustNav);
-			
-			adjustNav();
-		});
-  </script>
+    <script src="{{ asset('frontend/theme/js/scripts.min.js') }}"></script>
+    <script src="{{ asset('frontend/theme/js/main.min.js') }}"></script>
+    <script src="{{ asset('frontend/theme/js/custom.js') }}"></script>
 	@livewireScripts
   </body>
 </html>

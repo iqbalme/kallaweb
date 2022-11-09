@@ -2,13 +2,11 @@
 	<div class="container-lg">
 		<div class="card mb-4">
             <div class="card-body">
-				<h3>Daftar Voucher</h3>
-				<div class="row">
-					<div class="col">
-					<button type="button" class="btn btn-info text-white mb-2" data-coreui-toggle="modal" data-coreui-target="#voucherModal" wire:click="addFormVoucher">Tambah Voucher</button>
-					</div>
+				<div class="row justify-content-between p-3">
+					<div class="col-4"><h3>List Voucher</h3></div>
+						<div class="col-auto"><button type="button" class="btn btn-info text-white mb-2" data-coreui-toggle="modal" data-coreui-target="#voucherModal" wire:click="addFormVoucher">Tambah Voucher</button></div>
+					<hr>
 				</div>
-				<hr>
 				<div class="row justify-content-md-between">
 				<!-- Perhalaman -->
 				<div class="col-lg-auto">
@@ -51,7 +49,6 @@
                           <th class="text-center">Besar Diskon</th>
                           <th class="text-center">Awal Berlaku</th>
                           <th class="text-center">Akhir Berlaku</th>
-                          <th class="text-center">Spesifik</th>
                           <th class="text-center">Aktif</th>
                         </tr>
                       </thead>
@@ -71,7 +68,7 @@
                           </td>
 						  <td>
                             <div>{{ ucfirst($voucher->nama_voucher) }}</div>
-							<a wire:click="getVoucher({{$voucher->id}})" data-coreui-toggle="modal" data-coreui-target="#voucherModalEdit"><span class="badge text-bg-dark">Edit</span></a>
+							<a href="#" wire:click="getVoucher({{$voucher->id}})" data-coreui-toggle="modal" data-coreui-target="#voucherModalEdit"><span class="badge text-bg-dark">Edit</span></a>
 							<a href="#" wire:click="setVoucherId({{$voucher->id}})" data-coreui-toggle="modal" data-coreui-target="#voucherModalHapus"><span class="badge text-bg-danger text-white">Hapus</span></a>
                           </td>
 						  <td>
@@ -100,13 +97,6 @@
 							@else
 								-
 							@endif</td>
-							<td>
-							@if($voucher->katalog_id != '0')
-								<span class="badge text-bg-success text-white">Ya</span>
-							@else
-								<span class="badge text-bg-warning text-white">Tidak</span>
-							@endif
-							</td>
 							<td>
 							@if($voucher->aktif)
 								<span class="badge text-bg-success text-white">Ya</span>

@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\User;
+use App\Models\Role;
 //use Illuminate\Support\Facades\Hash;
 
 class UserCreate extends Component
@@ -15,8 +16,11 @@ class UserCreate extends Component
 	public $nama = null;
 	public $email = null;
 	public $password = null;
+	public $roles = [];
+	public $user_roles = [];
 	
 	public function mount(){
+		$this->roles = Role::all();
 		// $this->avatar = null;
 		// $this->nama = null;
 		// $this->email = null;
@@ -28,8 +32,9 @@ class UserCreate extends Component
         return view('livewire.user.user-create');
     }
 	
-	public function updatedAvatar(){
-		$this->render();
+	public function removeAvatar(){
+		$this->avatar->delete();
+		$this->avatar = null;
 	}
 	
 	public function tambahUser(){

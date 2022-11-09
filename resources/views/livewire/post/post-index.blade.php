@@ -47,6 +47,7 @@
                           <th class="text-center">Kategori</th>
                           <th class="text-center">Prodi</th>
                           <th class="text-center">Tanggal</th>
+						  <th class="text-center">Headline</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -99,11 +100,18 @@
                           </td>
 						  <td>
 							@if($post->status_post == 'published')
-								<span class="badge text-bg-success">{{ ucfirst($post->status_post) }}</span>
+								<span class="badge text-bg-success text-white">{{ ucfirst($post->status_post) }}</span>
 							@else
 								<span class="badge text-bg-dark">{{ ucfirst($post->status_post) }}</span>
 							@endif                            
                             <div class="small text-medium-emphasis">{{ date('d-m-Y', strtotime($post->created_at)) }}</div>
+                          </td>
+						  <td>
+							@if($post->is_headline)
+								<span class="badge text-bg-success text-white">Ya</span>
+							@else
+								<span class="badge text-bg-dark">Tidak</span>
+							@endif                            
                           </td>
                         </tr>
 						@endforeach

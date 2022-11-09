@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
+			$table->string('nama');
+			$table->longText('deskripsi');
+			$table->string('gambar');
+			$table->longText('media_sosial')->comment('isinya serialize');
             $table->timestamps();
         });
     }

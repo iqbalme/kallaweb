@@ -5,24 +5,28 @@ namespace App\Http\Livewire\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\User;
+use App\Models\Role;
 
 class UserUpdate extends Component
 {
 	use WithFileUploads;
 	//public $user;
-	public $avatar;
+	public $avatar = null;
 	public $nama;
 	public $email;
 	public $password;
 	public $user_id;
 	public $loading = false;
+	public $roles = [];
+	public $user_roles = [];
+	public $first_thumbnail = false;
 	
 	protected $listeners = [
 		'getUser', 'updateUser'
 	];
 	
 	public function mount(){
-		
+		$this->roles = Role::all();
 	}
 	
     public function render()
@@ -35,11 +39,22 @@ class UserUpdate extends Component
 		$this->nama = $user['nama'];
 		$this->email = $user['email'];
 		$this->avatar = $user['avatar'];
+		if($this->avatar){
+			$this->first_thumbnail = true;
+		}
 		$this->password = null;
 	}
 	
 	public function updatedAvatar(){
 		//$this->emit('refreshUser');
+	}
+	
+	public function removeAvatar(){
+		if(!$this->first_thumbnail){
+			$this->avatar->delete();
+		}
+		$this->first_thumbnail = false;
+		$this->avatar = null;
 	}
 	
 	

@@ -3,7 +3,7 @@
 	<div class="container-lg">
 		<div class="card mb-4">
             <div class="card-body">
-				<h3>Daftar Publikasi</h3>
+				<h3>List Pendaftar</h3>
 				<hr>
 				
 			<div class="row justify-content-md-between">

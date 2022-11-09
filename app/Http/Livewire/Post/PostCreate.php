@@ -75,6 +75,9 @@ class PostCreate extends Component
 			'is_headline' => $this->is_headline
 		];
 		$createdPost = Post::create($submittedData);
+		if($this->is_headline) {
+			Post::where('id', '!=', $createdPost->id)->update(['is_headline' => false]);
+		};
 		if(isset($this->categories)){
 			foreach($this->categories as $post_category){
 				PostCategory::create([

@@ -2,16 +2,19 @@
 	<div class="container-lg">
 		<div class="card mb-4">
             <div class="card-body">
-				<h3>Nama Prodi</h3><br>
+				<div class="row justify-content-between p-3">
+					<div class="col-4"><h3>List Program Studi</h3></div>
+					@if(!$isFormVisible)
+						<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" wire:click="tambahProdi()">Tambah Program Studi</button></div>
+					@endif
+					<hr>
+				</div>
 				@if($isFormVisible)
 					@if($isUpdate)
 						<livewire:prodi.prodi-update />
 					@else
 						<livewire:prodi.prodi-create />
 					@endif
-				@endif
-				@if(!$isFormVisible)
-					<button type="button" class="btn btn-success text-white mb-2" wire:click="tambahProdi()">Tambah Prodi</button>
 				@endif
 				<div class="table-responsive">
                     <table class="table border mb-0 table-striped table-hover">

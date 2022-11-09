@@ -122,7 +122,11 @@ class PostUpdate extends Component
 		$post->prodi_id = $submittedData['prodi_id'];
 		$post->status_post = $submittedData['status_post'];
 		$post->user_id = $submittedData['user_id'];
+		$post->is_headline = $submittedData['is_headline'];
 		$post->save();
+		if($this->is_headline) {
+			Post::where('id', '!=', $this->post_id)->update(['is_headline' => false]);
+		};
 		
 		if(isset($this->categories)){
 			PostCategory::where('post_id', $this->post_id)->delete();

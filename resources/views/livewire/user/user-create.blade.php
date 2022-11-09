@@ -1,5 +1,5 @@
 <div>
-    <div class="modal fade" id="userModal" tabindex="-1" wire:ignore>
+    <div class="modal fade" id="userModal" tabindex="-1" wire:ignore.self>
 	  <div class="modal-dialog">
 		<div class="modal-content">
 			<form wire:submit.prevent="tambahUser">
@@ -33,7 +33,7 @@
 						<img src="{{ $avatar->temporaryUrl() }}" alt="avatar" width="200" height="200">
 					</div>
 					<div class="d-grid gap-2 d-md-block">
-					  <button class="btn btn-danger text-white" type="button" wire:click="removeThumbnail">Hapus</button>
+					  <button class="btn btn-danger text-white" type="button" wire:click="removeAvatar">Hapus</button>
 					</div>
 					@else
 						<div class="col-lg-12">
@@ -44,7 +44,20 @@
 							@error('avatar') <span class="error">{{ $message }}</span> @enderror
 						</div>
 					@endif
-				</div>	
+				</div>
+				@if(count($roles))
+				<div class="mb-3 mt-3">
+					<h6 class="card-title mb-2">Roles</h6>
+					@foreach($roles as $role)
+					<div class="form-check">
+					  <input class="form-check-input" type="checkbox" value="{{ $role->id }}" wire:model="user_roles">
+					  <label class="form-check-label">
+					  {{ $role->nama_role }}
+					  </label>
+					</div>
+					@endforeach
+				</div>
+				@endif
             </div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary text-white" data-coreui-dismiss="modal">Tidak</button>
