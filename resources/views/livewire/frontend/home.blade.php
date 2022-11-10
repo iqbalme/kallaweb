@@ -1,47 +1,8 @@
-      <section class="flexslider">
-        <ul class="slides">
-          <li style="background-image: url(img/slider_1.jpg)" class="overlay">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                  <div class="probootstrap-slider-text text-center">
-                    <h1 class="probootstrap-heading probootstrap-animate">Your Bright Future is Our Mission</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li style="background-image: url({{asset('frontend/theme/img/slider_2.jpg')}})" class="overlay">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                  <div class="probootstrap-slider-text text-center">
-                    <h1 class="probootstrap-heading probootstrap-animate">Education is Life</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          </li>
-          <li style="background-image: url(img/slider_3.jpg)" class="overlay">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                  <div class="probootstrap-slider-text text-center">
-                    <h1 class="probootstrap-heading probootstrap-animate">Helping Each of Our Students Fulfill the Potential</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </section>
-      
-      <section class="probootstrap-section probootstrap-section-colored">
+     <section class="probootstrap-section probootstrap-section-colored">
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-left section-heading probootstrap-animate">
-              <h2>Welcome to School of Excellence</h2>
+              <h2>Selamat Datang di Kalla Institute</h2>
             </div>
           </div>
         </div>
@@ -57,7 +18,7 @@
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis explicabo veniam labore ratione illo vero voluptate a deserunt incidunt odio aliquam commodi blanditiis voluptas error non rerum temporibus optio accusantium!</p>
                   <p><a href="#" class="btn btn-primary">Learn More</a></p>
                 </div>
-                <div class="probootstrap-image probootstrap-animate" style="background-image: url({{asset('frontend/theme/img/slider_3.jpg') }})">
+                <div class="probootstrap-image probootstrap-animate" style="background-image: url('https://i3.ytimg.com/vi/dVCJlFXY9r0/maxresdefault.jpg')">
                   <a href="https://www.youtube.com/watch?v=dVCJlFXY9r0" class="btn-video popup-vimeo"><i class="icon-play3"></i></a>
                 </div>
               </div>
@@ -128,7 +89,112 @@
         </div>
       </section>
 
-      <section class="probootstrap-section probootstrap-section-colored probootstrap-bg probootstrap-custom-heading probootstrap-tab-section" style="background-image: url(img/slider_2.jpg)">
+	<!-- Events -->
+	
+	<section class="probootstrap-section probootstrap-section-colored probootstrap-bg probootstrap-custom-heading probootstrap-tab-section" style="background-image: url(img/slider_2.jpg)">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center section-heading probootstrap-animate fadeInUp probootstrap-animated">
+              <h2 class="mb0">Highlights</h2>
+            </div>
+          </div>
+        </div>
+        <div class="events">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<h2 class="section_title">Upcoming events</h2>
+						<div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
+					</div>
+				</div>
+			</div>
+			<div class="row events_row">
+
+				<!-- Event -->
+				<div class="col-lg-4 event_col">
+					<div class="event event_left">
+						<div class="event_image"><img src="images/event_1.jpg" alt=""></div>
+						<div class="event_body d-flex flex-row align-items-start justify-content-start">
+							<div class="event_date">
+								<div class="d-flex flex-column align-items-center justify-content-center trans_200">
+									<div class="event_day trans_200">21</div>
+									<div class="event_month trans_200">Aug</div>
+								</div>
+							</div>
+							<div class="event_content">
+								<div class="event_title"><a href="#">Which Country Handles Student Debt?</a></div>
+								<div class="event_info_container">
+									<div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>15.00 - 19.30</span></div>
+									<div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>25 New York City</span></div>
+									<div class="event_text">
+										<p>Policy analysts generally agree on a need for reform, but not on which path...</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Event -->
+				<div class="col-lg-4 event_col">
+					<div class="event event_mid">
+						<div class="event_image"><img src="images/event_2.jpg" alt=""></div>
+						<div class="event_body d-flex flex-row align-items-start justify-content-start">
+							<div class="event_date">
+								<div class="d-flex flex-column align-items-center justify-content-center trans_200">
+									<div class="event_day trans_200">27</div>
+									<div class="event_month trans_200">Aug</div>
+								</div>
+							</div>
+							<div class="event_content">
+								<div class="event_title"><a href="#">Repaying your student loans (Winter 2017-2018)</a></div>
+								<div class="event_info_container">
+									<div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>09.00 - 17.30</span></div>
+									<div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>25 Brooklyn City</span></div>
+									<div class="event_text">
+										<p>This Consumer Action News issue covers topics now being debated before...</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Event -->
+				<div class="col-lg-4 event_col">
+					<div class="event event_right">
+						<div class="event_image"><img src="images/event_3.jpg" alt=""></div>
+						<div class="event_body d-flex flex-row align-items-start justify-content-start">
+							<div class="event_date">
+								<div class="d-flex flex-column align-items-center justify-content-center trans_200">
+									<div class="event_day trans_200">01</div>
+									<div class="event_month trans_200">Sep</div>
+								</div>
+							</div>
+							<div class="event_content">
+								<div class="event_title"><a href="#">Alternative data and financial inclusion</a></div>
+								<div class="event_info_container">
+									<div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>13.00 - 18.30</span></div>
+									<div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>25 New York City</span></div>
+									<div class="event_text">
+										<p>Policy analysts generally agree on a need for reform, but not on which path...</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+      </section>
+
+	<!-- End Events -->
+	
+	
+      <section class="probootstrap-section probootstrap-section-colored probootstrap-bg probootstrap-custom-heading probootstrap-tab-section" style="background-image: url({{asset('frontend/assets/images/slider_2.jpg')}})">
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center section-heading probootstrap-animate">
@@ -545,16 +611,5 @@
             </div>
           </div>
           <!-- END row -->
-        </div>
-      </section>
-      
-      <section class="probootstrap-cta">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">Get your admission now!</h2>
-              <a href="#" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate" data-animate-effect="fadeInLeft">Enroll</a>
-            </div>
-          </div>
         </div>
       </section>

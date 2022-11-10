@@ -35,5 +35,8 @@ class AppServiceProvider extends ServiceProvider
 		view()->composer('components.header', function($view){ $view->with('data', $this->data); });
 		view()->composer('layouts.app', function($view){ $view->with('data', $this->data); });
 		view()->composer('layouts.nav', function($view){ $view->with('data', $this->data); });
+		// $this->publishes([
+			// __DIR__.'/../../public' => resource_path('vendor/mervick'),
+		// ], 'material-design-icon');
     }
 }

@@ -40,7 +40,9 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html" title="ProBootstrap:Enlight">Enlight</a>
+            <!--a class="navbar-brand" href="index.html" title="ProBootstrap:Enlight">Enlight</a-->
+            <div class="navbar-logo" href="index.html">&nbsp;</div>
+            
           </div>
 
           <div id="navbar-collapse" class="navbar-collapse collapse">
@@ -73,3 +75,20 @@
           </div>
         </div>
       </nav>
+	  <style>
+	  .navbar-logo {
+		padding-top: 0!important;
+		padding-bottom: 0!important;
+		font-size: 30px;
+		text-transform: uppercase;
+		background: url({{ asset('storage/images/'.$data['web_logo']) }}) left 100% no-repeat;
+		top: 24px;
+		position: relative;
+		width: 160px;
+		height: 43px;
+		text-indent: -999999px;
+		-webkit-transition: .2s all;
+		transition: .2s all;
+		background-size: contain;
+	  }
+	</style>

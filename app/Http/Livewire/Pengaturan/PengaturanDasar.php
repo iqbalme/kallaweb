@@ -11,7 +11,6 @@ class PengaturanDasar extends Component
 {
 	use WithFileUploads;
 	public $settings;
-	public $katalogs;
 	public $messageSave = false;
 	public $isLogoInitialized = false; //is web logo showed for the first time from database
 	public $isIconInitialized = false; //is web icon showed for the first time from database
@@ -35,7 +34,6 @@ class PengaturanDasar extends Component
 		if(isset($this->settings['web_icon'])){
 			$this->isIconInitialized = true;
 		}
-		$this->katalogs = Katalog::all();
 	}
 	
     public function render()

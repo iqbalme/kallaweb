@@ -38,6 +38,8 @@ use App\Http\Livewire\Carousel\CarouselIndex;
 use App\Http\Livewire\Page\SuccessPaymentPage;
 use App\Http\Livewire\Page\ExpiredPaymentPage;
 use App\Http\Livewire\Menu\MenuIndex;
+use App\Http\Livewire\Event\EventIndex;
+use App\Http\Livewire\Galeri\GaleriIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +93,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 	Route::get('carousel/', CarouselIndex::class)->name('carousel.index');
 	Route::get('pendaftar/', PendaftarCtrl::class)->name('pendaftar.index');
 	Route::get('menu/', MenuIndex::class)->name('pengaturan.menu');
+	Route::get('event/', EventIndex::class)->name('event.index');
+	Route::get('galeri/', GaleriIndex::class)->name('galeri.index');
 	
 	//for ckeditor upload file
 	Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('ckeditor.image-upload');

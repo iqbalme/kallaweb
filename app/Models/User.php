@@ -41,7 +41,7 @@ class User extends Authenticatable
     ];
 	
 	public function role_users(){
-		return $this->hasOne(RoleUser::class);
+		return $this->hasMany(RoleUser::class, 'user_id', 'id');
 	}
 	
 	public function kategori(){

@@ -27,7 +27,8 @@
 		<li class="nav-item"><a class="nav-link" href="{{ route('post.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-library') }}"></use>
 		</svg> List</a></li>
-		<li class="nav-item"><a class="nav-link" href="{{ route('carousel.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-calendar-days nav-icon"></i> Event</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ route('event.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-calendar-days nav-icon"></i> Event</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ route('galeri.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">gallery_thumbnail</i> Galeri</a></li>
 		<!--li class="nav-item"><a class="nav-link" href="{{ route('carousel.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-sliders nav-icon"></i> Carousel</a></li-->
 	  </ul>
 	</li>
@@ -69,13 +70,14 @@
 		</svg> Pengaturan</a>
 		<ul class="nav-group-items">
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.dasar') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-mobile-retro nav-icon"></i> Website</a></li>
-			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.admisi') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-ticket nav-icon"></i> Admisi</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.admisi') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">how_to_reg</i> Admisi</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.pembayaran') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-file-invoice-dollar nav-icon"></i> Pembayaran</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.tema') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-display nav-icon"></i> Tema</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.menu') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-brands fa-mendeley nav-icon"></i> Menu</a></li>
 		  </ul>			
 	</li>
   </ul>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <style>
 	.sidebar {
 		--cui-sidebar-bg: {{ $data['theme_color_sidebar_bg'] }} !important;
@@ -86,5 +88,12 @@
 		--cui-sidebar-nav-link-hover-color: {{ $data['theme_color_link_hover'] }} !important;
 		--cui-sidebar-nav-link-hover-icon-color: {{ $data['theme_color_icon_hover'] }} !important;
 	};
+	.material-symbols-outlined {
+	  font-variation-settings:
+	  'FILL' 0,
+	  'wght' 400,
+	  'GRAD' 0,
+	  'opsz' 48
+	}
   </style>
 </div>

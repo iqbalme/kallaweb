@@ -20,8 +20,6 @@ return new class extends Migration
 			$table->string('judul', 150);
 			$table->string('thumbnail')->nullable();
 			$table->longText('konten')->nullable();
-			$table->string('category_id')->nullable();
-			$table->string('tag_id')->nullable();
 			$table->string('prodi_id')->nullable(); // menampung array, jika null maka berlaku umum
 			$table->enum('status_post', ['draft', 'published'])->default('draft');
 			$table->string('slug', 100)->unique();

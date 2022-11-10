@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\RoleUser;
 
 class UserUpdate extends Component
 {
@@ -72,6 +73,15 @@ class UserUpdate extends Component
 		$user->avatar = $avatar;
 		if($this->password !== null){
 			$user->password = bcrypt($this->password);
+		}
+		RoleUser::where('user_id', $this->user_id)->delete();
+		if($this->user_roles){
+			foreach($this->user_roles as $role){
+				RoleUser::create([
+					'user_id' => $this->user_id,
+					'role_id' => $role
+				]);
+			}
 		}
 		$user->save();
 		$this->emit('refreshUser');

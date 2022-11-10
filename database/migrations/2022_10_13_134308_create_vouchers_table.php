@@ -22,8 +22,8 @@ return new class extends Migration
 			//$table->string('katalog_id')->nullable()->default('0');
 			$table->enum('tipe_diskon', ['persen', 'nominal'])->default('persen');
 			$table->integer('nominal_diskon')->unsigned();
-			$table->dateTime('awal_berlaku')->nullable()->default(null);
-			$table->dateTime('akhir_berlaku')->nullable()->default(null); //jika awal dan akhir kosong maka berlaku untuk selamanya
+			$table->date('awal_berlaku')->nullable()->default(null);
+			$table->date('akhir_berlaku')->nullable()->default(null); //jika awal dan akhir kosong maka berlaku untuk selamanya
 			//$table->longText('pengguna_diizinkan')->nullable(); //daftar pendaftar yang diizinkan, berisi id user dan dipisahkan dengan koma, contoh: 1,2,5,9,17, jika null maka berlaku untuk semua pendaftar
 			$table->boolean('aktif')->default(0);
             $table->timestamps();

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "468610014386f59ae09cada0c8b5b7b1",
+    "content-hash": "311f203ff1db9b0436d2b5b14e18fa90",
     "packages": [
         {
             "name": "brick/math",
@@ -109,53 +109,6 @@
                 "wiki": "https://ckeditor.com/docs/ckeditor4/latest/"
             },
             "time": "2022-09-28T13:37:19+00:00"
-        },
-        {
-            "name": "codexshaper/laravel-menu-builder",
-            "version": "v1.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Codexshaper/laravel-menu-builder.git",
-                "reference": "4f8e96f99e6264ecac3297c48614f33bf3928c84"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Codexshaper/laravel-menu-builder/zipball/4f8e96f99e6264ecac3297c48614f33bf3928c84",
-                "reference": "4f8e96f99e6264ecac3297c48614f33bf3928c84",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "CodexShaper\\Menu\\MenuServiceProvider"
-                    ],
-                    "aliases": {
-                        "MenuBuilder": "CodexShaper\\Menu\\Facades\\Menu"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "CodexShaper\\Menu\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Md Abu Ahsan Basir",
-                    "email": "maab.career@gmail.com"
-                }
-            ],
-            "description": "Laravel Drag and Drop Menu Builder",
-            "support": {
-                "issues": "https://github.com/Codexshaper/laravel-menu-builder/issues",
-                "source": "https://github.com/Codexshaper/laravel-menu-builder/tree/master"
-            },
-            "time": "2019-10-04T09:47:00+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

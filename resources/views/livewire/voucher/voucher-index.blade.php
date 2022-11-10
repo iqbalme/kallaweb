@@ -133,7 +133,7 @@
 	  </div>
 	</div>
 	@if($isVoucherUpdate)
-		<livewire:voucher.voucher-update :voucher_id="5" />
+		<livewire:voucher.voucher-update />
 	@else
 		<livewire:voucher.voucher-create />
 	@endif

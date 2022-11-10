@@ -19,7 +19,7 @@ return new class extends Migration
 			$table->longText('deskripsi_prodi')->nullable();
 			$table->string('thumbnail')->nullable();
 			$table->string('slug')->unique();
-			$table->string('subdomain')->unique();
+			$table->string('subdomain')->unique()->nullable();
             $table->timestamps();
         });
     }

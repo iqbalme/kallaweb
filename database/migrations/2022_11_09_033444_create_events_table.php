@@ -17,9 +17,12 @@ return new class extends Migration
             $table->id();
 			$table->string('nama_event');
 			$table->longText('deskripsi_event');
-			$table->date('mulai_event');
-			$table->date('akhir_event');
+			$table->date('tanggal');
+			$table->time('waktu_mulai');
+			$table->time('waktu_berakhir');
 			$table->string('gambar_event');
+			$table->string('lokasi')->nullable();
+			$table->foreignId('voucher_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }

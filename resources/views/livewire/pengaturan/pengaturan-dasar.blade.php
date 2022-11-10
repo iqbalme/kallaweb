@@ -24,8 +24,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="row mt-3 mb-3">
-						<div class="col-lg-12">
+					<div class="row mt-3">
+						<div class="col-lg-6">
 							<div>
 							  <h4 class="card-title mb-0">Logo Website</h4>
 							</div>
@@ -49,9 +49,7 @@
 								</div>
 							@endif
 						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col-lg-12">
+						<div class="col-lg-6">
 							<div>
 							  <h4 class="card-title mb-0">Gambar Ikon Website</h4>
 							  <!--div class="small text-medium-emphasis">January - July 2022</div-->
@@ -107,38 +105,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row mt-3">
-						<div class="d-flex justify-content-between mb-1">
-							<div>
-							  <h4 class="card-title mb-0">Status Admisi</h4>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							<div class="form-check">
-							  <input class="form-check-input" type="checkbox" wire:model.defer="settings.status_pendaftaran">
-							  <label class="form-check-label">
-							  Aktif
-							  </label>
-							</div>
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="d-flex justify-content-between">
-							<div>
-							  <h4 class="card-title mb-0">Penautan Katalog dan Admisi</h4>
-							</div>
-						</div>
-						<div class="col-lg-9">
-							<div class="input-group mb-3 mt-2">
-							  <select class="form-control" wire:model="settings.katalog_admission_assigned">
-								<option value="">Pilih Katalog</option>
-								@foreach($katalogs as $katalog)
-									<option value="{{ $katalog->id }}">{{ $katalog->nama_katalog }}</option>
-								@endforeach
-							  </select>
-							</div>
-						</div>
-					</div>
+					
 					<!--div class="row mt-3">
 						<div class="d-flex justify-content-between">
 							<div>
@@ -154,51 +121,6 @@
 							</div>
 						</div>
 					</div-->
-					<div class="row mt-3 mb-4">
-						<div class="col-lg-6">
-							<div>
-							  <h4 class="card-title mb-0">Xendit Public Key</h4>
-							</div>
-							<div class="input-group mb-3 mt-2">
-							  <input type="text" class="form-control" wire:model.defer="settings.xendit_key_public">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div>
-							  <h4 class="card-title mb-0">Xendit Secret Key</h4>
-							</div>
-							<div class="input-group mb-3 mt-2">
-							  <input type="text" class="form-control" wire:model.defer="settings.xendit_key_secret">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div>
-							  <h4 class="card-title mb-0">Xendit Callback Token</h4>
-							</div>
-							<div class="input-group mb-3 mt-2">
-							  <input type="text" class="form-control" wire:model.defer="settings.xendit_callback_token">
-							</div>
-						</div>
-					</div>
-					<div class="row mt-3 mb-4">
-						<div class="col-lg-6">
-							<div>
-							  <h4 class="card-title mb-0">Facebook Pixel</h4>
-							</div>
-							<div class="input-group mb-3 mt-2">
-							  <input type="text" class="form-control" wire:model.defer="settings.fb_pixel">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div>
-							  <h4 class="card-title mb-0">Google Analytic</h4>
-							</div>
-						
-							<div class="input-group mb-3 mt-2">
-							  <input type="text" class="form-control" wire:model.defer="settings.google_analytics">
-							</div>
-						</div>
-					</div>
 					<hr>
 					<div class="row mb-2">
 						<button type="submit" class="btn btn-primary btn-lg">Simpan</button>

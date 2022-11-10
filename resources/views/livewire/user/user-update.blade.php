@@ -60,12 +60,14 @@
 				<div class="mb-3 mt-3">
 					<h6 class="card-title mb-2">Roles</h6>
 					@foreach($roles as $role)
+					@if($role->nama_role != 'Super Admin')
 					<div class="form-check">
 					  <input class="form-check-input" type="checkbox" value="{{ $role->id }}" wire:model="user_roles">
 					  <label class="form-check-label">
 					  {{ $role->nama_role }}
 					  </label>
 					</div>
+					@endif
 					@endforeach
 				</div>
 				@endif

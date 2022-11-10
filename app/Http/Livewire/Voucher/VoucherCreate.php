@@ -51,12 +51,12 @@ class VoucherCreate extends Component
 	}
 	
 	public function create(){
-		$katalog_id = 0;
+		// $katalog_id = 0;
 		$awal_berlaku = null;
 		$akhir_berlaku = null;
-		if(count($this->katalog_id)){
-			$katalog_id = implode(',',$this->katalog_id);
-		}
+		// if(count($this->katalog_id)){
+			// $katalog_id = implode(',',$this->katalog_id);
+		// }
 		if((!isset($this->awal_berlaku)) || ($this->awal_berlaku == '')){
 			$awal_berlaku = null;
 		} else {
