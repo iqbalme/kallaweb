@@ -23,12 +23,14 @@
 	  <ul class="nav-group-items">
 		<li class="nav-item"><a class="nav-link" href="{{ route('post.create') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-pencil') }}"></use>
-		</svg> Buat Baru</a></li>
+		</svg> Buat Post Baru</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('post.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-library') }}"></use>
-		</svg> List</a></li>
+		</svg> List Post</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('event.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-calendar-days nav-icon"></i> Event</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('galeri.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">gallery_thumbnail</i> Galeri</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ route('team.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">diversity_3</i> Tim</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ route('testimoni.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">forum</i> Testimoni</a></li>
 		<!--li class="nav-item"><a class="nav-link" href="{{ route('carousel.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-sliders nav-icon"></i> Carousel</a></li-->
 	  </ul>
 	</li>

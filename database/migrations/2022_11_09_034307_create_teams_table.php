@@ -18,7 +18,8 @@ return new class extends Migration
 			$table->string('nama');
 			$table->longText('deskripsi');
 			$table->string('gambar');
-			$table->longText('media_sosial')->comment('isinya serialize');
+			$table->string('jabatan')->nullable()->default('Dosen');
+			$table->longText('media_sosial')->nullable()->comment('isinya serialize');
             $table->timestamps();
         });
     }

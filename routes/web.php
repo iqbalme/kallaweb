@@ -41,6 +41,8 @@ use App\Http\Livewire\Page\ExpiredPaymentPage;
 use App\Http\Livewire\Menu\MenuIndex;
 use App\Http\Livewire\Event\EventIndex;
 use App\Http\Livewire\Galeri\GaleriIndex;
+use App\Http\Livewire\Team\TeamIndex;
+use App\Http\Livewire\Testimoni\TestimoniIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +99,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 	Route::get('menu/', MenuIndex::class)->name('pengaturan.menu');
 	Route::get('event/', EventIndex::class)->name('event.index');
 	Route::get('galeri/', GaleriIndex::class)->name('galeri.index');
+	Route::get('tim/', TeamIndex::class)->name('team.index');
+	Route::get('testimoni/', TestimoniIndex::class)->name('testimoni.index');
 	
 	//for ckeditor upload file
 	Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('ckeditor.image-upload');
