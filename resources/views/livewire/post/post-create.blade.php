@@ -30,7 +30,7 @@
 						<div class="form-check">
 						  <input class="form-check-input" type="checkbox" value="{{ $category->id }}" wire:model.defer="categories">
 						  <label class="form-check-label">
-						  {{ $category->nama_kategori }}
+						  {{ ucfirst($category->nama_kategori) }}
 						  </label>
 						</div>
 						@endforeach
@@ -41,9 +41,9 @@
 						<h6 class="card-title mb-1">Prodi</h6>
 						@foreach($data['prodis'] as $prodi)
 						<div class="form-check">
-						  <input class="form-check-input" type="checkbox" value="{{ $prodi->id }}" wire:model.defer="prodis">
+						  <input class="form-check-input" type="radio" value="{{ $prodi->id }}" wire:model="prodis">
 						  <label class="form-check-label">
-						  {{ $prodi->nama_prodi}}
+						  {{ ucfirst($prodi->nama_prodi)}}
 						  </label>
 						</div>
 						@endforeach

@@ -8,13 +8,13 @@
         </div>
       </section>
 
-      <section class="probootstrap-section">
+      <section class="probootstrap-section" style="padding-bottom:15px;">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
               <div class="probootstrap-flex-block">
                 <div class="probootstrap-text probootstrap-animate">
-                  <h3>About School</h3>
+                  <h3>Tentang Kampus</h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis explicabo veniam labore ratione illo vero voluptate a deserunt incidunt odio aliquam commodi blanditiis voluptas error non rerum temporibus optio accusantium!</p>
                   <p><a href="#" class="btn btn-primary">Learn More</a></p>
                 </div>
@@ -27,7 +27,7 @@
         </div>
       </section>
 
-      <section class="probootstrap-section" id="probootstrap-counter">
+      <!--section class="probootstrap-section" id="probootstrap-counter">
         <div class="container">
           
           <div class="row">
@@ -87,346 +87,18 @@
             </div>
           </div>
         </div>
-      </section>
+      </section-->
 
 	<!-- Events -->
-	
-	<section class="probootstrap-section probootstrap-section-colored probootstrap-bg probootstrap-custom-heading probootstrap-tab-section" style="background-image: url(img/slider_2.jpg)">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center section-heading probootstrap-animate fadeInUp probootstrap-animated">
-              <h2 class="mb0">Highlights</h2>
-            </div>
-          </div>
-        </div>
-        <div class="events">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="section_title_container text-center">
-						<h2 class="section_title">Upcoming events</h2>
-						<div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
-					</div>
-				</div>
-			</div>
-			<div class="row events_row">
-
-				<!-- Event -->
-				<div class="col-lg-4 event_col">
-					<div class="event event_left">
-						<div class="event_image"><img src="images/event_1.jpg" alt=""></div>
-						<div class="event_body d-flex flex-row align-items-start justify-content-start">
-							<div class="event_date">
-								<div class="d-flex flex-column align-items-center justify-content-center trans_200">
-									<div class="event_day trans_200">21</div>
-									<div class="event_month trans_200">Aug</div>
-								</div>
-							</div>
-							<div class="event_content">
-								<div class="event_title"><a href="#">Which Country Handles Student Debt?</a></div>
-								<div class="event_info_container">
-									<div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>15.00 - 19.30</span></div>
-									<div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>25 New York City</span></div>
-									<div class="event_text">
-										<p>Policy analysts generally agree on a need for reform, but not on which path...</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Event -->
-				<div class="col-lg-4 event_col">
-					<div class="event event_mid">
-						<div class="event_image"><img src="images/event_2.jpg" alt=""></div>
-						<div class="event_body d-flex flex-row align-items-start justify-content-start">
-							<div class="event_date">
-								<div class="d-flex flex-column align-items-center justify-content-center trans_200">
-									<div class="event_day trans_200">27</div>
-									<div class="event_month trans_200">Aug</div>
-								</div>
-							</div>
-							<div class="event_content">
-								<div class="event_title"><a href="#">Repaying your student loans (Winter 2017-2018)</a></div>
-								<div class="event_info_container">
-									<div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>09.00 - 17.30</span></div>
-									<div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>25 Brooklyn City</span></div>
-									<div class="event_text">
-										<p>This Consumer Action News issue covers topics now being debated before...</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Event -->
-				<div class="col-lg-4 event_col">
-					<div class="event event_right">
-						<div class="event_image"><img src="images/event_3.jpg" alt=""></div>
-						<div class="event_body d-flex flex-row align-items-start justify-content-start">
-							<div class="event_date">
-								<div class="d-flex flex-column align-items-center justify-content-center trans_200">
-									<div class="event_day trans_200">01</div>
-									<div class="event_month trans_200">Sep</div>
-								</div>
-							</div>
-							<div class="event_content">
-								<div class="event_title"><a href="#">Alternative data and financial inclusion</a></div>
-								<div class="event_info_container">
-									<div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>13.00 - 18.30</span></div>
-									<div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>25 New York City</span></div>
-									<div class="event_text">
-										<p>Policy analysts generally agree on a need for reform, but not on which path...</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-      </section>
-
-	<!-- End Events -->
-	
-	
-      <section class="probootstrap-section probootstrap-section-colored probootstrap-bg probootstrap-custom-heading probootstrap-tab-section" style="background-image: url({{asset('frontend/assets/images/slider_2.jpg')}})">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center section-heading probootstrap-animate">
-              <h2 class="mb0">Highlights</h2>
-            </div>
-          </div>
-        </div>
-        <div class="probootstrap-tab-style-1">
-          <ul class="nav nav-tabs probootstrap-center probootstrap-tabs no-border">
-            <li class="active"><a data-toggle="tab" href="#featured-news">Featured News</a></li>
-            <li><a data-toggle="tab" href="#upcoming-events">Upcoming Events</a></li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="probootstrap-section probootstrap-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              
-              <div class="tab-content">
-
-                <div id="featured-news" class="tab-pane fade in active">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="owl-carousel" id="owl1">
-                        <div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, ut.</p>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, officia.</p>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, dolores.</p>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, earum.</p>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              
-                              
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                      </div>
-                    </div>
-                  </div>
-                  <!-- END row -->
-                  <div class="row">
-                    <div class="col-md-12 text-center">
-                      <p><a href="#" class="btn btn-primary">View all news</a></p>  
-                    </div>
-                  </div>
-                </div>
-                <div id="upcoming-events" class="tab-pane fade">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="owl-carousel" id="owl2">
-                        <div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                        <div class="item">
-                          <a href="#" class="probootstrap-featured-news-box">
-                            <figure class="probootstrap-media"><img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
-                            <div class="probootstrap-text">
-                              <h3>Tempora consectetur unde nisi</h3>
-                              <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-                              <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn, NYC</span>
-                            </div>
-                          </a>
-                        </div>
-                        <!-- END item -->
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 text-center">
-                      <p><a href="#" class="btn btn-primary">View all events</a></p>  
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="probootstrap-section probootstrap-bg-white probootstrap-border-top">
+	<livewire:frontend.home.events />
+	<livewire:frontend.home.highlights />    
+     <hr>
+      <section class="home-section">
         <div class="container">
           <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-              <h2>Our Featured Courses</h2>
-              <p class="lead">Sed a repudiandae impedit voluptate nam Deleniti dignissimos perspiciatis nostrum porro nesciunt</p>
-            </div>
-          </div>
-          <!-- END row -->
-          <div class="row">
-            <div class="col-md-6">
-              <div class="probootstrap-service-2 probootstrap-animate">
-                <div class="image">
-                  <div class="image-bg">
-                    <img src="img/img_sm_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
-                  </div>
-                </div>
-                <div class="text">
-                  <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
-                  <h3>Application Design</h3>
-                  <p>Laboriosam pariatur modi praesentium deleniti molestiae officiis atque numquam quos quis nisi voluptatum architecto rerum error.</p>
-                  <p><a href="#" class="btn btn-primary">Enroll now</a> <span class="enrolled-count">2,928 students enrolled</span></p>
-                </div>
-              </div>
-
-              <div class="probootstrap-service-2 probootstrap-animate">
-                <div class="image">
-                  <div class="image-bg">
-                    <img src="img/img_sm_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
-                  </div>
-                </div>
-                <div class="text">
-                  <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
-                  <h3>Chemical Engineering</h3>
-                  <p>Laboriosam pariatur modi praesentium deleniti molestiae officiis atque numquam quos quis nisi voluptatum architecto rerum error.</p>
-                  <p><a href="#" class="btn btn-primary">Enroll now</a> <span class="enrolled-count">7,202 students enrolled</span></p>
-                </div>
-              </div>
-
-            </div>
-            <div class="col-md-6">
-              <div class="probootstrap-service-2 probootstrap-animate">
-                <div class="image">
-                  <div class="image-bg">
-                    <img src="img/img_sm_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
-                  </div>
-                </div>
-                <div class="text">
-                  <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
-                  <h3>Math Major</h3>
-                  <p>Laboriosam pariatur modi praesentium deleniti molestiae officiis atque numquam quos quis nisi voluptatum architecto rerum error.</p>
-                  <p><a href="#" class="btn btn-primary">Enroll now</a> <span class="enrolled-count">12,582 students enrolled</span></p>
-                </div>
-              </div>
-
-              <div class="probootstrap-service-2 probootstrap-animate">
-                <div class="image">
-                  <div class="image-bg">
-                    <img src="img/img_sm_4.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
-                  </div>
-                </div>
-                <div class="text">
-                  <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
-                  <h3>English Major</h3>
-                  <p>Laboriosam pariatur modi praesentium deleniti molestiae officiis atque numquam quos quis nisi voluptatum architecto rerum error.</p>
-                  <p><a href="#" class="btn btn-primary">Enroll now</a> <span class="enrolled-count">9,582 students enrolled</span></p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-      
-      <section class="probootstrap-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-              <h2>Meet Our Qualified Teachers</h2>
-              <p class="lead">Sed a repudiandae impedit voluptate nam Deleniti dignissimos perspiciatis nostrum porro nesciunt</p>
+              <h2>TIM PENGAJAR</h2>
+              <p class="lead">Perpaduan antara akademisi dan praktisi kewirausahaan dan Manager/Direksi Kalla Group</p>
             </div>
           </div>
           <!-- END row -->
@@ -505,12 +177,12 @@
 
         </div>
       </section>
-      <section class="probootstrap-section probootstrap-bg probootstrap-section-colored probootstrap-testimonial" style="background-image: url(img/slider_4.jpg);">
+      <section class="probootstrap-section probootstrap-bg probootstrap-section-colored probootstrap-testimonial" style="background-image: url({{asset('frontend/assets/images/slider_2.jpg')}});background-size: cover;">
         <div class="container">
           <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-              <h2>Alumni Testimonial</h2>
-              <p class="lead">Sed a repudiandae impedit voluptate nam Deleniti dignissimos perspiciatis nostrum porro nesciunt</p>
+              <h2>TESTIMONI</h2>
+              <p class="lead">Apa kata mereka?</p>
             </div>
           </div>
           <!-- END row -->
@@ -613,3 +285,202 @@
           <!-- END row -->
         </div>
       </section>
+	  <style>
+		.probootstrap-cta-new {
+			padding: 3em 0;
+			background: #49D292;
+			color: #fff;
+		}
+		.probootstrap-cta-new h2 {
+			margin: 12px 0 0;
+			padding: 0;
+			color: #fff;
+			float: left;
+			line-height: 1.5;
+			font-weight: 300;
+		}
+		
+		.home-section {
+			padding: 2em 0;
+			position: relative;
+		}
+		.news-section {
+			padding: 3em 0;
+			position: relative;
+		}
+		.probootstrap-section.probootstrap-section-colored {
+			background: #49D292;
+		}
+		
+		.section_title_event {
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		.section_title_event > h2 {
+			font-family: 'Roboto Slab', serif;
+			font-weight: 700;
+			-webkit-font-smoothing: antialiased;
+			-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+			text-shadow: rgb(0 0 0 / 1%) 0 0 1px;
+			color: #384158;
+			margin-bottom: 0;
+		}
+		.section_title {
+			line-height: 1.2;
+		}
+		.section_subtitle {
+			line-height: 1.85;
+			margin-top: 14px;
+		}
+		.align-items-center {
+			-ms-flex-align: center!important;
+			align-items: center!important;
+		}
+		.justify-content-center {
+			-ms-flex-pack: center!important;
+			justify-content: center!important;
+		}
+		.flex-column {
+			-ms-flex-direction: column!important;
+			flex-direction: column!important;
+		}
+		.align-items-start {
+			-ms-flex-align: start!important;
+			align-items: flex-start!important;
+		}
+		.justify-content-start {
+			-ms-flex-pack: start!important;
+			justify-content: flex-start!important;
+		}
+		.flex-row {
+			-ms-flex-direction: row!important;
+			flex-direction: row!important;
+		}
+		.d-flex {
+			display: -ms-flexbox!important;
+			display: flex!important;
+		}
+	  
+		/*********************************
+		10. Events
+		*********************************/
+
+		.events
+		{
+			width: 100%;
+			padding-top: 93px;
+			padding-bottom: 70px;
+			background: #FFFFFF;
+		}
+		.events_row
+		{
+			margin-top: 47px;
+		}
+		.event_left
+		{
+			padding-right: 20px;
+		}
+		.event_mid
+		{
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		.event_right
+		{
+			padding-left: 20px;
+		}
+		.event_image
+		{
+			width: 100%;
+			border-radius: 5px;
+			overflow: hidden;
+		}
+		.event_image img
+		{
+			max-width: 100%;
+		}
+		.event_body
+		{
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		.event_date
+		{
+			box-shadow: 0px 1px 10px rgba(29, 34, 47, 0.1);
+		}
+		.event_date > div
+		{
+			width: 60px;
+			height: 60px;
+		}
+		.event_day
+		{
+			font-family: 'Roboto Slab', serif;
+			font-size: 24px;
+			color: #14bdee;
+			font-weight: 700;
+			line-height: 0.75;
+		}
+		.event_month
+		{
+			font-family: 'Roboto Slab', serif;
+			font-size: 14px;
+			color: #14bdee;
+			font-weight: 400;
+			line-height: 0.75;
+			margin-top: 9px;
+		}
+		.event:hover .event_date > div
+		{
+			background: #14bdee;
+		}
+		.event:hover .event_day,
+		.event:hover .event_month
+		{
+			color: #FFFFFF;
+		}
+		.event_content
+		{
+			padding-left: 20px;
+		}
+		.event_title a
+		{
+			font-family: 'Roboto Slab', serif;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 1.4;
+			color: #384158;
+			-webkit-transition: all 200ms ease;
+			-moz-transition: all 200ms ease;
+			-ms-transition: all 200ms ease;
+			-o-transition: all 200ms ease;
+			transition: all 200ms ease;
+		}
+		.event_title a:hover
+		{
+			color: #14bdee;
+		}
+		.event_info_container
+		{
+			margin-top: 11px;
+		}
+		.event_info
+		{
+			display: inline-block;
+			color: #b5b8be;
+			font-size: 14px;
+		}
+		.event_info:not(:last-child)
+		{
+			margin-right: 17px;
+		}
+		.event_info span
+		{
+			margin-left: 4px;
+		}
+		.event_text
+		{
+			margin-top: 12px;
+		}
+
+	  </style>

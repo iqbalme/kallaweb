@@ -46,6 +46,7 @@
 	<!-- End Facebook Pixel Code -->
 	@endisset
 	
+	<link rel="stylesheet" href="{{ asset('frontend/assets/css/main_styles.css') }}">
 	@livewireStyles
   </head>
 
@@ -55,9 +56,11 @@
 	@yield('content')
 	@include('layouts.footer')
 
+	<script src="https://kit.fontawesome.com/8b91ad4956.js" crossorigin="anonymous"></script>
     <script src="{{ asset('frontend/theme/js/scripts.min.js') }}"></script>
     <script src="{{ asset('frontend/theme/js/main.min.js') }}"></script>
     <script src="{{ asset('frontend/theme/js/custom.js') }}"></script>
+	
 	@livewireScripts
   </body>
 </html>

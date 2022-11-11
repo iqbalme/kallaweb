@@ -43,8 +43,7 @@ class EventCreate extends Component
 		if(isset($this->gambar)){
 			$gambar = $this->gambar->getFilename();
 			$this->gambar->storeAs('public/images', $gambar);
-			//$gambar = $this->gambar->store('public/images');
-			$this->hapusGambar();
+			$this->gambar = null;
 		}
 		if(isset($this->voucher_id)){
 			$voucher_id = $this->voucher_id;
@@ -52,14 +51,13 @@ class EventCreate extends Component
 		$data = [
 			'nama_event' => $this->nama_event,
 			'deskripsi_event' => $this->deskripsi_event,
-			'tanggal' => $this->tanggal,
-			'waktu_mulai' => $this->waktu_mulai,
-			'waktu_berakhir' => $this->waktu_akhir,
+			'waktu_mulai' => $this->tanggal.' '.$this->waktu_mulai,
+			'waktu_berakhir' => $this->tanggal.' '.$this->waktu_akhir,
 			'gambar_event' => $gambar,
 			'lokasi' => $this->lokasi,
 			'voucher_id' => $voucher_id
 		];
-		dd($data);
+		//dd($data);
 		Event::create($data);
 		$this->emit('refreshEvent');
 		$this->reset();
@@ -67,7 +65,6 @@ class EventCreate extends Component
 	}
 	
 	public function closeModal(){
-		//$this->loading = false;
 		$this->dispatchBrowserEvent('closeModalEvent');
 	}
 }

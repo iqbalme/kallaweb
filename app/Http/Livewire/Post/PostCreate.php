@@ -28,7 +28,7 @@ class PostCreate extends Component
 	public $konten;
 	public $categories = []; 
 	public $tags;
-	public $prodis = [];
+	public $prodis = null;
 	public $post_id;
 	public $is_headline = false;
 	

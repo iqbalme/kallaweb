@@ -84,7 +84,7 @@ class EventUpdate extends Component
 			if(!$this->initGambar){
 				$gambar = $this->gambar->getFilename();
 				$this->gambar->storeAs('public/images', $gambar);
-				$this->hapusGambar();
+				$this->gambar = null;
 				$data['gambar_event'] = $gambar;
 			} else {
 				$data['gambar_event'] = $this->gambar;
@@ -100,7 +100,6 @@ class EventUpdate extends Component
 	}
 	
 	public function closeModal(){
-		//$this->loading = false;
 		$this->dispatchBrowserEvent('closeModalEventUpdate');
 	}
 	

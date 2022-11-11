@@ -69,11 +69,12 @@
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-settings') }}"></use>
 		</svg> Pengaturan</a>
 		<ul class="nav-group-items">
-			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.dasar') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-mobile-retro nav-icon"></i> Website</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.dasar') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">web</i> Website</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.admisi') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">how_to_reg</i> Admisi</a></li>
-			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.pembayaran') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-file-invoice-dollar nav-icon"></i> Pembayaran</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.pembayaran') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">payments</i> Pembayaran</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.tema') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-display nav-icon"></i> Tema</a></li>
-			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.menu') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-brands fa-mendeley nav-icon"></i> Menu</a></li>
+			<!--li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.menu') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-brands fa-mendeley nav-icon"></i> Menu</a></li-->
+			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.mail') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">contact_mail</i> Mail</a></li>
 		  </ul>			
 	</li>
   </ul>

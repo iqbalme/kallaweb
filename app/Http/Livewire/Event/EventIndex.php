@@ -22,19 +22,21 @@ class EventIndex extends Component
 	
     public function render()
     {
-		$this->data = Event::orderBy('tanggal', 'desc')->orderBy('waktu_mulai', 'desc')->orderBy('waktu_berakhir', 'desc')->get();
+		$this->data = Event::orderBy('waktu_mulai', 'desc')->orderBy('waktu_berakhir', 'desc')->get();
+		//dd($this->data);
 		$this->emit('getEvent', $this->event);
         return view('livewire.event.event-index')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Event']);
     }
 	
 	public function refreshEvent(){
-		
+		$this->reset();
 	}
 	
 	public function getEvent($id){
 		$this->event = Event::find($id);
 		$this->isUpdate = true;
+		$this->bukaFormEventEdit();
 	}
 	
 	public function hapusEvent($id){
@@ -44,7 +46,19 @@ class EventIndex extends Component
 	
 	public function hapusEventItem(){
 		Event::find($this->event_id)->delete();
+		$this->closeHapusForm();
+	}
+	
+	public function closeHapusForm(){
 		$this->dispatchBrowserEvent('closeHapusEvent');
+	}
+	
+	public function bukaFormEvent(){
+		$this->dispatchBrowserEvent('bukaFormEvent');
+	}
+	
+	public function bukaFormEventEdit(){
+		$this->dispatchBrowserEvent('bukaFormEventEdit');
 	}
 
 }
