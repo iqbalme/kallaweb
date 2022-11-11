@@ -1,5 +1,5 @@
 <div>
-    @if(isset($data['events']))
+    @if($data['events']->count())
 	<section>
         <div class="events">
 		<div class="container">
