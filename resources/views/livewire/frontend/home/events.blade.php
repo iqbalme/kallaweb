@@ -25,7 +25,7 @@
 								</div>
 							</div>
 							<div class="event_content">
-								<div class="event_title"><a href="#">{{$event->nama_event}}</a></div>
+								<div class="event_title"><a href="#">{{substr($event->nama_event,0,29).'...'}}</a></div>
 								<div class="event_info_container">
 									<div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>{{ date('H:i', strtotime($event->waktu_mulai)).'-'.date('H:i', strtotime($event->waktu_berakhir)) }}</span></div>
 									<div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>{{$event->lokasi}}</span></div>
