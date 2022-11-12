@@ -94,7 +94,7 @@
 	<livewire:frontend.home.highlights />    
     <hr>
     <livewire:frontend.home.teams />
-    <livewire:frontend.home.testimonis />
+	<livewire:frontend.home.testimonis />
 
     <section class="probootstrap-section">
         <div class="container">

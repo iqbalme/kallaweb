@@ -9,9 +9,12 @@ class Testimonis extends Component
 {
 	public $data;
 	
+	public function mount(){
+		$this->data['testimonis'] = Testimoni::all();
+	}
+	
     public function render()
     {
-		$this->data = Testimoni::all();
         return view('livewire.frontend.home.testimonis');
     }
 }

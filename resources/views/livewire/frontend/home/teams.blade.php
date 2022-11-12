@@ -1,5 +1,5 @@
 <div>
-	@if($data)
+	@if(count($data['teams']))
     <section class="home-section">
         <div class="container">
           <div class="row">
@@ -11,7 +11,7 @@
           <!-- END row -->
 
           <div class="row">
-			@foreach($data as $team)
+			@foreach($data['teams'] as $team)
             <div class="col-md-3 col-sm-6">
               <div class="probootstrap-teacher text-center probootstrap-animate">
                 <figure class="media">

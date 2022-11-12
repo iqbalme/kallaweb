@@ -60,7 +60,6 @@
     <script src="{{ asset('frontend/theme/js/scripts.min.js') }}"></script>
     <script src="{{ asset('frontend/theme/js/main.min.js') }}"></script>
     <script src="{{ asset('frontend/theme/js/custom.js') }}"></script>
-	
 	@livewireScripts
   </body>
 </html>
