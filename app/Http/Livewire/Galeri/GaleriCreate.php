@@ -41,6 +41,7 @@ class GaleriCreate extends Component
 	}
 	
 	public function closeFormGaleri(){
+		$this->reset();
 		$this->dispatchBrowserEvent('closeModalGaleri');
 	}
 	

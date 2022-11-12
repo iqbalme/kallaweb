@@ -92,138 +92,11 @@
 	<!-- Events -->
 	<livewire:frontend.home.events />
 	<livewire:frontend.home.highlights />    
-     <hr>
-      <section class="home-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-              <h2>TIM PENGAJAR</h2>
-              <p class="lead">Perpaduan antara akademisi dan praktisi kewirausahaan dan Manager/Direksi Kalla Group</p>
-            </div>
-          </div>
-          <!-- END row -->
+    <hr>
+    <livewire:frontend.home.teams />
+    <livewire:frontend.home.testimonis />
 
-          <div class="row">
-            <div class="col-md-3 col-sm-6">
-              <div class="probootstrap-teacher text-center probootstrap-animate">
-                <figure class="media">
-                  <img src="img/person_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive">
-                </figure>
-                <div class="text">
-                  <h3>Chris Worth</h3>
-                  <p>Physical Education</p>
-                  <ul class="probootstrap-footer-social">
-                    <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
-                    <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="probootstrap-teacher text-center probootstrap-animate">
-                <figure class="media">
-                  <img src="img/person_5.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive">
-                </figure>
-                <div class="text">
-                  <h3>Janet Morris</h3>
-                  <p>English Teacher</p>
-                  <ul class="probootstrap-footer-social">
-                    <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
-                    <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="clearfix visible-sm-block visible-xs-block"></div>
-            <div class="col-md-3 col-sm-6">
-              <div class="probootstrap-teacher text-center probootstrap-animate">
-                <figure class="media">
-                  <img src="img/person_6.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive">
-                </figure>
-                <div class="text">
-                  <h3>Linda Reyez</h3>
-                  <p>Math Teacher</p>
-                  <ul class="probootstrap-footer-social">
-                    <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
-                    <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="probootstrap-teacher text-center probootstrap-animate">
-                <figure class="media">
-                  <img src="img/person_7.jpg" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive">
-                </figure>
-                <div class="text">
-                  <h3>Jessa Sy</h3>
-                  <p>Physics Teacher</p>
-                  <ul class="probootstrap-footer-social">
-                    <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
-                    <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      <section class="probootstrap-section probootstrap-bg probootstrap-section-colored probootstrap-testimonial" style="background-image: url({{asset('frontend/assets/images/slider_2.jpg')}});background-size: cover;">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-              <h2>TESTIMONI</h2>
-              <p class="lead">Apa kata mereka?</p>
-            </div>
-          </div>
-          <!-- END row -->
-          <div class="row">
-            <div class="col-md-12 probootstrap-animate">
-              <div class="owl-carousel owl-carousel-testimony owl-carousel-fullwidth">
-                <div class="item">
-
-                  <div class="probootstrap-testimony-wrap text-center">
-                    <figure>
-                      <img src="img/person_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
-                    </figure>
-                    <blockquote class="quote">&ldquo;Design must be functional and functionality must be translated into visual aesthetics, without any reliance on gimmicks that have to be explained.&rdquo; <cite class="author"> &mdash; <span>Mike Fisher</span></cite></blockquote>
-                  </div>
-
-                </div>
-                <div class="item">
-                  <div class="probootstrap-testimony-wrap text-center">
-                    <figure>
-                      <img src="img/person_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
-                    </figure>
-                    <blockquote class="quote">&ldquo;Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.&rdquo; <cite class="author"> &mdash;<span>Jorge Smith</span></cite></blockquote>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="probootstrap-testimony-wrap text-center">
-                    <figure>
-                      <img src="img/person_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
-                    </figure>
-                    <blockquote class="quote">&ldquo;I think design would be better if designers were much more skeptical about its applications. If you believe in the potency of your craft, where you choose to dole it out is not something to take lightly.&rdquo; <cite class="author">&mdash; <span>Brandon White</span></cite></blockquote>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          <!-- END row -->
-        </div>
-      </section>
-
-      <section class="probootstrap-section">
+    <section class="probootstrap-section">
         <div class="container">
           <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
@@ -309,7 +182,7 @@
 			position: relative;
 		}
 		.probootstrap-section.probootstrap-section-colored {
-			background: #49D292;
+			background: #01803D;
 		}
 		
 		.section_title_event {

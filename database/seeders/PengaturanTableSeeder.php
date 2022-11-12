@@ -39,6 +39,10 @@ class PengaturanTableSeeder extends Seeder
 			['xendit_callback_token', 'ddc8ee21298c4c5a813efae52f64b8435bdfde8d1fedcc2535985f90c2a283d3'],
 			['nominal_admisi', 500000],
 			['is_voucher', 0],
+			['smtp_server', ''],
+			['smtp_port', ''],
+			['smtp_username', ''],
+			['smtp_password', ''],
 		];
 		foreach($settings as $setting){
 			\App\Models\Setting::create([

@@ -47,7 +47,7 @@
                             {{ $team->jabatan }}
                           </td>
 						  <td class="text-center">
-							@if(isset($team->media_sosial))
+							@if(count(unserialize($team->media_sosial)))
 								@foreach(unserialize($team->media_sosial) as $key => $medsos)
 									@if($key == 'facebook')
 										<a href="{{'https://facebook.com/'.$medsos}}" target="_blank"><i class="fa-brands fa-facebook"></i></a>&nbsp;

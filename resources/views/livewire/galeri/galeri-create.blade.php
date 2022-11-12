@@ -9,10 +9,6 @@
 				<button type="button" class="btn-close" wire:click="closeFormGaleri" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<div class="mb-3">
-				  <h6 class="card-title mb-2">Judul Galeri</h6>
-				  <input type="text" class="form-control" wire:model.lazy="judul">
-				</div>
 				<div class="row mt-3">
 					<div class="d-flex justify-content-between">
 						<div>
@@ -35,6 +31,10 @@
 							</div>
 						</div>
 					@endif
+				</div>
+				<div class="mb-3">
+				  <h6 class="card-title mt-3 mb-2">Judul Galeri</h6>
+				  <input type="text" class="form-control" wire:model.lazy="judul" required>
 				</div>
             </div>
 			<div class="modal-footer">

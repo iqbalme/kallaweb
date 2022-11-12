@@ -15,7 +15,9 @@
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Deskripsi</h6>
-				  <textarea class="form-control" wire:model.lazy="deskripsi"></textarea>
+				  <div class="form-group" wire:ignore>
+						<textarea name="deskripsi" id="editor">{{ $deskripsi }}</textarea>
+					</div>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Jabatan</h6>
@@ -73,10 +75,30 @@
           </div>
 		</div>
 	</div>
+	<script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
 	<script>
 	window.addEventListener('closeModalTeam', Tim => {
 		jQuery('#TeamModal').modal('hide');
 		jQuery('.modal-backdrop').hide();
 	});
+	ClassicEditor
+			.create( document.querySelector( '#editor' ), {
+				ckfinder: {
+					uploadUrl: "{{route('ckeditor.image-upload') .'?_token='.csrf_token()}}"
+				}
+			})
+			.then( editor => {
+				editor.model.document.on('change:data', () => {
+					@this.set('deskripsi', editor.getData());
+				})
+			})
+			.catch( error => {
+				//console.error( error );
+		});
 	</script>
+	<style>
+		.ck-editor__editable_inline {
+			min-height: 250px !important;
+		}
+	</style>
 </div>
