@@ -64,7 +64,7 @@ class TeamCreate extends Component
 		Team::create($data);
 		$this->emit('refreshTeam');
 		$this->reset();
-		//$this->closeModal();
+		$this->closeModal();
 	}
 	
 	public function closeModal(){
