@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Frontend;
 
 use Xendit\Xendit;
 use App\Models\Setting;
-use App\Models\Katalog;
 use App\Models\Voucher;
 use App\Models\Prodi;
 use Livewire\Component;
@@ -18,7 +17,6 @@ class PendaftarForm extends Component
 	public $total = 0; 
 	public $voucher;
 	public $settings;
-	public $katalogAdmisi;
 	public $kodeVoucher;
 	public $discount = 0;
 	public $data;
@@ -38,17 +36,17 @@ class PendaftarForm extends Component
 		$this->data['email'] = null;
 		$this->data['no_hp'] = null;
 		
-		$settings = Setting::all();
+		$settings = Setting::whereIn('nama_setting', ['nominal_admisi','is_voucher','status_pendaftaran'])->get();
 		foreach($settings as $setting){
+			if(in_array($setting->nama_setting, ['status_pendaftaran', 'is_voucher'])){
+				$setting->isi_setting = (boolean) $setting->isi_setting;
+			}
 			$this->settings[$setting->nama_setting] = $setting->isi_setting;
 		}
-		$katalogAdmisi = Katalog::find((int) $this->settings['katalog_admission_assigned']);
-		if(isset($katalogAdmisi)){
-			$this->katalogAdmisi = $katalogAdmisi;
-			$this->total = $katalogAdmisi->harga;
-		}
-		if((!(int) $this->settings['status_pendaftaran']) || (!isset($katalogAdmisi))){
-			return redirect()->route('home');
+		$this->total = $this->settings['nominal_admisi'];
+		//dd($this->settings);
+		if(!$this->settings['status_pendaftaran']){
+			return redirect()->route('admisi-non-aktif');
 		}
 		$this->prodis = Prodi::all();
 		if($this->prodis->count()){
@@ -84,7 +82,7 @@ class PendaftarForm extends Component
 		$voucher = Voucher::where(['kode_voucher' => $this->kodeVoucher, 'aktif' => 1]);
 		if($voucher->count()){
 			if($voucher->first()->tipe_diskon == 'persen'){
-				$this->discount = $this->katalogAdmisi->harga / 100 * $voucher->first()->nominal_diskon;
+				$this->discount = $this->settings['nominal_admisi'] / 100 * $voucher->first()->nominal_diskon;
 			} else {
 				$this->discount = $voucher->first()->nominal_diskon;
 			};
@@ -92,7 +90,7 @@ class PendaftarForm extends Component
 			$this->kodeVoucher = null;
 			$this->discount = 0;
 		}
-		$this->total = $this->katalogAdmisi->harga - $this->discount;
+		$this->total = $this->settings['nominal_admisi'] - $this->discount;
 	}
 	
 	public function splitName($name){

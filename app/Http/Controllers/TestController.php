@@ -23,7 +23,10 @@ class TestController extends Controller
 	// }
 	
 	public function index(){
-		$cat = Category::find(2)->with('post')->get();
-		return $cat;
+		return 'tes';
+	}
+	
+	public function subdomain($param){
+		print_r($param);
 	}
 }

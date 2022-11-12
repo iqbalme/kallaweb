@@ -100,57 +100,41 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
-              <h2>Why Choose Enlight School</h2>
+              <h2>Kenapa Memilih Kami?</h2>
               <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
               <div class="service left-icon probootstrap-animate">
-                <div class="icon"><i class="icon-checkmark"></i></div>
+                <div class="icon"><i class="fa fa-briefcase text-theme-colored"></i></div>
                 <div class="text">
-                  <h3>Consectetur Adipisicing</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                  <h3>Jaminan Kerja</h3>
+                  <p>Lulusan berkesempatan bergabung di perusahaan Kalla Group.</p>
                 </div>  
               </div>
               <div class="service left-icon probootstrap-animate">
-                <div class="icon"><i class="icon-checkmark"></i></div>
+                <div class="icon"><i class="fa fa-users text-theme-colored"></i></div>
                 <div class="text">
-                  <h3>Aliquid Dolorum Saepe</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
-                </div>
-              </div>
-              <div class="service left-icon probootstrap-animate">
-                <div class="icon"><i class="icon-checkmark"></i></div>
-                <div class="text">
-                  <h3>Eveniet Tempora Anisi</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                  <h3>Tim Pengajar Berkualitas</h3>
+                  <p>Perpaduan antara akademisi dan praktisi kewirausahaan dan Manager/Direksi Kalla Group.</p>
                 </div>
               </div>
             </div>
             <div class="col-md-6">
-              <div class="service left-icon probootstrap-animate">
-                <div class="icon"><i class="icon-checkmark"></i></div>
+			  <div class="service left-icon probootstrap-animate">
+                <div class="icon"><i class="fa fa-building text-theme-colored"></i></div>
                 <div class="text">
-                  <h3>Laboriosam Quod Dignissimos</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
+                  <h3>Lokasi Strategis</h3>
+                  <p>Berlokasi di pusat kota, tepatnya di salah satu Mall di Kota Makassar, Nipah Mall..</p>
+                </div>
+              </div>
+              <div class="service left-icon probootstrap-animate">
+                <div class="icon"><i class="fa fa-globe text-theme-colored"></i></div>
+                <div class="text">
+                  <h3>Konsep Milenial</h3>
+                  <p>Konsep pengajaran yang menyenangkan, nyaman, dan milenial.</p>
                 </div>  
-              </div>
-              
-              <div class="service left-icon probootstrap-animate">
-                <div class="icon"><i class="icon-checkmark"></i></div>
-                <div class="text">
-                  <h3>Asperiores Maxime Modi</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
-                </div>
-              </div>
-              
-              <div class="service left-icon probootstrap-animate">
-                <div class="icon"><i class="icon-checkmark"></i></div>
-                <div class="text">
-                  <h3>Libero Maxime Molestiae</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.</p>
-                </div>
               </div>
 
             </div>

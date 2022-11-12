@@ -47,8 +47,16 @@
 
           <div id="navbar-collapse" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="courses.html">Courses</a></li>
+              <li class="active"><a href="{{route('home')}}">Home</a></li>
+			  <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>Akademik</span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Second Level Menu</a></li>
+                      <li><a href="#">Second Level Menu</a></li>
+                      <li><a href="#">Second Level Menu</a></li>
+                      <li><a href="#">Second Level Menu</a></li>
+                    </ul>
+                  </li>
               <li><a href="teachers.html">Teachers</a></li>
               <li><a href="events.html">Events</a></li>
               <li class="dropdown">
@@ -70,7 +78,7 @@
                   <li><a href="news.html">News</a></li>
                 </ul>
               </li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="contact.html">Kontak</a></li>
             </ul>
           </div>
         </div>

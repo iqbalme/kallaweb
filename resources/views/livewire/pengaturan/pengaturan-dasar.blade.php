@@ -106,6 +106,70 @@
 						</div>
 					</div>
 					
+					<div class="row mt-3">
+						<div class="col-lg-6">
+							<div>
+							  <h5 class="card-title mb-0">Email</h5>
+							</div>
+							<div class="input-group mb-3 mt-2">
+							  <input type="text" class="form-control" wire:model="settings.email">
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div>
+							  <h5 class="card-title mb-0">No. Kontak</h5>
+							</div>
+							<div class="input-group mb-3 mt-2">
+							  <input type="text" class="form-control" wire:model="settings.no_kontak">
+							</div>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-lg-6">
+							<div>
+							  <h5 class="card-title mb-0">Facebook</h5>
+							</div>
+							<div class="input-group mb-3 mt-2">
+							  <input type="text" class="form-control" wire:model="settings.facebook">
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div>
+							  <h5 class="card-title mb-0">Instagram</h5>
+							</div>
+							<div class="input-group mb-3 mt-2">
+							  <input type="text" class="form-control" wire:model="settings.instagram">
+							</div>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-lg-6">
+							<div>
+							  <h5 class="card-title mb-0">Twitter</h5>
+							</div>
+							<div class="input-group mb-3 mt-2">
+							  <input type="text" class="form-control" wire:model="settings.twitter">
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div>
+							  <h5 class="card-title mb-0">Youtube</h5>
+							</div>
+							<div class="input-group mb-3 mt-2">
+							  <input type="text" class="form-control" wire:model="settings.youtube">
+							</div>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-lg-6">
+							<div>
+							  <h5 class="card-title mb-0">Tiktok</h5>
+							</div>
+							<div class="input-group mb-3 mt-2">
+							  <input type="text" class="form-control" wire:model="settings.tiktok">
+							</div>
+						</div>
+					</div>
 					<!--div class="row mt-3">
 						<div class="d-flex justify-content-between">
 							<div>

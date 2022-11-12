@@ -1,4 +1,5 @@
-      <section class="probootstrap-cta">
+      @if(request()->route()->getName() != 'registrasi')
+	  <section class="probootstrap-cta">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
@@ -8,6 +9,7 @@
           </div>
         </div>
       </section>
+	  @endif
  <footer class="probootstrap-footer probootstrap-bg">
         <div class="container">
           <div class="row">
