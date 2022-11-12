@@ -16,7 +16,7 @@
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Deskripsi</h6>
 				  <div class="form-group" wire:ignore>
-						<textarea name="deskripsi" id="editor">{{ $deskripsi }}</textarea>
+						<textarea name="deskripsi" id="editor" wire:model="deskripsi"></textarea>
 					</div>
 				</div>
 				<div class="mb-3">

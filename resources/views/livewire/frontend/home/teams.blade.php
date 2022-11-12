@@ -18,7 +18,7 @@
                   <img src="{{asset('storage/images/'.$team->gambar)}}" alt="{{$team->nama}}" class="img-responsive">
                 </figure>
                 <div class="text">
-                  <h3><strong>{{$team->nama}}<strong></h3>
+                  <h3>{{$team->nama}}</h3>
                   <p>{{$team->jabatan}}</p>
 				  @isset($team->media_sosial)
                   <ul class="probootstrap-footer-social">

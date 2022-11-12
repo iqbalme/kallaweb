@@ -41,7 +41,7 @@
 						  @endif
 						  </td>
                           <td>
-                            {{ $event->nama_event }}
+                            {{ substr($event->nama_event,0,49) }}
                           </td>
 						  <td class="text-center">
 							<span class="badge text-bg-success text-white">{{ date('d-m-Y', strtotime($event->waktu_mulai)) }}</span>

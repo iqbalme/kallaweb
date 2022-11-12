@@ -20,6 +20,10 @@ class TeamCreate extends Component
 	public $email = null;
 	public $gambar = null;
 	
+	public function mount(){
+		$this->reset();
+	}
+	
     public function render()
     {
         return view('livewire.team.team-create');
@@ -60,7 +64,7 @@ class TeamCreate extends Component
 		Team::create($data);
 		$this->emit('refreshTeam');
 		$this->reset();
-		$this->closeModal();
+		//$this->closeModal();
 	}
 	
 	public function closeModal(){
