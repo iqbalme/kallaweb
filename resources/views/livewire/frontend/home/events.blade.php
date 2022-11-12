@@ -45,4 +45,10 @@
       </section>
 	@endif
 	<!-- End Events -->
+	<style>
+		.event_image img {
+			max-width: 340px;
+			max-height: 223px;
+		}
+	</style>
 </div>
