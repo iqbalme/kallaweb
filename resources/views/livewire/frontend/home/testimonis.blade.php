@@ -30,7 +30,7 @@
 
                             <div class="col-12 col-lg-6 order-1 order-lg-2 content-wrap h-100 isi_testimoni">
                                 <div class="entry-content">
-                                    <p>{{$data->deskripsi}}</p>
+                                    <p>{{substr($data->deskripsi,0,103)}}</p>
                                 </div><!-- .entry-content -->
 
                                 <div class="entry-footer">
