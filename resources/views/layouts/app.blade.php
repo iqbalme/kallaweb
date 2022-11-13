@@ -1,20 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keyword" content="{{ $data['web_keywords'] }}">
-	<meta name="description" content="{{ $data['web_description'] }}">
-    <meta name="author" content="Kalla Institute">
-    <link rel="icon" type="image/png" href="{{ asset('storage/images/'.$data['web_icon']) }}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="keyword" content="{{ $data['web_keywords'] }}">
+<meta name="description" content="{{ $data['web_description'] }}">
+<meta name="author" content="Kalla Institute">
+<link rel="icon" type="image/png" href="{{ asset('storage/images/'.$data['web_icon']) }}">
 
-    <title>{{ isset($title) ? $title : '' }} - {{ $data['web_title'] }}</title>
-
-	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('frontend/theme/css/styles-merged.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/theme/css/style.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/theme/css/custom.css') }}">
-    
+<title>{{ isset($title) ? $title : '' }} - {{ $data['web_title'] }}</title>
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/bootstrap4/bootstrap.min.css')}}">
+<link href="{{asset('frontend/theme/unicat/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/animate.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/main_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/responsive.css')}}">
 	@isset($data['google_analytics'])
 	<!-- Google tag (gtag.js) -->
 	<script async src="{{ 'https://www.googletagmanager.com/gtag/js?id=' . $data['google_analytics'] }}"></script>
@@ -45,21 +49,29 @@
 	</noscript>
 	<!-- End Facebook Pixel Code -->
 	@endisset
-	
-	<link rel="stylesheet" href="{{ asset('frontend/assets/css/main_styles.css') }}">
 	@livewireStyles
-  </head>
+</head>
+<body>
+<div class="super_container">
 
-  <body>
+@include('layouts.nav')
+@yield('content')
+@include('layouts.footer')
+	
+</div>
 
-	@include('layouts.nav')
-	@yield('content')
-	@include('layouts.footer')
-
-	<script src="https://kit.fontawesome.com/8b91ad4956.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('frontend/theme/js/scripts.min.js') }}"></script>
-    <script src="{{ asset('frontend/theme/js/main.min.js') }}"></script>
-    <script src="{{ asset('frontend/theme/js/custom.js') }}"></script>
-	@livewireScripts
-  </body>
+<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/plugins/styles/bootstrap4/popper.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/plugins/styles/bootstrap4/bootstrap.min.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/plugins/greensock/TweenMax.min.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/plugins/greensock/TimelineMax.min.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/plugins/greensock/animation.gsap.min.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/plugins/greensock/ScrollToPlugin.min.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/plugins/easing/easing.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/plugins/parallax-js-master/parallax.min.js')}}"></script>
+<script src="{{asset('frontend/theme/unicat/js/custom.js')}}"></script>
+@livewireScripts
+</body>
 </html>
