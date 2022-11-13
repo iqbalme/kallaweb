@@ -105,4 +105,9 @@
 				<li class="menu_mm"><a href="contact.html">Contact</a></li>
 			</ul>
 		</nav>
+		<style>
+		.ml-auto, .mx-auto {
+			margin-left: auto!important;
+		}
+		</style>
 	</div>

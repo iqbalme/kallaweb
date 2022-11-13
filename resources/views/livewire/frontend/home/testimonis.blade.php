@@ -1,6 +1,13 @@
 <div>
 @if(count($data['testimonis']))
-	<section class="testimonial-section">
+	<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<h2 class="section_title">Testimoni</h2>
+					</div>
+				</div>
+			</div>
+	<section class="testimonial-section" style="padding-top:30px;">
         <!-- Swiper -->
         <div class="swiper-container testimonial-slider swiper-container-fade swiper-container-horizontal swiper-container-wp8-horizontal">
             <div class="swiper-wrapper" style="transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="2" style="width: 778px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
