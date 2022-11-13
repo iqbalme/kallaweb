@@ -1,4 +1,6 @@
 <div>
+	<div style="height:100px">
+	</div>
     @if($data['events']->count())
 	<!-- Events -->
 	<section class="featured-courses horizontal-column courses-wrap">
@@ -7,8 +9,6 @@
                 <div class="col-12">
                     <header class="heading flex justify-content-between align-items-center">
                         <h2 class="section_title">Upcoming Events</h2>
-
-                        <a class="btn mt-4 mt-sm-0" href="{{route('event.list')}}">Lihat Semua</a>
                     </header><!-- .heading -->
                 </div><!-- .col -->
 				@foreach($data['events'] as $event)
@@ -83,6 +83,7 @@
 		position: absolute!important;
 	}
 	</style>
+	<link href="{{asset('frontend/assets/css/style-ezuca.css')}}" rel="stylesheet" type="text/css">
 	<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
 	<script>
 		jQuery( document ).ready(function() {

@@ -19,6 +19,8 @@ use App\Http\Livewire\Frontend\Login;
 use App\Http\Livewire\Frontend\Arsip;
 use App\Http\Livewire\Frontend\PendaftarForm;
 use App\Http\Livewire\Frontend\AdmisiNonAktif;
+use App\Http\Livewire\Frontend\ShowEventList;
+use App\Http\Livewire\Frontend\ShowEventSingle;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Profil;
 use App\Http\Livewire\Admin\PendaftarCtrl;
@@ -70,6 +72,8 @@ use App\Http\Livewire\Testimoni\TestimoniIndex;
 	Route::get('expired-payment/', ExpiredPaymentPage::class)->name('payment.expired');
 	Route::get('login/', Login::class)->name('login');
 	Route::post('login/', [UserController::class, 'authenticate']);
+	Route::get('event/', ShowEventList::class)->name('event.list');
+	Route::get('event/{event_id}/', ShowEventSingle::class)->name('event.show');
 	Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 		Route::get('dashboard/', Dashboard::class)->name('dashboard.admin');
 		Route::get('prodi/', ProdiIndex::class)->name('prodi.index');
