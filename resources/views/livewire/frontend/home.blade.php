@@ -144,6 +144,8 @@
 			</div>
 		</div>
 	</div>
+	
+	<livewire:frontend.home.testimonis />
 
 	<!-- Latest News -->
 
