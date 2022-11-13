@@ -1,4 +1,6 @@
 <div>
+	<div style="height:100px">
+	</div>
     <div style="margin-top:50px"></div>
 	<div class="container">
 		<div class="row justify-content-center align-items-center mb-3">
@@ -225,87 +227,6 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 	<style>
-		.step {
-			font-family: 'Roboto', sans-serif;
-			font-size: 1.5rem;
-		}
 		
-		.step h3 {
-			font-family: 'Roboto', sans-serif;
-			font-size: 2.5rem;
-			font-weight: bold;
-		}
-		
-		.step h4 {
-			font-family: 'Roboto', sans-serif;
-			font-size: 2rem;
-			font-weight: 300;
-			margin-bottom: 0;
-		}
-		
-		.step label {
-			font-family: 'Roboto', sans-serif;
-			font-size: 1.5rem;
-		}
-		
-		.input-group {
-			position: relative;
-			display: flex;
-			flex-wrap: wrap;
-			align-items: stretch;
-			width: 100%;
-		}
-		
-		.input-group>.form-control, .input-group>.form-floating, .input-group>.form-select {
-			position: relative;
-			flex: 1 1 auto;
-			width: 1%;
-			min-width: 0;
-		}
-		
-		.input-group .btn {
-			position: relative;
-			z-index: 2;
-		}
-		
-		.input-group button {
-			border: 1px solid #0d6efd;
-			background: #0d6efd;
-			color: #fff;
-			margin-left: -1px;
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-		}
-		
-		.input-group button:hover {
-			color: #fff;
-		}
-		
-		.input-group button:visited {
-			color: #fff;
-		}
-		
-		.justify-content-center {
-			justify-content: center!important;
-		}
-		
-		.justify-content-between {
-			justify-content: space-between!important;
-		}
-		
-		.justify-content-end {
-			-webkit-box-pack: end!important;
-			-ms-flex-pack: end!important;
-			justify-content: flex-end!important;
-		}
-		
-		.row {
-			display: flex;
-			flex-wrap: wrap;
-		}
-		
-		.btn-dark {
-			border: 1px solid #181920;
-		}
 	</style>
 </div>

@@ -82,17 +82,21 @@
 							<a href="#" wire:click="setPostId({{$post->id}})" data-coreui-toggle="modal" data-coreui-target="#postModalEdit"><span class="badge text-bg-danger text-white">Hapus</span></a>
                           </td>
 						  <td>
-                            {{ $data['nama_user'][$loop->index] }}
+                            {{ $post->user->nama }}
                           </td>
 						  <td>
-						  @if($data['nama_kategori'][$loop->index])
-							{{ $data['nama_kategori'][$loop->index] }}
+						  @if(isset($data['nama_kategori']))
+							  @if(count($data['nama_kategori']) == 1)
+								{{ $data['nama_kategori'][0] }}
+							  @else
+								{{ implode(',',$data['nama_kategori']) }}
+							  @endif
 						  @else
 							-
 						  @endif
                           </td>
 						  <td>
-						  @if($data['nama_prodi'][$loop->index])
+						  @if(isset($data['nama_prodi']))
                             {{ $data['nama_prodi'][$loop->index] }}
 						  @else
 							-

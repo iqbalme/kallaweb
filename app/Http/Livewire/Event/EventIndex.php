@@ -35,6 +35,7 @@ class EventIndex extends Component
 	
 	public function getEvent($id){
 		$this->event = Event::find($id);
+		//dd($this->event);
 		$this->isUpdate = true;
 		$this->bukaFormEventEdit();
 	}

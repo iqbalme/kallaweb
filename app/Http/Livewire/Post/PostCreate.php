@@ -21,21 +21,22 @@ class PostCreate extends Component
 	use WithFileUploads;
 	
 	public $data;
-	public $isUpdate;
-	public $category_id = null;
 	public $thumbnail;
 	public $judul;
 	public $konten;
 	public $categories = []; 
 	public $tags;
-	public $prodis = null;
-	public $post_id;
+	public $post_prodi = null;
 	public $is_headline = false;
 	
     public function render()
     {
 		$this->data['categories'] = Category::all();
-		$this->data['prodis'] = Prodi::all();
+		$prodis = Prodi::all();
+		$this->data['prodis'] = $prodis;
+		if($prodis->count()){
+			$this->post_prodi = $prodis[0]->id;
+		}
         return view('livewire.post.post-create')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / Buat Baru']);
     }
@@ -47,17 +48,17 @@ class PostCreate extends Component
 	
 	public function publishPost($isPublished=true){
 		$post_tags = [];
-		$post_tags_insert = null;
+		$post_categories = [];
 		$thumbnail = null;
 		if(isset($this->tags)){
 			foreach(explode(',',$this->tags) as $tag){
 				$post_tag = Tag::updateOrCreate(
 				['nama_tag' => trim($tag)],
 				['nama_tag' => trim($tag), 'slug' => $this->setSlug($tag)]);
-				$post_tags[] = $post_tag->id;
+				$post_tags[] = ['tag_id' => $post_tag->id];
 			}
 		}
-		$post_tags_insert = implode(',',array_unique($post_tags));
+		//$post_tags_insert = implode(',',array_unique($post_tags));
 		if(isset($this->thumbnail)){
 			$thumbnail = $this->thumbnail->getFilename();
 			$this->thumbnail->storeAs('public/images', $thumbnail);
@@ -66,9 +67,6 @@ class PostCreate extends Component
 			'judul' => $this->judul,
 			'konten' => $this->konten,
 			'thumbnail' => $thumbnail,
-			'category_id' => count($this->categories) ? implode(",",array_filter(array_unique($this->categories))) : 0,
-			'tag_id' => isset($this->tags) ? $post_tags_insert : 0,
-			'prodi_id' => count($this->prodis) ? implode(",",array_filter(array_unique($this->prodis))) : 0,
 			'status_post' => ($isPublished) ? 'published' : 'draft',
 			'user_id' => Auth::user()->id,
 			'slug' => $this->setSlug($this->judul),
@@ -80,28 +78,12 @@ class PostCreate extends Component
 		};
 		if(isset($this->categories)){
 			foreach($this->categories as $post_category){
-				PostCategory::create([
-					'post_id' => $createdPost->id,
-					'category_id' => $post_category
-				]);
+				$post_categories[] = ['category_id' => $post_category];
 			}
 		}
-		if(isset($this->prodis)){
-			foreach($this->prodis as $post_prodi){
-				PostProdis::create([
-					'post_id' => $createdPost->id,
-					'prodi_id' => $post_prodi
-				]);
-			}
-		}		
-		if(isset($post_tags)){
-			foreach($post_tags as $post_tag){
-				PostTags::create([
-					'post_id' => $createdPost->id,
-					'tag_id' => $post_tag
-				]);
-			}
-		}
+		$createdPost->post_prodi()->create(['prodi_id' => $this->post_prodi]);
+		$createdPost->post_categories()->createMany($post_categories);
+		$createdPost->post_tags()->createMany($post_tags);
 		return redirect()->route('post.index');
 	}
 	

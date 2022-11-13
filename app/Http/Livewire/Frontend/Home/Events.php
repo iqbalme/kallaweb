@@ -11,8 +11,9 @@ class Events extends Component
 	
     public function render()
     {
-		$events = Event::whereDate('waktu_mulai', '>=', date('Y-m-d H:m:s'))->orderBy('waktu_mulai')->limit(3)->get();
+		$events = Event::whereDate('waktu_mulai', '>=', date('Y-m-d H:m:s'))->orderBy('waktu_mulai')->limit(2)->get();
 		$this->data['events'] = $events;
+		//dd($events);
         return view('livewire.frontend.home.events');
     }
 }

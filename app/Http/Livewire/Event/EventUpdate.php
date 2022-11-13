@@ -47,14 +47,15 @@ class EventUpdate extends Component
 	}
 	
 	public function getEvent($event){
+		//dd(gettype($event['waktu_mulai']));
 		$this->is_voucher = false;
 		$this->event_id = $event['id'];
 		$this->voucher_id = $event['voucher_id'];
 		$this->nama_event = $event['nama_event'];
 		$this->deskripsi_event = $event['deskripsi_event'];
-		$this->tanggal = $event['tanggal'];
-		$this->waktu_mulai = $event['waktu_mulai'];
-		$this->waktu_akhir = $event['waktu_berakhir'];
+		$this->tanggal = date('Y-m-d', strtotime($event['waktu_mulai']));
+		$this->waktu_mulai = date('H:i', strtotime($event['waktu_mulai']));
+		$this->waktu_akhir = date('H:i', strtotime($event['waktu_berakhir']));
 		$this->gambar = $event['gambar_event'];
 		$this->lokasi = $event['lokasi'];
 		if(isset($event['gambar_event'])){
@@ -74,9 +75,8 @@ class EventUpdate extends Component
 		$data = [
 			'nama_event' => $this->nama_event,
 			'deskripsi_event' => $this->deskripsi_event,
-			'tanggal' => $this->tanggal,
-			'waktu_mulai' => $this->waktu_mulai,
-			'waktu_berakhir' => $this->waktu_akhir,
+			'waktu_mulai' => $this->tanggal.' '.$this->waktu_mulai,
+			'waktu_berakhir' => $this->tanggal.' '.$this->waktu_akhir,
 			'lokasi' => $this->lokasi,
 			'voucher_id' => $voucher_id
 		];

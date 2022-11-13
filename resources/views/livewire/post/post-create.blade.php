@@ -41,7 +41,7 @@
 						<h6 class="card-title mb-1">Prodi</h6>
 						@foreach($data['prodis'] as $prodi)
 						<div class="form-check">
-						  <input class="form-check-input" type="radio" value="{{ $prodi->id }}" wire:model="prodis">
+						  <input class="form-check-input" type="radio" value="{{ $prodi->id }}" wire:model="post_prodi">
 						  <label class="form-check-label">
 						  {{ ucfirst($prodi->nama_prodi)}}
 						  </label>

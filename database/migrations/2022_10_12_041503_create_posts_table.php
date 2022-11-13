@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-		Schema::dropIfExists('posts');
+		//Schema::dropIfExists('posts');
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
 			$table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();

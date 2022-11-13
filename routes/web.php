@@ -9,6 +9,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\CKEditorController;
+use App\Http\Controllers\UserController;
 use App\Http\Livewire\Teslw;
 use App\Http\Livewire\Frontend\Home;
 use App\Http\Livewire\Frontend\Home2;

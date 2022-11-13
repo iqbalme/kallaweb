@@ -16,15 +16,47 @@ class Post extends Model
 	
 	protected $guarded = [];
 	
-	protected $appends = array('post_excerpt'); //menambahkan field baru pada respon
+	protected $appends = array('post_excerpt', 'post_user', 'post_prodi', 'post_tags', 'post_categories'); //menambahkan field baru pada respon
 	
 	public function user(){
 		return $this->belongsTo(User::class);
 	}
 	
+	public function post_prodi_data(){
+		return $this->hasOne(PostProdis::class);
+	}
+	
+	public function post_categories_data(){
+		return $this->hasMany(PostCategory::class);
+	}
+	
+	public function post_tags_data(){
+		return $this->hasMany(PostTags::class);
+	}
+	
 	public function getPostExcerptAttribute()
     {
         return strip_tags($this->removeContentTag($this->konten));
-    } 
+    }
+	
+	public function getPostUserAttribute()
+    {
+        return $this->user;
+    }
+	
+	public function getPostProdiAttribute()
+    {
+        return $this->post_prodi_data;
+    }
+	
+	public function getPostTagsAttribute()
+    {
+        return $this->post_tags_data;
+    }
+	
+	public function getPostCategoriesAttribute()
+    {
+        return $this->post_categories_data;
+    }
 	
 }

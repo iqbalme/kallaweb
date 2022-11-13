@@ -18,6 +18,6 @@ class PostCategory extends Model
 	}
 	
 	public function kategori(){
-		return $this->belongsTo(Category::class, 'category_id', 'id')->get();
+		return $this->belongsToMany(Category::class);
 	}
 }

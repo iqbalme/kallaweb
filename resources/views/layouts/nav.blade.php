@@ -10,18 +10,17 @@
 						<div class="col">
 							<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
 								<ul class="top_bar_contact_list">
-									<li><div class="question">Have any questions?</div></li>
 									<li>
 										<i class="fa fa-phone" aria-hidden="true"></i>
-										<div>001-1234-88888</div>
+										<div>+(62) 811 4390 2019</div>
 									</li>
 									<li>
 										<i class="fa fa-envelope-o" aria-hidden="true"></i>
-										<div>info.deercreative@gmail.com</div>
+										<div>info@kallainstitute.ac.id</div>
 									</li>
 								</ul>
 								<div class="top_bar_login ml-auto">
-									<div class="login_button"><a href="#">Register or Login</a></div>
+									<div class="login_button"><a href="{{route('registrasi')}}">Register</a></div>
 								</div>
 							</div>
 						</div>
@@ -43,12 +42,12 @@
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li class="active"><a href="#">Home</a></li>
-									<li><a href="about.html">About</a></li>
-									<li><a href="courses.html">Courses</a></li>
-									<li><a href="blog.html">Blog</a></li>
+									<li class="active"><a href="{{route('home')}}">Home</a></li>
+									<li><a href="about.html">Profil</a></li>
+									<li><a href="courses.html">Akademik</a></li>
+									<li><a href="blog.html">Berita</a></li>
 									<li><a href="#">Page</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="contact.html">Kontak</a></li>
 								</ul>
 
 								<!-- Hamburger -->
@@ -105,9 +104,17 @@
 				<li class="menu_mm"><a href="contact.html">Contact</a></li>
 			</ul>
 		</nav>
-		<style>
+
+	<style>
 		.ml-auto, .mx-auto {
 			margin-left: auto!important;
 		}
-		</style>
+		.navbar.sticky-top {
+			top: -100px;
+			transition: .5s;
+		}
+		.navbar .navbar-brand, .navbar a.btn {
+			height: 80px;
+		}
+	</style>
 	</div>

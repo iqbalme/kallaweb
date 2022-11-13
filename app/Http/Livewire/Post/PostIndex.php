@@ -50,31 +50,18 @@ class PostIndex extends Component
 		// $posts_tags = [];
 		foreach($posts as $post){
 			$categories = [];
-			$prodis = [];
-			if($post->category_id == 0){ //msh error di sini
-				$posts_categories[] = 0;
-			} else {
-				foreach(explode(',', $post->category_id) as $cat_id){
-					$categories[] = Category::find($cat_id)->nama_kategori;
+			if($post->post_categories->count()){
+				foreach($post->post_categories as $post_category){
+					$categories[] = Category::find($post_category->category_id)->nama_kategori;
 				}
-				$posts_categories[] = implode(', ',$categories);
 			}
-			if(!empty($post->prodi_id)){
-				foreach(explode(',', $post->prodi_id) as $prodi_id){
-					$prodis[] = Prodi::find($prodi_id)->nama_prodi;
-				}
-				$posts_prodis[] = implode(', ',$prodis);
-			} else {
-				$posts_prodis[] = 0;
-			}
-			
-			$posts_user[] = User::find($post->user_id)->nama;
+			$post_categories[] = $categories;
+			$posts_prodis[] = Prodi::find($post->post_prodi->prodi_id)->nama_prodi;
 		}
 		
 		$this->data['posts'] = $posts;
 		$this->data['nama_kategori'] = $posts_categories;
 		$this->data['nama_prodi'] = $posts_prodis;
-		$this->data['nama_user'] = $posts_user;
         return view('livewire.post.post-index')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / List']);
     }

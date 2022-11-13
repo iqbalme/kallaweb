@@ -1,46 +1,93 @@
 <div>
     @if($data['events']->count())
 	<!-- Events -->
+	<section class="featured-courses horizontal-column courses-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <header class="heading flex justify-content-between align-items-center">
+                        <h2 class="section_title">Upcoming Events</h2>
 
-	<div class="events">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="section_title_container text-center">
-						<h2 class="section_title">Upcoming events</h2>
-						<div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
-					</div>
-				</div>
-			</div>
-			<div class="row events_row">
-				@foreach(($data['events'] as $event)
-				<!-- Event -->
-				<div class="col-lg-4 event_col">
-					<div class="event event_left">
-						<div class="event_image"><img src="{{asset('storage/images/'.$event->gambar)}}" alt=""></div>
-						<div class="event_body d-flex flex-row align-items-start justify-content-start">
-							<div class="event_date">
-								<div class="d-flex flex-column align-items-center justify-content-center trans_200">
-									<div class="event_day trans_200">21</div>
-									<div class="event_month trans_200">Aug</div>
-								</div>
-							</div>
-							<div class="event_content">
-								<div class="event_title"><a href="#">Which Country Handles Student Debt?</a></div>
-								<div class="event_info_container">
-									<div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>15.00 - 19.30</span></div>
-									<div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>25 New York City</span></div>
-									<div class="event_text">
-										<p>Policy analysts generally agree on a need for reform, but not on which path...</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                        <a class="btn mt-4 mt-sm-0" href="#">Lihat Semua</a>
+                    </header><!-- .heading -->
+                </div><!-- .col -->
+				@foreach($data['events'] as $event)
+                <div class="col-12 col-lg-6">
+                    <div class="course-content flex flex-wrap justify-content-between align-content-lg-stretch">
+                        <figure class="course-thumbnail">
+                            <a href="#"><img src="{{asset('storage/images/'.$event->gambar_event)}}" alt=""></a>
+							<div class="posted-date position-absolute">
+                                <div class="day">{{date('d',strtotime($event->waktu_mulai))}}</div>
+                                <div class="month">{{date('M',strtotime($event->waktu_mulai))}}</div>
+                            </div>
+                        </figure><!-- .course-thumbnail -->
+
+                        <div class="course-content-wrap">
+                            <header class="entry-header">
+                                <!--div class="course-ratings flex align-items-center">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star-o"></span>
+
+                                    <span class="course-ratings-count">(4 votes)</span>
+                                </div><!-- .course-ratings -->
+
+                                <h2 class="entry-title"><a href="#">{{substr($event->nama_event,0,37)}}</a></h2>
+
+                                <div class="entry-meta flex flex-wrap align-items-center">
+                                <div class="event-time"><i class="fa fa-calendar"></i>&nbsp;{{date('d-m-Y H:i',strtotime($event->waktu_mulai))}}</div>
+								@if(isset($event->lokasi))
+								<div class="event-time"><i class="fa fa-map-marker"></i>&nbsp;{{ucfirst($event->lokasi)}}</div>
+								@endif
+                                </div><!-- .course-date -->
+                            </header><!-- .entry-header -->
+
+                            <footer class="entry-footer flex justify-content-between align-items-center">
+								<div class="course-author">{{substr($event->deskripsi,0,91).'...'}}</div>
+                                <!--div class="course-cost">
+                                    <span class="free-cost">Free</span>
+                                </div><!-- .course-cost -->
+                            </footer><!-- .entry-footer -->
+                        </div><!-- .course-content-wrap -->
+                    </div><!-- .course-content -->
+                </div><!-- .col -->
 				@endforeach
-			</div>
-		</div>
-	</div>
+				
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </section>
+	<style>
+	.event-time {
+		width:100%;
+		margin-top: 8px;
+		font-size: 14px;
+		text-transform: uppercase;
+		color: #c0c1cd;
+	}
+	.event-time .fa {
+		margin-right: 6px;
+		color: #34d986;
+	}
+	.posted-date {
+		bottom: 0;
+		left: 0;
+		padding: 10px 16px;
+		background: #f3a90b;
+		color: #fff;
+		line-height: 1;
+		text-align: center;
+	}
+	.position-absolute {
+		position: absolute!important;
+	}
+	</style>
+	<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
+	<script>
+		jQuery( document ).ready(function() {
+			jQuery(".course-thumbnail img").height(jQuery(".course-thumbnail img").width());
+		});
+	</script>
 	@endif
 </div>

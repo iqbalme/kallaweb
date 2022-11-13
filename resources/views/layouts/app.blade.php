@@ -20,6 +20,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/animate.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/responsive.css')}}">
+
 	@isset($data['google_analytics'])
 	<!-- Google tag (gtag.js) -->
 	<script async src="{{ 'https://www.googletagmanager.com/gtag/js?id=' . $data['google_analytics'] }}"></script>
@@ -63,6 +64,7 @@
 </div>
 
 <script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 <script src="{{asset('frontend/theme/unicat/plugins/greensock/TweenMax.min.js')}}"></script>
