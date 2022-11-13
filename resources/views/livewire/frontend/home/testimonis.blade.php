@@ -1,114 +1,47 @@
 <div>
+@if(count($data['testimonis']))
 	<section class="testimonial-section">
         <!-- Swiper -->
         <div class="swiper-container testimonial-slider swiper-container-fade swiper-container-horizontal swiper-container-wp8-horizontal">
-            <div class="swiper-wrapper" style="transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="2" style="width: 1349px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+            <div class="swiper-wrapper" style="transition-duration: 0ms;">
+				@foreach($data['testimonis'] as $data)
+					@php
+						$swiper_class = '';
+						$style = '';
+						if($loop->index == 0){
+							$swiper_class = 'swiper-slide-prev';
+							$style = 'width: 1349px; opacity: 1; transform: translate3d(-2698px, 0px, 0px); transition-duration: 0ms;';
+						} elseif($loop->index == 1){
+							$swiper_class = 'swiper-slide-active';
+							$style = 'width: 1349px; opacity: 1; transform: translate3d(-4047px, 0px, 0px); transition-duration: 0ms;';
+						} else {
+							$swiper_class = 'swiper-slide-next';
+							$style = 'width: 1349px; opacity: 1; transform: translate3d(-1349px, 0px, 0px); transition-duration: 0ms;';
+						}
+					@endphp
+                <div class="swiper-slide {{$swiper_class}}" data-swiper-slide-index="{{$loop->index}}" style="{{$style}}">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12 col-lg-6 flex order-2 order-lg-1 align-items-center mt-5 mt-lg-0">
+                            <div class="col-12 col-lg-6 order-2 order-lg-1 flex align-items-center mt-5 mt-lg-0">
                                 <figure class="user-avatar">
-                                    <img src="https://technext.github.io/ezuca/images/user-3.jpg" alt="">
+                                    <img src="{{asset('storage/images/'.$data->gambar)}}" alt="">
                                 </figure><!-- .user-avatar -->
                             </div><!-- .col -->
 
                             <div class="col-12 col-lg-6 order-1 order-lg-2 content-wrap h-100 isi_testimoni">
                                 <div class="entry-content">
-                                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+                                    <p>{{$data->deskripsi}}</p>
                                 </div><!-- .entry-content -->
 
                                 <div class="entry-footer">
-                                    <h3 class="testimonial-user">James Stephens - <span>University in Cambridge</span></h3>
-                                </div><!-- .entry-footer -->
-                            </div><!-- .col -->
-                        </div><!-- .row -->
-                    </div><!-- .container -->
-                </div>
-                <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="0" style="width: 1349px; opacity: 1; transform: translate3d(-1349px, 0px, 0px); transition-duration: 0ms;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 col-lg-6 order-2 order-lg-1 flex align-items-center mt-5 mt-lg-0">
-                                <figure class="user-avatar">
-                                    <img src="https://technext.github.io/ezuca/images/user-1.jpg" alt="">
-                                </figure><!-- .user-avatar -->
-                            </div><!-- .col -->
-
-                            <div class="col-12 col-lg-6 order-1 order-lg-2 content-wrap h-100 isi_testimoni">
-                                <div class="entry-content">
-                                    <p>Together as teachers, students and universities we can help make this education available for everyone.</p>
-                                </div><!-- .entry-content -->
-
-                                <div class="entry-footer">
-                                    <h3 class="testimonial-user">Russell Stephens - <span>University in UK</span></h3>
+                                    <h3 class="testimonial-user">{{$data->nama}} - <span>{{$data->keterangan}}</span></h3>
                                 </div><!-- .entry-footer -->
                             </div><!-- .col -->
                         </div><!-- .row -->
                     </div><!-- .container -->
                 </div><!-- .swiper-slide -->
-
-                <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 1349px; opacity: 1; transform: translate3d(-2698px, 0px, 0px); transition-duration: 0ms;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 col-lg-6 order-2 order-lg-1 flex align-items-center mt-5 mt-lg-0">
-                                <figure class="user-avatar">
-                                    <img src="https://technext.github.io/ezuca/images/user-2.jpg" alt="">
-                                </figure><!-- .user-avatar -->
-                            </div><!-- .col -->
-
-                            <div class="col-12 col-lg-6 order-1 order-lg-2 content-wrap h-100 isi_testimoni">
-                                <div class="entry-content">
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div><!-- .entry-content -->
-
-                                <div class="entry-footer">
-                                    <h3 class="testimonial-user">Robert Stephens - <span>University in Oxford</span></h3>
-                                </div><!-- .entry-footer -->
-                            </div><!-- .col -->
-                        </div><!-- .row -->
-                    </div><!-- .container -->
-                </div><!-- .swiper-slide -->
-
-                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 1349px; opacity: 1; transform: translate3d(-4047px, 0px, 0px); transition-duration: 0ms;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 col-lg-6 flex order-2 order-lg-1 align-items-center mt-5 mt-lg-0">
-                                <figure class="user-avatar">
-                                    <img src="https://technext.github.io/ezuca/images/user-3.jpg" alt="">
-                                </figure><!-- .user-avatar -->
-                            </div><!-- .col -->
-
-                            <div class="col-12 col-lg-6 order-1 order-lg-2 content-wrap h-100">
-                                <div class="entry-content">
-                                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                                </div><!-- .entry-content -->
-
-                                <div class="entry-footer">
-                                    <h3 class="testimonial-user">James Stephens - <span>University in Cambridge</span></h3>
-                                </div><!-- .entry-footer -->
-                            </div><!-- .col -->
-                        </div><!-- .row -->
-                    </div><!-- .container -->
-                </div><!-- .swiper-slide -->
-            <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" style="width: 1349px; opacity: 0; transform: translate3d(-5396px, 0px, 0px); transition-duration: 0ms;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 col-lg-6 order-2 order-lg-1 flex align-items-center mt-5 mt-lg-0">
-                                <figure class="user-avatar">
-                                    <img src="images/user-1.jpg" alt="">
-                                </figure><!-- .user-avatar -->
-                            </div><!-- .col -->
-
-                            <div class="col-12 col-lg-6 order-1 order-lg-2 content-wrap h-100">
-                                <div class="entry-content">
-                                    <p>Together as teachers, students and universities we can help make this education available for everyone.</p>
-                                </div><!-- .entry-content -->
-
-                                <div class="entry-footer">
-                                    <h3 class="testimonial-user">Russell Stephens - <span>University in UK</span></h3>
-                                </div><!-- .entry-footer -->
-                            </div><!-- .col -->
-                        </div><!-- .row -->
-                    </div><!-- .container -->
-                </div></div><!-- .swiper-wrapper -->
+			@endforeach
+			</div><!-- .swiper-wrapper -->
 
             <div class="container">
                 <div class="row">
@@ -315,4 +248,5 @@
 	<!--script type="text/javascript" src="{{asset('frontend/assets/js/masonry.pkgd.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('frontend/assets/js/jquery.collapsible.min.js')}}"></script-->
 	<script type="text/javascript" src="{{asset('frontend/assets/js/custom-ezuca.js')}}"></script>
+@endif
 </div>
