@@ -10,7 +10,9 @@ class Testimonis extends Component
 	public $data;
 	
 	public function mount(){
-		$this->data['testimonis'] = Testimoni::orderByDesc('created_at')->limit(3)->get();
+		$testimonis = Testimoni::orderByDesc('created_at')->limit(3)->get();
+		$this->data['testimonis'] = $testimonis;
+		//dd($testimonis);
 	}
 	
     public function render()
