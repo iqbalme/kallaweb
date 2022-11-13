@@ -15,7 +15,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="course-content flex flex-wrap justify-content-between align-content-lg-stretch">
                         <figure class="course-thumbnail">
-                            <a href="#"><img src="{{asset('storage/images/'.$event->gambar_event)}}" alt=""></a>
+                            <a href="{{route('event.show', $event->id)}}"><img src="{{asset('storage/images/'.$event->gambar_event)}}" alt=""></a>
 							<div class="posted-date position-absolute">
                                 <div class="day">{{date('d',strtotime($event->waktu_mulai))}}</div>
                                 <div class="month">{{date('M',strtotime($event->waktu_mulai))}}</div>

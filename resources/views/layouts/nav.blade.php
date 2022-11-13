@@ -42,7 +42,7 @@
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li class="active"><a href="{{route('home')}}">Home</a></li>
+									<li><a href="{{route('home')}}">Home</a></li>
 									<li><a href="about.html">Profil</a></li>
 									<li><a href="courses.html">Akademik</a></li>
 									<li><a href="blog.html">Berita</a></li>
