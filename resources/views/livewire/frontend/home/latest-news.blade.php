@@ -16,7 +16,11 @@
 					<!-- News Post Large -->
 					<div class="news_post_large_container">
 						<div class="news_post_large">
-							<div class="news_post_image"><div class="news_post_image_thumbnail" style="background-image:url('{{asset('storage/images/'.$headlined_post->thumbnail)}}');background-size:cover;"></div></div>
+							<div class="news_post_image">
+							@isset($headlined_post->thumbnail)
+							<div class="news_post_image_thumbnail" style="background-image:url('{{asset('storage/images/'.$headlined_post->thumbnail)}}');background-size:cover;"></div>
+							@endisset
+							</div>
 							
 							<div class="news_post_large_title">
 							@if($is_seo)
