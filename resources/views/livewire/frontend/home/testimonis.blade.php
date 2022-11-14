@@ -23,7 +23,7 @@
 									@if($loop->index == 0)
 										<img src="{{asset('storage/images/'.$data['testimonis'][1]->gambar)}}" alt="">
 									@elseif($loop->index == 1)
-										@if(count($data['testimonis'] > 2)
+										@if(count($data['testimonis']) > 2)
 											<img src="{{asset('storage/images/'.$data['testimonis'][2]->gambar)}}" alt="">
 										@endif
 									@else
