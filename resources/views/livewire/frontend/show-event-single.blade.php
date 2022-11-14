@@ -95,7 +95,7 @@
 								<div class="latest d-flex flex-row align-items-start justify-content-start">
 									<div class="latest_image"><div><img src="{{asset('storage/images/'.$event_lain_item->gambar_event)}}" alt=""></div></div>
 									<div class="latest_content">
-										<div class="latest_title"><a href="{{route('event.show', $event_lain_item->id)}}">{{substr($event_lain_item->nama_event,0,51)}}</a></div>
+										<div class="latest_title"><a href="{{route('event.show', $event_lain_item->id)}}">{{substr($event_lain_item->nama_event,0,51).'...'}}</a></div>
 										<!--div class="latest_price">Free</div-->
 									</div>
 								</div>
