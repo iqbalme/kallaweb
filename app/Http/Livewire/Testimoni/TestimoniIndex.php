@@ -34,13 +34,13 @@ class TestimoniIndex extends Component
 		$this->bukaFormTestimoniEdit();
 	}
 	
-	public function hapustestimoni($id){
+	public function hapusTestimoni($id){
 		$this->testimoni_id = $id;
 		$this->isUpdate = false;
 		$this->bukaFormHapus();
 	}
 	
-	public function hapustestimoniItem(){
+	public function hapusTestimoniItem(){
 		Testimoni::find($this->testimoni_id)->delete();
 		$this->closeHapusForm();
 	}
