@@ -36,7 +36,7 @@
 								</ul>
 							</div>
 							<div class="news_post_text">
-								<p>Policy analysts generally agree on a need for reform, but not on which path policymakers should take. Can America learn anything from other nations...</p>
+								<p>{{$headlined_post->post_excerpt}}...</p>
 							</div>
 							<div class="news_post_link">
 							@if($is_seo)

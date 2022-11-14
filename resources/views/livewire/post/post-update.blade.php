@@ -30,7 +30,7 @@
 					<div class="form-check">
 					  <input class="form-check-input" type="checkbox" value="{{ $category->id }}" wire:model.defer="categories">
 					  <label class="form-check-label">
-					  {{ $category->nama_kategori }}
+					  {{ ucfirst($category->nama_kategori) }}
 					  </label>
 					</div>
 					@endforeach
@@ -40,10 +40,10 @@
 				<div class="mb-3">
 					<h6 class="card-title mb-1">Prodi</h6>
 					@foreach($data['prodis'] as $prodi)
-					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" value="{{ $prodi->id }}" wire:model.defer="prodis">
+					<div class="form-check" wire:ignore>
+					  <input class="form-check-input" type="radio" value="{{ $prodi->id }}" wire:model="post_prodi">
 					  <label class="form-check-label">
-					  {{ $prodi->nama_prodi}}
+					  {{ ucfirst($prodi->nama_prodi)}}
 					  </label>
 					</div>
 					@endforeach
@@ -76,7 +76,6 @@
 							  <input type="file" class="form-control" wire:model.defer="thumbnail">
 							  <label class="input-group-text">Upload</label>
 							</div>
-							@error('thumbnail') <span class="error">{{ $message }}</span> @enderror
 						</div>
 					@endif
 					<div class="row mt-5">
@@ -94,22 +93,30 @@
           </div>
 		</div>
 	</div>
-	<script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
+	<!--script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script-->
+	<script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 	<script type="text/javascript">
-		ClassicEditor
-			.create( document.querySelector( '#editor' ), {
-				ckfinder: {
-					uploadUrl: "{{route('ckeditor.image-upload') .'?_token='.csrf_token()}}"
-				}
-			})
-			.then( editor => {
-				editor.model.document.on('change:data', () => {
-					@this.set('konten', editor.getData());
-				})
-			})
-			.catch( error => {
-				//console.error( error );
-		});
+		// ClassicEditor
+			// .create( document.querySelector( '#editor' ), {
+				// ckfinder: {
+					// uploadUrl: "{{route('ckeditor.image-upload') .'?_token='.csrf_token()}}"
+				// }
+			// })
+			// .then( editor => {
+				// editor.model.document.on('change:data', () => {
+					// Livewire.emit('setKonten', editor.getData());
+					// @this.set('konten', editor.getData());
+					//console.log(editor.getData());
+				// })
+			// })
+			// .catch( error => {
+				// console.error( error );
+		// });
+		const editor = CKEDITOR.replace('editor');
+		editor.on('change', function (event) {
+			//console.log(event.editor.getData())
+			Livewire.emit('setKonten', event.editor.getData());
+		})
 	</script>
 	<style>
 	.ck-editor__editable_inline {

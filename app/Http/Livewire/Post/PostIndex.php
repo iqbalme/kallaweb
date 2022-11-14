@@ -52,15 +52,16 @@ class PostIndex extends Component
 			$categories = [];
 			if($post->post_categories->count()){
 				foreach($post->post_categories_data as $post_category){
-					$categories[] = Category::find($post_category->category_id)->nama_kategori;
+					$categories[] = ucfirst(Category::find($post_category->category_id)->nama_kategori);
 				}
 			}
-			$post_categories[] = $categories;
+			$posts_categories[] = $categories;
 			$posts_prodis[] = Prodi::find($post->post_prodi->prodi_id)->nama_prodi;
 		}
 		
 		$this->data['posts'] = $posts;
 		$this->data['nama_kategori'] = $posts_categories;
+		//dd($posts_categories);
 		$this->data['nama_prodi'] = $posts_prodis;
         return view('livewire.post.post-index')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / List']);

@@ -29,17 +29,26 @@ class PostCreate extends Component
 	public $post_prodi = null;
 	public $is_headline = false;
 	
-    public function render()
-    {
+	protected $listeners = ['setKonten'];
+	
+	public function mount(){
 		$this->data['categories'] = Category::all();
 		$prodis = Prodi::all();
 		$this->data['prodis'] = $prodis;
 		if($prodis->count()){
-			$this->post_prodi = $prodis[0]->id;
+			$this->post_prodi = $prodis[0]['id'];
 		}
+	}
+	
+    public function render()
+    {
         return view('livewire.post.post-create')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / Buat Baru']);
     }
+	
+	public function setKonten($value){
+		$this->konten = $value;
+	}
 	
 	public function removeThumbnail(){
 		$this->thumbnail->delete();

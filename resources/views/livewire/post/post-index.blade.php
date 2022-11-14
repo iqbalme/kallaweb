@@ -85,15 +85,13 @@
                             {{ $post->user->nama }}
                           </td>
 						  <td>
-						  @if(isset($data['nama_kategori']))
 							  @if(count($data['nama_kategori']) == 1)
-								{{ $data['nama_kategori'][0] }}
+								{{ $data['nama_kategori'][$loop->index][0] }}
+							  @elseif(count($data['nama_kategori']) > 1)
+								{{ implode(', ',$data['nama_kategori'][$loop->index]) }}
 							  @else
-								{{ implode(',',$data['nama_kategori']) }}
+								  -
 							  @endif
-						  @else
-							-
-						  @endif
                           </td>
 						  <td>
 						  @if(isset($data['nama_prodi']))

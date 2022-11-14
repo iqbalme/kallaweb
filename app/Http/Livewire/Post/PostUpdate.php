@@ -19,7 +19,6 @@ class PostUpdate extends Component
 	
 	public $data;
 	public $isUpdate;
-	public $category_id = null;
 	public $thumbnail;
 	public $first_thumbnail = true;
 	public $judul;
@@ -28,7 +27,10 @@ class PostUpdate extends Component
 	public $tags;
 	public $prodis = [];
 	public $post_id;
+	public $post_prodi;
 	public $is_headline = false;
+	
+	protected $listeners = ['setKonten'];
 	
 	public function mount($post){
 		$this->post_id = $post;
@@ -41,27 +43,17 @@ class PostUpdate extends Component
 		} else {
 			$this->first_thumbnail = false;
 		}
-		if($updatingPost->category_id){
-			$post_categories = explode(',',trim($updatingPost->category_id));
-			foreach($post_categories as $post_category){
-				$this->categories[] = $post_category;
-			}
-		}
-		if($updatingPost->prodi_id){
-			$post_prodis = explode(',',trim($updatingPost->prodi_id));
-			foreach($post_prodis as $post_prodi){
-				$this->prodis[] = $post_prodi;
-			}
-		}
-		if($updatingPost->tag_id){
-			$post_tags = explode(',',trim($updatingPost->tag_id));
+		if($updatingPost->post_tags->count()){
 			$tags = [];
-			foreach($post_tags as $post_tag){
-				$tags[] = Tag::find($post_tag)->nama_tag;
+			foreach($updatingPost->post_tags as $post_tag){
+				$tags[] = Tag::find($post_tag->tag_id)->nama_tag;
 			}
 			$this->tags = implode(',',$tags);
-		}			
-		
+		}
+		foreach($updatingPost->post_categories as $post_category){
+			$this->categories[] = $post_category->category_id;
+		}
+		$this->post_prodi = $updatingPost->post_prodi->prodi_id;
 	}
 	
     public function render()
@@ -80,19 +72,22 @@ class PostUpdate extends Component
 		$this->thumbnail = null;
 	}
 	
+	public function setKonten($value){
+		$this->konten = $value;
+	}
+	
 	public function updatePost($isPublished=true){
 		$post_tags = [];
-		$post_tags_insert = null;
+		$post_categories = [];
 		$thumbnail = null;
 		if(isset($this->tags)){
 			foreach(explode(',',$this->tags) as $tag){
 				$post_tag = Tag::updateOrCreate(
 				['nama_tag' => trim($tag)],
 				['nama_tag' => trim($tag)]);
-				$post_tags[] = $post_tag->id;
+				$post_tags[] = ['tag_id' => $post_tag->id];
 			}
 		}
-		$post_tags_insert = implode(',',array_unique($post_tags));
 		if(isset($this->thumbnail)){
 			if(!$this->first_thumbnail){
 				$this->thumbnail->storeAs('public/images', $this->thumbnail->getFilename());
@@ -106,55 +101,27 @@ class PostUpdate extends Component
 			'judul' => $this->judul,
 			'konten' => $this->konten,
 			'thumbnail' => $thumbnail,
-			'category_id' => count($this->categories) ? implode(",",array_filter(array_unique($this->categories))) : 0,
-			'tag_id' => isset($this->tags) ? $post_tags_insert : 0,
-			'prodi_id' => count($this->prodis) ? implode(",",array_filter(array_unique($this->prodis))) : 0,
 			'status_post' => ($isPublished) ? 'published' : 'draft',
 			'user_id' => Auth::user()->id,
 			'is_headline' => $this->is_headline
 		];
 		$post = Post::find($this->post_id);
-		$post->judul = $submittedData['judul'];
-		$post->konten = $submittedData['konten'];
-		$post->thumbnail = $submittedData['thumbnail'];
-		$post->category_id = $submittedData['category_id'];
-		$post->tag_id = $submittedData['tag_id'];
-		$post->prodi_id = $submittedData['prodi_id'];
-		$post->status_post = $submittedData['status_post'];
-		$post->user_id = $submittedData['user_id'];
-		$post->is_headline = $submittedData['is_headline'];
-		$post->save();
+		$post->update($submittedData);
 		if($this->is_headline) {
 			Post::where('id', '!=', $this->post_id)->update(['is_headline' => false]);
 		};
 		
+		$post->post_categories_data()->delete();
 		if(isset($this->categories)){
-			PostCategory::where('post_id', $this->post_id)->delete();
 			foreach($this->categories as $post_category){
-				PostCategory::create([
-					'post_id' => $this->post_id,
-					'category_id' => $post_category
-				]);
+				$post_categories[] = ['category_id' => $post_category];
 			}
 		}
-		if(isset($this->prodis)){
-			PostProdis::where('post_id', $this->post_id)->delete();
-			foreach($this->prodis as $post_prodi){
-				PostProdis::create([
-					'post_id' => $this->post_id,
-					'prodi_id' => $post_prodi
-				]);
-			}
-		}
-		if(isset($post_tags)){
-			PostTags::where('post_id', $this->post_id)->delete();
-			foreach($post_tags as $post_tag){
-				PostTags::create([
-					'post_id' => $this->post_id,
-					'tag_id' => $post_tag
-				]);
-			}
-		}		
+		$post->post_prodi_data()->update(['prodi_id' => $this->post_prodi]);
+		$post->post_tags_data()->delete();
+		$post->post_prodi_data()->create(['prodi_id' => $this->post_prodi]);
+		$post->post_categories_data()->createMany($post_categories);
+		$post->post_tags_data()->createMany($post_tags);
 		return redirect()->route('post.index');
 	}
 }
