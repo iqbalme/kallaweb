@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/animate.css')}}">
-<!--link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/main_styles.css')}}"-->
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/responsive.css')}}">
 
 	@isset($data['google_analytics'])
