@@ -34,7 +34,7 @@
 								<div class="form-row">
 									<div class="form-holder form-holder-2">
 										<label for="username">No. KTP*</label>
-										<input type="text" placeholder="Nama Lengkap" class="form-control valid" wire:model="data.no_ktp" required>
+										<input type="text" placeholder="No. KTP" class="form-control valid" wire:model="data.no_ktp" required maxlength="16">
 									</div>
 								</div>
 								<div class="form-row">
@@ -46,7 +46,7 @@
 								<div class="form-row">
 									<div class="form-holder">
 										<label for="password">No. HP.*</label>
-										<input type="password" placeholder="Password" class="form-control" maxlength="15" id="password" name="password" wire:model="data.no_hp" required>
+										<input type="password" placeholder="No. HP" class="form-control" maxlength="15" id="password" name="password" wire:model="data.no_hp" required>
 									</div>
 									<div class="form-holder">
 										<label for="confirm_password">Program Studi*</label>

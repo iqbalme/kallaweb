@@ -97,20 +97,6 @@
 								</div>
 								
 							</div>
-
-							<div class="col-lg-3 footer_col clearfix">
-					
-								<!-- Footer links -->
-								<div class="footer_section footer_mobile">
-									<div class="footer_title">Mobile</div>
-									<div class="footer_mobile_content">
-										<div class="footer_image"><a href="#"><img src="images/mobile_1.png" alt=""></a></div>
-										<div class="footer_image"><a href="#"><img src="images/mobile_2.png" alt=""></a></div>
-									</div>
-								</div>
-								
-							</div>
-
 						</div>
 					</div>
 				</div>

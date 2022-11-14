@@ -45,7 +45,11 @@
                             </header><!-- .entry-header -->
 
                             <footer class="entry-footer flex justify-content-between align-items-center">
-								<div class="course-author">{{substr($event->deskripsi,0,91).'...'}}</div>
+								<div class="course-author">
+								@if(isset($event->deskripsi))
+									{{substr($event->deskripsi,0,91).'...'}}
+								@endif
+								</div>
                                 <!--div class="course-cost">
                                     <span class="free-cost">Free</span>
                                 </div><!-- .course-cost -->
