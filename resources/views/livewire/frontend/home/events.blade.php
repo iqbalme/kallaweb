@@ -15,7 +15,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="course-content flex flex-wrap justify-content-between align-content-lg-stretch">
                         <figure class="course-thumbnail">
-                            <a href="#"><img src="{{asset('storage/images/'.$event->gambar_event)}}" alt=""></a>
+                            <a href="{{route('event.show', $event->id)}}"><img src="{{asset('storage/images/'.$event->gambar_event)}}" alt=""></a>
 							<div class="posted-date position-absolute">
                                 <div class="day">{{date('d',strtotime($event->waktu_mulai))}}</div>
                                 <div class="month">{{date('M',strtotime($event->waktu_mulai))}}</div>
@@ -34,7 +34,7 @@
                                     <span class="course-ratings-count">(4 votes)</span>
                                 </div><!-- .course-ratings -->
 
-                                <h2 class="entry-title"><a href="#">{{substr($event->nama_event,0,37)}}</a></h2>
+                                <h2 class="entry-title"><a href="{{route('event.show', $event->id)}}">{{substr($event->nama_event,0,37)}}</a></h2>
 
                                 <div class="entry-meta flex flex-wrap align-items-center">
                                 <div class="event-time"><i class="fa fa-calendar"></i>&nbsp;{{date('d-m-Y H:i',strtotime($event->waktu_mulai))}}</div>

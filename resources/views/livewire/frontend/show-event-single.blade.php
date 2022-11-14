@@ -1,5 +1,20 @@
 <div>
-	<div style="height:130px">
+	<div class="home">
+		<div class="breadcrumbs_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="breadcrumbs">
+							<ul>
+								<li><a href="{{route('home')}}">Home</a></li>
+								<li><a href="{{route('event.list')}}">Event</a></li>
+								<li>Detail Event</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>			
 	</div>
     <div class="course">
 		<div class="container">
@@ -26,7 +41,7 @@
 									<div class="tab_panel_title">{{ucfirst($event->nama_event)}}</div>
 									<div class="tab_panel_content">
 										<div class="tab_panel_text">
-										
+										{!! $event->deskripsi_event !!}
 										</div>
 									</div>
 								</div>
@@ -70,42 +85,24 @@
 								</div>
 							</div>
 						</div>
-
+						@if($event_lain->count())
 						<!-- Latest Course -->
 						<div class="sidebar_section">
 							<div class="sidebar_section_title">Event Lain</div>
 							<div class="sidebar_latest">
-
+								@foreach($event_lain as $event_lain_item)
 								<!-- Latest Course -->
 								<div class="latest d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_image"><div><img src="images/latest_1.jpg" alt=""></div></div>
+									<div class="latest_image"><div><img src="{{asset('storage/images/'.$event_lain_item->gambar_event)}}" alt=""></div></div>
 									<div class="latest_content">
-										<div class="latest_title"><a href="course.html">How to Design a Logo a Beginners Course</a></div>
-										<div class="latest_price">Free</div>
+										<div class="latest_title"><a href="{{route('event.show', $event_lain_item->id)}}">{{substr($event_lain_item->nama_event,0,69)}}</a></div>
+										<!--div class="latest_price">Free</div-->
 									</div>
 								</div>
-
-								<!-- Latest Course -->
-								<div class="latest d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_image"><div><img src="images/latest_2.jpg" alt=""></div></div>
-									<div class="latest_content">
-										<div class="latest_title"><a href="course.html">Photography for Beginners Masterclass</a></div>
-										<div class="latest_price">$170</div>
-									</div>
-								</div>
-
-								<!-- Latest Course -->
-								<div class="latest d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_image"><div><img src="images/latest_3.jpg" alt=""></div></div>
-									<div class="latest_content">
-										<div class="latest_title"><a href="course.html">The Secrets of Body Language</a></div>
-										<div class="latest_price">$220</div>
-									</div>
-								</div>
-
+								@endforeach
 							</div>
 						</div>
-
+						@endif
 					</div>
 				</div>
 			</div>
@@ -114,5 +111,7 @@
 	<link href="{{asset('frontend/theme/unicat/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course_responsive.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single_responsive.css')}}">
 
 </div>

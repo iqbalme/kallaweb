@@ -34,7 +34,7 @@
                                     <span class="course-ratings-count">(4 votes)</span>
                                 </div><!-- .course-ratings -->
 
-                                <h2 class="entry-title"><a href="#">{{substr($event->nama_event,0,37)}}</a></h2>
+                                <h2 class="entry-title"><a href="{{route('event.show', $event->id)}}">{{substr($event->nama_event,0,37)}}</a></h2>
 
                                 <div class="entry-meta flex flex-wrap align-items-center">
                                 <div class="event-time"><i class="fa fa-calendar"></i>&nbsp;{{date('d-m-Y H:i',strtotime($event->waktu_mulai))}}</div>
@@ -82,7 +82,58 @@
 	.position-absolute {
 		position: absolute!important;
 	}
+	/*********************************
+	6. Home
+	*********************************/
+
+	.home
+	{
+		width: 100%;
+		height: 182px;
+		background: #f2f4f5;
+		border-bottom: solid 1px #edeff0;
+	}
+	.breadcrumbs_container
+	{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		padding-bottom: 13px;
+		padding-left: 3px;
+	}
+	.breadcrumbs ul li
+	{
+		display: inline-block;
+		position: relative;
+	}
+	.breadcrumbs ul li:not(:last-child)::after
+	{
+		display: inline-block;
+		font-family: 'FontAwesome';
+		content: '\f105';
+		margin-left: 7px;
+		margin-right: 4px;
+		color: #384158;
+	}
+	.breadcrumbs ul li a
+	{
+		font-size: 14px;
+		font-weight: 400;
+		color: #384158;
+		-webkit-transition: all 200ms ease;
+		-moz-transition: all 200ms ease;
+		-ms-transition: all 200ms ease;
+		-o-transition: all 200ms ease;
+		transition: all 200ms ease;
+	}
+	.breadcrumbs ul li a:hover
+	{
+		color: #14bdee;
+	}
+
 	</style>
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single.css')}}">
 	<link href="{{asset('frontend/assets/css/style-ezuca.css')}}" rel="stylesheet" type="text/css">
 	<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
 	<script>
