@@ -12,11 +12,11 @@
 								<ul class="top_bar_contact_list">
 									<li>
 										<i class="fa fa-phone" aria-hidden="true"></i>
-										<div>+(62) 811 4390 2019</div>
+										<div>{{$data['no_kontak']}}</div>
 									</li>
 									<li>
 										<i class="fa fa-envelope-o" aria-hidden="true"></i>
-										<div>info@kallainstitute.ac.id</div>
+										<div>{{$data['email']}}</div>
 									</li>
 								</ul>
 								<!--div class="top_bar_login ml-auto">
