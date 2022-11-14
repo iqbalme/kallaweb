@@ -19,9 +19,9 @@
 										<div>info@kallainstitute.ac.id</div>
 									</li>
 								</ul>
-								<div class="top_bar_login ml-auto">
+								<!--div class="top_bar_login ml-auto">
 									<div class="login_button"><a href="{{route('registrasi')}}">Register</a></div>
-								</div>
+								</div-->
 							</div>
 						</div>
 					</div>
@@ -36,8 +36,8 @@
 					<div class="col">
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<div class="logo_container">
-								<a href="#">
-									<div class="logo_text">Unic<span>at</span></div>
+								<a href="{{route('home')}}">
+									<div class="logo_text"><img src="{{ asset('storage/images/'.$data['web_logo']) }}"></div>
 								</a>
 							</div>
 							<nav class="main_nav_contaner ml-auto">
@@ -86,14 +86,14 @@
 
 	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
 		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
-		<div class="search">
+		<!--div class="search">
 			<form action="#" class="header_search_form menu_mm">
 				<input type="search" class="search_input menu_mm" placeholder="Search" required="required">
 				<button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
 					<i class="fa fa-search menu_mm" aria-hidden="true"></i>
 				</button>
 			</form>
-		</div>
+		</div-->
 		<nav class="menu_nav">
 			<ul class="menu_mm">
 				<li class="menu_mm"><a href="index.html">Home</a></li>
@@ -115,6 +115,13 @@
 		}
 		.navbar .navbar-brand, .navbar a.btn {
 			height: 80px;
+		}
+		.top_bar {
+			width: 100%;
+			background: #02803E;
+		}
+		.logo_text img {
+			max-height: 27px;
 		}
 	</style>
 	</div>

@@ -34,7 +34,7 @@ class SinglePost extends Component
 		}
 		$tags = [];
 		$categories = [];
-		$prodis = [];
+		$prodi = null;
 		if($post->tag_id){
 			$tags_id = explode(',',trim($post->tag_id));
 			foreach($tags_id as $tag_id){

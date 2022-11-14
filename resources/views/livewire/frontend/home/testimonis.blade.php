@@ -32,7 +32,7 @@
 
                             <div class="col-12 col-lg-6 order-1 order-lg-2 content-wrap h-100">
                                 <div class="entry-content">
-                                    <p>{{$testimoni->deskripsi}}</p>
+                                    <p>{{substr($testimoni->deskripsi,0,140)}}</p>
                                 </div><!-- .entry-content -->
 
                                 <div class="entry-footer">
