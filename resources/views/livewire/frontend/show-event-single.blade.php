@@ -144,7 +144,7 @@
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-danger" onclick="closeForm()">BATAL</button>
-			<button type="submit" class="btn btn-primary">DAFTAR</button>
+			<button type="submit" class="btn btn-primary" onclick="closeForm()">DAFTAR</button>
 		  </div>
 		  </form>
 		</div>
