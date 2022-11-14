@@ -12,7 +12,7 @@
 			</div>
 			<div class="row news_row">
 				<div class="col-lg-7 news_col">
-					
+					@isset($headlined_post)
 					<!-- News Post Large -->
 					<div class="news_post_large_container">
 						<div class="news_post_large">
@@ -47,6 +47,7 @@
 							Selengkapnya</a></div>
 						</div>
 					</div>
+					@endisset
 				</div>
 
 				<div class="col-lg-5 news_col">
