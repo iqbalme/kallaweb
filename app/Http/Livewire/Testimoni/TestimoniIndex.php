@@ -46,7 +46,7 @@ class TestimoniIndex extends Component
 	}
 	
 	public function closeHapusForm(){
-		$this->dispatchBrowserEvent('closeHapustestimoni');
+		$this->dispatchBrowserEvent('closeHapusTestimoni');
 	}
 	
 	public function bukaFormHapus(){
