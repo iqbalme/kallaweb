@@ -13,7 +13,7 @@ class PendaftarForm extends Component
 {
 	use CommonTrait;
 	
-	public $currentStep = 3;
+	public $currentStep = 1;
 	public $total = 0; 
 	public $voucher;
 	public $settings;
