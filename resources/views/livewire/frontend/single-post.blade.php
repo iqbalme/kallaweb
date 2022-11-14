@@ -1,78 +1,163 @@
 <div>
-    <main role="main" class="container" style="margin-top:70px;">
-      <div class="row">
-        <div class="col-md-8 blog-main">
-          <div class="blog-post">
-            <h2 class="blog-post-title mb-3">{{ $post->judul }}</h2>
-            
-            {!! $post->konten !!}
-          </div><!-- /.blog-post -->
-		@if($tags)
-          <nav class="blog-pagination">
-			@foreach($tags as $tag)
-				<a class="btn btn-outline-primary" href="{{ route('arsip', ['meta_type' => 'tag', 'meta_val' => strtolower($tag->slug)]) }}">{{ $tag->nama_tag }}</a>
-			@endforeach
-          </nav>
-		@endif
-
-        </div><!-- /.blog-main -->
-
-        <aside class="col-md-4 blog-sidebar">
-          <div class="p-3 mb-3 bg-light rounded">
-            <h4 class="font-italic">Info</h4>
-				<div class="blog-post-meta">
-					<div class="row ml-1">
-						<div class="col-md-5">Tanggal</div>
-						<div class="col-md-7">: {{ $post->created_at->format('d F Y') }}</div>
+	<div style="height:130px;"></div>
+    <div class="blog">
+		<div class="container">
+			<div class="row">
+				<!-- Blog Content -->
+				<div class="col-lg-8">
+					<div class="blog_content">
+						<div class="blog_title">{{ucfirst($post->judul)}}</div>
+						<div class="blog_meta">
+							<ul>
+								<li>Dipublikasikan pada <a href="#">{{date('d-m-Y', strtotime($post->created_at))}}</a></li>
+								<li>Oleh: <a href="#">{{$post->post_user->nama}}</a></li>
+							</ul>
+						</div>
+						<div class="blog_image"><img src="{{asset('storage/images/'.$post->thumbnail)}}" alt=""></div>
+						{!!$post->konten!!}
+					</div>
+					<div class="blog_extra d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+						@if(count($post->post_tags))
+						<div class="blog_tags">
+							<span>Tags: </span>
+							<ul>
+								@foreach($tags as $tag)
+								<li><a href="{{route('arsip', ['meta_type' => 'tag', 'meta_val' => $tag->id])}}">{{$tag->nama_tag}}</a>, </li>
+								@endforeach
+							</ul>
+						</div>
+						<!--div class="blog_social ml-lg-auto">
+							<span>Share: </span>
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+							</ul>
+						</div-->
+						@endif
 					</div>
 				</div>
-				<div class="blog-post-meta">
-					<div class="row ml-1">
-						<div class="col-md-5">Penulis</div>
-						<div class="col-md-7">: {{ $author }}</div>
+
+				<!-- Blog Sidebar -->
+				<div class="col-lg-4">
+					<div class="sidebar">
+
+						<!-- Categories -->
+						@if($data['categories']->count())
+						<div class="sidebar_section">
+							<div class="sidebar_section_title">Kategori</div>
+							<div class="sidebar_categories">
+								<ul class="categories_list">
+									@foreach($data['categories'] as $category)
+									<li><a href="#" class="clearfix">{{strtoupper($category->nama_kategori)}}<span>({{$category->post_category->count()}})</span></a></li>
+									@endforeach
+								</ul>
+							</div>
+						</div>
+						@endif
+
+						<!-- Latest News -->
+						@if($data['post_lain']->count())
+						<div class="sidebar_section">
+							<div class="sidebar_section_title">Berita Lainnya</div>
+							<div class="sidebar_latest">
+								@foreach($data['post_lain'] as $post_lain)
+								<!-- Latest Course -->
+								<div class="latest d-flex flex-row align-items-start justify-content-start">
+									<div class="latest_image"><div><img src="{{asset('storage/images/'.$post_lain->thumbnail)}}" alt=""></div></div>
+									<div class="latest_content">
+										<div class="latest_title"><a href="#">{{$post_lain->judul}}</a></div>
+										<div class="latest_date">{{date('d-m-Y', strtotime($post_lain->created_at))}}</div>
+									</div>
+								</div>
+								@endforeach
+							</div>
+						</div>
+						@endif
+
+						<!-- Gallery -->
+						<!--div class="sidebar_section">
+							<div class="sidebar_section_title">Instagram</div>
+							<div class="sidebar_gallery">
+								<ul class="gallery_items d-flex flex-row align-items-start justify-content-between flex-wrap">
+									<li class="gallery_item">
+										<div class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">+</div>
+										<a class="colorbox cboxElement" href="images/gallery_1_large.jpg">
+											<img src="images/gallery_1.jpg" alt="">
+										</a>
+									</li>
+									<li class="gallery_item">
+										<div class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">+</div>
+										<a class="colorbox cboxElement" href="images/gallery_2_large.jpg">
+											<img src="images/gallery_2.jpg" alt="">
+										</a>
+									</li>
+									<li class="gallery_item">
+										<div class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">+</div>
+										<a class="colorbox cboxElement" href="images/gallery_3_large.jpg">
+											<img src="images/gallery_3.jpg" alt="">
+										</a>
+									</li>
+									<li class="gallery_item">
+										<div class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">+</div>
+										<a class="colorbox cboxElement" href="images/gallery_4_large.jpg">
+											<img src="images/gallery_4.jpg" alt="">
+										</a>
+									</li>
+									<li class="gallery_item">
+										<div class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">+</div>
+										<a class="colorbox cboxElement" href="images/gallery_5_large.jpg">
+											<img src="images/gallery_5.jpg" alt="">
+										</a>
+									</li>
+									<li class="gallery_item">
+										<div class="gallery_item_overlay d-flex flex-column align-items-center justify-content-center">+</div>
+										<a class="colorbox cboxElement" href="images/gallery_6_large.jpg">
+											<img src="images/gallery_6.jpg" alt="">
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div-->
+
+						<!-- Tags -->
+						@if(count($post->post_tags))
+						<div class="sidebar_section">
+							<div class="sidebar_section_title">Tags</div>
+							<div class="sidebar_tags">
+								<ul class="tags_list">
+									@foreach($tags as $tag)
+									<li><a href="{{route('arsip', ['meta_type' => 'tag', 'meta_val' => $tag->id])}}">{{$tag->nama_tag}}</a></li>
+									@endforeach
+								</ul>
+							</div>
+						</div>
+						@endif
+
 					</div>
 				</div>
-				@if(is_null($categories))
-					<div class="blog-post-meta">
-						<div class="row ml-1">
-							<div class="col-md-5">Kategori</div>
-							<div class="col-md-7">: {{ $categories }}</div>
-						</div>
-					</div>
-				@endif
-				@if(is_null($prodis))
-					<div class="blog-post-meta">
-						<div class="row ml-1">
-							<div class="col-md-5">Program Studi</div>
-							<div class="col-md-7">: {{ $prodis }}</div>
-						</div>
-					</div>
-				@endif
-          </div>
-		@isset($data['prodis'])
-          <div class="p-3">
-            <h4 class="font-italic">Prodi</h4>
-            <ol class="list-unstyled mb-0">
-				@foreach($data['prodis'] as $prodi)
-					<li><a href="{{ route('arsip', ['meta_type' => 'prodi', 'meta_val' => strtolower($prodi->slug)]) }}">{{ $prodi->nama_prodi }}</a></li>
-				@endforeach
-				</ol>
-          </div>
-		@endisset
-		@isset($data['categories'])
-          <div class="p-3">
-            <h4 class="font-italic">Kategori</h4>
-            <ol class="list-unstyled">
-				@foreach($data['categories'] as $category)
-					<li><a href="{{ route('arsip', ['meta_type' => 'kategori', 'meta_val' => strtolower($category->slug)]) }}">{{ $category->nama_kategori }}</a></li>
-				@endforeach
-            </ol>
-          </div>
-		@endisset
-        </aside><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-    </main>
-	<!--link href="https://getbootstrap.com/docs/4.0/examples/blog/blog.css" rel="stylesheet"-->
+			</div>
+		</div>
+	</div>
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single_responsive.css')}}">
+	<style>
+	.blog_meta ul {
+		list-style: none;
+		padding: 0;
+	}
+	.sidebar_categories ul {
+		padding: 0;
+	}
+	</style>
+	<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
+	<script>
+	jQuery( document ).ready(function() {
+		$.getScript("{{asset('frontend/theme/unicat/plugins/colorbox/jquery.colorbox-min.js')}}");
+		$.getScript("{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}");
+		$.getScript("{{asset('frontend/theme/unicat/js/blog_single.js')}}");
+	});
+	</script>
 </div>

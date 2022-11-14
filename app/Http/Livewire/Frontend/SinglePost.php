@@ -15,7 +15,7 @@ class SinglePost extends Component
 	
 	public $post;
 	public $tags;
-	public $prodis;
+	public $prodi;
 	public $categories;
 	public $author;
 	public $data;
@@ -34,32 +34,23 @@ class SinglePost extends Component
 		}
 		$tags = [];
 		$categories = [];
-		$prodi = null;
-		if($post->tag_id){
-			$tags_id = explode(',',trim($post->tag_id));
-			foreach($tags_id as $tag_id){
-				$tags[] = Tag::find($tag_id);
+		if(count($post->post_tags)){
+			foreach($post->post_tags as $tag){
+				$tags[] = Tag::find($tag->tag_id);
+			}			
+		}
+		if(count($post->post_categories)){
+			foreach($post->post_categories as $category){
+				$categories[] = Category::find($category->category_id);
 			}
 		}
-		if($post->category_id){
-			$categories_id = explode(',',trim($post->category_id));
-			foreach($categories_id as $category_id){
-				$categories[] = Category::find($category_id)->nama_kategori;
-			}
-		}
-		if($post->prodi_id){
-			$prodis_id = explode(',',trim($post->prodi_id));
-			foreach($prodis_id as $prodi_id){
-				$prodis[] = Prodi::find($prodi_id)->nama_prodi;
-			}
-		}
-		$this->author = User::find($post->user_id)->nama;
 		$this->post = $post;
 		$this->tags = $tags;
-		$this->categories = implode(',',$categories);
-		$this->prodis = implode(',',$prodis);
+		$this->categories = $categories;
+		$this->prodi = Prodi::find($post->post_prodi);
 		$this->data['prodis'] = Prodi::all();
 		$this->data['categories'] = Category::all();
+		$this->data['post_lain'] = Post::whereNot('id', $post->id)->orderByDesc('created_at')->limit(3)->get();
 	}
 	
     public function render()
