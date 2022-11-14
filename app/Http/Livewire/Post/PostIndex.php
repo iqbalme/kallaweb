@@ -51,7 +51,7 @@ class PostIndex extends Component
 		foreach($posts as $post){
 			$categories = [];
 			if($post->post_categories->count()){
-				foreach($post->post_categories as $post_category){
+				foreach($post->post_categories_data as $post_category){
 					$categories[] = Category::find($post_category->category_id)->nama_kategori;
 				}
 			}

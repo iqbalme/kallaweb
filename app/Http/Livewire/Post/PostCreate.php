@@ -81,9 +81,9 @@ class PostCreate extends Component
 				$post_categories[] = ['category_id' => $post_category];
 			}
 		}
-		$createdPost->post_prodi()->create(['prodi_id' => $this->post_prodi]);
-		$createdPost->post_categories()->createMany($post_categories);
-		$createdPost->post_tags()->createMany($post_tags);
+		$createdPost->post_prodi_data()->create(['prodi_id' => $this->post_prodi]);
+		$createdPost->post_categories_data()->createMany($post_categories);
+		$createdPost->post_tags_data()->createMany($post_tags);
 		return redirect()->route('post.index');
 	}
 	

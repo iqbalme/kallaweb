@@ -26,7 +26,11 @@ class PengaturanDasar extends Component
 	public function mount(){
 		$settings = Setting::all();
 		foreach($settings as $setting){
-			$this->settings[$setting->nama_setting] = $setting->isi_setting;
+			if($setting->nama_setting == 'post_slug'){
+				$this->settings['post_slug'] = (int) $setting->isi_setting;
+			} else {
+				$this->settings[$setting->nama_setting] = $setting->isi_setting;
+			}
 		}
 		if(isset($this->settings['web_logo'])){
 			$this->isLogoInitialized = true;

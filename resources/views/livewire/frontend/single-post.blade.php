@@ -9,8 +9,8 @@
 						<div class="blog_title">{{ucfirst($post->judul)}}</div>
 						<div class="blog_meta">
 							<ul>
-								<li>Dipublikasikan pada <a href="#">{{date('d-m-Y', strtotime($post->created_at))}}</a></li>
-								<li>Oleh: <a href="#">{{$post->post_user->nama}}</a></li>
+								<li>Dipublikasikan pada {{date('d M Y', strtotime($post->created_at))}}</li>
+								<li>Oleh: {{$post->post_user->nama}}</li>
 							</ul>
 						</div>
 						<div class="blog_image"><img src="{{asset('storage/images/'.$post->thumbnail)}}" alt=""></div>

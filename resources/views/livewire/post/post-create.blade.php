@@ -7,14 +7,17 @@
 				<div class="card-body">
 					<div class="mb-3">
 					  <h6 class="card-title mb-2">Judul</h6>
-					  <input type="text" class="form-control" wire:model.lazy="judul">
+					  <input type="text" class="form-control" wire:model="judul" required>
 					</div>
 					<div class="mb-3">
 					  <h6 class="card-title mb-2">Isi Post</h6>
-							<div class="form-group" wire:ignore>
-								<textarea name="konten" id="editor">{{ $konten }}</textarea>
+							<div class="form-group">
+								<div wire:ignore>
+									<textarea name="konten" id="editor" required>{{$konten}}</textarea>
+								</div>
 							</div>
 					</div>
+					{{$konten}}
 					<div class="mb-3">
 						<div class="form-check">
 						  <input class="form-check-input" type="checkbox" wire:model="is_headline">
@@ -70,7 +73,7 @@
 						@else
 						<div class="col-lg-7">
 							<div class="input-group mb-3 mt-2">
-							  <input type="file" class="form-control" wire:model.lazy="thumbnail">
+							  <input type="file" class="form-control" wire:model.lazy="thumbnail" required>
 							  <label class="input-group-text">Upload</label>
 							</div>
 							@error('thumbnail') <span class="error">{{ $message }}</span> @enderror
@@ -92,6 +95,8 @@
         </div>
 	</div>
 	<script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
+	<!--script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script-->
+	@push('scripts')
 	<script type="text/javascript">
 		ClassicEditor
 			.create( document.querySelector( '#editor' ), {
@@ -102,12 +107,20 @@
 			.then( editor => {
 				editor.model.document.on('change:data', () => {
 					@this.set('konten', editor.getData());
+					console.log(editor.getData());
 				})
 			})
 			.catch( error => {
-				//console.error( error );
+				console.error( error );
 		});
+		//const editor = CKEDITOR.replace('editor');
+		//editor.on('change', function (event) {
+			//console.log(event.editor.getData())
+			//@this.set('konten', event.editor.getData());
+			//@this.konten = event.editor.getData();
+		//})
 	</script>
+	@endpush
 	<style>
 		.ck-editor__editable_inline {
 			min-height: 250px !important;
