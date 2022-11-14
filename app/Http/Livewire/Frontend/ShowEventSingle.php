@@ -11,6 +11,8 @@ class ShowEventSingle extends Component
 	public $event_lain;
 	public $pendaftar;
 	
+	//protected $listeners = ['closeModal'];
+	
 	public function mount($event_id){
 		$this->event = Event::find($event_id);
 		$this->event_lain = Event::whereNot('id', $event_id)->limit(3)->get();
@@ -25,6 +27,10 @@ class ShowEventSingle extends Component
     }
 	
 	public function daftarEvent(){
-		
+		$this->closeModal();
+	}
+	
+	public function closeModal(){
+		$this->dispatchBrowserEvent('closeModal');
 	}
 }

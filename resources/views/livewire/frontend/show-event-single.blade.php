@@ -119,7 +119,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single_responsive.css')}}">
 	
 	<!-- Modal -->
-	<div class="modal fade" id="daftarEvent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="daftarEvent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" wire:ignore.self>
 	  <div class="modal-dialog" role="document">
 		<div class="modal-content">
 		  <form wire:submit.prevent="daftarEvent">
@@ -144,7 +144,7 @@
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-danger" onclick="closeForm()">BATAL</button>
-			<button type="submit" class="btn btn-primary" onclick="closeForm()">DAFTAR</button>
+			<button type="submit" class="btn btn-primary">DAFTAR</button>
 		  </div>
 		  </form>
 		</div>
@@ -158,5 +158,8 @@
 		function closeForm(){
 			jQuery("#daftarEvent").modal('hide');
 		}
+		window.addEventListener('closeModal', event => {
+			closeForm();
+		});
 	</script>
 </div>
