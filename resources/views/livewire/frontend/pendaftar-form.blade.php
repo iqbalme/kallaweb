@@ -1,232 +1,194 @@
 <div>
-	<div style="height:100px">
-	</div>
-    <div style="margin-top:50px"></div>
-	<div class="container">
-		<div class="row justify-content-center align-items-center mb-3">
-			<div class="col-12 text-center mb-1">
-				<h2><strong>Registrasi Mahasiswa Baru</strong></h2>
-			</div>
-		</div>
-		<hr>
-				
-		<div class="row justify-content-center">
-			<div class="card col-lg-12" style="background-color:rgba(221, 221, 221, 0.37);color:#000;">
-			<form wire:submit.prevent="registrasiBaru" class="probootstrap-form">
-			@csrf
-			<div class="card-body step" style="padding:25px 15px;">
-			<!-- Langkah 1 -->
-			@if($currentStep == 1)
-				  <div class="row justify-content-between card-title mt-5">
-							<div class="col-md-6 col-sm-6 col-xs-6">
-								<h3>Data Diri</h3>
+	<div class="page-content" style="background-image: url({{asset('frontend/assets/images/wizard-v1.jpg')}})">
+		<div class="wizard-v1-content">
+			<div class="wizard-form">
+		        <form class="form-register" wire:submit.prevent="registrasiBaru">
+		        	<div id="form-total" role="application" class="wizard clearfix"><div class="steps clearfix"><ul role="tablist"><li role="tab" class="first {{$currentStep == 1 ? 'current' : ''}}" aria-disabled="false" aria-selected="true"><a id="form-total-t-0" href="#form-total-h-0" aria-controls="form-total-p-0"><div class="title">
+			            	<span class="step-icon"><i class="zmdi zmdi-account"></i></span>
+			            	<span class="step-number">Langkah 1</span>
+			            	<span class="step-text">Data Diri</span>
+			            </div></a></li><li role="tab" class="second {{$currentStep == 2 ? 'current' : ''}}" aria-disabled="false" aria-selected="false"><a id="form-total-t-1" href="#form-total-h-1" aria-controls="form-total-p-1"><div class="title">
+			            	<span class="step-icon"><i class="zmdi zmdi-card"></i></span>
+			            	<span class="step-number">Langkah 2</span>
+			            	<span class="step-text">Info Pembayaran</span>
+			            </div></a></li><li role="tab" class="last {{$currentStep == 3 ? 'current' : ''}}" aria-disabled="false" aria-selected="false"><a id="form-total-t-2" href="#form-total-h-2" aria-controls="form-total-p-2"><span class="current-info audible"> </span><div class="title">
+			            	<span class="step-icon"><i class="zmdi zmdi-receipt"></i></span>
+			            	<span class="step-number">Langkah 3</span>
+			            	<span class="step-text">Konfirmasi</span>
+			            </div></a></li></ul></div><div class="content clearfix">
+						@if($currentStep == 1)
+		        		<!-- SECTION 1 -->
+			            <h2 id="form-total-h-0" tabindex="-1" class="title">
+			            	<span class="step-icon"><i class="zmdi zmdi-account"></i></span>
+			            	<span class="step-number">Langkah 1</span>
+			            	<span class="step-text">Data Diri</span>
+			            </h2>
+			            <section id="form-total-p-0" role="tabpanel" aria-labelledby="form-total-h-0" class="body" aria-hidden="true">
+			                <div class="inner">
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label for="username">Nama Lengkap*</label>
+										<input type="text" placeholder="Nama Lengkap" class="form-control" wire:model="data.nama_lengkap" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label for="username">No. KTP*</label>
+										<input type="text" placeholder="Nama Lengkap" class="form-control valid" wire:model="data.no_ktp" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label for="email">Email*</label>
+										<input type="email" placeholder="Email" class="form-control valid" wire:model="data.email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<label for="password">No. HP.*</label>
+										<input type="password" placeholder="Password" class="form-control" maxlength="15" id="password" name="password" wire:model="data.no_hp" required>
+									</div>
+									<div class="form-holder">
+										<label for="confirm_password">Program Studi*</label>
+										<select class="form-control" wire:model="data.prodi">
+										@foreach($prodis as $prodi)
+											<option value="{{$prodi->id}}">{{ucfirst($prodi->nama_prodi)}}</option>
+										@endforeach
+										</select>
+									</div>
+								</div>
 							</div>
-							<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-								<h3>Langkah 1/3</h3>
+			            </section>
+						@elseif($currentStep == 2)
+						<!-- SECTION 2 -->
+			            <h2 id="form-total-h-1" tabindex="-1" class="title">
+			            	<span class="step-icon"><i class="zmdi zmdi-card"></i></span>
+			            	<span class="step-number">Langkah 2</span>
+			            	<span class="step-text">Info Pembayaran</span>
+			            </h2>
+			            <section id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-1" class="body current" aria-hidden="false">
+			                <div class="inner">
+			                	<h3>Info Pembayaran</h3>
+								<div class="form-row table-responsive">
+									<table class="table">
+										<tbody>
+											<tr class="space-row">
+												<th>Biaya Pendaftaran</th>
+												<td id="username-val">Rp. {{number_format($settings['nominal_admisi'])}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Potongan</th>
+												<td id="email-val">Rp. {{number_format($discount)}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Total</th>
+												<td id="card-type-val">Rp. {{number_format($total)}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								@if($settings['is_voucher'])
+								<div class="row justify-content-center">
+									<div class="col-md-10">
+										<input type="text" placeholder="Kode Voucher" class="form-control" maxlength="10"wire:model="kodeVoucher" required>
+									</div>
+									<div class="col-md-2">
+										<button type="button" wire:click="radeemVoucher" class="btn btn-secondary">Pakai</button>
+									</div>
+								</div>
+								@endif
 							</div>
-				  </div>
-					<div style="padding:0 20px;">
-						<div class="form-group mb-3">
-							<div class="col-md-4">
-								<label class="form-label">Nama Lengkap</label>
+			            </section>
+						@else
+			            <!-- SECTION 3 -->
+			            <h2 id="form-total-h-2" tabindex="-1" class="title current">
+			            	<span class="step-icon"><i class="zmdi zmdi-receipt"></i></span>
+			            	<span class="step-number">Langkah 3</span>
+			            	<span class="step-text">Konfirmasi</span>
+			            </h2>
+			            <section id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-2" class="body current" aria-hidden="false">
+			                <div class="inner">
+			                	<h3>Konfirmasi Detail</h3>
+								<div class="form-row table-responsive">
+									<table class="table">
+										<tbody>
+											<tr class="space-row">
+												<th>Nama Lengkap</th>
+												<td id="username-val">{{$data['nama_lengkap']}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>No. KTP</th>
+												<td id="email-val">{{$data['no_ktp']}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Email</th>
+												<td id="card-type-val">{{$data['email']}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>No. HP.</th>
+												<td id="card-number-val">{{$data['no_hp']}}</td>
+											</tr>
+											<tr class="space-row">
+												<th>Program Studi</th>
+												<td id="cvc-val">
+												@foreach($prodis as $prodi)
+													@if($prodi->id == $data['prodi'])
+														{{$prodi->nama_prodi}}
+													@endif
+												@endforeach
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 							</div>
-							<div class="col-md-8">
-								<input type="text" class="form-control form-control-lg" wire:model="data.nama_lengkap">
+			            </section>
+						<section id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-2" class="body current" aria-hidden="false">
+			                <div class="inner">
+								<div class="form-row table-responsive">
+									<table class="table">
+										<tbody>
+											<tr class="space-row">
+												<th>Jumlah Pembayaran</th>
+												<td id="username-val">Rp. {{number_format($total)}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 							</div>
-							<div style="clear:both;"></div>
-						</div>
-						<div class="form-group mb-3">
-							<div class="col-md-4">
-								<label class="form-label">No. KTP</label>
-							</div>
-							<div class="col-md-8">
-								<input type="text" class="form-control form-control-lg" wire:model="data.no_ktp" maxLength="16">
-							</div>
-							<div style="clear:both;"></div>
-						</div>
-						<div class="form-group mb-3">
-							<div class="col-md-4">
-								<label class="form-label">Email</label>
-							</div>
-							<div class="col-md-8">
-								<input type="email" class="form-control form-control-lg" placeholder="name@domain.com" wire:model="data.email">
-							</div>
-							<div style="clear:both;"></div>
-						</div>
-						<div class="form-group mb-3">
-							<div class="col-md-4">
-								<label class="form-label">No. HP (Format: 6285xxx)</label>
-							</div>
-							<div class="col-md-8">
-								<input type="text" class="form-control form-control-lg" wire:model="data.no_hp" maxLength="13">
-							</div>
-							<div style="clear:both;"></div>
-						</div>
-						<div class="form-group mb-3">
-							<div class="col-md-4">
-								<label class="form-label">Pilihan Program Studi</label>
-							</div>
-							<div class="col-md-8">
-								<select class="form-control form-control-lg" wire:model="data.prodi">
-								@foreach($prodis as $prodi)
-									<option value="{{ $prodi->id }}">{{ $prodi->nama_prodi }}</option>
-								@endforeach
-								</select>
-							</div>
-							<div style="clear:both;"></div>
-						</div>
-					</div>
-			@elseif($currentStep == 2)
-			<!-- Langkah 2 -->
-				<div class="row justify-content-between card-title mt-5">
-							<div class="col-md-6 col-sm-6 col-xs-6">
-								<h3>Pembayaran</h3>
-							</div>
-							<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-								<h3>Langkah 2/3</h3>
-							</div>
-				</div>
-				<div style="padding:0 20px;">
-					<div class="form-group mb-3">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-							<h4>Registrasi Mahasiswa Baru :</h4>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<h4>{{ 'Rp. '.number_format($settings['nominal_admisi']) }}</h4>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div class="form-group">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-							<h4>Potongan :</h4>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<h4>Rp. {{number_format($discount)}}</h4>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div height="2px">
-						<div class="col-md-6 col-xs-6 col-sm-6">&nbsp;
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-3" style="border-top: 1px solid black;">
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div class="form-group mb-5">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-							<h4>Total :</h4>
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-4">
-						<h4>{{ 'Rp. '.number_format($total) }}</h4>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					@if($settings['is_voucher'])
-					<div class="row mb-4 justify-content-center">
-						<div class="col-md-10">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Kode Promo" wire:model="kodeVoucher">
-								<button type="button" wire:click="radeemVoucher" class="btn btn-secondary">Pakai</button>
-							</div>
-						</div>
-					</div>
-					@endif
-				</div>
-			  @else
-			  <!-- Langkah 3 -->
-			  <div class="row justify-content-between card-title mt-5">
-							<div class="col-md-6 col-sm-6 col-xs-6">
-								<h3>Konfirmasi</h3>
-							</div>
-							<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-								<h3>Langkah 3/3</h3>
-							</div>
-				</div>
-				<div style="padding:0 20px;">
-					<div class="form-group mb-3">
-						<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-							<h3>Berikut Informasi Data Anda:</h3>
-						</div>
-					</div>
-				<div class="form-group mb-3">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-							<h4>Nama Lengkap:</h4>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<h4>{{ ucfirst($data['nama_lengkap']) }}</h4>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div class="form-group">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-							<h4>No. KTP:</h4>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<h4>{{ $data['no_ktp'] }}</h4>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div class="form-group">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-							<h4>Email:</h4>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<h4>{{ $data['email'] }}</h4>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div class="form-group">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-							<h4>No. HP.:</h4>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<h4>{{ $data['no_hp'] }}</h4>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-				</div>
-				
-				<div class="row" style="color:rgba(64, 64, 64, 0.8);">
-					<div class="col-md-1 col-sm-1 col-xs-1 text-right">
-						<input class="form-check-input" type="checkbox" wire:model="isDataBenar">
-					</div>
-					<div class="col-md-10 col-sm-10 col-xs-10">
-						<div class="form-check">
-						  <label class="form-check-label form-control">
-							Dengan ini saya menyatakan bahwa semua informasi yang saya sertakan adalah benar.
-						  </label>
-						</div>
-					</div>
-					<div class="col-1"></div>
-				</div>
-				<div class="mb-5"></div>
-
-			  @endif 
-				<div style="clear:both;margin-top:15px;"></div>
-				<div class="form-group">
-					<div class="col-md-12 text-right" style="padding:25px;">
-					@if($currentStep > 1)
-						<button type="button" wire:click="previous" class="btn btn-lg btn-dark" style="margin-right:7px;">Sebelumnya</button>
-						<a href="" class=""></a>
-					@endif
+			            </section>
+						@endif
+		        	</div><div class="actions clearfix">
+					<ul role="menu" aria-label="Pagination">
+					<li><a href="#" role="menuitem" wire:click="previous"><i class="zmdi zmdi-arrow-left"></i></a></li>
 					@if($currentStep < 3)
-						<a href="" class=""></a>
-						<button type="button" wire:click="next" class="btn btn-lg btn-primary">Selanjutnya</button>
+					<li><a href="#" role="menuitem" wire:click="next"><i class="zmdi zmdi-arrow-right"></i></a></li>
+					@else
+					<button type="submit" class="btn btn-md btn-success">Daftar</button>	
 					@endif
-					@if($currentStep == 3)
-						<button type="submit" class="btn btn-lg btn-primary">Daftar</button>
-					@endif
-					</div>
-				</div>
+					</ul></div></div>
+		        </form>
 			</div>
-			</form>
 		</div>
 	</div>
-	<div style="clear:both;margin-bottom:25px;"></div>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/raleway-font.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/material-design-iconic-font.min.css')}}">
+	<!-- Jquery -->
+	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/style-colorlib-form.css')}}"/>
 	<style>
-		
+	.inner h3 {
+		font-family: 'Raleway', sans-serif;
+	}
 	</style>
+	<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+	<script>
+		jQuery( document ).ready(function() {
+			$.getScript("{{asset('frontend/assets/js/jquery.steps.js')}}");
+			$.getScript("https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js");
+		});
+	</script>
 </div>

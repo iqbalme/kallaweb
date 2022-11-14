@@ -50,6 +50,20 @@
 							</div>
 						</div>
 					</div>
+					<div class="row mt-3 mb-4">
+						<div class="col-lg-4 mt-1">
+							  <h5 class="card-title mb-0">Encryption</h5>
+						</div>
+						<div class="col-lg-6">
+							<div class="input-group">
+								<select class="form-control" wire:model="settings.smtp_encryption">
+									<option value="tls">TLS</option>
+									<option value="ssl">SSL</option>
+									<option value="starttls">STARTTLS</option>
+								</select>
+							</div>
+						</div>
+					</div>
 					<hr>
 					<div class="container p-3">
 					<div class="row mb-2">

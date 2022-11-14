@@ -107,6 +107,14 @@
 					</div>
 					
 					<div class="row mt-3">
+						<div class="col-lg-12">
+							<div>
+							  <h5 class="card-title mb-0">Alamat</h5>
+							</div>
+							<div class="input-group mb-3 mt-2">
+							  <textarea class="form-control" wire:model="settings.alamat"></textarea>
+							</div>
+						</div>
 						<div class="col-lg-6">
 							<div>
 							  <h5 class="card-title mb-0">Email</h5>

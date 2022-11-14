@@ -33,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
 		view()->composer('components.admin-layout', function($view){ $view->with('data', $this->data); });
 		view()->composer('components.sidebar', function($view){ $view->with('data', $this->data); });
 		view()->composer('components.header', function($view){ $view->with('data', $this->data); });
+		//view()->composer('components.footer', function($view){ $view->with('data', $this->data); });
 		view()->composer('layouts.app', function($view){ $view->with('data', $this->data); });
 		view()->composer('layouts.nav', function($view){ $view->with('data', $this->data); });
 		// $this->publishes([

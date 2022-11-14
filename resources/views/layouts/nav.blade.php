@@ -47,7 +47,7 @@
 									<li><a href="courses.html">Akademik</a></li>
 									<li><a href="blog.html">Berita</a></li>
 									<li><a href="#">Page</a></li>
-									<li><a href="contact.html">Kontak</a></li>
+									<li><a href="{{route('kontak')}}">Kontak</a></li>
 								</ul>
 
 								<!-- Hamburger -->
@@ -96,12 +96,12 @@
 		</div-->
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="index.html">Home</a></li>
+				<li class="menu_mm"><a href="{{route('home')}}">Home</a></li>
 				<li class="menu_mm"><a href="#">About</a></li>
 				<li class="menu_mm"><a href="#">Courses</a></li>
 				<li class="menu_mm"><a href="#">Blog</a></li>
 				<li class="menu_mm"><a href="#">Page</a></li>
-				<li class="menu_mm"><a href="contact.html">Contact</a></li>
+				<li class="menu_mm"><a href="{{route('kontak')}}">Contact</a></li>
 			</ul>
 		</nav>
 

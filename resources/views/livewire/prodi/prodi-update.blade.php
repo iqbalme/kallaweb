@@ -39,6 +39,14 @@
 			@endif
 		</div>
 	</div>
+	<div class="row">
+		<label class="col-form-label">Subdomain</label>
+		<div class="col-sm-12 mb-2">
+			<div class="col-sm-4">
+			  <input type="text" class="form-control" wire:model="subdomain" placeholder="contoh: manajemen-retail">
+			</div>
+		</div>
+	</div>
 	<div class="row mb-3">
 		<div class="col-sm-3">
 			<button type="button" class="btn btn-danger text-white mr-2" wire:click="$emit('refreshProdi')">Batalkan</button>

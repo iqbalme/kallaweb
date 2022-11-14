@@ -43,6 +43,7 @@ class PengaturanTableSeeder extends Seeder
 			['smtp_port', ''],
 			['smtp_username', ''],
 			['smtp_password', ''],
+			['smtp_encryption', 'tls'],
 			['pesan_admisi_non_aktif', 'Pendaftaran belum dibuka'],
 			['email', 'info@kallainstitute.ac.id'],
 			['no_kontak', '+(62) 811 4390 2019'],
@@ -51,6 +52,7 @@ class PengaturanTableSeeder extends Seeder
 			['twitter', 'kallabschool'],
 			['youtube', 'UCieL5l-YmWlvTk3olTpgg9A'],
 			['tiktok', 'ZSeGUBeem'],
+			['alamat', 'Nipah Mall Office Building, Lt.5 & 6'],
 		];
 		foreach($settings as $setting){
 			\App\Models\Setting::create([

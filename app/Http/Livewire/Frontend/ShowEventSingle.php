@@ -9,6 +9,7 @@ class ShowEventSingle extends Component
 {
 	public $event;
 	public $event_lain;
+	public $pendaftar;
 	
 	public function mount($event_id){
 		$this->event = Event::find($event_id);
@@ -22,4 +23,8 @@ class ShowEventSingle extends Component
 			->extends('layouts.app', ['title' => $this->event->nama_event])
 			->section('content');
     }
+	
+	public function daftarEvent(){
+		
+	}
 }

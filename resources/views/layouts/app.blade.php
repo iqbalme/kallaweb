@@ -63,8 +63,8 @@
 	
 </div>
 
-<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
-
+<script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 <script src="{{asset('frontend/theme/unicat/plugins/greensock/TweenMax.min.js')}}"></script>
@@ -76,6 +76,7 @@
 <script src="{{asset('frontend/theme/unicat/plugins/easing/easing.js')}}"></script>
 <script src="{{asset('frontend/theme/unicat/plugins/parallax-js-master/parallax.min.js')}}"></script>
 <script src="{{asset('frontend/theme/unicat/js/custom.js')}}"></script>
+
 @livewireScripts
 </body>
 </html>

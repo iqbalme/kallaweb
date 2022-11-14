@@ -12,10 +12,11 @@ class ProdiCreate extends Component
 	use CommonTrait;
 	use WithFileUploads;
 	
-	public $nama_prodi;
-	public $deskripsi_prodi;
-	public $slug;
+	public $nama_prodi = null;
+	public $deskripsi_prodi = null;
+	public $slug = null;
 	public $thumbnail = null;
+	public $subdomain = null;
 	
     public function render()
     {
@@ -32,16 +33,12 @@ class ProdiCreate extends Component
 			'nama_prodi' => $this->nama_prodi,
 			'deskripsi_prodi' => $this->deskripsi_prodi,
 			'slug' => $this->setSlug($this->nama_prodi),
-			'thumbnail' => $thumbnail
+			'thumbnail' => $thumbnail,
+			'subdomain' => $this->subdomain
 		]);
-		$this->resetInput();
+		$this->reset();
 		$this->emit('refreshProdi', $prodi);
 		$this->removeThumbnail();
-	}
-	
-	public function resetInput(){
-		$this->nama_prodi = null;
-		$this->deskripsi_prodi = null;
 	}
 	
 	public function removeThumbnail(){

@@ -10,11 +10,12 @@ class ProdiUpdate extends Component
 {
 	use WithFileUploads;
 	
-	public $nama_prodi;
-	public $deskripsi_prodi;
-	public $prodi_id;
+	public $nama_prodi = null;
+	public $deskripsi_prodi = null;
+	public $prodi_id = null;
 	public $thumbnail = null;
 	public $first_thumbnail = false;
+	public $subdomain = null;
 	
 	protected $listeners = [
 		'getProdi' => 'showProdi'
@@ -49,22 +50,17 @@ class ProdiUpdate extends Component
 		$data['thumbnail'] = $thumbnail;
 		$data['nama_prodi'] = $this->nama_prodi;
 		$data['deskripsi_prodi'] = $this->deskripsi_prodi;
+		$data['subdomain'] = $this->subdomain;
 		if($this->prodi_id){
 			$prodi = Prodi::find($this->prodi_id);
 			$prodi->update($data);
 		}
-		$this->resetInput();
+		$this->reset();
 		$this->emit('refreshProdi', $prodi);
 		if(isset($this->thumbnail) && (!$this->first_thumbnail)){
 			$this->thumbnail->delete();
 			$this->thumbnail = null;
 		}
-	}
-	
-	public function resetInput(){
-		$this->prodi_id = null;
-		$this->nama_prodi = null;
-		$this->deskripsi_prodi = null;
 	}
 	
 	public function removeThumbnail(){

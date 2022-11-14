@@ -14,7 +14,7 @@
 				  <input type="text" class="form-control" wire:model.lazy="nama" required>
 				</div>
 				<div class="mb-3">
-					<h6 class="card-title mb-2">Deskripsi</h6>
+					<h6 class="card-title mb-2">Testimoni</h6>
 					<textarea class="form-control" wire:model="deskripsi" maxlength="103" required></textarea>
 				</div>
 				<div class="mb-3">

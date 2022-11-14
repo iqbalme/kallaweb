@@ -42,12 +42,12 @@
 								<!-- Footer About -->
 								<div class="footer_section footer_about">
 									<div class="footer_logo_container">
-										<a href="#">
-											<div class="footer_logo_text">Unic<span>at</span></div>
+										<a href="{{route('home')}}">
+											<div class="footer_logo_text"><img src="{{ asset('storage/images/'.$data['web_logo']) }}"></div>
 										</a>
 									</div>
 									<div class="footer_about_text">
-										<p>Lorem ipsum dolor sit ametium, consectetur adipiscing elit.</p>
+										<p>{{$data['web_description']}}</p>
 									</div>
 									<div class="footer_social">
 										<ul>
@@ -65,12 +65,12 @@
 					
 								<!-- Footer Contact -->
 								<div class="footer_section footer_contact">
-									<div class="footer_title">Contact Us</div>
+									<div class="footer_title">Hubungi Kami</div>
 									<div class="footer_contact_info">
 										<ul>
-											<li>Email: Info.deercreative@gmail.com</li>
-											<li>Phone:  +(88) 111 555 666</li>
-											<li>40 Baria Sreet 133/2 New York City, United States</li>
+											<li>Email: {{$data['email']}}</li>
+											<li>Phone: {{$data['no_kontak']}}</li>
+											<li>{{$data['alamat']}}</li>
 										</ul>
 									</div>
 								</div>
@@ -118,19 +118,20 @@
 
 			<div class="row copyright_row">
 				<div class="col">
-					<div class="copyright d-flex flex-lg-row flex-column align-items-center justify-content-start">
+					<div class="copyright d-flex flex-lg-row flex-column align-items-center justify-content-between">
 						<div class="cr_text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 						<div class="ml-lg-auto cr_links">
-							<ul class="cr_list">
-								<li><a href="#">Copyright notification</a></li>
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-							</ul>
+							Created by <a href="https://mediadatait.com/" target="_blank">MediaDataIT</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</footer>
+	<style>
+	.footer_logo_text img {
+		max-width: 261px;
+	}
+	</style>

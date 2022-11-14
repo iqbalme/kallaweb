@@ -48,6 +48,10 @@
 
 							</div>
 						</div>
+						<div class="row mt-2 justify-content-between">
+							<div class="col-md-2">&nbsp;</div>
+							<div class="col-md-5 text-end"><button type="button" class="btn btn-primary" onclick="showEventRegistration()">DAFTAR EVENT</button></div>
+						</div>
 					</div>
 				</div>
 
@@ -113,5 +117,46 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course_responsive.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single_responsive.css')}}">
-
+	
+	<!-- Modal -->
+	<div class="modal fade" id="daftarEvent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <form wire:submit.prevent="daftarEvent">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">REGISTRASI EVENT</h5>
+		  </div>
+		  <div class="modal-body">
+				<div class="col-lg-12">
+					<div class="row mb-2">
+						<div class="col-lg-4">Nama</div>
+						<div class="col-lg-8"><input type="text" class="form-control" wire:model="pendaftar.nama" required></div>
+					</div>
+					<div class="row mb-2">
+						<div class="col-lg-4">Email</div>
+						<div class="col-lg-8"><input type="email" class="form-control" wire:model="pendaftar.email" required></div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4">No. HP</div>
+						<div class="col-lg-8"><input type="text" class="form-control" maxlength="15" wire:model="pendaftar.no_hp" required></div>
+					</div>
+				</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-danger" onclick="closeForm()">BATAL</button>
+			<button type="submit" class="btn btn-primary">DAFTAR</button>
+		  </div>
+		  </form>
+		</div>
+	  </div>
+	</div>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script>
+		function showEventRegistration(){
+			jQuery("#daftarEvent").modal('show');
+		}
+		function closeForm(){
+			jQuery("#daftarEvent").modal('hide');
+		}
+	</script>
 </div>
