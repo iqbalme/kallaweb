@@ -34,7 +34,7 @@ trait CommonTrait
 		return strtoupper(substr(str_shuffle($permitted_chars), 0, 17));
 	}
 	
-	public function buatInvoice($params, $data, $isVoucher, $katalogs){
+	public function buatInvoice($params, $data, $isVoucher){
 		Xendit::setApiKey($this->xenditApiKey);
 		$createdInvoice = \Xendit\Invoice::create($params);
 		if($createdInvoice){
@@ -45,13 +45,6 @@ trait CommonTrait
 				'xendit_invoice_id' => $createdInvoice['id'],
 				'status_payment' => $createdInvoice['status']
 			]);
-			foreach($katalogs as $katalog){
-				$invoice_items = new InvoiceItem([
-					'katalog_id' => $katalog->id,
-					'harga' => $katalog->harga
-				]);
-				$invoice->invoice_items()->save($invoice_items);
-			}
 			$pendaftar = new Pendaftar([
 				'nama' => $data['nama_lengkap'],
 				'email' => $data['email'],

@@ -163,6 +163,6 @@ class PendaftarForm extends Component
 		  if($this->kodeVoucher){
 			  $isVoucher = true;
 		  }
-		$this->buatInvoice($params, $this->data, $isVoucher, [$this->katalogAdmisi]);
+		$this->buatInvoice($params, $this->data, $isVoucher);
 	}
 }
