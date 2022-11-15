@@ -18,6 +18,7 @@
 			            </div></a></li></ul></div><div class="content clearfix">
 						@if($currentStep == 1)
 		        		<!-- SECTION 1 -->
+						<div>
 			            <h2 id="form-total-h-0" tabindex="-1" class="title">
 			            	<span class="step-icon"><i class="zmdi zmdi-account"></i></span>
 			            	<span class="step-number">Langkah 1</span>
@@ -59,14 +60,17 @@
 								</div>
 							</div>
 			            </section>
-						@elseif($currentStep == 2)
+						</div>
+						@endif
+						@if($currentStep == 2)
 						<!-- SECTION 2 -->
+						<div>
 			            <h2 id="form-total-h-1" tabindex="-1" class="title">
 			            	<span class="step-icon"><i class="zmdi zmdi-card"></i></span>
 			            	<span class="step-number">Langkah 2</span>
 			            	<span class="step-text">Info Pembayaran</span>
 			            </h2>
-			            <section id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-1" class="body current" aria-hidden="false">
+			            <section id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-1" class="body" aria-hidden="false">
 			                <div class="inner">
 			                	<h3>Info Pembayaran</h3>
 								<div class="form-row table-responsive">
@@ -99,14 +103,17 @@
 								@endif
 							</div>
 			            </section>
-						@else
+						</div>
+						@endif
+						@if($currentStep == 3)
 			            <!-- SECTION 3 -->
-			            <h2 id="form-total-h-2" tabindex="-1" class="title current">
+						<div>
+			            <h2 id="form-total-h-2" tabindex="-1" class="title">
 			            	<span class="step-icon"><i class="zmdi zmdi-receipt"></i></span>
 			            	<span class="step-number">Langkah 3</span>
 			            	<span class="step-text">Konfirmasi</span>
 			            </h2>
-			            <section id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-2" class="body current" aria-hidden="false">
+			            <div role="tabpanel" class="body">
 			                <div class="inner">
 			                	<h3>Konfirmasi Detail</h3>
 								<div class="form-row table-responsive">
@@ -142,8 +149,8 @@
 									</table>
 								</div>
 							</div>
-			            </section>
-						<section id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-2" class="body current" aria-hidden="false">
+			            </div>
+						<section id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-2" class="body" aria-hidden="false">
 			                <div class="inner">
 								<div class="form-row table-responsive">
 									<table class="table">
@@ -157,6 +164,7 @@
 								</div>
 							</div>
 			            </section>
+						</div>
 						@endif
 		        	</div><div class="actions clearfix">
 					<ul role="menu" aria-label="Pagination">

@@ -22,7 +22,7 @@ return new class extends Migration
 			$table->foreignId('prodi_id')->nullable()->constrained()->nullOnDelete();
 			$table->boolean('aktif')->default(0);
 			$table->foreignId('invoice_id')->constrained()->cascadeOnDelete();
-			$table->string('no_ktp', 16);
+			$table->string('no_ktp', 16)->unique();
             $table->timestamps();
         });
     }

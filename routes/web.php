@@ -61,6 +61,8 @@ use App\Http\Livewire\Testimoni\TestimoniIndex;
 |
 */
 // Route::group(array('domain' => config('app.url')), function() {
+	Route::get('tes1', [TestController::class, 'tesredirect']);
+	Route::get('tes2', [TestController::class, 'getredirect'])->name('tes2');
 	Route::get('teslw', Teslw::class);
 	Route::get('/', Home::class)->name('home');
 	//Route::get('/', Home2::class)->name('home');

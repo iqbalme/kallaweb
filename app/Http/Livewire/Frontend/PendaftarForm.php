@@ -65,6 +65,7 @@ class PendaftarForm extends Component
 		if($this->currentStep > 0){
 			$this->currentStep--;
 		}
+		$this->render();
 	}
 	
 	public function next(){
@@ -72,6 +73,7 @@ class PendaftarForm extends Component
 		if($this->currentStep < 3){
 			$this->currentStep++;
 		}
+		$this->render();
 	}
 	
 	public function registrasiBaru(){

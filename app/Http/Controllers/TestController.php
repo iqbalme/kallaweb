@@ -29,4 +29,12 @@ class TestController extends Controller
 	public function subdomain($param){
 		print_r($param);
 	}
+	
+	public function tesredirect(){
+		return redirect()->route('tes2', $headers = ['keyq' => 'halo']);
+	}
+	
+	public function getredirect(Request $request){
+		dd(request()->headers->get('keyq'));
+	}
 }

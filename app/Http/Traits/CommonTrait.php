@@ -48,11 +48,11 @@ trait CommonTrait
 			$invoice_data['total'] = 0;
 			$invoice_data['xendit_invoice_id'] = null;
 			$invoice_data['status_payment'] = 'PAID';
-			$invoice = Invoice::create($invoice_data);
 			$data_pendaftar['aktif'] = true;
-			$pendaftar = new Pendaftar($data_pendaftar);
-			$invoice->pendaftar()->save($pendaftar);
-			return redirect()->route('registration.success');
+			if($this->createDataPendaftar($invoice_data, $data_pendaftar)){
+				header('Key: W79AU8HOVKAIIWJIV5F0U57BWEB2ON4UWE5SJ6G3O1JLWSJHZNFSXEACDTUO5456A4V9F6M77LQYMX45NPBVAJCDMSJ913OG0WTLFMXIY42L8A4ESDL0VI7I');
+				return redirect()->route('registration.success');
+			}
 		} else {
 			Xendit::setApiKey($this->xenditApiKey);
 			$createdInvoice = \Xendit\Invoice::create($params);
@@ -61,14 +61,25 @@ trait CommonTrait
 				$invoice_data['total'] = $params['amount'];
 				$invoice_data['xendit_invoice_id'] = $createdInvoice['id'];
 				$invoice_data['status_payment'] = $createdInvoice['status'];
-				$invoice = Invoice::create($invoice_data);
 				$data_pendaftar['aktif'] = false;
-				$pendaftar = new Pendaftar($data_pendaftar);
-				$invoice->pendaftar()->save($pendaftar);				
-				return redirect()->away($createdInvoice['invoice_url']);
+				if($this->createDataPendaftar($invoice_data, $data_pendaftar)){
+					return redirect()->away($createdInvoice['invoice_url']);
+				}
 			}	
 		}
-			
+	}
+	
+	public function createDataPendaftar($invoice_data, $data_pendaftar){
+		try{
+			$invoice = Invoice::create($invoice_data);
+			$pendaftar = new Pendaftar($data_pendaftar);
+			$invoice->pendaftar()->save($pendaftar);
+		} catch (\Illuminate\Database\QueryException $e){
+			$errorCode = $e->errorInfo[1];
+			if($errorCode == 1062){
+				dd('error duplicate');
+			}
+		}
 	}
 	
 	public function paginate2($items, $perPage = 5, $page = null)
