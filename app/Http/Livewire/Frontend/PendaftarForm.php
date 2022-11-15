@@ -153,7 +153,7 @@ class PendaftarForm extends Component
 			'currency' => 'IDR',
 			'items' => [
 				[
-					'name' => $this->katalogAdmisi->nama_katalog,
+					'name' => 'Pendaftaran Mahasiswa Baru',
 					'quantity' => 1,
 					'price' => $this->total
 				]
