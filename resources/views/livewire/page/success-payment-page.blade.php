@@ -1,4 +1,4 @@
-<div style="margin-top:70px;">
+<div style="margin-top:70px;padding:15px 0;">
 	<div class="container">
 	   <div class="row">
 		  <div class="col-md-6 mx-auto mt-5">
