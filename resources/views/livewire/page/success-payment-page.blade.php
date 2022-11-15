@@ -8,7 +8,7 @@
 				</div>
 				<div class="content">
 				   <h1>Pembayaran Berhasil !</h1>
-				   <p>Selamat! Pembayaran Anda telah kami terima.</p>
+				   <p>Selamat! Pembayaran Anda telah kami terima.</p><br />
 				   <a href="{{ route('home') }}">Ke Beranda</a>
 				</div>
 				
