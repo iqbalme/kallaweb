@@ -54,7 +54,7 @@
                             {{ $prodi->nama_prodi }}
                           </td>
 						  <td>
-                            {{ $prodi->deskripsi_prodi }}
+                            {{ substr($prodi->deskripsi_prodi,0,45) }}
                           </td>
                           <td>
 							<button type="button" class="btn btn-dark" wire:click="getProdi({{ $prodi->id }})" @if($isFormVisible) disabled @endif>Edit</button>

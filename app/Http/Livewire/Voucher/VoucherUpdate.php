@@ -69,9 +69,9 @@ class VoucherUpdate extends Component
 	
 	public function update(){
 		//$katalog_id = 0;
-		if(count($this->katalog_id)){
-			$katalog_id = implode(',',$this->katalog_id);
-		}
+		// if(count($this->katalog_id)){
+			// $katalog_id = implode(',',$this->katalog_id);
+		// }
 		$data = [
 			'kode_voucher' => $this->kode_voucher,
 			'nominal_diskon' => $this->nominal_diskon,

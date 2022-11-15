@@ -35,27 +35,40 @@ trait CommonTrait
 	}
 	
 	public function buatInvoice($params, $data, $isVoucher){
-		Xendit::setApiKey($this->xenditApiKey);
-		$createdInvoice = \Xendit\Invoice::create($params);
-		if($createdInvoice){
-			$invoice = Invoice::create([
-				'no_invoice' => $params['external_id'],
-				'total' => $params['amount'],
-				'use_voucher' => $isVoucher,
-				'xendit_invoice_id' => $createdInvoice['id'],
-				'status_payment' => $createdInvoice['status']
-			]);
-			$pendaftar = new Pendaftar([
-				'nama' => $data['nama_lengkap'],
-				'email' => $data['email'],
-				'hp' => $data['no_hp'],
-				'prodi_id' => $data['prodi'],
-				'no_ktp' => $data['no_ktp'],
-				'aktif' => false
-			]);
-			$invoice->pendaftar()->save($pendaftar);				
-			return redirect()->away($createdInvoice['invoice_url']);
-		}		
+		$data_pendaftar = [
+			'nama' => $data['nama_lengkap'],
+			'email' => $data['email'],
+			'hp' => $data['no_hp'],
+			'prodi_id' => $data['prodi'],
+			'no_ktp' => $data['no_ktp']
+		];
+		$invoice_data = [ 'use_voucher' => $isVoucher ];
+		if($params['amount'] == 0){
+			$invoice_data['no_invoice'] = $this->generateInvoiceNo();
+			$invoice_data['total'] = 0;
+			$invoice_data['xendit_invoice_id'] = null;
+			$invoice_data['status_payment'] = 'PAID';
+			$invoice = Invoice::create($invoice_data);
+			$data_pendaftar['aktif'] = true;
+			$pendaftar = new Pendaftar($data_pendaftar);
+			$invoice->pendaftar()->save($pendaftar);
+			return redirect()->route('registration.success');
+		} else {
+			Xendit::setApiKey($this->xenditApiKey);
+			$createdInvoice = \Xendit\Invoice::create($params);
+			if($createdInvoice){
+				$invoice_data['no_invoice'] = $params['external_id'];
+				$invoice_data['total'] = $params['amount'];
+				$invoice_data['xendit_invoice_id'] = $createdInvoice['id'];
+				$invoice_data['status_payment'] = $createdInvoice['status'];
+				$invoice = Invoice::create($invoice_data);
+				$data_pendaftar['aktif'] = false;
+				$pendaftar = new Pendaftar($data_pendaftar);
+				$invoice->pendaftar()->save($pendaftar);				
+				return redirect()->away($createdInvoice['invoice_url']);
+			}	
+		}
+			
 	}
 	
 	public function paginate2($items, $perPage = 5, $page = null)

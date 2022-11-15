@@ -49,7 +49,7 @@
 								{{ $role->nama_role }}
 							  </td>
 							  <td>
-								{{ $role->deskripsi_role }}
+								{{ substr($role->deskripsi_role,0,45) }}
 							  </td>
 							  <td>
 								{{ $role->prodi->nama_prodi }}

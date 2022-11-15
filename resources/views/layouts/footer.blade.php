@@ -16,7 +16,7 @@
 						<!-- Newsletter Form -->
 						<div class="newsletter_form_container ml-lg-auto text-end">
 							<a  href="{{route('registrasi')}}">
-								<button type="button" class="btn newsletter_button">DAFTAR</button>
+								<button type="button" class="newsletter_button">DAFTAR</button>
 								</a>
 						</div>
 

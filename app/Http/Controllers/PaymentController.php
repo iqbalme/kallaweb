@@ -36,7 +36,7 @@ class PaymentController extends Controller
 	
 	public function success_payment_callback(){
 		$referer = request()->headers->get('referer');
-		if(str_contains($referer, 'xendit.co')){ //jika referer bukan dari xendit
+		if(str_contains($referer, 'xendit.co')){ //jika referer dari xendit
 			return redirect()->route('payment.success');
 		};
 		return redirect()->route('home');

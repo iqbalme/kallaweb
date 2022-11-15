@@ -72,7 +72,7 @@
 							<a href="#" wire:click="setVoucherId({{$voucher->id}})" data-coreui-toggle="modal" data-coreui-target="#voucherModalHapus"><span class="badge text-bg-danger text-white">Hapus</span></a>
                           </td>
 						  <td>
-                            {{ ucfirst($voucher->deskripsi_voucher) }}
+                            {{ substr(ucfirst($voucher->deskripsi_voucher),0,47) }}
                           </td>
 						  <td>
                             {{ $voucher->kode_voucher }}
