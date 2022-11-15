@@ -117,7 +117,7 @@ class PendaftarForm extends Component
 		$params = [ 
 			'external_id' => $external_id,
 			'amount' => $this->total,
-			'description' => 'Invoice '.$this->katalogAdmisi->nama_katalog,
+			'description' => 'Invoice Pendaftaran Mahasiswa Baru',
 			'invoice_duration' => 172800, //48 jam
 			'customer' => [
 				'given_names' => $nama[0],
