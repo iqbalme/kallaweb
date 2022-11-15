@@ -46,7 +46,7 @@
 								<div class="form-row">
 									<div class="form-holder">
 										<label for="password">No. HP.*</label>
-										<input type="password" placeholder="No. HP" class="form-control" maxlength="15" id="password" name="password" wire:model="data.no_hp" required>
+										<input type="text" placeholder="No. HP" class="form-control" maxlength="15"  wire:model="data.no_hp" required>
 									</div>
 									<div class="form-holder">
 										<label for="confirm_password">Program Studi*</label>
