@@ -159,5 +159,8 @@
 		$.getScript("{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}");
 		$.getScript("{{asset('frontend/theme/unicat/js/blog_single.js')}}");
 	});
+	jQuery( document ).ready(function() {
+			jQuery(".blog_content img").css("maxWidth", jQuery(".blog_content").width());
+		});
 	</script>
 </div>

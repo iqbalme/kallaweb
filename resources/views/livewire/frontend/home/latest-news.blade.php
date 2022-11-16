@@ -72,12 +72,12 @@
 					</div>
 				</div>
 			</div>
-			<!--div class="mt-3 col-12">
+			<div class="mt-3 col-12">
 				<header class="heading flex justify-content-between align-items-end">
 					<div>&nbsp;</div>
-					<a class="btn mt-4 mt-sm-0 text-end" href="{{route('event.list')}}">Lihat Semua</a>
+					<a class="btn mt-4 mt-sm-0 text-end" href="{{route('post.list')}}">Lihat Semua</a>
 				</header><!-- .heading -->
-			<!--/div><!-- .col -->
+			</div><!-- .col -->
 		</div>
 	</div>
 	<style>

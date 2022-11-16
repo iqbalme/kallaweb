@@ -18,10 +18,10 @@ class LatestNews extends Component
 		$this->is_seo = $is_seo;
 		$is_headline_exist = Post::where('is_headline', 1);
 		if($is_headline_exist->count()){
-			$this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->orderByDesc('created_at')->limit(4)->get();
+			$this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->orderByDesc('created_at')->limit(3)->get();
 			$this->headlined_post = $is_headline_exist->first();
 		} else {
-			$this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->orderByDesc('created_at')->skip(1)->limit(4)->get();
+			$this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->orderByDesc('created_at')->skip(1)->limit(3)->get();
 			$this->headlined_post = Post::latest()->where('status_post', 'published')->first();
 		}
 		
