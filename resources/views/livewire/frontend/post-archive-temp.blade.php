@@ -19,11 +19,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="blog_post_container" style="position: relative;height: 1050px;">
+					<div class="blog_post_container" style="position:relative;height: auto;">
 						@if(isset($data['posts']))
 							@foreach($data['posts'] as $post)
 								<!-- Blog Post -->
-								<div class="blog_post trans_200" style="" id="post-{{$loop->iteration}}" data-index="{{$loop->iteration}}">
+								<div class="blog_post trans_200" style="position:relative;" id="post-{{$loop->iteration}}" data-index="{{$loop->iteration}}">
 									@isset($post->thumbnail)
 										<div class="blog_post_image" style="background-image:url('{{asset('storage/images/'.$post->thumbnail)}}');background-size:cover;"></div>
 									@endisset
