@@ -6,7 +6,7 @@
 					<div class="col">
 						<div class="breadcrumbs">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="{{route('home')}}">Home</a></li>
 								<li>Berita</li>
 							</ul>
 						</div>
