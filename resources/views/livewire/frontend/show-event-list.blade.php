@@ -72,6 +72,10 @@
 				@endforeach
 				
             </div><!-- .row -->
+			<div class="row">
+				<!-- Pagination -->
+				{{ $data['events']->links('vendor.livewire.bootstrap') }}
+			</div>
         </div><!-- .container -->
     </section>
 	<style>

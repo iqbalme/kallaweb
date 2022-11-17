@@ -7,7 +7,7 @@
 					<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" wire:click="tambahUser"  data-coreui-toggle="modal" data-coreui-target="#userModal">Tambah User</button></div>
 					<hr>
 				</div>
-				<div class="table-responsive">
+				<div class="table-responsive mt-3">
                     <table class="table border mb-0 table-striped">
                       <thead class="table-light fw-semibold">
                         <tr class="align-middle">
@@ -49,11 +49,11 @@
                             {{ $user->email }}
                           </td>
 						  <td>
-							<button type="button" class="btn btn-info text-white"  data-coreui-toggle="modal" data-coreui-target="#roleModalView" wire:click="getUserRole({{$user->id}})">Lihat</button>
+							<button type="button" class="btn btn-info text-white" wire:click="getUserRole({{$user->id}})">Lihat</button>
                           </td>
                           <td class="text-center">
 							<button type="button" class="btn btn-dark" wire:click="getUser({{ $user->id }})"  data-coreui-toggle="modal" data-coreui-target="#userModalEdit">Edit</button>
-							<button wire:click="getUser({{$user->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#userModalHapus">Hapus</button>
+							<button wire:click="setUserId({{$user->id}})" type="button" class="btn btn-danger text-white">Hapus</button>
                           </td>
                         </tr>
 						@endif
@@ -78,7 +78,7 @@
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-secondary text-white" data-coreui-dismiss="modal">Tidak</button>
-			<button type="button" class="btn btn-danger text-white" wire:click="hapusKategori({{$user_id}})" data-coreui-toggle="modal" data-coreui-target="#userModalHapus">Ya, Hapus</button>
+			<button type="button" class="btn btn-danger text-white" wire:click="hapusUser">Ya, Hapus</button>
 		  </div>
 		</div>
 	  </div>
@@ -92,7 +92,11 @@
 			<button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
 		  </div>
 		  <div class="modal-body">
-			Apakah Anda yakin ingin menghapusnya?
+			<ul>
+			@foreach($user_roles_data as $user_role)
+				<li>{{ucfirst($user_role[0]).' = '.$user_role[1]}}</li>
+			@endforeach
+			</ul>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-primary text-white" data-coreui-dismiss="modal">Tutup</button>
@@ -108,6 +112,15 @@
 	<script>
 	window.addEventListener('closeModalUserUpdate', event => {
 		jQuery('#userModalEdit').modal('hide');
+	});
+	window.addEventListener('bukaModalUserHapus', event => {
+		jQuery('#userModalHapus').modal('show');
+	});
+	window.addEventListener('closeModalUserHapus', event => {
+		jQuery('#userModalHapus').modal('hide');
+	});
+	window.addEventListener('bukaModalRole', event => {
+		jQuery('#roleModalView').modal('show');
 	});
 	 </script>
 </div>

@@ -13,9 +13,10 @@ class RoleCreate extends Component
 	public function mount(){
 		$this->roles['nama_role'] = null;
 		$this->roles['deskripsi_role'] = null;
+		$this->roles['prodis'] = [];
 		$prodis = Prodi::all();
 		if($prodis->count()){
-			$this->roles['prodis'] = Prodi::all();
+			$this->roles['prodis'] = $prodis;
 			$this->roles['prodi'] = $prodis[0]['id'];
 		};
 	}
@@ -26,11 +27,13 @@ class RoleCreate extends Component
     }
 	
 	public function create(){
-		$role = Role::create([
-			'nama_role' => $this->roles['nama_role'],
-			'deskripsi_role' => $this->roles['deskripsi_role'],
-			'prodi_id' => $this->roles['prodi']
-		]);
-		$this->emitUp('refreshRole');
+		if(count($this->roles['prodis'])){
+			$role = Role::create([
+				'nama_role' => $this->roles['nama_role'],
+				'deskripsi_role' => $this->roles['deskripsi_role'],
+				'prodi_id' => $this->roles['prodi']
+			]);
+			$this->emitUp('refreshRole');
+		}
 	}
 }

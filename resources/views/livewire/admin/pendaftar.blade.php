@@ -3,8 +3,11 @@
 	<div class="container-lg">
 		<div class="card mb-4">
             <div class="card-body">
-				<h3>List Pendaftar</h3>
+			<div class="row justify-content-between p-3">
+				<div class="col-4"><h3>List Pendaftar</h3></div>
+					<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" data-coreui-toggle="modal" data-coreui-target="#voucherModal" wire:click="addFormVoucher">Ekspor Data</button></div>
 				<hr>
+			</div>
 				
 			<div class="row justify-content-md-between">
 				<!-- Perhalaman -->

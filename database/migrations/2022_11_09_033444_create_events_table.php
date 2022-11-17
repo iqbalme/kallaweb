@@ -22,6 +22,7 @@ return new class extends Migration
 			$table->string('gambar_event');
 			$table->string('lokasi')->nullable();
 			$table->foreignId('voucher_id')->nullable()->constrained()->nullOnDelete();
+			$table->string('link_daftar')->nullable();
             $table->timestamps();
         });
     }

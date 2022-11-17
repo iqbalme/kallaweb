@@ -4,7 +4,7 @@
             <div class="card-body">
 				<div class="row justify-content-between p-3">
 					<div class="col-4"><h3>List Voucher</h3></div>
-						<div class="col-auto"><button type="button" class="btn btn-info text-white mb-2" data-coreui-toggle="modal" data-coreui-target="#voucherModal" wire:click="addFormVoucher">Tambah Voucher</button></div>
+						<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" data-coreui-toggle="modal" data-coreui-target="#voucherModal" wire:click="addFormVoucher">Tambah Voucher</button></div>
 					<hr>
 				</div>
 				<div class="row justify-content-md-between">
@@ -86,14 +86,14 @@
 							</td>
 							<td>
 							@if(isset($voucher->awal_berlaku))
-								{{ $voucher->awal_berlaku }}
+								{{ date('d M Y', strtotime($voucher->awal_berlaku)) }}
 							@else
 								-
 							@endif
 							</td>
 							<td>
 							@if(isset($voucher->akhir_berlaku))
-								{{ $voucher->akhir_berlaku }}
+								{{ date('d M Y', strtotime($voucher->akhir_berlaku)) }}
 							@else
 								-
 							@endif</td>

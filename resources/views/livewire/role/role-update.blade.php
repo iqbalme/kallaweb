@@ -5,7 +5,7 @@
 		<label class="col-form-label">Role</label>
 		<div class="col-sm-12">
 			<div class="col-sm-4">
-			  <input type="text" class="form-control" wire:model="nama_role" placeholder="Nama Role">
+			  <input type="text" class="form-control" wire:model="nama_role" placeholder="Nama Role" required>
 			</div>
 		</div>
 	</div>

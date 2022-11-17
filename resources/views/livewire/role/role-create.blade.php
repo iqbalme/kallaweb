@@ -5,7 +5,7 @@
 		<label class="col-form-label">Role</label>
 		<div class="col-sm-12">
 			<div class="col-sm-4">
-			  <input type="text" class="form-control" wire:model="roles.nama_role" placeholder="Nama Role">
+			  <input type="text" class="form-control" wire:model="roles.nama_role" placeholder="Nama Role" required>
 			</div>
 		</div>
 	</div>
@@ -23,19 +23,25 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="input-group mb-3">
+				  @if($roles['prodis'])
 				  <select class="form-control" wire:model="roles.prodi">
-					@if($roles['prodis'])
 						@foreach($roles['prodis'] as $prodi)
 							<option value="{{ $prodi['id'] }}">{{ $prodi['nama_prodi'] }}</option>
 						@endforeach
-					@endif
 				  </select>
+				  @else
+					  Tambahkan Program Studi terlebih dahulu
+				  @endif
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-3">
 			<button type="button" class="btn btn-danger text-white mr-2" wire:click="$emit('refreshRole')">Batalkan</button>
-			<button type="submit" class="btn btn-primary text-white">Simpan</button>
+			@if($roles['prodis'])
+				<button type="submit" class="btn btn-primary text-white">Simpan</button>
+			@else
+				<button type="button" class="btn btn-primary text-white" disabled>Simpan</button>
+			@endif
 		</div>
 	</div>
 	</form>

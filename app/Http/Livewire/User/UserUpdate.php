@@ -36,6 +36,7 @@ class UserUpdate extends Component
     }
 	
 	public function getUser($user){
+		$this->user_roles = [];
 		$this->user_id = $user['id'];
 		$this->nama = $user['nama'];
 		$this->email = $user['email'];
@@ -44,6 +45,10 @@ class UserUpdate extends Component
 			$this->first_thumbnail = true;
 		}
 		$this->password = null;
+		$user_roles = RoleUser::where('user_id', $user['id'])->get();
+		foreach($user_roles as $user_role){
+			$this->user_roles[] = $user_role->role_id;
+		}
 	}
 	
 	public function updatedAvatar(){
@@ -74,7 +79,7 @@ class UserUpdate extends Component
 		if($this->password !== null){
 			$user->password = bcrypt($this->password);
 		}
-		RoleUser::where('user_id', $this->user_id)->delete();
+		$user->role_users()->delete();
 		if($this->user_roles){
 			foreach($this->user_roles as $role){
 				RoleUser::create([

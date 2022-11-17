@@ -13,7 +13,7 @@
 		<div class="col-sm-12 mb-2">
 		<label class="col-form-label"><strong>Nama Voucher*</strong></label>
 			<div class="col">
-			  <input type="text" class="form-control" wire:model="nama_voucher" placeholder="Nama Voucher">
+			  <input type="text" class="form-control" wire:model="nama_voucher" placeholder="Nama Voucher" required>
 			</div>
 		</div>
 		<div class="col-sm-12">
@@ -34,13 +34,13 @@
 		<div class="col-sm-6 mb-2">
 			<label class="col-form-label"><strong>Nominal Diskon*</strong></label>
 			<div class="col">
-				<input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==7) return false;" wire:model="nominal_diskon" class="form-control" >
+				<input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==7) return false;" wire:model="nominal_diskon" class="form-control" required>
 			</div>
 		</div>
 		<div class="col-sm-7 mb-2">
 		<label class="col-form-label"><strong>Kode Voucher*</strong></label>
 			<div class="col">
-			  <input type="text" class="form-control" wire:model="kode_voucher" maxlength="10">
+			  <input type="text" class="form-control" wire:model="kode_voucher" maxlength="10" required>
 			</div>
 		</div>
 		<div class="col-sm-5 mb-2">
@@ -52,13 +52,13 @@
 		<div class="col-sm-6 mb-2">
 			<label class="col-form-label"><strong>Berlaku Mulai</strong></label>
 			<div class="col">
-				<div data-coreui-locale="en-US" data-coreui-toggle="date-picker" id="datePicker1" wire:model="awal_berlaku"></div>
+				<input type="date" class="form-control" wire:model="awal_berlaku">
 			</div>
 		</div>
 		<div class="col-sm-6 mb-2">
 			<label class="col-form-label"><strong>Berlaku hingga</strong></label>
 			<div class="col">
-				<div data-coreui-locale="en-US" data-coreui-toggle="date-picker" id="datePicker2" wire:model="akhir_berlaku"></div>
+				<input type="date" class="form-control" wire:model="akhir_berlaku">
 			</div>
 		</div>
 		<div class="mb-3 mt-3">

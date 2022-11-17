@@ -11,17 +11,17 @@
 			<div class="modal-body">
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Nama</h6>
-				  <input type="text" class="form-control" wire:model.lazy="nama">
+				  <input type="text" class="form-control" wire:model.lazy="nama" required>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Deskripsi</h6>
 				  <div class="form-group" wire:ignore>
-						<textarea name="deskripsi" id="editor" wire:model="deskripsi"></textarea>
+						<textarea name="deskripsi" id="editor" wire:model="deskripsi" required></textarea>
 					</div>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Jabatan</h6>
-				  <input type="text" class="form-control" wire:model.lazy="jabatan">
+				  <input type="text" class="form-control" wire:model.lazy="jabatan" required>
 				</div>
 				<div class="row">
 					<div class="col-6 mb-3">
@@ -40,7 +40,7 @@
 					</div>
 					<div class="col-6 mb-3">
 					  <h6 class="card-title mb-2">Email</h6>
-					  <input type="text" class="form-control" wire:model.lazy="email">
+					  <input type="text" class="form-control" wire:model.lazy="email" required>
 					</div>
 				</div>
 				<div class="row mt-3">
@@ -60,7 +60,7 @@
 					@else
 						<div class="col-lg-12">
 							<div class="input-group mb-3 mt-2">
-							  <input type="file" class="form-control" wire:model="gambar">
+							  <input type="file" class="form-control" wire:model="gambar" required>
 							  <label class="input-group-text">Upload</label>
 							</div>
 						</div>

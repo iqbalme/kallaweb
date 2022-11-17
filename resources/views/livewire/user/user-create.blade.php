@@ -11,15 +11,15 @@
 			<div class="modal-body">
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Nama</h6>
-				  <input type="text" class="form-control" wire:model.lazy="nama">
+				  <input type="text" class="form-control" wire:model.lazy="nama" required>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Email</h6>
-				  <input type="text" class="form-control" wire:model.lazy="email">
+				  <input type="email" class="form-control" wire:model.lazy="email" required>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Password</h6>
-				  <input type="password" class="form-control" wire:model.lazy="password">
+				  <input type="password" class="form-control" wire:model.lazy="password" required>
 				</div>
 				<div class="row mt-3">
 					<div class="d-flex justify-content-between">
@@ -45,25 +45,33 @@
 						</div>
 					@endif
 				</div>
-				@if(count($roles))
+				
 				<div class="mb-3 mt-3">
 					<h6 class="card-title mb-2">Roles</h6>
-					@foreach($roles as $role)
-					@if($role->nama_role != 'Super Admin')
-					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" value="{{ $role->id }}" wire:model="user_roles">
-					  <label class="form-check-label">
-					  {{ $role->nama_role }}
-					  </label>
-					</div>
+					@if(count($roles) > 1)
+						@foreach($roles as $role)
+							@if($role->nama_role != 'Super Admin')
+							<div class="form-check">
+							  <input class="form-check-input" type="checkbox" value="{{ $role->id }}" wire:model="user_roles">
+							  <label class="form-check-label">
+							  {{ $role->nama_role }}
+							  </label>
+							</div>
+							@endif
+						@endforeach
+					@else
+						{{'Tidak ada role yang tersedia, buat role terlebih dahulu'}}
 					@endif
-					@endforeach
 				</div>
-				@endif
+				
             </div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary text-white" data-coreui-dismiss="modal">Tidak</button>
-				<button type="submit" class="btn btn-primary text-white" data-coreui-toggle="modal" data-coreui-target="#userModal">Simpan</button>
+				<button type="button" class="btn btn-danger text-white" data-coreui-dismiss="modal">Batal</button>
+				@if(count($roles) > 1)
+					<button type="submit" class="btn btn-primary text-white" data-coreui-toggle="modal" data-coreui-target="#userModal" @if(!count($user_roles)) {{'disabled'}} @endif>Simpan</button>
+				@else
+					<button type="button" class="btn btn-primary text-white" disabled>Simpan</button>
+				@endif
 			</div>
 			</form>			
           </div>

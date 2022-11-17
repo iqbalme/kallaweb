@@ -15,8 +15,8 @@
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Deskripsi Event</h6>
-				  <div class="form-group" wire:ignore>
-						<textarea name="deskripsi_event" id="editor" wire:model="deskripsi_event"></textarea>
+					<div class="form-group" wire:ignore>
+						<textarea name="deskripsi_event" id="editor" required>{{$deskripsi_event}}</textarea>
 					</div>
 				</div>
 				<div class="mb-3">
@@ -45,16 +45,16 @@
 						</div>
 					</div>
 					@if(isset($gambar))
-					<div class="mb-1 rounded">
-						@if($initGambar)
-							<img src="{{ asset('storage/images/'.$gambar) }}" alt="avatar" width="200" height="200">
-						@else
-							<img src="{{ $gambar->temporaryUrl() }}" alt="avatar" width="200" height="200">
-						@endif
-					</div>
-					<div class="d-grid gap-2 d-md-block">
-					  <button class="btn btn-danger text-white" type="button" wire:click="hapusGambar">Hapus</button>
-					</div>
+						<div class="mb-1 rounded">
+							@if($initGambar)
+								<img src="{{ asset('storage/images/'.$gambar) }}" alt="avatar" width="200" height="200">
+							@else
+								<img src="{{ $gambar->temporaryUrl() }}" alt="avatar" width="200" height="200">
+							@endif
+						</div>
+						<div class="d-grid gap-2 d-md-block">
+						  <button class="btn btn-danger text-white" type="button" wire:click="hapusGambar">Hapus</button>
+						</div>
 					@else
 						<div class="col-lg-12">
 							<div class="input-group mb-3 mt-2">
@@ -66,12 +66,27 @@
 				</div>
 				<div class="mt-2 mb-3">
 					<div class="form-check">
+					  <input class="form-check-input" type="checkbox" wire:model="is_link">
+					  <label class="form-check-label">
+					  <strong>Custom Link</strong>
+					  </label>
+					</div>
+				</div>
+				@if($is_link)
+				<div class="mt-2 mb-3">
+				  <h6 class="card-title mb-2">Link Pendaftaran</h6>
+				  <input type="text" class="form-control" wire:model.lazy="link_daftar" placeholder="https://" required>
+				</div>
+				@else
+				<div class="mt-2 mb-3">
+					<div class="form-check">
 					  <input class="form-check-input" type="checkbox" wire:model="is_voucher">
 					  <label class="form-check-label">
 					  <strong>Berikan voucher sebagai reward</strong>
 					  </label>
 					</div>
 				</div>
+				@endif
 				@if($is_voucher)
 					@if(isset($vouchers))
 						<div class="mb-3">
@@ -111,20 +126,27 @@
 		jQuery('#eventModalEdit').modal('hide');
 		jQuery('.modal-backdrop').hide();
 	});
-	ClassicEditor
-			.create( document.querySelector( '#editor' ), {
-				ckfinder: {
-					uploadUrl: "{{route('ckeditor.image-upload') .'?_token='.csrf_token()}}"
-				}
-			})
-			.then( editor => {
-				editor.model.document.on('change:data', () => {
-					@this.set('deskripsi_event', editor.getData());
-				})
-			})
-			.catch( error => {
-				//console.error( error );
-		});
+	// ClassicEditor
+			// .create( document.querySelector( '#editor' ), {
+				// ckfinder: {
+					// uploadUrl: "{{route('ckeditor.image-upload') .'?_token='.csrf_token()}}"
+				// }
+			// })
+			// .then( editor => {
+				// editor.model.document.on('change:data', () => {
+					// @this.set('deskripsi_event', editor.getData());
+				// })
+			// })
+			// .catch( error => {
+				// console.error( error );
+		// });
+		// let data_editor = CKEDITOR.instances.editor.getData();
+		// console.log(data_editor);
+		// const editor = CKEDITOR.replace('editor-update');
+		// editor.on('change', function (event) {
+			//console.log(event.editor.getData())
+			// Livewire.emit('setEventUpdate', event.editor.getData());
+		// })
 	</script>
 	<style>
 		.ck-editor__editable_inline {

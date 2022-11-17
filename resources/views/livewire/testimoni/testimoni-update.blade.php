@@ -11,15 +11,15 @@
 			<div class="modal-body">
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Nama</h6>
-				  <input type="text" class="form-control" wire:model.lazy="nama">
+				  <input type="text" class="form-control" wire:model.lazy="nama" required>
 				</div>
 				<div class="mb-3">
 					<h6 class="card-title mb-2">Testimoni</h6>
-					<textarea class="form-control" wire:model="deskripsi"></textarea>
+					<textarea class="form-control" wire:model="deskripsi" maxlength="103" required></textarea>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Keterangan</h6>
-				  <input type="text" class="form-control" wire:model="keterangan">
+				  <input type="text" class="form-control" wire:model="keterangan" required>
 				</div>
 				<div class="row mt-3">
 					<div class="d-flex justify-content-between">
@@ -41,7 +41,7 @@
 					@else
 						<div class="col-lg-12">
 							<div class="input-group mb-3 mt-2">
-							  <input type="file" class="form-control" wire:model="gambar">
+							  <input type="file" class="form-control" wire:model="gambar" required>
 							  <label class="input-group-text">Upload</label>
 							</div>
 						</div>

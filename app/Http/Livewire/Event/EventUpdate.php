@@ -24,9 +24,11 @@ class EventUpdate extends Component
 	public $event_voucher = null;
 	public $event_id = null;
 	public $initGambar = false;
+	public $is_link = false;
+	public $link_daftar = null;
 	
 	protected $listeners = [
-		'getEvent'
+		'getEvent', 'setEventUpdate'
 	];
 	
 	public function mount(){
@@ -46,6 +48,10 @@ class EventUpdate extends Component
 		$this->gambar = null;
 	}
 	
+	public function setEventUpdate($value){
+		$this->deskripsi_event = $value;
+	}
+	
 	public function getEvent($event){
 		//dd(gettype($event['waktu_mulai']));
 		$this->is_voucher = false;
@@ -58,6 +64,12 @@ class EventUpdate extends Component
 		$this->waktu_akhir = date('H:i', strtotime($event['waktu_berakhir']));
 		$this->gambar = $event['gambar_event'];
 		$this->lokasi = $event['lokasi'];
+		$this->link_daftar = $event['link_daftar'];
+		if(isset($event['link_daftar'])){
+			$this->is_link = true;
+		} else {
+			$this->is_link = false;
+		}
 		if(isset($event['gambar_event'])){
 			$this->initGambar = true;
 		}
@@ -69,15 +81,23 @@ class EventUpdate extends Component
 	public function update(){
 		$gambar = null;
 		$voucher_id = null;
-		if(isset($this->voucher_id)){
-			$voucher_id = $this->voucher_id;
-		}
+		$link_daftar = null;
+		if($this->is_link){
+			$voucher_id = null;
+			$link_daftar = $this->link_daftar;
+		} else {
+			$link_daftar = null;
+			if(isset($this->voucher_id)){
+				$voucher_id = $this->voucher_id;
+			}
+		}		
 		$data = [
 			'nama_event' => $this->nama_event,
 			'deskripsi_event' => $this->deskripsi_event,
 			'waktu_mulai' => $this->tanggal.' '.$this->waktu_mulai,
 			'waktu_berakhir' => $this->tanggal.' '.$this->waktu_akhir,
 			'lokasi' => $this->lokasi,
+			'link_daftar' => $link_daftar,
 			'voucher_id' => $voucher_id
 		];
 		if(isset($this->gambar)){
@@ -110,6 +130,12 @@ class EventUpdate extends Component
 			} else {
 				$this->voucher_id = null;
 			}
+		}
+	}
+	
+	public function updatedIsLink($value){
+		if($value){
+			$this->is_voucher = false;
 		}
 	}
 }

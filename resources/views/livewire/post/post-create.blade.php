@@ -11,10 +11,8 @@
 					</div>
 					<div class="mb-3">
 					  <h6 class="card-title mb-2">Isi Post</h6>
-							<div class="form-group">
-								<div wire:ignore>
-									<textarea name="konten" id="editor" required></textarea>
-								</div>
+							<div class="form-group" wire:ignore>
+								<textarea name="konten" id="editor" required></textarea>
 							</div>
 					</div>
 					<div class="mb-3">
@@ -38,9 +36,16 @@
 						@endforeach
 					</div>
 					@endif
-					@if(count($data['prodis']))
+					
 					<div class="mb-3">
-						<h6 class="card-title mb-1">Prodi</h6>
+						<h6 class="card-title mb-1">Tampilkan pada</h6>
+						<div class="form-check" wire:ignore>
+						  <input class="form-check-input" type="radio" value="0" wire:model="post_prodi">
+						  <label class="form-check-label">
+						  Web Utama
+						  </label>
+						</div>
+						@if(count($data['prodis']))
 						@foreach($data['prodis'] as $prodi)
 						<div class="form-check" wire:ignore>
 						  <input class="form-check-input" type="radio" value="{{ $prodi['id'] }}" wire:model="post_prodi">
@@ -49,8 +54,8 @@
 						  </label>
 						</div>
 						@endforeach
+						@endif
 					</div>
-					@endif
 					<div class="mb-3">
 					  <h6 class="card-title mb-2">Tag (Pisahkan dengan koma)</h6>
 					  <input type="text" class="form-control" wire:model.lazy="tags">
@@ -95,7 +100,6 @@
 	</div>
 	<!--script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script-->
 	<script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
-	@push('scripts')
 	<script type="text/javascript">
 		// ClassicEditor
 			// .create( document.querySelector( '#editor' ), {
@@ -105,13 +109,13 @@
 			// })
 			// .then( editor => {
 				// editor.model.document.on('change:data', () => {
-					// Livewire.emit('setKonten', editor.getData());
+					//Livewire.emit('setKonten', editor.getData());
 					// @this.set('konten', editor.getData());
 					//console.log(editor.getData());
 				// })
 			// })
 			// .catch( error => {
-				// console.error( error );
+				//console.error( error );
 		// });
 		const editor = CKEDITOR.replace('editor');
 		editor.on('change', function (event) {
@@ -119,7 +123,6 @@
 			Livewire.emit('setKonten', event.editor.getData());
 		})
 	</script>
-	@endpush
 	<style>
 		.ck-editor__editable_inline {
 			min-height: 250px !important;

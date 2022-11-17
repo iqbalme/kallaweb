@@ -14,6 +14,11 @@ class ProdiTableSeeder extends Seeder
      */
     public function run()
     {
+		 \App\Models\Prodi::create([
+			'id' => 0,
+			'nama_prodi' => 'Web Utama',
+			'slug' => 'web-utama'
+		]);
         \App\Models\Prodi::create([
 			'id' => 1,
 			'nama_prodi' => 'Bisnis Digital',

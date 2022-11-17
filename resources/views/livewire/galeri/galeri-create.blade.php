@@ -26,7 +26,7 @@
 					@else
 						<div class="col-lg-12">
 							<div class="input-group mb-3 mt-2">
-							  <input type="file" class="form-control" wire:model="gambar">
+							  <input type="file" class="form-control" wire:model="gambar" required>
 							  <label class="input-group-text">Upload</label>
 							</div>
 						</div>
@@ -34,7 +34,7 @@
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mt-3 mb-2">Judul Galeri</h6>
-				  <input type="text" class="form-control" wire:model.lazy="judul" required>
+				  <input type="text" class="form-control" wire:model.lazy="judul">
 				</div>
             </div>
 			<div class="modal-footer">

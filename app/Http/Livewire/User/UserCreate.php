@@ -38,6 +38,10 @@ class UserCreate extends Component
 	}
 	
 	public function tambahUser(){
+		$roles = [];
+		foreach($this->user_roles as $role){
+			$roles[] = ['role_id' => $role];
+		}
 		$avatar = null;
 		if(isset($this->avatar)){
 			$this->avatar->storeAs('public/images', $this->avatar->getFilename());
@@ -50,8 +54,8 @@ class UserCreate extends Component
 			'password' => bcrypt($this->password),
 			'avatar' => $avatar
 		];
-		//dd($newUser);
-		User::create($newUser);
+		$user = User::create($newUser);
+		$user->role_users()->createMany($roles);
 		$this->emitUp('refreshUser');
 	}
 }

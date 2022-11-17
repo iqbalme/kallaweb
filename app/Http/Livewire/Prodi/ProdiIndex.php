@@ -18,7 +18,7 @@ class ProdiIndex extends Component
 	
     public function render()
     {
-		$this->data = Prodi::all();
+		$this->data = Prodi::whereNot('id', 0)->get();
         return view('livewire.prodi.prodi-index')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Program Studi']);
     }

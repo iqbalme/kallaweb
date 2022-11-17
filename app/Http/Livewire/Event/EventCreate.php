@@ -22,6 +22,10 @@ class EventCreate extends Component
 	public $lokasi = null;
 	public $gambar = null;
 	public $event_voucher = null;
+	public $is_link = false;
+	public $link_daftar = null;
+	
+	protected $listeners = ['setEvent'];
 	
 	public function mount(){
 		$this->vouchers = Voucher::where('aktif', 1)->get();
@@ -37,16 +41,27 @@ class EventCreate extends Component
 		$this->gambar = null;
 	}
 	
+	public function setEvent($value){
+		$this->deskripsi_event = $value;
+	}
+	
 	public function simpan(){
 		$gambar = null;
 		$voucher_id = null;
+		$link_daftar = null;
+		if($this->is_link){
+			$voucher_id = null;
+			$link_daftar = $this->link_daftar;
+		} else {
+			$link_daftar = null;
+			if(isset($this->voucher_id)){
+				$voucher_id = $this->voucher_id;
+			}
+		}
 		if(isset($this->gambar)){
 			$gambar = $this->gambar->getFilename();
 			$this->gambar->storeAs('public/images', $gambar);
 			$this->gambar = null;
-		}
-		if(isset($this->voucher_id)){
-			$voucher_id = $this->voucher_id;
 		}
 		$data = [
 			'nama_event' => $this->nama_event,
@@ -55,6 +70,7 @@ class EventCreate extends Component
 			'waktu_berakhir' => $this->tanggal.' '.$this->waktu_akhir,
 			'gambar_event' => $gambar,
 			'lokasi' => $this->lokasi,
+			'link_daftar' => $link_daftar,
 			'voucher_id' => $voucher_id
 		];
 		//dd($data);
@@ -66,5 +82,11 @@ class EventCreate extends Component
 	
 	public function closeModal(){
 		$this->dispatchBrowserEvent('closeModalEvent');
+	}
+	
+	public function updatedIsLink($value){
+		if($value){
+			$this->is_voucher = false;
+		}
 	}
 }

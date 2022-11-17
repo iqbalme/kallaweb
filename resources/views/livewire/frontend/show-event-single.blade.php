@@ -50,8 +50,15 @@
 						</div>
 						<div class="row mt-2 justify-content-between">
 							<div class="col-md-2">&nbsp;</div>
-							<div class="col-md-5 text-end"><button type="button" class="btn btn-primary" onclick="showEventRegistration()">DAFTAR EVENT</button></div>
+							<div class="col-md-5 text-end">
+							@if(isset($event->link_daftar))
+								<a type="button" class="btn btn-primary" href="{{$event->link_daftar}}" target="blank">BUKA LINK PENDAFTARAN</a>
+							@else
+								<button type="button" class="btn btn-primary" onclick="showEventRegistration()">DAFTAR EVENT</button>
+							@endif
+							</div>
 						</div>
+						
 					</div>
 				</div>
 

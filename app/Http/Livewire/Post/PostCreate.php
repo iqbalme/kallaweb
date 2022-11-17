@@ -36,7 +36,7 @@ class PostCreate extends Component
 		$prodis = Prodi::all();
 		$this->data['prodis'] = $prodis;
 		if($prodis->count()){
-			$this->post_prodi = $prodis[0]['id'];
+			$this->post_prodi = 0; //tidak berlaku jika bukan super admin, nnt diedit
 		}
 	}
 	
@@ -78,7 +78,7 @@ class PostCreate extends Component
 			'thumbnail' => $thumbnail,
 			'status_post' => ($isPublished) ? 'published' : 'draft',
 			'user_id' => Auth::user()->id,
-			'slug' => $this->setSlug($this->judul),
+			'slug' => $this->setSlug($this->judul).'-'.uniqid(),
 			'is_headline' => $this->is_headline
 		];
 		$createdPost = Post::create($submittedData);

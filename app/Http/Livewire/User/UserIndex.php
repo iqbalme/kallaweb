@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use Livewire\Component;
 use App\Models\User;
 use App\Models\RoleUser;
+use App\Models\Role;
 
 class UserIndex extends Component
 {
@@ -12,6 +13,7 @@ class UserIndex extends Component
 	public $isUpdate = false;
 	public $data;
 	public $user_id;
+	public $user_roles_data = [];
 	
 	protected $listeners = [
 		'refreshUser'
@@ -29,7 +31,19 @@ class UserIndex extends Component
 	
 	public function tambahUser(){
 		$this->isUpdate = false;
+		$this->reset();
 		$this->isFormVisible = true;
+	}
+	
+	public function setUserId($id){
+		$this->user_id = $id;
+		$this->dispatchBrowserEvent('bukaModalUserHapus');
+	}
+	
+	public function hapusUser(){
+		$user = User::find($this->user_id);
+		$user->delete();
+		$this->dispatchBrowserEvent('closeModalUserHapus');
 	}
 	
 	public function getUser($id){
@@ -44,7 +58,13 @@ class UserIndex extends Component
 	}
 	
 	public function getUserRole($id){
-		$data = User::find($id)->role_users;
-		dd($data->roles());
+		$this->user_roles_data = [];
+		$role_users = RoleUser::where('user_id', $id)->get();
+		foreach($role_users as $role_usr){
+			$role = Role::find($role_usr->role_id);
+			$this->user_roles_data[] = [$role_usr->roles->nama_role,$role->prodi->nama_prodi];
+		}
+		//dd($this->user_roles_data);
+		$this->dispatchBrowserEvent('bukaModalRole');
 	}
 }

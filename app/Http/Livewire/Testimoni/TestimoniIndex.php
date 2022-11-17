@@ -54,6 +54,7 @@ class TestimoniIndex extends Component
 	}
 	
 	public function bukaFormTestimoni(){
+		$this->reset();
 		$this->dispatchBrowserEvent('bukaFormTestimoni');
 	}
 	

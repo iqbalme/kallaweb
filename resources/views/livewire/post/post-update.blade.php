@@ -7,12 +7,12 @@
 			<div class="card-body">
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Judul</h6>
-				  <input type="text" class="form-control" wire:model.lazy="judul">
+				  <input type="text" class="form-control" wire:model.lazy="judul" required>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Isi Post</h6>
 						<div class="form-group" wire:ignore>
-							<textarea name="konten" id="editor">{{ $konten }}</textarea>
+							<textarea name="konten" id="editor" required>{{ $konten }}</textarea>
 						</div>
 				</div>
 				<div class="mb-3">
@@ -36,9 +36,16 @@
 					@endforeach
 				</div>
 				@endif
-				@if(count($data['prodis']))
+
 				<div class="mb-3">
-					<h6 class="card-title mb-1">Prodi</h6>
+					<h6 class="card-title mb-1">Tampilkan pada</h6>
+					<div class="form-check" wire:ignore>
+					  <input class="form-check-input" type="radio" value="0" wire:model="post_prodi">
+					  <label class="form-check-label">
+					  Web Utama
+					  </label>
+					</div>
+					@if(count($data['prodis']))
 					@foreach($data['prodis'] as $prodi)
 					<div class="form-check" wire:ignore>
 					  <input class="form-check-input" type="radio" value="{{ $prodi->id }}" wire:model="post_prodi">
@@ -47,8 +54,9 @@
 					  </label>
 					</div>
 					@endforeach
+					@endif
 				</div>
-				@endif
+				
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Tag (Pisahkan dengan koma)</h6>
 				  <input type="text" class="form-control" wire:model.lazy="tags">
@@ -73,7 +81,7 @@
 					@else
 						<div class="col-lg-7">
 							<div class="input-group mb-3 mt-2">
-							  <input type="file" class="form-control" wire:model.defer="thumbnail">
+							  <input type="file" class="form-control" wire:model.defer="thumbnail" required>
 							  <label class="input-group-text">Upload</label>
 							</div>
 						</div>

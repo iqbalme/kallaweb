@@ -55,6 +55,7 @@ class EventIndex extends Component
 	}
 	
 	public function bukaFormEvent(){
+		$this->reset();
 		$this->dispatchBrowserEvent('bukaFormEvent');
 	}
 	

@@ -18,11 +18,11 @@
 				@endif
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Nama</h6>
-				  <input type="text" class="form-control" wire:model.lazy="nama">
+				  <input type="text" class="form-control" wire:model.lazy="nama" required>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Email</h6>
-				  <input type="text" class="form-control" wire:model.lazy="email">
+				  <input type="email" class="form-control" wire:model.lazy="email" required>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Password</h6>

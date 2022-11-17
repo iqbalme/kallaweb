@@ -42,7 +42,22 @@
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="{{route('home')}}"><span>Beranda</span></a></li>
-                <li class="has-children">
+				<li class="has-children"><a href="#"><span>Profil</span></a>
+					<ul class="dropdown arrow-top">
+                    <li><a href="#">Tentang Kampus</a></li>
+                    <li><a href="#">Struktur Organisasi</a></li>
+                    <li><a href="#">Profil Dosen</a></li>
+                    <li><a href="#">Fasilitas</a></li>
+                  </ul>
+				</li>
+				<li class="has-children"><a href="#"><span>Informasi</span></a>
+					<ul class="dropdown arrow-top">
+                    <li><a href="#">Berita</a></li>
+                    <li><a href="#">Event</a></li>
+                    <li><a href="#">Pengumuman</a></li>
+                  </ul>
+				</li>
+                <!--li class="has-children">
                   <a href="about.html"><span>Dropdown</span></a>
                   <ul class="dropdown arrow-top">
                     <li><a href="#">Menu One</a></li>
@@ -58,11 +73,15 @@
                       </ul>
                     </li>
                   </ul>
-                </li>
-                <li><a href="listings.html"><span>Listings</span></a></li>
-                <li><a href="about.html"><span>About</span></a></li>
-                <li><a href="blog.html"><span>Blog</span></a></li>
-                <li><a href="contact.html"><span>Contact</span></a></li>
+                </li-->
+                <li class="has-children"><a href="#"><span>Admisi</span></a>
+					<ul class="dropdown arrow-top">
+                    <li><a href="#">Pendaftaran Mahasiswa Baru</a></li>
+                    <li><a href="#">Persyaratan Pendaftaran</a></li>
+                    <li><a href="#">Informasi Beasiswa</a></li>
+                    <li><a href="#">Registrasi Ulang</a></li>
+                  </ul>
+				</li>
               </ul>
             </nav>
           </div>
@@ -114,7 +133,7 @@
 	  .site-navbar .site-navigation-nav .site-menu {
 		margin-bottom: 0; }
 		.site-navbar .site-navigation-nav .site-menu .active > a span {
-		  background: #007bff;
+		  background: #007F3D;
 		  color: #fff;
 		  border-radius: 30px;
 		  display: inline-block;
@@ -137,7 +156,7 @@
 			  transition: .3s all ease;
 			  border-radius: 30px; }
 			.site-navbar .site-navigation-nav .site-menu > li > a:hover > span {
-			  background: #007bff;
+			  background: #007F3D;
 			  color: #fff;
 			  border-radius: 30px;
 			  display: inline-block; }
@@ -162,7 +181,7 @@
 			top: 100%;
 			position: absolute;
 			text-align: left;
-			border-top: 2px solid #007bff;
+			border-top: 2px solid #007F3D;
 			-webkit-box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
 			box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
 			padding: 0px 0;
@@ -196,7 +215,7 @@
 			  transition: 0s all;
 			  color: #343a40; }
 			.site-navbar .site-navigation-nav .site-menu .has-children .dropdown .active > a {
-			  color: #007bff !important; }
+			  color: #007F3D !important; }
 			.site-navbar .site-navigation-nav .site-menu .has-children .dropdown > li {
 			  list-style: none;
 			  padding: 0;
@@ -221,9 +240,9 @@
 			  .site-navbar .site-navigation-nav .site-menu .has-children .dropdown > li.has-children:hover > a, .site-navbar .site-navigation-nav .site-menu .has-children .dropdown > li.has-children:active > a, .site-navbar .site-navigation-nav .site-menu .has-children .dropdown > li.has-children:focus > a {
 				background: #fafafb; }
 		  .site-navbar .site-navigation-nav .site-menu .has-children:hover > a, .site-navbar .site-navigation-nav .site-menu .has-children:focus > a, .site-navbar .site-navigation-nav .site-menu .has-children:active > a {
-			color: #007bff; }
+			color: #007F3D; }
 			.site-navbar .site-navigation-nav .site-menu .has-children:hover > a span, .site-navbar .site-navigation-nav .site-menu .has-children:focus > a span, .site-navbar .site-navigation-nav .site-menu .has-children:active > a span {
-			  background: #007bff;
+			  background: #007F3D;
 			  color: #fff; }
 		  .site-navbar .site-navigation-nav .site-menu .has-children:hover, .site-navbar .site-navigation-nav .site-menu .has-children:focus, .site-navbar .site-navigation-nav .site-menu .has-children:active {
 			cursor: pointer; }
@@ -304,12 +323,12 @@
 		  position: relative;
 		  color: #212529; }
 		  .site-mobile-menu .site-nav-wrap a:hover {
-			color: #007bff; }
+			color: #007F3D; }
 		.site-mobile-menu .site-nav-wrap li {
 		  position: relative;
 		  display: block; }
 		  .site-mobile-menu .site-nav-wrap li.active > a {
-			color: #007bff; }
+			color: #007F3D; }
 		.site-mobile-menu .site-nav-wrap .arrow-collapse {
 		  position: absolute;
 		  right: 0px;
@@ -399,296 +418,5 @@
 	</style>
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/style-font-nav.css')}}">
 	<script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script>
-	<!-- Sticky Js inline -->
-	<script>
-		// Sticky Plugin v1.0.4 for jQuery
-		// =============
-		// Author: Anthony Garand
-		// Improvements by German M. Bravo (Kronuz) and Ruud Kamphuis (ruudk)
-		// Improvements by Leonardo C. Daronco (daronco)
-		// Created: 02/14/2011
-		// Date: 07/20/2015
-		// Website: http://stickyjs.com/
-		// Description: Makes an element on the page stick on the screen as you scroll
-		//              It will only set the 'top' and 'position' of your element, you
-		//              might need to adjust the width in some cases.
-
-		(function (factory) {
-			if (typeof define === 'function' && define.amd) {
-				// AMD. Register as an anonymous module.
-				define(['jquery'], factory);
-			} else if (typeof module === 'object' && module.exports) {
-				// Node/CommonJS
-				module.exports = factory(require('jquery'));
-			} else {
-				// Browser globals
-				factory(jQuery);
-			}
-		}(function ($) {
-			var slice = Array.prototype.slice; // save ref to original slice()
-			var splice = Array.prototype.splice; // save ref to original slice()
-
-		  var defaults = {
-			  topSpacing: 0,
-			  bottomSpacing: 0,
-			  className: 'is-sticky',
-			  wrapperClassName: 'sticky-wrapper',
-			  center: false,
-			  getWidthFrom: '',
-			  widthFromWrapper: true, // works only when .getWidthFrom is empty
-			  responsiveWidth: false,
-			  zIndex: 'inherit'
-			},
-			$window = $(window),
-			$document = $(document),
-			sticked = [],
-			windowHeight = $window.height(),
-			scroller = function() {
-			  var scrollTop = $window.scrollTop(),
-				documentHeight = $document.height(),
-				dwh = documentHeight - windowHeight,
-				extra = (scrollTop > dwh) ? dwh - scrollTop : 0;
-
-			  for (var i = 0, l = sticked.length; i < l; i++) {
-				var s = sticked[i],
-				  elementTop = s.stickyWrapper.offset().top,
-				  etse = elementTop - s.topSpacing - extra;
-
-				//update height in case of dynamic content
-				s.stickyWrapper.css('height', s.stickyElement.outerHeight());
-
-				if (scrollTop <= etse) {
-				  if (s.currentTop !== null) {
-					s.stickyElement
-					  .css({
-						'width': '',
-						'position': '',
-						'top': '',
-						'z-index': ''
-					  });
-					s.stickyElement.parent().removeClass(s.className);
-					s.stickyElement.trigger('sticky-end', [s]);
-					s.currentTop = null;
-				  }
-				}
-				else {
-				  var newTop = documentHeight - s.stickyElement.outerHeight()
-					- s.topSpacing - s.bottomSpacing - scrollTop - extra;
-				  if (newTop < 0) {
-					newTop = newTop + s.topSpacing;
-				  } else {
-					newTop = s.topSpacing;
-				  }
-				  if (s.currentTop !== newTop) {
-					var newWidth;
-					if (s.getWidthFrom) {
-						padding =  s.stickyElement.innerWidth() - s.stickyElement.width();
-						newWidth = $(s.getWidthFrom).width() - padding || null;
-					} else if (s.widthFromWrapper) {
-						newWidth = s.stickyWrapper.width();
-					}
-					if (newWidth == null) {
-						newWidth = s.stickyElement.width();
-					}
-					s.stickyElement
-					  .css('width', newWidth)
-					  .css('position', 'fixed')
-					  .css('top', newTop)
-					  .css('z-index', s.zIndex);
-
-					s.stickyElement.parent().addClass(s.className);
-
-					if (s.currentTop === null) {
-					  s.stickyElement.trigger('sticky-start', [s]);
-					} else {
-					  // sticky is started but it have to be repositioned
-					  s.stickyElement.trigger('sticky-update', [s]);
-					}
-
-					if (s.currentTop === s.topSpacing && s.currentTop > newTop || s.currentTop === null && newTop < s.topSpacing) {
-					  // just reached bottom || just started to stick but bottom is already reached
-					  s.stickyElement.trigger('sticky-bottom-reached', [s]);
-					} else if(s.currentTop !== null && newTop === s.topSpacing && s.currentTop < newTop) {
-					  // sticky is started && sticked at topSpacing && overflowing from top just finished
-					  s.stickyElement.trigger('sticky-bottom-unreached', [s]);
-					}
-
-					s.currentTop = newTop;
-				  }
-
-				  // Check if sticky has reached end of container and stop sticking
-				  var stickyWrapperContainer = s.stickyWrapper.parent();
-				  var unstick = (s.stickyElement.offset().top + s.stickyElement.outerHeight() >= stickyWrapperContainer.offset().top + stickyWrapperContainer.outerHeight()) && (s.stickyElement.offset().top <= s.topSpacing);
-
-				  if( unstick ) {
-					s.stickyElement
-					  .css('position', 'absolute')
-					  .css('top', '')
-					  .css('bottom', 0)
-					  .css('z-index', '');
-				  } else {
-					s.stickyElement
-					  .css('position', 'fixed')
-					  .css('top', newTop)
-					  .css('bottom', '')
-					  .css('z-index', s.zIndex);
-				  }
-				}
-			  }
-			},
-			resizer = function() {
-			  windowHeight = $window.height();
-
-			  for (var i = 0, l = sticked.length; i < l; i++) {
-				var s = sticked[i];
-				var newWidth = null;
-				if (s.getWidthFrom) {
-					if (s.responsiveWidth) {
-						newWidth = $(s.getWidthFrom).width();
-					}
-				} else if(s.widthFromWrapper) {
-					newWidth = s.stickyWrapper.width();
-				}
-				if (newWidth != null) {
-					s.stickyElement.css('width', newWidth);
-				}
-			  }
-			},
-			methods = {
-			  init: function(options) {
-				return this.each(function() {
-				  var o = $.extend({}, defaults, options);
-				  var stickyElement = $(this);
-
-				  var stickyId = stickyElement.attr('id');
-				  var wrapperId = stickyId ? stickyId + '-' + defaults.wrapperClassName : defaults.wrapperClassName;
-				  var wrapper = $('<div></div>')
-					.attr('id', wrapperId)
-					.addClass(o.wrapperClassName);
-
-				  stickyElement.wrapAll(function() {
-					if ($(this).parent("#" + wrapperId).length == 0) {
-							return wrapper;
-					}
-		});
-
-				  var stickyWrapper = stickyElement.parent();
-
-				  if (o.center) {
-					stickyWrapper.css({width:stickyElement.outerWidth(),marginLeft:"auto",marginRight:"auto"});
-				  }
-
-				  if (stickyElement.css("float") === "right") {
-					stickyElement.css({"float":"none"}).parent().css({"float":"right"});
-				  }
-
-				  o.stickyElement = stickyElement;
-				  o.stickyWrapper = stickyWrapper;
-				  o.currentTop    = null;
-
-				  sticked.push(o);
-
-				  methods.setWrapperHeight(this);
-				  methods.setupChangeListeners(this);
-				});
-			  },
-
-			  setWrapperHeight: function(stickyElement) {
-				var element = $(stickyElement);
-				var stickyWrapper = element.parent();
-				if (stickyWrapper) {
-				  stickyWrapper.css('height', element.outerHeight());
-				}
-			  },
-
-			  setupChangeListeners: function(stickyElement) {
-				if (window.MutationObserver) {
-				  var mutationObserver = new window.MutationObserver(function(mutations) {
-					if (mutations[0].addedNodes.length || mutations[0].removedNodes.length) {
-					  methods.setWrapperHeight(stickyElement);
-					}
-				  });
-				  mutationObserver.observe(stickyElement, {subtree: true, childList: true});
-				} else {
-				  if (window.addEventListener) {
-					stickyElement.addEventListener('DOMNodeInserted', function() {
-					  methods.setWrapperHeight(stickyElement);
-					}, false);
-					stickyElement.addEventListener('DOMNodeRemoved', function() {
-					  methods.setWrapperHeight(stickyElement);
-					}, false);
-				  } else if (window.attachEvent) {
-					stickyElement.attachEvent('onDOMNodeInserted', function() {
-					  methods.setWrapperHeight(stickyElement);
-					});
-					stickyElement.attachEvent('onDOMNodeRemoved', function() {
-					  methods.setWrapperHeight(stickyElement);
-					});
-				  }
-				}
-			  },
-			  update: scroller,
-			  unstick: function(options) {
-				return this.each(function() {
-				  var that = this;
-				  var unstickyElement = $(that);
-
-				  var removeIdx = -1;
-				  var i = sticked.length;
-				  while (i-- > 0) {
-					if (sticked[i].stickyElement.get(0) === that) {
-						splice.call(sticked,i,1);
-						removeIdx = i;
-					}
-				  }
-				  if(removeIdx !== -1) {
-					unstickyElement.unwrap();
-					unstickyElement
-					  .css({
-						'width': '',
-						'position': '',
-						'top': '',
-						'float': '',
-						'z-index': ''
-					  })
-					;
-				  }
-				});
-			  }
-			};
-
-		  // should be more efficient than using $window.scroll(scroller) and $window.resize(resizer):
-		  if (window.addEventListener) {
-			window.addEventListener('scroll', scroller, false);
-			window.addEventListener('resize', resizer, false);
-		  } else if (window.attachEvent) {
-			window.attachEvent('onscroll', scroller);
-			window.attachEvent('onresize', resizer);
-		  }
-
-		  $.fn.sticky = function(method) {
-			if (methods[method]) {
-			  return methods[method].apply(this, slice.call(arguments, 1));
-			} else if (typeof method === 'object' || !method ) {
-			  return methods.init.apply( this, arguments );
-			} else {
-			  $.error('Method ' + method + ' does not exist on jQuery.sticky');
-			}
-		  };
-
-		  $.fn.unstick = function(method) {
-			if (methods[method]) {
-			  return methods[method].apply(this, slice.call(arguments, 1));
-			} else if (typeof method === 'object' || !method ) {
-			  return methods.unstick.apply( this, arguments );
-			} else {
-			  $.error('Method ' + method + ' does not exist on jQuery.sticky');
-			}
-		  };
-		  $(function() {
-			setTimeout(scroller, 0);
-		  });
-		}));
-	</script>
 	<script src="{{asset('frontend/assets/js/main-nav.js')}}"></script>
 	

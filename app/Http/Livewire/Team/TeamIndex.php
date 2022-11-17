@@ -58,6 +58,7 @@ class TeamIndex extends Component
 	}
 	
 	public function bukaFormTeam(){
+		$this->reset();
 		$this->dispatchBrowserEvent('bukaFormTeam');
 	}
 	

@@ -15,27 +15,27 @@
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Deskripsi Event</h6>
-					<div class="form-group" wire:ignore>
-						<textarea name="deskripsi_event" id="editor">{{ $deskripsi_event }}</textarea>
+					<div wire:ignore>
+						<textarea name="deskripsi_event" id="editor" required></textarea>
 					</div>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Tanggal</h6>
-				  <input type="date" class="form-control" wire:model.lazy="tanggal">
+				  <input type="date" class="form-control" wire:model.lazy="tanggal" required>
 				</div>
 				<div class="row">
 					<div class="col-6 mb-3">
 					  <h6 class="card-title mb-2">Waktu Mulai</h6>
-					  <input type="time" class="form-control" wire:model.lazy="waktu_mulai">
+					  <input type="time" class="form-control" wire:model.lazy="waktu_mulai" required>
 					</div>
 					<div class="col-6 mb-3">
 					  <h6 class="card-title mb-2">Waktu Berakhir</h6>
-					  <input type="time" class="form-control" wire:model.lazy="waktu_akhir">
+					  <input type="time" class="form-control" wire:model.lazy="waktu_akhir" required>
 					</div>
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Lokasi</h6>
-				  <input type="text" class="form-control" wire:model.lazy="lokasi">
+				  <input type="text" class="form-control" wire:model.lazy="lokasi" required>
 				</div>
 				<div class="row mt-3">
 					<div class="d-flex justify-content-between">
@@ -54,12 +54,26 @@
 					@else
 						<div class="col-lg-12">
 							<div class="input-group mb-3 mt-2">
-							  <input type="file" class="form-control" wire:model="gambar">
+							  <input type="file" class="form-control" wire:model="gambar" required>
 							  <label class="input-group-text">Upload</label>
 							</div>
 						</div>
 					@endif
 				</div>
+				<div class="mt-2 mb-3">
+					<div class="form-check">
+					  <input class="form-check-input" type="checkbox" wire:model="is_link">
+					  <label class="form-check-label">
+					  <strong>Custom Link</strong>
+					  </label>
+					</div>
+				</div>
+				@if($is_link)
+				<div class="mt-2 mb-3">
+				  <h6 class="card-title mb-2">Link Pendaftaran</h6>
+				  <input type="text" class="form-control" wire:model.lazy="link_daftar" placeholder="https://" required>
+				</div>
+				@else
 				<div class="mt-2 mb-3">
 					<div class="form-check">
 					  <input class="form-check-input" type="checkbox" wire:model="is_voucher">
@@ -68,6 +82,7 @@
 					  </label>
 					</div>
 				</div>
+				@endif
 				@if($is_voucher)
 					@if($vouchers->count())
 						<div class="mb-3">
@@ -101,26 +116,32 @@
           </div>
 		</div>
 	</div>
-	<script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
+	<!--script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script-->
+	<script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 	<script>
 	window.addEventListener('closeModalEvent', event => {
 		jQuery('#eventModal').modal('hide');
 		jQuery('.modal-backdrop').hide();
 	});
-	ClassicEditor
-			.create( document.querySelector( '#editor' ), {
-				ckfinder: {
-					uploadUrl: "{{route('ckeditor.image-upload') .'?_token='.csrf_token()}}"
-				}
-			})
-			.then( editor => {
-				editor.model.document.on('change:data', () => {
-					@this.set('deskripsi_event', editor.getData());
-				})
-			})
-			.catch( error => {
+	// ClassicEditor
+			// .create( document.querySelector( '#editor' ), {
+				// ckfinder: {
+					// uploadUrl: "{{route('ckeditor.image-upload') .'?_token='.csrf_token()}}"
+				// }
+			// })
+			// .then( editor => {
+				// editor.model.document.on('change:data', () => {
+					// @this.set('deskripsi_event', editor.getData());
+				// })
+			// })
+			// .catch( error => {
 				//console.error( error );
-		});
+		// });
+		const editor = CKEDITOR.replace('editor');
+		editor.on('change', function (event) {
+			//console.log(event.editor.getData())
+			Livewire.emit('setEvent', event.editor.getData());
+		})
 	</script>
 	<style>
 		.ck-editor__editable_inline {

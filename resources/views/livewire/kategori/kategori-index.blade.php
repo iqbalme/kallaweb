@@ -43,10 +43,10 @@
 						  {{ $loop->iteration }}
                           </td>
                           <td>
-                            {{ $category->nama_kategori }}
+                            {{ ucfirst($category->nama_kategori) }}
                           </td>
 						  <td>
-                            {{ $category->deskripsi_kategori }}
+                            {{ ucfirst($category->deskripsi_kategori) }}
                           </td>
                           <td>
 							<button type="button" class="btn btn-dark" wire:click="getKategori({{ $category->id }})" @if($isFormVisible) disabled @endif>Edit</button>
