@@ -19,11 +19,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="blog_post_container" style="position: relative;height: 1050px;">
+					<div class="blog_post_container" style="position:relative;height: auto;">
 						@if(isset($data['posts']))
 							@foreach($data['posts'] as $post)
 								<!-- Blog Post -->
-								<div class="blog_post trans_200" style="position: absolute;" id="post-{{$loop->iteration}}" data-index="{{$loop->iteration}}">
+								<div class="blog_post trans_200" style="position:relative;" id="post-{{$loop->iteration}}" data-index="{{$loop->iteration}}">
 									@isset($post->thumbnail)
 										<div class="blog_post_image" style="background-image:url('{{asset('storage/images/'.$post->thumbnail)}}');background-size:cover;"></div>
 									@endisset
@@ -48,30 +48,53 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col text-center">
+				<!-- Pagination -->
+				{{ $data['posts']->links('vendor.livewire.bootstrap') }}
+				<!--nav aria-label="Page navigation example">
+				  <ul class="pagination justify-content-center">
+					<li class="page-item disabled">
+					  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Sebelumnya</a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item">
+					  <a class="page-link" href="#">Selanjutnya</a>
+					</li>
+				  </ul>
+				</nav>
+				<!--div class="col text-center">
 					<div class="load_more trans_200"><a href="#">load more</a></div>
-				</div>
+				</div-->
 			</div>
 		</div>
 	</div>
 	<script>
 		jQuery( document ).ready(function() {
-			let blog_count = jQuery('.blog_post_container').children().length;
-			for(let i=1;i<=blog_count;i++){
-				if(i%3==1){
-					jQuery("#post-"+i).css('left', 0);
-				} else if(i%3==2){
-					jQuery("#post-"+i).css('left', ((jQuery(".blog_post_container").width()-60)/3)+30);
-				} else if(i%3==0){
-					jQuery("#post-"+i).css('left', (((jQuery(".blog_post_container").width()-60)/3)*2)+30);
-				}
-			}
+			// let blog_count = jQuery('.blog_post_container').children().length;
+			// for(let i=1;i<=blog_count;i++){
+				// if(i%3==1){
+					// jQuery("#post-"+i).css('left', 0);
+				// } else if(i%3==2){
+					// jQuery("#post-"+i).css('left', ((jQuery(".blog_post_container").width()-60)/3)+30);
+				// } else if(i%3==0){
+					// jQuery("#post-"+i).css('left', (((jQuery(".blog_post_container").width()-60)/3)*2)+30);
+				// }
+			// }
 			jQuery(".blog_post_image").height((jQuery(".blog_post_image").width()*0.54));
 		});
 	</script>
 	<style>
+		.blog_post_container {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px 30px;
+		}
 		.blog_post {
-			width: calc((100% - 60px) / 3);
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			/* width: calc((100% - 60px) / 3); */
 			border-radius: 6px;
 			overflow: hidden;
 			box-shadow: 0px 1px 10px rgb(29 34 47 / 10%);
