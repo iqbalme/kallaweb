@@ -30,7 +30,7 @@ trait CommonTrait
 	}
 	
 	public function getParagraphTag($string){
-		$content = preg_match("~^<p[^>]*>.*?</p>~im", $string, $output); 
+		$content = preg_match_all("~^<p[^>]*>.*?</p>~im", $string, $output); 
 		return $output[0];
 		
 	}
