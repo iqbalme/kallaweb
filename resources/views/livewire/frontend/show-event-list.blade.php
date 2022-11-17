@@ -1,5 +1,19 @@
 <div>
-	<div style="height:100px">
+	<div class="home-breadcrumb">
+		<div class="breadcrumbs_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="breadcrumbs">
+							<ul>
+								<li><a href="{{route('home')}}">Home</a></li>
+								<li>Event</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>			
 	</div>
     @if($data['events']->count())
 	<!-- Events -->
@@ -45,7 +59,9 @@
                             </header><!-- .entry-header -->
 
                             <footer class="entry-footer flex justify-content-between align-items-center">
-								<div class="course-author">{{substr($event->deskripsi,0,91).'...'}}</div>
+								@isset($event->deskripsi)
+									<div class="course-author">{{substr($event->deskripsi,0,91).'...'}}</div>
+								@endisset
                                 <!--div class="course-cost">
                                     <span class="free-cost">Free</span>
                                 </div><!-- .course-cost -->
@@ -59,6 +75,61 @@
         </div><!-- .container -->
     </section>
 	<style>
+	.flex {
+		display: flex !important;
+	}
+	.featured-courses.horizontal-column .course-thumbnail {
+		width: calc(50% - 30px);
+		background: #fff;
+	}
+	.featured-courses.horizontal-column, .featured-courses.vertical-column {
+		padding: 100px 0;
+		background: #fff;
+	}
+	.featured-courses.horizontal-column .course-content-wrap {
+		width: calc(50% + 30px);
+		padding-left: 30px;
+		border: 1px solid #ebebeb;
+		border-left: 0;
+	}
+	.course-content-wrap {
+		padding: 26px 30px 20px;
+		border: 1px solid #ebebeb;
+		border-top: 0;
+		background: #fff;
+	}
+	.course-thumbnail {
+		width: 100%;
+		margin: 0;
+		object-fit: cover;
+	}
+	/* .featured-courses.horizontal-column .course-thumbnail img {
+		height: 100%;
+	} */
+	.course-content {
+		margin-top: 50px;
+		transition: all .35s;
+	}
+	.course-thumbnail img {
+		display: block;
+		width: 100%;
+		object-fit: cover;
+	}
+	.course-content .entry-title a {
+		color: #383749;
+	}
+	.course-content .entry-title {
+		margin: 0;
+		font-size: 20px;
+		line-height: 1.3;
+		font-weight: 400;
+	}
+	.course-content .entry-meta {
+		margin-top: 12px;
+	}
+	img {
+		vertical-align: baseline;
+	}
 	.event-time {
 		width:100%;
 		margin-top: 8px;
@@ -82,60 +153,10 @@
 	.position-absolute {
 		position: absolute!important;
 	}
-	/*********************************
-	6. Home
-	*********************************/
-
-	.home
-	{
-		width: 100%;
-		height: 182px;
-		background: #f2f4f5;
-		border-bottom: solid 1px #edeff0;
-	}
-	.breadcrumbs_container
-	{
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		padding-bottom: 13px;
-		padding-left: 3px;
-	}
-	.breadcrumbs ul li
-	{
-		display: inline-block;
-		position: relative;
-	}
-	.breadcrumbs ul li:not(:last-child)::after
-	{
-		display: inline-block;
-		font-family: 'FontAwesome';
-		content: '\f105';
-		margin-left: 7px;
-		margin-right: 4px;
-		color: #384158;
-	}
-	.breadcrumbs ul li a
-	{
-		font-size: 14px;
-		font-weight: 400;
-		color: #384158;
-		-webkit-transition: all 200ms ease;
-		-moz-transition: all 200ms ease;
-		-ms-transition: all 200ms ease;
-		-o-transition: all 200ms ease;
-		transition: all 200ms ease;
-	}
-	.breadcrumbs ul li a:hover
-	{
-		color: #14bdee;
-	}
-
 	</style>
-	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single.css')}}">
-	<link href="{{asset('frontend/assets/css/style-ezuca.css')}}" rel="stylesheet" type="text/css">
-	<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
+	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course_responsive.css')}}">
 	<script>
 		jQuery( document ).ready(function() {
 			jQuery(".course-thumbnail img").height(jQuery(".course-thumbnail img").width());

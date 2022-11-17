@@ -74,10 +74,12 @@ trait CommonTrait
 			$invoice = Invoice::create($invoice_data);
 			$pendaftar = new Pendaftar($data_pendaftar);
 			$invoice->pendaftar()->save($pendaftar);
+			return true;
 		} catch (\Illuminate\Database\QueryException $e){
 			$errorCode = $e->errorInfo[1];
 			if($errorCode == 1062){
-				dd('error duplicate');
+				return false;
+				
 			}
 		}
 	}

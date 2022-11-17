@@ -1,5 +1,5 @@
 <div>
-	<div class="home">
+	<div class="home-breadcrumb">
 		<div class="breadcrumbs_container">
 			<div class="container">
 				<div class="row">
@@ -112,12 +112,6 @@
 			</div>
 		</div>
 	</div>
-	<link href="{{asset('frontend/theme/unicat/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course_responsive.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_single_responsive.css')}}">
-	
 	<!-- Modal -->
 	<div class="modal fade" id="daftarEvent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" wire:ignore.self>
 	  <div class="modal-dialog" role="document">
@@ -150,7 +144,10 @@
 		</div>
 	  </div>
 	</div>
-	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{asset('frontend/theme/unicat/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course_responsive.css')}}">
 	<script>
 		function showEventRegistration(){
 			jQuery("#daftarEvent").modal('show');
