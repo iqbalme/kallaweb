@@ -7,7 +7,7 @@
 						<div class="breadcrumbs">
 							<ul>
 								<li><a href="index.html">Home</a></li>
-								<li>Blog</li>
+								<li>Berita</li>
 							</ul>
 						</div>
 					</div>
