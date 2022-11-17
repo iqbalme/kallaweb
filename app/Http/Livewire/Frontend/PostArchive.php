@@ -13,7 +13,7 @@ class PostArchive extends Component
     {
 		$this->data['posts'] = Post::orderByDesc('created_at')->where('status_post', 'published')->paginate(10);
 		//dd($this->data['posts']);
-        return view('livewire.frontend.post-archive')
+        return view('livewire.frontend.post-archive-temp')
 			->extends('layouts.app', ['title' => 'List Berita'])
 			->section('content');
     }

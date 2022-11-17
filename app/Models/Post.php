@@ -36,7 +36,7 @@ class Post extends Model
 	
 	public function getPostExcerptAttribute()
     {
-        return substr(strip_tags($this->removeContentTag($this->konten)),0,140);
+        return substr(strip_tags($this->getParagraphTag($this->removeContentTag($this->konten))),0,140);
     }
 	
 	public function getPostUserAttribute()

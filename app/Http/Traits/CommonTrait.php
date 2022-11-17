@@ -25,8 +25,13 @@ trait CommonTrait
 	}
 	
 	public function removeContentTag($string){
-		$content = preg_replace("/<img[^>]+\>/i", "", $string); 
+		$content = preg_replace("/<img[^>]+\>/i", "", $string);
 		return $content;
+	}
+	
+	public function getParagraphTag($string){
+		$content = preg_match("~^<p[^>]*>.*?</p>~im", $string, $output); 
+		return $output[0];
 	}
 	
 	public function generateInvoiceNo(){

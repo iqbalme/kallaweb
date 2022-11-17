@@ -8,7 +8,7 @@ class RegistrasiBerhasil extends Component
 {
 	public function mount(){
 		$key = request()->headers->get('Key');
-		dd($key);
+		//dd($key);
 	}
     public function render()
     {
