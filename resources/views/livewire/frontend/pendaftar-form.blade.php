@@ -24,7 +24,7 @@
 			            	<span class="step-number">Langkah 1</span>
 			            	<span class="step-text">Data Diri</span>
 			            </h2>
-			            <section id="form-total-p-0" role="tabpanel" aria-labelledby="form-total-h-0" class="body" aria-hidden="true">
+			            <div id="form-total-p-0" role="tabpanel" aria-labelledby="form-total-h-0" class="body" aria-hidden="true">
 			                <div class="inner">
 								<div class="form-row">
 									<div class="form-holder form-holder-2">
@@ -59,7 +59,7 @@
 									</div>
 								</div>
 							</div>
-			            </section>
+			            </div>
 						</div>
 						@endif
 						@if($currentStep == 2)
@@ -70,7 +70,7 @@
 			            	<span class="step-number">Langkah 2</span>
 			            	<span class="step-text">Info Pembayaran</span>
 			            </h2>
-			            <section id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-1" class="body" aria-hidden="false">
+			            <div id="form-total-p-2" role="tabpanel" aria-labelledby="form-total-h-1" class="body" aria-hidden="false">
 			                <div class="inner">
 			                	<h3>Info Pembayaran</h3>
 								<div class="form-row table-responsive">
@@ -102,7 +102,7 @@
 								</div>
 								@endif
 							</div>
-			            </section>
+			            </div>
 						</div>
 						@endif
 						@if($currentStep == 3)
