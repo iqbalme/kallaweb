@@ -31,7 +31,8 @@ trait CommonTrait
 	
 	public function getParagraphTag($string){
 		$content = preg_match("~^<p[^>]*>.*?</p>~im", $string, $output); 
-		return $output[0];
+		return $output;
+		
 	}
 	
 	public function generateInvoiceNo(){
