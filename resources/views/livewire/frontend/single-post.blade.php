@@ -29,7 +29,9 @@
 								<li>Oleh: {{$post->post_user->nama}}</li>
 							</ul>
 						</div>
-						<div class="blog_image"><img src="{{asset('storage/images/'.$post->thumbnail)}}" alt=""></div>
+						@isset($post->thumbnail)
+							<div class="blog_image"><img src="{{asset('storage/images/'.$post->thumbnail)}}" alt=""></div>
+						@endisset
 						{!!$post->konten!!}
 					</div>
 					<div class="blog_extra d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
