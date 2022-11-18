@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-//use App\Models\Capability;
+use App\Models\PostProdis;
 
 class Prodi extends Model
 {
@@ -12,8 +12,12 @@ class Prodi extends Model
 	
 	protected $guarded = [];
 	
-	public function prodi(){
+	public function pendaftar(){
 		return $this->hasOne(Pendaftar::class);
+	}
+	
+	public function post_prodi(){
+		return $this->hasMany(PostProdis::class);
 	}
 	
 }

@@ -1,35 +1,79 @@
 <div>
-	<main role="main" class="container" style="margin-top:70px;">
-		<h3>{{ ucfirst($meta['type']) .': '. ucfirst($meta['value']) }}</h3>
-		<hr>
-		<div class="row mb-2">
-			@foreach($data['posts'] as $post)
-				<div class="col-md-6">
-				  <div class="card flex-md-row mb-4 box-shadow h-md-250">
-					<div class="card-body d-flex flex-column align-items-start">
-					  <!--strong class="d-inline-block mb-2 text-primary">World</strong-->
-					  <h3 class="mb-0">
-						@if($data['is_seo_post'])
-							<a class="text-dark" href="{{ route('post.single', $post->slug) }}">{{ ucfirst($post->judul) }}</a>
-						@else
-							<a class="text-dark" href="{{ route('post.single', $post->id) }}">{{ ucfirst($post->judul) }}</a>
-						@endif
-					  </h3>
-					  <div class="mb-1 text-muted">{{ $post->created_at->format('d F Y') }}</div>
-					  <p class="card-text mb-auto">{!! substr(preg_replace('/<(\s*)img[^<>]*>/i', '', $post->konten),0,200) !!}</p>
-					  @if($data['is_seo_post'])
-						<a href="{{ route('post.single', $post->slug) }}">Baca selengkapnya ...</a>
-					  @else
-						<a href="{{ route('post.single', $post->slug) }}">Baca selengkapnya ...</a>
-					  @endif
+    <div class="home-breadcrumb">
+		<div class="breadcrumbs_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="breadcrumbs">
+							<ul>
+								<li><a href="{{route('home')}}">Home</a></li>
+								<li>Publikasi</li>
+							</ul>
+						</div>
 					</div>
-					<img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="{{ isset($post->thumbnail) ? asset('storage/images/'.$post->thumbnail) : 'https://i.postimg.cc/sXkTpdCQ/no-image.png' }}" data-holder-rendered="true">
-				  </div>
 				</div>
-			@endforeach			
-      </div>
-	  
-	  <!-- Pagination -->
-		  {{ $data['posts']->links('vendor.livewire.bootstrap') }}
+			</div>
+		</div>			
 	</div>
+	<div class="blog">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="blog_post_container" style="position:relative;height: auto;">
+						@if(isset($data['posts']))
+							@foreach($data['posts'] as $post)
+								<!-- Blog Post -->
+								<div class="blog_post trans_200" style="position:relative;" id="post-{{$loop->iteration}}" data-index="{{$loop->iteration}}">
+									@isset($post->thumbnail)
+										<a href="{{route('post.single', ['post_val' => $post->slug])}}"><div class="blog_post_image" style="background-image:url('{{asset('storage/images/'.$post->thumbnail)}}');background-size:cover;"></div></a>
+									@endisset
+									<div class="blog_post_body">
+										<div class="blog_post_title"><a href="{{route('post.single', ['post_val' => $post->slug])}}">{{$post->judul}}</a></div>
+										<div class="blog_post_meta">
+											<ul>
+												<li>admin</li>
+												<li>{{date('d M Y', strtotime('$post->created_at'))}}</li>
+											</ul>
+										</div>
+										<div class="blog_post_text">
+											{!!$post->post_excerpt!!}
+										</div>
+									</div>
+								</div>
+							@endforeach
+						@else
+							
+						@endif
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- Pagination -->
+				{{ $data['posts']->links('vendor.livewire.bootstrap') }}
+			</div>
+		</div>
+	</div>
+	<style>
+		.blog_post_container {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px 30px;
+		}
+		.blog_post {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			/* width: calc((100% - 60px) / 3); */
+			border-radius: 6px;
+			overflow: hidden;
+			box-shadow: 0px 1px 10px rgb(29 34 47 / 10%);
+			margin-bottom: 30px;
+		}
+		.blog_post_meta ul {
+			padding-left: 0px;
+		}
+	</style>
+	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_responsive.css')}}">
 </div>
