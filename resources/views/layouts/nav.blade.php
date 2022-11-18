@@ -76,7 +76,7 @@
                 </li-->
                 <li class="has-children"><a href="#"><span>Admisi</span></a>
 					<ul class="dropdown arrow-top">
-                    <li><a href="#">Pendaftaran Mahasiswa Baru</a></li>
+                    <li><a href="{{route('registrasi')}}">Pendaftaran Mahasiswa Baru</a></li>
                     <li><a href="#">Persyaratan Pendaftaran</a></li>
                     <li><a href="#">Informasi Beasiswa</a></li>
                     <li><a href="#">Registrasi Ulang</a></li>
