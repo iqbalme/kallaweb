@@ -32,16 +32,16 @@
                 <div class="social">
 					@foreach(unserialize($team->media_sosial) as $key => $medsos)
 						@if($key == 'facebook')
-						  <a href="{{$medsos}}" target="blank"><i class="ri-facebook-fill"></i></a>
+						  <a href="{{'https://facebook.com/'.$medsos}}" target="blank"><i class="ri-facebook-fill"></i></a>
 						@endif
 						@if($key == 'instagram')
-						  <a href="{{$medsos}}" target="blank"><i class="ri-instagram-fill"></i></a>
+						  <a href="{{'https://instagram.com/'.$medsos}}" target="blank"><i class="ri-instagram-fill"></i></a>
 						@endif
 						@if($key == 'linkedin')
-						  <a href="{{$medsos}}" target="blank"> <i class="ri-linkedin-box-fill"></i> </a>
+						  <a href="{{'https://linkedin.com/in/'.$medsos}}" target="blank"> <i class="ri-linkedin-box-fill"></i> </a>
 						@endif
 						@if($key == 'email')
-						  <a href="{{$medsos}}" target="blank"><i class="ri-mail-fill"></i> </a>
+						  <a href="{{'mailto:'.$medsos}}" target="blank"><i class="ri-mail-fill"></i> </a>
 						@endif
 				  @endforeach
                 </div>
