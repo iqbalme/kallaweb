@@ -222,7 +222,8 @@
 	display: -ms-flexbox !important;
 	display: -webkit-flex !important;
 	display: flex !important;
-}
+} 
+
 .blog_post_body
 {
 	padding-left: 32px;

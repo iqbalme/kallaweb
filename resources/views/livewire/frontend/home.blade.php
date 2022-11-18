@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<livewire:frontend.home.prodi-list />
+				<!-- <livewire:frontend.home.prodi-list /> -->
 			</div>
 		</div>
 	</div>
@@ -79,7 +79,6 @@
 				<div class="col">
 					<div class="section_title_container text-center">
 						<h2 class="section_title">Kenapa Memilih Kami?</h2>
-						<!--div class="section_subtitle"><h3>Kenapa Memilih Kami?</h3></div-->
 					</div>
 				</div>
 			</div>
