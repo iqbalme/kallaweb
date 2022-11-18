@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<!-- <livewire:frontend.home.prodi-list /> -->
+				<livewire:frontend.home.prodi-list />
 			</div>
 		</div>
 	</div>

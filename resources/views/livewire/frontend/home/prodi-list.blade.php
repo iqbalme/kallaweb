@@ -5,9 +5,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="blog_prodi_container" style="position:relative;height:auto;">
-						
 							@foreach($data['prodis'] as $prodi)
-								<!-- Blog Post -->
 								<div class="blog_prodi trans_200" style="position:relative;" id="post-{{$loop->iteration}}" data-index="{{$loop->iteration}}">
 									@isset($prodi->thumbnail)
 										<a href="{{route('post.single', ['post_val' => $prodi->slug])}}"><div class="blog_prodi_image" style="background-image:url('{{asset('storage/images/'.$prodi->thumbnail)}}');background-size:cover;"></div></a>
@@ -27,8 +25,8 @@
 	</div>
 	<script>
 		jQuery( document ).ready(function() {
-			jQuery(".blog_prodi_image").height(jQuery(".blog_prodi").width());
-			jQuery(".blog_prodi_image").height(jQuery(".blog_prodi_image").width()*0.53);
+			// jQuery(".blog_prodi_image").height(jQuery(".blog_prodi").width());
+			jQuery(".blog_prodi_image").height(jQuery(".blog_prodi").width()*0.53);
 		});
 	</script>
 	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">	
