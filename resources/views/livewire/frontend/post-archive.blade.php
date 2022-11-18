@@ -25,14 +25,14 @@
 								<!-- Blog Post -->
 								<div class="blog_post trans_200" style="position:relative;" id="post-{{$loop->iteration}}" data-index="{{$loop->iteration}}">
 									@isset($post->thumbnail)
-										<div class="blog_post_image" style="background-image:url('{{asset('storage/images/'.$post->thumbnail)}}');background-size:cover;"></div>
+										<a href="{{route('post.single', ['post_val' => $post->slug])}}"><div class="blog_post_image" style="background-image:url('{{asset('storage/images/'.$post->thumbnail)}}');background-size:cover;"></div></a>
 									@endisset
 									<div class="blog_post_body">
-										<div class="blog_post_title"><a href="blog_single.html">{{$post->judul}}</a></div>
+										<div class="blog_post_title"><a href="{{route('post.single', ['post_val' => $post->slug])}}">{{$post->judul}}</a></div>
 										<div class="blog_post_meta">
 											<ul>
-												<li><a href="#">admin</a></li>
-												<li><a href="#">{{date('d M Y', strtotime('$post->created_at'))}}</a></li>
+												<li>admin</li>
+												<li>{{date('d M Y', strtotime('$post->created_at'))}}</li>
 											</ul>
 										</div>
 										<div class="blog_post_text">

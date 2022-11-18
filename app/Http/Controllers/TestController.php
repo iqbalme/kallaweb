@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Role;
 use App\Models\Category;
 use App\Models\PostCategory;
 use App\Models\Post;
@@ -25,7 +26,16 @@ class TestController extends Controller
 	// }
 	
 	public function index(){
-		return 'tes';
+		$user = User::find(3);
+		$post = Post::find(12);
+		$post_roles = [];
+        $roles = $user->role_users;
+		foreach($roles as $role){
+			$post_roles[] = $role->role_id;
+		}
+		$prodi_id = $post->post_prodi_data->prodi_id;
+		$is_true = Role::whereIn('id', $post_roles)->where('prodi_id', $prodi_id)->exists();
+		return $is_true;
 	}
 	
 	public function subdomain($param){

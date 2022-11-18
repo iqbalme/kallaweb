@@ -47,7 +47,6 @@
 					<div class="d-flex justify-content-between">
 						<div>
 						  <h6 class="card-title mb-2">Gambar</h6>
-						  <!--div class="small text-medium-emphasis">January - July 2022</div-->
 						</div>
 					</div>
 					@if(isset($gambar))

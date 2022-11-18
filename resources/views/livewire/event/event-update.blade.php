@@ -16,7 +16,7 @@
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Deskripsi Event</h6>
 					<div class="form-group" wire:ignore>
-						<textarea name="deskripsi_event" id="editor" required>{{$deskripsi_event}}</textarea>
+						<textarea name="deskripsi" id="editor" required>{{$deskripsi}}</textarea>
 					</div>
 				</div>
 				<div class="mb-3">
@@ -134,19 +134,12 @@
 			// })
 			// .then( editor => {
 				// editor.model.document.on('change:data', () => {
-					// @this.set('deskripsi_event', editor.getData());
+					// @this.set('deskripsi', editor.getData());
 				// })
 			// })
 			// .catch( error => {
-				// console.error( error );
+				//console.error( error );
 		// });
-		// let data_editor = CKEDITOR.instances.editor.getData();
-		// console.log(data_editor);
-		// const editor = CKEDITOR.replace('editor-update');
-		// editor.on('change', function (event) {
-			//console.log(event.editor.getData())
-			// Livewire.emit('setEventUpdate', event.editor.getData());
-		// })
 	</script>
 	<style>
 		.ck-editor__editable_inline {

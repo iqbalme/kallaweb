@@ -35,7 +35,7 @@
                           </td>
 						  <td>
 						  @if(isset($team->gambar))
-							  <div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('storage/images/'.$team->gambar) }}"></div>
+							  <div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('storage/images/'.$team->gambar) }}" style="height:inherit;"></div>
 						  @else
 							  <div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('admin/thumbnail-default.jpg') }}"></div>
 						  @endif
@@ -104,17 +104,17 @@
 		<livewire:team.team-create />
 	@endif
 	<script>
-	window.addEventListener('closeHapusTeam', Team => {
+	window.addEventListener('closeHapusTeam', event => {
 		jQuery('#teamModalHapus').modal('hide');
 		jQuery('.modal-backdrop').hide();
 	});
-	window.addEventListener('bukaFormHapus', Team => {
+	window.addEventListener('bukaFormHapus', event => {
 		jQuery('#teamModalHapus').modal('show');
 	});
-	window.addEventListener('bukaFormTeam', Team => {
+	window.addEventListener('bukaFormTeam', event => {
 		jQuery('#TeamModal').modal('show');
 	});
-	window.addEventListener('bukaFormTeamEdit', Team => {
+	window.addEventListener('bukaFormTeamEdit', event => {
 		jQuery('#TeamModalEdit').modal('show');
 	});
 	</script>

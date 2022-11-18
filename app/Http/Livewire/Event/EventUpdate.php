@@ -26,6 +26,7 @@ class EventUpdate extends Component
 	public $initGambar = false;
 	public $is_link = false;
 	public $link_daftar = null;
+	public $deskripsi;
 	
 	protected $listeners = [
 		'getEvent', 'setEventUpdate'

@@ -1,7 +1,7 @@
 	<!-- Newsletter -->
 	@if(request()->route()->getName() != 'registrasi')
 	<div class="newsletter">
-		<div class="newsletter_background parallax-window" data-parallax="scroll" data-image-src="{{asset('frontend/assets/images/newsletter.jpg')}}" data-speed="0.8"></div>
+		<div class="newsletter_background parallax-window" data-parallax="scroll" data-image-src="{{asset('frontend/assets/images/newsletter2.jpg')}}" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">

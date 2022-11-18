@@ -12,10 +12,12 @@ use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class PostUpdate extends Component
 {
 	use WithFileUploads;
+	use AuthorizesRequests;
 	
 	public $data;
 	public $isUpdate;
@@ -106,6 +108,7 @@ class PostUpdate extends Component
 			'is_headline' => $this->is_headline
 		];
 		$post = Post::find($this->post_id);
+		$this->authorize('update', $post);
 		$post->update($submittedData);
 		if($this->is_headline) {
 			Post::where('id', '!=', $this->post_id)->update(['is_headline' => false]);

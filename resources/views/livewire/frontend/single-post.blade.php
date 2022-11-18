@@ -1,5 +1,21 @@
 <div>
-	<div style="height:130px;"></div>
+	<div class="home-breadcrumb">
+		<div class="breadcrumbs_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="breadcrumbs">
+							<ul>
+								<li><a href="{{route('home')}}">Home</a></li>
+								<li><a href="{{route('post.list')}}">Publikasi</a></li>
+								<li>{{ucfirst($post->judul)}}</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>			
+	</div>
     <div class="blog">
 		<div class="container">
 			<div class="row">
@@ -151,6 +167,9 @@
 	.sidebar_categories ul {
 		padding: 0;
 	}
+	.blog_content img {
+		max-width: -webkit-fill-available;
+	}
 	</style>
 	<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
 	<script>
@@ -159,8 +178,8 @@
 		$.getScript("{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}");
 		$.getScript("{{asset('frontend/theme/unicat/js/blog_single.js')}}");
 	});
-	jQuery( document ).ready(function() {
-			jQuery(".blog_content img").css("maxWidth", jQuery(".blog_content").width());
-		});
+	// jQuery( document ).ready(function() {
+			// jQuery(".blog_content img").css("maxWidth", jQuery(".blog_content").width());
+		// });
 	</script>
 </div>

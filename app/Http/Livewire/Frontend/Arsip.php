@@ -11,12 +11,14 @@ use App\Models\PostProdis;
 use App\Models\PostTags;
 use App\Models\Post;
 use App\Models\Setting;
+use Livewire\WithPagination;
 
 class Arsip extends Component
 {
+	use WithPagination;
 	public $meta;
 	public $data;
-	public $perhalaman;
+	public $perhalaman = 9;
 	
 	public function mount($meta_type, $meta_val){
 		//$meta = kategori atau prodi atau tag
