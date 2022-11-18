@@ -67,7 +67,7 @@
 							<div class="sidebar_categories">
 								<ul class="categories_list">
 									@foreach($data['categories'] as $category)
-									<li><a href="#" class="clearfix">{{strtoupper($category->nama_kategori)}}<span>({{$category->post_category->count()}})</span></a></li>
+									<li><a href="{{route('arsip', ['meta_type' => 'kategori', 'meta_val' => $category->slug])}}" class="clearfix">{{strtoupper($category->nama_kategori)}}<span>({{$category->post_category->count()}})</span></a></li>
 									@endforeach
 								</ul>
 							</div>
