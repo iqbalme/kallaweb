@@ -29,7 +29,7 @@ class Arsip extends Component
 			if(strtolower($meta_type) == 'kategori'){
 				$category = Category::where('slug', strtolower($meta_val));
 				if($category->count()){
-					$this->meta['value'] = 'Kategori: '.$category->first()->nama_kategori;
+					$this->meta['value'] = 'Kategori: '.ucfirst($category->first()->nama_kategori);
 					$post_categories = $category->first()->post_category;
 					foreach($post_categories as $post_category){
 						$post_ids[] = $post_category->post_id;
@@ -39,7 +39,7 @@ class Arsip extends Component
 			} elseif(strtolower($meta_type) == 'prodi'){
 				$prodi = Prodi::where('slug', strtolower($meta_val));
 				if($prodi->count()){
-					$this->meta['value'] = 'Program Studi: '.$prodi->first()->nama_prodi;
+					$this->meta['value'] = 'Program Studi: '.ucfirst($prodi->first()->nama_prodi);
 					$post_prodis = $prodi->first()->post_prodi;
 					foreach($post_prodis as $post_prodi){
 						$post_ids[] = $post_prodi->post_id;
@@ -48,7 +48,7 @@ class Arsip extends Component
 			} elseif(strtolower($meta_type) == 'tag'){
 				$tag = Tag::where('slug', strtolower($meta_val));
 				if($tag->count()){
-					$this->meta['value'] = 'Tag: '.$tag->first()->nama_tag;
+					$this->meta['value'] = 'Tag: '.ucfirst($tag->first()->nama_tag);
 					$post_tags = $tag->first()->post_tag;
 					foreach($post_tags as $post_tag){
 						$post_ids[] = $post_tag->post_id;
