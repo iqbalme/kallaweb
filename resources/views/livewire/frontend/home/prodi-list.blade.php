@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="blog_prodi_container" style="position:relative;height: auto;">
+					<div class="blog_prodi_container" style="position:relative;height:auto;">
 						
 							@foreach($data['prodis'] as $prodi)
 								<!-- Blog Post -->
@@ -31,5 +31,6 @@
 			jQuery(".blog_prodi_image").height(jQuery(".blog_prodi_image").width()*0.53);
 		});
 	</script>
+	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">	
 	@endisset
 </div>
