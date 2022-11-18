@@ -7,7 +7,7 @@
 						<div class="breadcrumbs">
 							<ul>
 								<li><a href="{{route('home')}}">Home</a></li>
-								<li>Publikasi</li>
+								<li>{{$meta['value']}}</li>
 							</ul>
 						</div>
 					</div>
