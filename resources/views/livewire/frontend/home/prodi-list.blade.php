@@ -10,7 +10,7 @@
 								<!-- Blog Post -->
 								<div class="blog_prodi trans_200" style="position:relative;" id="post-{{$loop->iteration}}" data-index="{{$loop->iteration}}">
 									@isset($prodi->thumbnail)
-										<a href="{{route('post.single', ['post_val' => $prodi->slug])}}"><div class="blog_post_image" style="background-image:url('{{asset('storage/images/'.$prodi->thumbnail)}}');background-size:cover;"></div></a>
+										<a href="{{route('post.single', ['post_val' => $prodi->slug])}}"><div class="blog_prodi_image" style="background-image:url('{{asset('storage/images/'.$prodi->thumbnail)}}');background-size:cover;"></div></a>
 									@endisset
 									<div class="blog_post_body">
 										<div class="blog_post_title text-center"><a href="#">{{$prodi->nama_prodi}}</a></div>
@@ -27,7 +27,8 @@
 	</div>
 	<script>
 		jQuery( document ).ready(function() {
-			jQuery(".blog_post_image").height(jQuery(".blog_post_image").width()*0.53);
+			jQuery(".blog_prodi_image").height(jQuery(".blog_prodi").width());
+			jQuery(".blog_prodi_image").height(jQuery(".blog_prodi_image").width()*0.53);
 		});
 	</script>
 	@endisset
