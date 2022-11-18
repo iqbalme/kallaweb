@@ -46,7 +46,7 @@
 					<ul class="dropdown arrow-top">
                     <li><a href="#">Tentang Kampus</a></li>
                     <li><a href="#">Struktur Organisasi</a></li>
-                    <li><a href="#">Profil Dosen</a></li>
+                    <li><a href="{{route('team.show')}}">Profil Dosen</a></li>
                     <li><a href="#">Fasilitas</a></li>
                   </ul>
 				</li>
