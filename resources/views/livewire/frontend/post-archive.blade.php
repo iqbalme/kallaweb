@@ -53,32 +53,10 @@
 			</div>
 		</div>
 	</div>
-	<style>
-		.blog_post_container {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 10px 30px;
-		}
-		.blog_post {
-			display: flex;
-			flex-direction: column;
-			flex-grow: 1;
-			/* width: calc((100% - 60px) / 3); */
-			border-radius: 6px;
-			overflow: hidden;
-			box-shadow: 0px 1px 10px rgb(29 34 47 / 10%);
-			margin-bottom: 30px;
-		}
-		.blog_post_meta ul {
-			padding-left: 0px;
-		}
-	</style>
 	<script>
 		jQuery( document ).ready(function() {
 			jQuery(".blog_post_image").height(jQuery(".blog_post_image").width()*0.53);
 		});
 	</script>
-	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/blog_responsive.css')}}">
 </div>

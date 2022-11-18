@@ -34,6 +34,7 @@ class ProdiUpdate extends Component
 			$this->thumbnail = $prodi['thumbnail'];
 			$this->first_thumbnail = true;
 		}
+		$this->subdomain = $prodi['subdomain'];
 	}
 	
 	public function update(){

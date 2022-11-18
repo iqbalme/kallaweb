@@ -57,7 +57,21 @@
             </div><!-- .row -->
         </div><!-- .container -->
     </section>
-
+	
+	<div class="features" style="margin-top: 25px;">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<h2 class="section_title">Program Studi</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<livewire:frontend.home.prodi-list />
+			</div>
+		</div>
+	</div>
 	<!-- Features -->
 	<div class="features" style="margin-top: 25px;">
 		<div class="container">
@@ -148,8 +162,8 @@
 	{
 		width: 100%;
 		background: #FFFFFF;
-		padding-top: 93px;
-		padding-bottom: 103px;
+		padding-top: 10px;
+		padding-bottom: 30px;
 	}
 	.features_row
 	{
