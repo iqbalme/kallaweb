@@ -7,7 +7,7 @@
 						<div class="breadcrumbs">
 							<ul>
 								<li><a href="{{route('home')}}">Home</a></li>
-								<li>Tim</li>
+								<li>Profil Dosen</li>
 							</ul>
 						</div>
 					</div>
