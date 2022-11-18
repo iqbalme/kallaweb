@@ -1,10 +1,11 @@
 <div>
+	@if(isset($data['prodis']))
     <div class="prodi">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="blog_prodi_container" style="position:relative;height: auto;">
-						@if(isset($data['prodis']))
+						
 							@foreach($data['prodis'] as $prodi)
 								<!-- Blog Post -->
 								<div class="blog_prodi trans_200" style="position:relative;" id="post-{{$loop->iteration}}" data-index="{{$loop->iteration}}">
@@ -19,9 +20,6 @@
 									</div>
 								</div>
 							@endforeach
-						@else
-							
-						@endif
 					</div>
 				</div>
 			</div>
@@ -32,4 +30,5 @@
 			jQuery(".blog_post_image").height(jQuery(".blog_post_image").width()*0.53);
 		});
 	</script>
+	@endisset
 </div>
