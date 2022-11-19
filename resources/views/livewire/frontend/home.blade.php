@@ -128,7 +128,7 @@
 		<div class="modal-content">
 		  <div class="modal-body">
 			<div class="embed-responsive embed-responsive-16by9">
-                    <iframe id="cartoonVideo" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/dVCJlFXY9r0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="introVideo" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/dVCJlFXY9r0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -140,16 +140,13 @@
 	<livewire:frontend.home.events />	
 	<livewire:frontend.home.testimonis />
 	<livewire:frontend.home.latest-news />
-	<link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+	
+	<!--link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"-->
 	<!--script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script-->
 	<!--script src="{{asset('frontend/theme/js/vendor/bootstrap.min.js')}}"></script-->
 	<script>
-		jQuery('.btn-play').on('click', function(){
-			//jQuery.noConflict();
-			//jQuery('#videoModal').modal('show');
-		});
-		jQuery('.top-div').height(jQuery('header .header').height());
 		$(document).ready(function(){
+			jQuery('.top-div').height(jQuery('header .header').height());
 			/* Get iframe src attribute value i.e. YouTube video url
 			and store it in a variable */
 			var url = $("#introVideo").attr('src');
@@ -165,6 +162,9 @@
 			$("#myModal").on('show.bs.modal', function(){
 				$("#introVideo").attr('src', url);
 			});
+			if($(".super_container").width() <= 600){
+				$("#introVideo").width($(".super_container").width()-50);
+			}
 		});
 	</script>
 	<style>

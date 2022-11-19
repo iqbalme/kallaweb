@@ -61,7 +61,7 @@
 </head>
 <body>
 <div class="super_container">
-@stack('scripts')
+
 @include('layouts.nav')
 @yield('content')
 @include('layouts.footer')

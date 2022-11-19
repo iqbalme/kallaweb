@@ -1,5 +1,13 @@
+<div>
 <!-- Header -->
-
+	<div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
 	<header class="header site-navbar">
 			
 		<!-- Top Bar -->
@@ -94,17 +102,6 @@
         </div>
       </div>
 	</header>
-	
-	<!-- Menu -->
-
-	<div class="site-mobile-menu">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
 	<style>
 	a {
 	  -webkit-transition: .3s all ease;
@@ -419,4 +416,10 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/style-font-nav.css')}}">
 	<script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script>
 	<script src="{{asset('frontend/assets/js/main-nav.js')}}"></script>
-	
+	<script src="{{asset('frontend/assets/js/jquery.sticky.js')}}"></script>
+	<script>
+	$(document).ready(function(){
+		console.log('dari nav');
+	});
+	</script>
+</div>
