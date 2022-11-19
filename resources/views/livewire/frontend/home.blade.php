@@ -1,7 +1,5 @@
 <div>
-	<div style="height:100px">
-	</div>
-	
+	<div class="top-div" style="margin-bottom:25px;">&nbsp;</div>
 	<section class="about-section">
         <div class="container">
             <div class="row">
@@ -45,8 +43,7 @@
                 <div class="col-12 col-lg-6 flex align-content-center mt-5 mt-lg-0">
                     <div class="ezuca-video position-relative">
                         <div class="video-play-btn position-absolute">
-							<a class="btn-play" data-toggle="modal"
-                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#exampleModal">
+							<a class="btn-play" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
 								<img src="{{asset('frontend/assets/images/video-icon.png')}}" alt="Video Play">
 							</a>
                             
@@ -127,20 +124,14 @@
 	
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
-		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>
 		  <div class="modal-body">
-			...
-		  </div>
+			<div class="embed-responsive embed-responsive-16by9">
+                    <iframe id="cartoonVideo" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/dVCJlFXY9r0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary">Save changes</button>
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
 		  </div>
 		</div>
 	  </div>
@@ -149,11 +140,40 @@
 	<livewire:frontend.home.events />	
 	<livewire:frontend.home.testimonis />
 	<livewire:frontend.home.latest-news />
-	<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/style-ezuca.css')}}">
-	<script src="{{asset('frontend/assets/js/custom-ezuca.js')}}"></script>
+	<link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+	<!--script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script-->
+	<!--script src="{{asset('frontend/theme/js/vendor/bootstrap.min.js')}}"></script-->
 	<script>
 		jQuery('.btn-play').on('click', function(){
-			jQuery('#videoModal').modal('show')
+			//jQuery.noConflict();
+			//jQuery('#videoModal').modal('show');
+		});
+		jQuery('.top-div').height(jQuery('header .header').height());
+		$(document).ready(function(){
+			/* Get iframe src attribute value i.e. YouTube video url
+			and store it in a variable */
+			var url = $("#introVideo").attr('src');
+			
+			/* Assign empty url value to the iframe src attribute when
+			modal hide, which stop the video playing */
+			$("#myModal").on('hide.bs.modal', function(){
+				$("#introVideo").attr('src', '');
+			});
+			
+			/* Assign the initially stored url back to the iframe src
+			attribute when modal is displayed again */
+			$("#myModal").on('show.bs.modal', function(){
+				$("#introVideo").attr('src', url);
+			});
 		});
 	</script>
+	<style>
+		.modal-content {
+			width: auto;
+		}
+		.modal-dialog iframe{
+			margin: 0 auto;
+			display: block;
+		}
+	</style>
 </div>

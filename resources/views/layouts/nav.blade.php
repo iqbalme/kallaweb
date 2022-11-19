@@ -31,7 +31,7 @@
 
 		<!-- Header Content -->
 		<div class="header_container">
-			      <div class="container">
+		<div class="container">
         <div class="row-nav align-items-center">
           
           <div class="col-11 col-xl-2">
@@ -58,23 +58,6 @@
                   </ul>
 				</li>
 				<li><a href="{{route('kontak')}}"><span>Kontak</span></a></li>
-                <!--li class="has-children">
-                  <a href="about.html"><span>Dropdown</span></a>
-                  <ul class="dropdown arrow-top">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                    <li class="has-children">
-                      <a href="#">Dropdown</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                        <li><a href="#">Menu Four</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li-->
                 <li class="has-children"><a href="#"><span>Admisi</span></a>
 					<ul class="dropdown arrow-top">
                     <li><a href="{{route('registrasi')}}">Pendaftaran Mahasiswa Baru</a></li>
@@ -86,8 +69,24 @@
               </ul>
             </nav>
           </div>
+			<!--div class="navbar-header">
+			  <a type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-menu h3"></span>
+			  </a>
+			</div>
 
-
+			<div class="collapse navbar-collapse" id="myNavbar">
+			  <ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Page 1</a></li>
+				<li><a href="#">Page 2</a></li>
+				<li><a href="#">Page 3</a></li>
+			  </ul>
+			  <ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			  </ul>
+			</div-->
           <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
 
           </div>
@@ -95,7 +94,7 @@
         </div>
       </div>
 	</header>
-
+	
 	<!-- Menu -->
 
 	<div class="site-mobile-menu">

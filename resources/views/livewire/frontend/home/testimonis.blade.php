@@ -58,10 +58,10 @@
         </div><!-- .testimonial-slider -->
     </section>
 	<!-- Swiper CSS -->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/swiper.css')}}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.4/swiper-bundle.css" integrity="sha512-wbWvHguVvzF+YVRdi8jOHFkXFpg7Pabs9NxwNJjEEOjiaEgjoLn6j5+rPzEqIwIroYUMxQTQahy+te87XQStuA==" crossorigin="anonymous" referrerpolicy="no-referrer" />	
     <link rel="stylesheet" href="{{asset('frontend/assets/css/style-ezuca.css')}}">
 	<script type="text/javascript" src="{{asset('frontend/assets/js/jquery.js')}}"></script>
-	<script type="text/javascript" src="{{asset('frontend/assets/js/swiper.min.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.4/swiper-bundle.min.js" integrity="sha512-k2o1KZdvUi59PUXirfThShW9Gdwtk+jVYum6t7RmyCNAVyF9ozijFpvLEWmpgqkHuqSWpflsLf5+PEW6Lxy/wA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script type="text/javascript" src="{{asset('frontend/assets/js/masonry.pkgd.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('frontend/assets/js/jquery.collapsible.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('frontend/assets/js/custom-ezuca.js')}}"></script>
