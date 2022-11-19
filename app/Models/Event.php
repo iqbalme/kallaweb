@@ -12,6 +12,7 @@ class Event extends Model
 	use CommonTrait;
 	
 	protected $guarded = [];
+	protected $dates = ['waktu_mulai', 'waktu_berakhir'];
 	
 	protected $appends = array('event_excerpt'); //menambahkan field baru pada respon
 	
