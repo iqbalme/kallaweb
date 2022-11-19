@@ -42,7 +42,9 @@
 								</div>
 							@endforeach
 						@else
-							
+							<div class="col">
+								Tidak ada data
+							</div>
 						@endif
 					</div>
 				</div>
