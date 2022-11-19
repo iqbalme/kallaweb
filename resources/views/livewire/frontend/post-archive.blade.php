@@ -32,7 +32,7 @@
 										<div class="blog_post_meta">
 											<ul>
 												<li>admin</li>
-												<li>{{date('d M Y H:i', strtotime('$post->created_at'))}}</li>
+												<li>{{$post->created_at->format('d M Y H:i')}}</li>
 											</ul>
 										</div>
 										<div class="blog_post_text">
