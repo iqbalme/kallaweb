@@ -55,7 +55,8 @@
 	</noscript>
 	<!-- End Facebook Pixel Code -->
 	@endisset
-	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">	
+	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{{asset('frontend/assets/css/style-ezuca.css')}}">
 	@livewireStyles
 </head>
 <body>
