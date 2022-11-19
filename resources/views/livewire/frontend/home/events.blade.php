@@ -17,8 +17,8 @@
                         <figure class="course-thumbnail">
                             <a href="{{route('event.show', $event->id)}}"><img src="{{asset('storage/images/'.$event->gambar_event)}}" alt=""></a>
 							<div class="posted-date position-absolute">
-                                <div class="day">{{date('d',strtotime($event->waktu_mulai))}}</div>
-                                <div class="month">{{date('M',strtotime($event->waktu_mulai))}}</div>
+                                <div class="day">{{$event->waktu_mulai->format('d')}}</div>
+                                <div class="month">{{$event->waktu_mulai->format('M')}}</div>
                             </div>
                         </figure><!-- .course-thumbnail -->
 
