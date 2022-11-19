@@ -57,7 +57,7 @@
                     <li><a href="#">Pengumuman</a></li>
                   </ul>
 				</li>
-				<li class="active"><a href="{{route('kontak')}}"><span>Kontak</span></a></li>
+				<li><a href="{{route('kontak')}}"><span>Kontak</span></a></li>
                 <!--li class="has-children">
                   <a href="about.html"><span>Dropdown</span></a>
                   <ul class="dropdown arrow-top">
