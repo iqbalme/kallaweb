@@ -64,7 +64,7 @@
 							<div class="news_post_meta">
 								<ul>
 									<li>{{ucfirst($post->post_user->nama)}}</li>
-									<li>{{date('d-m-Y', strtotime($post->created_at))}}</li>
+									<li>{{$post->created_at->format('d M Y')}}</li>
 								</ul>
 							</div>
 						</div>
