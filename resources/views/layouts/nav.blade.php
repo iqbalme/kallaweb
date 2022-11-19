@@ -47,7 +47,7 @@
                     <li><a href="#">Tentang Kampus</a></li>
                     <li><a href="#">Struktur Organisasi</a></li>
                     <li><a href="{{route('team.show')}}">Profil Dosen</a></li>
-                    <li><a href="#">Fasilitas</a></li>
+                    <li><a href="{{route('galeri.show')}}">Fasilitas</a></li>
                   </ul>
 				</li>
 				<li class="has-children"><a href="#"><span>Informasi</span></a>
@@ -57,6 +57,7 @@
                     <li><a href="#">Pengumuman</a></li>
                   </ul>
 				</li>
+				<li class="active"><a href="{{route('kontak')}}"><span>Kontak</span></a></li>
                 <!--li class="has-children">
                   <a href="about.html"><span>Dropdown</span></a>
                   <ul class="dropdown arrow-top">

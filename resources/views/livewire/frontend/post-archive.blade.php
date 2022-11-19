@@ -32,7 +32,7 @@
 										<div class="blog_post_meta">
 											<ul>
 												<li>admin</li>
-												<li>{{date('d M Y', strtotime('$post->created_at'))}}</li>
+												<li>{{date('d M Y H:i', strtotime('$post->created_at'))}}</li>
 											</ul>
 										</div>
 										<div class="blog_post_text">
@@ -47,10 +47,12 @@
 					</div>
 				</div>
 			</div>
+			@if(isset($data['posts']))
 			<div class="row">
 				<!-- Pagination -->
 				{{ $data['posts']->links('vendor.livewire.bootstrap') }}
 			</div>
+			@endif
 		</div>
 	</div>
 	<script>
