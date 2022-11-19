@@ -53,7 +53,7 @@
 				<li class="has-children"><a href="#"><span>Informasi</span></a>
 					<ul class="dropdown arrow-top">
                     <li><a href="#">Berita</a></li>
-                    <li><a href="#">Event</a></li>
+                    <li><a href="{{route('event.list')}}">Event</a></li>
                     <li><a href="#">Pengumuman</a></li>
                   </ul>
 				</li>
