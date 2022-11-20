@@ -121,6 +121,14 @@
 			</div>
 		</div>
 	</div>
+
+	<livewire:frontend.home.events />	
+	<livewire:frontend.home.testimonis />
+	<livewire:frontend.home.latest-news />
+	
+	<!--link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"-->
+	<!--script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script-->
+	<!--script src="{{asset('frontend/theme/js/vendor/bootstrap.min.js')}}"></script-->
 	
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -136,14 +144,9 @@
 		</div>
 	  </div>
 	</div>
-
-	<livewire:frontend.home.events />	
-	<livewire:frontend.home.testimonis />
-	<livewire:frontend.home.latest-news />
+	</div>
+	<!-- End Modal -->
 	
-	<!--link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"-->
-	<!--script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script-->
-	<!--script src="{{asset('frontend/theme/js/vendor/bootstrap.min.js')}}"></script-->
 	<script>
 		$(document).ready(function(){
 			jQuery('.top-div').height(jQuery('header .header').height());
@@ -153,13 +156,14 @@
 			
 			/* Assign empty url value to the iframe src attribute when
 			modal hide, which stop the video playing */
-			$("#myModal").on('hide.bs.modal', function(){
+			$("#exampleModal").on('hide.bs.modal', function(){
 				$("#introVideo").attr('src', '');
+				console.log('tutup');
 			});
 			
 			/* Assign the initially stored url back to the iframe src
 			attribute when modal is displayed again */
-			$("#myModal").on('show.bs.modal', function(){
+			$("#exampleModal").on('show.bs.modal', function(){
 				$("#introVideo").attr('src', url);
 			});
 			if($(".super_container").width() <= 600){
