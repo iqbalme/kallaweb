@@ -1,5 +1,5 @@
 <div>
-	<div class="home">
+	<div class="home-breadcrumb">
 		<div class="breadcrumbs_container">
 			<div class="container">
 				<div class="row">
@@ -7,7 +7,7 @@
 						<div class="breadcrumbs">
 							<ul>
 								<li><a href="{{route('home')}}">Home</a></li>
-								<li>Contact</li>
+								<li>Kontak Kami</li>
 							</ul>
 						</div>
 					</div>
@@ -54,19 +54,11 @@
 								<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a distribution of letters.</p>
 							</div>
 							<div class="contact_info_location">
-								<div class="contact_info_location_title">New York Office</div>
+								<div class="contact_info_location_title">Alamat</div>
 								<ul class="location_list">
-									<li>T8/480 Collins St, Melbourne VIC 3000, New York</li>
-									<li>1-234-567-89011</li>
-									<li>info.deercreative@gmail.com</li>
-								</ul>
-							</div>
-							<div class="contact_info_location">
-								<div class="contact_info_location_title">Australia Office</div>
-								<ul class="location_list">
-									<li>Forrest Ray, 191-103 Integer Rd, Corona Australia</li>
-									<li>1-234-567-89011</li>
-									<li>info.deercreative@gmail.com</li>
+									<li>Nipah Mall Office Building, Lt.5 & 6</li>
+									<li>+(62) 811 4390 2019</li>
+									<li>info@kallainstitute.ac.id</li>
 								</ul>
 							</div>
 						</div>
@@ -94,6 +86,7 @@
 		</div>
 		
 	</div>
+	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/contact.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/contact_responsive.css')}}">
 	<style>
