@@ -152,19 +152,18 @@
 			jQuery('.top-div').height(jQuery('header .header').height());
 			/* Get iframe src attribute value i.e. YouTube video url
 			and store it in a variable */
-			var url = $("#introVideo").attr('src');
+			var url = jQuery("#introVideo").attr('src');
 			
 			/* Assign empty url value to the iframe src attribute when
 			modal hide, which stop the video playing */
-			$("#exampleModal").on('hide.bs.modal', function(){
-				$("#introVideo").attr('src', '');
-				console.log('tutup');
+			jQuery("#exampleModal").on('hide.bs.modal', function(){
+				jQuery("#introVideo").attr('src', '');
 			});
 			
 			/* Assign the initially stored url back to the iframe src
 			attribute when modal is displayed again */
-			$("#exampleModal").on('show.bs.modal', function(){
-				$("#introVideo").attr('src', url);
+			jQuery("#exampleModal").on('show.bs.modal', function(){
+				jQuery("#introVideo").attr('src', url);
 			});
 			if($(".super_container").width() <= 600){
 				$("#introVideo").width($(".super_container").width()-50);
