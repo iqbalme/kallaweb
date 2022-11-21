@@ -16,7 +16,7 @@
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Deskripsi Event</h6>
 					<div class="form-group" wire:ignore>
-						<textarea name="deskripsi" id="editor" required>{{$deskripsi}}</textarea>
+						<textarea name="deskripsi_event" id="editor-update" required></textarea>
 					</div>
 				</div>
 				<div class="mb-3">
@@ -120,7 +120,8 @@
           </div>
 		</div>
 	</div>
-	<script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
+	<!--script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script-->
+	<script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 	<script>
 	window.addEventListener('closeModalEventUpdate', event => {
 		jQuery('#eventModalEdit').modal('hide');
@@ -140,6 +141,16 @@
 			// .catch( error => {
 				//console.error( error );
 		// });
+		const editor = CKEDITOR.replace('editor-update');
+		editor.on('change', function (event) {
+			//console.log(event.editor.getData())
+			//this.Livewire.emit('setEventUpdate', event.editor.getData());
+			@this.set('deskripsi_event', event.editor.getData());
+		})
+		window.addEventListener('setInitialEventDescription', event => {
+			//console.log(event);
+			CKEDITOR.instances['editor-update'].setData(event.detail.deskripsi_event);
+		});
 	</script>
 	<style>
 		.ck-editor__editable_inline {

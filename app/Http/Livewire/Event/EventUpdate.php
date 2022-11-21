@@ -77,6 +77,7 @@ class EventUpdate extends Component
 		if(isset($event['voucher_id'])){
 			$this->is_voucher = true;
 		}
+		$this->dispatchBrowserEvent('setInitialEventDescription', ['deskripsi_event' => $event['deskripsi_event']]);
 	}
 	
 	public function update(){
