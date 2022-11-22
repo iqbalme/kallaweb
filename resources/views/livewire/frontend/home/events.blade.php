@@ -95,6 +95,78 @@
 	.position-absolute {
 		position: absolute!important;
 	}
+	.flex {
+		display: flex !important;
+	}
+	.featured-courses.horizontal-column .course-thumbnail {
+		width: calc(50% - 30px);
+		background: #fff;
+	}
+	.featured-courses.horizontal-column, .featured-courses.vertical-column {
+		padding: 100px 0;
+		background: #fff;
+	}
+	.featured-courses.horizontal-column .course-content-wrap {
+		width: calc(50% + 30px);
+		padding-left: 30px;
+		border: 1px solid #ebebeb;
+		border-left: 0;
+	}
+	.course-content-wrap {
+		padding: 26px 30px 20px;
+		border: 1px solid #ebebeb;
+		border-top: 0;
+		background: #fff;
+	}
+	.course-thumbnail {
+		width: 100%;
+		margin: 0;
+		object-fit: cover;
+	}
+	.course-content {
+		margin-top: 50px;
+		transition: all .35s;
+	}
+	.course-thumbnail img {
+		display: block;
+		width: 100%;
+		object-fit: cover;
+	}
+	.course-content .entry-title a {
+		color: #383749;
+	}
+	.course-content .entry-title {
+		margin: 0;
+		font-size: 20px;
+		line-height: 1.3;
+		font-weight: 400;
+	}
+	.course-content .entry-meta {
+		margin-top: 12px;
+	}
+	img {
+		vertical-align: baseline;
+	}
+	a.btn {
+		padding: 16px 48px;
+		border: 2px solid #34d986;
+		border-radius: 0;
+		font-size: 13px;
+		font-weight: bold;
+		line-height: 1;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: #383749;
+		text-decoration: none;
+	}
+	a.btn:hover {
+		color: #fff;
+		background: #34d986;
+	}
+	a:hover, a:active {
+		outline: 0;
+		list-style: none;
+	}
 	</style>
 	<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
 	<script>
