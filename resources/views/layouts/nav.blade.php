@@ -415,8 +415,8 @@
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
-		margin-right: -15px;
-		margin-left: -15px;
+		/* margin-right: -15px;
+		margin-left: -15px; */
 	}
 	</style>
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/style-font-nav.css')}}">
