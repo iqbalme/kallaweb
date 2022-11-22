@@ -31,6 +31,18 @@
 					</div>
 					<div class="row mt-1">
 						<div class="col-lg-4">
+							<h5 class="card-title mb-2">Biaya Layanan</h5>
+						</div>
+						<div class="col-lg-4">
+							<div class="input-group mb-2">
+							  <span class="input-group-text">Rp.</span>
+							  <input type="text" class="form-control" wire:model="settings.biaya_layanan_admisi">
+							  <span class="input-group-text">.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-1">
+						<div class="col-lg-4">
 							<h5 class="card-title mb-3">Izinkan Voucher</h5>
 						</div>
 						<div class="col-lg-6">

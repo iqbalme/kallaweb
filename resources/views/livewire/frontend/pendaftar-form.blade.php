@@ -80,6 +80,12 @@
 												<th>Biaya Pendaftaran</th>
 												<td id="username-val">Rp. {{number_format($settings['nominal_admisi'])}}</td>
 											</tr>
+											@isset($settings['biaya_layanan_admisi'])
+											<tr class="space-row">
+												<th>Biaya Layanan</th>
+												<td id="username-val">Rp. {{number_format($settings['biaya_layanan_admisi'])}}</td>
+											</tr>
+											@endisset
 											<tr class="space-row">
 												<th>Potongan</th>
 												<td id="email-val">Rp. {{number_format($discount)}}</td>

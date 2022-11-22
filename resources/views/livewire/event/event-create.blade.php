@@ -19,18 +19,14 @@
 						<textarea name="deskripsi_event" id="editor" required></textarea>
 					</div>
 				</div>
-				<div class="mb-3">
-				  <h6 class="card-title mb-2">Tanggal</h6>
-				  <input type="date" class="form-control" wire:model.lazy="tanggal" required>
-				</div>
 				<div class="row">
 					<div class="col-6 mb-3">
 					  <h6 class="card-title mb-2">Waktu Mulai</h6>
-					  <input type="time" class="form-control" wire:model.lazy="waktu_mulai" required>
+					  <input type="datetime-local" class="form-control" wire:model.lazy="waktu_mulai" required>
 					</div>
 					<div class="col-6 mb-3">
 					  <h6 class="card-title mb-2">Waktu Berakhir</h6>
-					  <input type="time" class="form-control" wire:model.lazy="waktu_akhir" required>
+					  <input type="datetime-local" class="form-control" wire:model.lazy="waktu_akhir" required>
 					</div>
 				</div>
 				<div class="mb-3">

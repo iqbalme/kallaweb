@@ -53,6 +53,7 @@ class PengaturanTableSeeder extends Seeder
 			['youtube', 'UCieL5l-YmWlvTk3olTpgg9A'],
 			['tiktok', 'ZSeGUBeem'],
 			['alamat', 'Nipah Mall Office Building, Lt.5 & 6'],
+			['biaya_layanan_admisi', 0],
 		];
 		foreach($settings as $setting){
 			\App\Models\Setting::create([

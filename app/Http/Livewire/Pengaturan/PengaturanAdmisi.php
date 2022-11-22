@@ -11,7 +11,7 @@ class PengaturanAdmisi extends Component
 	public $messageSave = false;
 	
 	public function mount(){
-		$settings = Setting::whereIn('nama_setting', ['nominal_admisi','is_voucher','status_pendaftaran','pesan_admisi_non_aktif'])->get();
+		$settings = Setting::whereIn('nama_setting', ['nominal_admisi','is_voucher','status_pendaftaran','pesan_admisi_non_aktif', 'biaya_layanan_admisi'])->get();
 		foreach($settings as $setting){
 			if(in_array($setting->nama_setting, ['status_pendaftaran', 'is_voucher'])){
 				$setting->isi_setting = (boolean) $setting->isi_setting;

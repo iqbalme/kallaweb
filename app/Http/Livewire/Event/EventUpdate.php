@@ -16,7 +16,6 @@ class EventUpdate extends Component
 	public $vouchers;
 	public $nama_event = null;
 	public $deskripsi_event = null;
-	public $tanggal = null;
 	public $waktu_mulai = null;
 	public $waktu_akhir = null;
 	public $lokasi = null;
@@ -60,9 +59,8 @@ class EventUpdate extends Component
 		$this->voucher_id = $event['voucher_id'];
 		$this->nama_event = $event['nama_event'];
 		$this->deskripsi_event = $event['deskripsi_event'];
-		$this->tanggal = date('Y-m-d', strtotime($event['waktu_mulai']));
-		$this->waktu_mulai = date('H:i', strtotime($event['waktu_mulai']));
-		$this->waktu_akhir = date('H:i', strtotime($event['waktu_berakhir']));
+		$this->waktu_mulai = date('Y-m-d\TH:i', strtotime($event['waktu_mulai'])); //2019-08-18T00:00;
+		$this->waktu_akhir = date('Y-m-d\TH:i', strtotime($event['waktu_berakhir']));
 		$this->gambar = $event['gambar_event'];
 		$this->lokasi = $event['lokasi'];
 		$this->link_daftar = $event['link_daftar'];
@@ -96,8 +94,8 @@ class EventUpdate extends Component
 		$data = [
 			'nama_event' => $this->nama_event,
 			'deskripsi_event' => $this->deskripsi_event,
-			'waktu_mulai' => $this->tanggal.' '.$this->waktu_mulai,
-			'waktu_berakhir' => $this->tanggal.' '.$this->waktu_akhir,
+			'waktu_mulai' => $this->waktu_mulai,
+			'waktu_berakhir' => $this->waktu_akhir,
 			'lokasi' => $this->lokasi,
 			'link_daftar' => $link_daftar,
 			'voucher_id' => $voucher_id

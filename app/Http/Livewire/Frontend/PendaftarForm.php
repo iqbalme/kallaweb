@@ -14,7 +14,9 @@ class PendaftarForm extends Component
 	use CommonTrait;
 	
 	public $currentStep = 1;
-	public $total = 0; 
+	public $total = 0;
+	public $biaya_admisi = 0;
+	public $biaya_layanan = 0;
 	public $voucher;
 	public $settings;
 	public $kodeVoucher;
@@ -36,7 +38,7 @@ class PendaftarForm extends Component
 		$this->data['email'] = null;
 		$this->data['no_hp'] = null;
 		
-		$settings = Setting::whereIn('nama_setting', ['nominal_admisi','is_voucher','status_pendaftaran'])->get();
+		$settings = Setting::whereIn('nama_setting', ['nominal_admisi','is_voucher','status_pendaftaran', 'biaya_layanan_admisi'])->get();
 		foreach($settings as $setting){
 			if(in_array($setting->nama_setting, ['status_pendaftaran', 'is_voucher'])){
 				$setting->isi_setting = (boolean) $setting->isi_setting;
@@ -121,6 +123,7 @@ class PendaftarForm extends Component
 			'amount' => $this->total,
 			'description' => 'Invoice Pendaftaran Mahasiswa Baru',
 			'invoice_duration' => 172800, //48 jam
+			'locale' => 'id',
 			'customer' => [
 				'given_names' => $nama[0],
 				'email' => $this->data['email'],

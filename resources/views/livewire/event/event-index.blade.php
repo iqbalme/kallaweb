@@ -44,8 +44,10 @@
                             {{ substr($event->nama_event,0,49) }}
                           </td>
 						  <td class="text-center">
-							<span class="badge text-bg-success text-white">{{ date('d-m-Y', strtotime($event->waktu_mulai)) }}</span>
-							<div class="small text-medium-emphasis">{{date('H:i', strtotime($event->waktu_mulai)).'-'.date('H:i', strtotime($event->waktu_berakhir))}}</div>
+							<div>
+							<span class="badge text-bg-info text-white">{{ $event->waktu_mulai->format('d M Y H:i') }}</span></div>
+							<span class="badge text-bg-warning text-white">{{ $event->waktu_berakhir->format('d M Y H:i') }}</span>
+							<!--div class="small text-medium-emphasis">{{date('H:i', strtotime($event->waktu_mulai)).'-'.date('H:i', strtotime($event->waktu_berakhir))}}</div-->
                           </td>
 						  <td class="text-center">
 							@if($event->voucher_id)
