@@ -171,6 +171,9 @@
 		});
 	</script>
 	<style>
+		.top-div {
+			height: 100px;
+		}
 		.modal-content {
 			width: auto;
 		}

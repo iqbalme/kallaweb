@@ -1,8 +1,19 @@
-.home-breadcrumb {
-	width: 100%;
-	height: 163px;
-	background: #f2f4f5;
-	border-bottom: solid 1px #edeff0;
+@media screen and (max-width: 768px) {
+	.home-breadcrumb {
+		width: 100%;
+		height: 123px;
+		background: #f2f4f5;
+		border-bottom: solid 1px #edeff0;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.home-breadcrumb {
+		width: 100%;
+		height: 163px;
+		background: #f2f4f5;
+		border-bottom: solid 1px #edeff0;
+	}
 }
 
 .breadcrumbs_container

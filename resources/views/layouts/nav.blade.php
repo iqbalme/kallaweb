@@ -320,12 +320,16 @@
 		  position: relative;
 		  color: #212529; }
 		  .site-mobile-menu .site-nav-wrap a:hover {
-			color: #007F3D; }
+			color: #fff;
+			background-color: #e77100;
+			border-radius: 20px; }
 		.site-mobile-menu .site-nav-wrap li {
 		  position: relative;
 		  display: block; }
 		  .site-mobile-menu .site-nav-wrap li.active > a {
-			color: #007F3D; }
+			    color: #fff;
+				background-color: #007F3D;
+				border-radius: 20px; }
 		.site-mobile-menu .site-nav-wrap .arrow-collapse {
 		  position: absolute;
 		  right: 0px;
@@ -335,7 +339,9 @@
 		  height: 36px;
 		  text-align: center;
 		  cursor: pointer;
-		  border-radius: 50%; }
+		  border-radius: 50%;
+		  margin-right: 10px;
+		  background-color: #fff; }
 		  .site-mobile-menu .site-nav-wrap .arrow-collapse:hover {
 			background: #f8f9fa; }
 		  .site-mobile-menu .site-nav-wrap .arrow-collapse:before {
