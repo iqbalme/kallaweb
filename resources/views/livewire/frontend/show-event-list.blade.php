@@ -51,8 +51,8 @@
                                 <h2 class="entry-title"><a href="{{route('event.show', $event->id)}}">{{substr($event->nama_event,0,37)}}</a></h2>
 
                                 <div class="entry-meta flex flex-wrap align-items-center">
-                                <div class="event-time-start"><i class="fa fa-calendar"></i>&nbsp;{{'Mulai: '.$event->waktu_mulai->format('d M Y H:i')}}</div>
-								<div class="event-time-end"><i class="fa fa-calendar"></i>&nbsp;{{'Akhir: '.$event->waktu_berakhir->format('d M Y H:i')}}</div>
+                                <div class="event-time-start"><i class="fa fa-calendar"></i>&nbsp;{{$event->waktu_mulai->format('d M Y H:i')}}</div>
+								<div class="event-time-end"><i class="fa fa-calendar"></i>&nbsp;{{$event->waktu_berakhir->format('d M Y H:i')}}</div>
 								@if(isset($event->lokasi))
 								<div class="event-time"><i class="fa fa-map-marker"></i>&nbsp;{{ucfirst($event->lokasi)}}</div>
 								@endif

@@ -49,8 +49,8 @@
             <nav class="site-navigation-nav position-relative text-right" role="navigation">
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active"><a href="{{route('home')}}"><span>Beranda</span></a></li>
-				<li class="has-children"><a href="#"><span>Profil</span></a>
+                <li class="@if(request()->route()->getName() == 'home') active @else &nbsp; @endif"><a href="{{route('home')}}"><span>Beranda</span></a></li>
+				<li class="has-children @if((request()->route()->getName() == 'struktur')||(request()->route()->getName() == 'team.show')||(request()->route()->getName() == 'galeri.show')) active @else &nbsp; @endif"><a href="#"><span>Profil</span></a>
 					<ul class="dropdown arrow-top">
                     <li><a href="#">Tentang Kampus</a></li>
                     <li><a href="{{route('struktur')}}">Struktur Organisasi</a></li>
@@ -58,14 +58,14 @@
                     <li><a href="{{route('galeri.show')}}">Fasilitas</a></li>
                   </ul>
 				</li>
-				<li class="has-children"><a href="#"><span>Informasi</span></a>
+				<li class="has-children @if((request()->route()->getName() == 'post.list')||(request()->route()->getName() == 'event.list')) active @else &nbsp; @endif"><a href="#"><span>Informasi</span></a>
 					<ul class="dropdown arrow-top">
                     <li><a href="{{route('post.list')}}">Berita</a></li>
                     <li><a href="{{route('event.list')}}">Event</a></li>
                     <li><a href="#">Pengumuman</a></li>
                   </ul>
 				</li>
-				<li><a href="{{route('kontak')}}"><span>Kontak</span></a></li>
+				<li class="@if(request()->route()->getName() == 'kontak') active @else &nbsp; @endif"><a href="{{route('kontak')}}"><span>Kontak</span></a></li>
                 <li class="has-children"><a href="#"><span>Admisi</span></a>
 					<ul class="dropdown arrow-top">
                     <li><a href="{{route('registrasi')}}">Pendaftaran Mahasiswa Baru</a></li>

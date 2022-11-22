@@ -22,7 +22,7 @@ class EventIndex extends Component
 	
     public function render()
     {
-		$this->data = Event::orderBy('waktu_mulai', 'desc')->orderBy('waktu_berakhir', 'desc')->get();
+		$this->data = Event::orderBy('waktu_mulai', 'asc')->orderBy('waktu_berakhir', 'asc')->get();
 		//dd($this->data);
 		$this->emit('getEvent', $this->event);
         return view('livewire.event.event-index')
