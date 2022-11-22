@@ -34,20 +34,20 @@ class SinglePost extends Component
 		}
 		$tags = [];
 		$categories = [];
-		if(count($post->post_tags)){
-			foreach($post->post_tags as $tag){
+		if(count($post->post_tags_data)){
+			foreach($post->post_tags_data as $tag){
 				$tags[] = Tag::find($tag->tag_id);
 			}			
 		}
-		if(count($post->post_categories)){
-			foreach($post->post_categories as $category){
+		if(count($post->post_categories_data)){
+			foreach($post->post_categories_data as $category){
 				$categories[] = Category::find($category->category_id);
 			}
 		}
 		$this->post = $post;
 		$this->tags = $tags;
 		$this->categories = $categories;
-		$this->prodi = Prodi::find($post->post_prodi);
+		$this->prodi = Prodi::find($post->post_prodi_data);
 		$this->data['prodis'] = Prodi::all();
 		$this->data['categories'] = Category::all();
 		$this->data['post_lain'] = Post::whereNot('id', $post->id)->orderByDesc('created_at')->limit(3)->get();
