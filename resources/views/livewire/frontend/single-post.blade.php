@@ -86,7 +86,13 @@
 								<div class="latest d-flex flex-row align-items-start justify-content-start">
 									<div class="latest_image"><div><img src="{{asset('storage/images/'.$post_lain->thumbnail)}}" alt=""></div></div>
 									<div class="latest_content">
-										<div class="latest_title"><a href="#">{{$post_lain->judul}}</a></div>
+										<div class="latest_title">
+										@if($data['setting_slug']->isi_setting){
+											<a href="{{route('post.single', ['post_val' => $post_lain->slug])}}">
+										@else
+											<a href="{{route('post.single', ['post_val' => $post_lain->id])}}">
+										@endif
+										{{$post_lain->judul}}</a></div>
 										<div class="latest_date">{{date('d-m-Y', strtotime($post_lain->created_at))}}</div>
 									</div>
 								</div>

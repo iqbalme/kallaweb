@@ -48,6 +48,7 @@ class SinglePost extends Component
 		$this->tags = $tags;
 		$this->categories = $categories;
 		$this->prodi = Prodi::find($post->post_prodi_data);
+		$this->data['setting_slug'] = $setting_slug;
 		$this->data['prodis'] = Prodi::all();
 		$this->data['categories'] = Category::all();
 		$this->data['post_lain'] = Post::whereNot('id', $post->id)->orderByDesc('created_at')->limit(3)->get();
