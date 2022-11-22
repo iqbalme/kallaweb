@@ -15,6 +15,7 @@ class PendaftarForm extends Component
 	
 	public $currentStep = 1;
 	public $total = 0;
+	public $total_after_voucher = 0;
 	public $biaya_admisi = 0;
 	public $biaya_layanan = 0;
 	public $voucher;
@@ -45,8 +46,10 @@ class PendaftarForm extends Component
 			}
 			$this->settings[$setting->nama_setting] = $setting->isi_setting;
 		}
-		$this->total = $this->settings['nominal_admisi'];
-		//dd($this->settings);
+		$this->biaya_admisi = $this->settings['nominal_admisi'];
+		$this->biaya_layanan = $this->settings['biaya_layanan_admisi'];
+		$this->total = $this->biaya_admisi + $this->biaya_layanan;
+		$this->total_after_voucher = $this->total;
 		if(!$this->settings['status_pendaftaran']){
 			return redirect()->route('admisi-non-aktif');
 		}
@@ -86,7 +89,7 @@ class PendaftarForm extends Component
 		$voucher = Voucher::where(['kode_voucher' => $this->kodeVoucher, 'aktif' => 1]);
 		if($voucher->count()){
 			if($voucher->first()->tipe_diskon == 'persen'){
-				$this->discount = $this->settings['nominal_admisi'] / 100 * $voucher->first()->nominal_diskon;
+				$this->discount = $this->total / 100 * $voucher->first()->nominal_diskon;
 			} else {
 				$this->discount = $voucher->first()->nominal_diskon;
 			};
@@ -94,7 +97,7 @@ class PendaftarForm extends Component
 			$this->kodeVoucher = null;
 			$this->discount = 0;
 		}
-		$this->total = $this->settings['nominal_admisi'] - $this->discount;
+		$this->total_after_voucher = $this->total - $this->discount;
 	}
 	
 	public function splitName($name){
@@ -113,6 +116,27 @@ class PendaftarForm extends Component
 	}
 	
 	public function payment(){
+		$items = [
+			[
+				'name' => 'Pendaftaran Mahasiswa Baru',
+				'quantity' => 1,
+				'price' => $this->biaya_admisi
+			]
+		];
+		if($this->biaya_layanan > 0){
+			$items[] = [
+				'name' => 'Biaya Layanan',
+				'quantity' => 1,
+				'price' => $this->biaya_layanan
+			];
+		}
+		$fees = [];
+		if($this->discount > 0){
+			$fees[] = [
+				'type' => 'Diskon Voucher',
+				'value' => '-'.$this->discount
+			];
+		}
 		$nama = $this->splitName($this->data['nama_lengkap']);
 		$external_id = $this->generateInvoiceNo();
 		if(count($nama) > 1){
@@ -120,7 +144,7 @@ class PendaftarForm extends Component
 		}
 		$params = [ 
 			'external_id' => $external_id,
-			'amount' => $this->total,
+			'amount' => $this->total_after_voucher,
 			'description' => 'Invoice Pendaftaran Mahasiswa Baru',
 			'invoice_duration' => 172800, //48 jam
 			'locale' => 'id',
@@ -135,34 +159,29 @@ class PendaftarForm extends Component
 					'sms',
 					'email'
 				],
-				// 'invoice_reminder' => [
-					// 'whatsapp',
-					// 'sms',
-					// 'email'
-				// ],
+				'invoice_reminder' => [
+					'whatsapp',
+					'sms',
+					'email'
+				],
 				'invoice_paid' => [
 					'whatsapp',
 					'sms',
 					'email'
 				],
-				'invoice_expired' => [
-					'whatsapp',
-					'sms',
-					'email'
-				]
+				// 'invoice_expired' => [
+					// 'whatsapp',
+					// 'sms',
+					// 'email'
+				// ]
 			],
 			'success_redirect_url' => route('xendit.success.route'),
 			//'success_redirect_url' => 'https://1a91-114-5-247-133.ngrok.io/api/success_payment_callback',
 			'failure_redirect_url' => route('xendit.failed.route'),
 			//'failure_redirect_url' => 'https://1a91-114-5-247-133.ngrok.io/api/failed_payment_callback',
 			'currency' => 'IDR',
-			'items' => [
-				[
-					'name' => 'Pendaftaran Mahasiswa Baru',
-					'quantity' => 1,
-					'price' => $this->total
-				]
-			]
+			'items' => $items,
+			'fees' => $fees
 		  ];
 		  $isVoucher = false;
 		  if($this->kodeVoucher){

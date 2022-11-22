@@ -92,7 +92,7 @@
 											</tr>
 											<tr class="space-row">
 												<th>Total</th>
-												<td id="card-type-val">Rp. {{number_format($total)}}</td>
+												<td id="card-type-val">Rp. {{number_format($total_after_voucher)}}</td>
 											</tr>
 										</tbody>
 									</table>
@@ -163,7 +163,7 @@
 										<tbody>
 											<tr class="space-row">
 												<th>Jumlah Pembayaran</th>
-												<td id="username-val">Rp. {{number_format($total)}}</td>
+												<td id="username-val">Rp. {{number_format($total_after_voucher)}}</td>
 											</tr>
 										</tbody>
 									</table>

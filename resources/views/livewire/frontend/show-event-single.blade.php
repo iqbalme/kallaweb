@@ -76,20 +76,25 @@
 								<div class="feature_list">
 
 									<!-- Feature -->
-									<div class="feature d-flex flex-row align-items-center justify-content-start">
-										<div class="feature_title"><i class="fa fa-calendar" aria-hidden="true"></i><span>Tanggal:</span></div>
-										<div class="feature_text ml-auto">{{date('d-m-Y', strtotime($event->waktu_mulai))}}</div>
+									<div class="feature-event d-flex flex-row align-items-center justify-content-start">
+										<div class="feature_title_event"><i class="fa fa-calendar" aria-hidden="true"></i><span>Mulai:</span></div>
+										<div class="feature_text ml-auto">{{$event->waktu_mulai->format('d M Y H:i')}}</div>
 									</div>
 
+									<div class="feature-event d-flex flex-row align-items-center justify-content-start">
+										<div class="feature_title_event_end"><i class="fa fa-calendar" aria-hidden="true"></i><span>Berakhir:</span></div>
+										<div class="feature_text ml-auto">{{$event->waktu_berakhir->format('d M Y H:i')}}</div>
+									</div>
+									
 									<!-- Feature -->
-									<div class="feature d-flex flex-row align-items-center justify-content-start">
-										<div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Waktu:</span></div>
+									<!--div class="feature-event d-flex flex-row align-items-center justify-content-start">
+										<div class="feature_title_event"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Waktu:</span></div>
 										<div class="feature_text ml-auto">{{date('H:i', strtotime($event->waktu_mulai))}} - {{date('H:i', strtotime($event->waktu_berakhir))}}</div>
-									</div>
+									</div-->
 
 									<!-- Feature -->
-									<div class="feature d-flex flex-row align-items-center justify-content-start">
-										<div class="feature_title"><i class="fa fa-map-marker" aria-hidden="true"></i><span>Lokasi:</span></div>
+									<div class="feature-event d-flex flex-row align-items-center justify-content-start">
+										<div class="feature_title_event"><i class="fa fa-map-marker" aria-hidden="true"></i><span>Lokasi:</span></div>
 										<div class="feature_text ml-auto">{{$event->lokasi}}</div>
 									</div>
 
@@ -151,10 +156,49 @@
 		</div>
 	  </div>
 	</div>
-	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{asset('frontend/theme/unicat/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+	<!-- <link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"> -->
+	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/course_responsive.css')}}">
+	<style>
+	.ml-auto, .mx-auto {
+		margin-left: auto!important;
+	}
+	.feature_title_event {
+		padding-left: 31px;
+	}
+	.feature_title_event i {
+		position: absolute;
+		top: calc(50% - 1px);
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		transform: translateY(-50%);
+		left: 0;
+		font-size: 18px;
+		color: #14bdee;
+	}
+	.feature_title_event_end {
+		padding-left: 31px;
+	}
+	.feature_title_event_end i {
+		position: absolute;
+		top: calc(50% - 1px);
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		transform: translateY(-50%);
+		left: 0;
+		font-size: 18px;
+		color: #ff0000;
+	}
+	.feature-event:not(:last-child) {
+		margin-bottom: 21px;
+	}
+	</style>	
 	<script>
 		function showEventRegistration(){
 			jQuery("#daftarEvent").modal('show');
