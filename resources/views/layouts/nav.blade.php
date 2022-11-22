@@ -257,7 +257,7 @@
 	  right: 0;
 	  z-index: 2000;
 	  padding-top: 20px;
-	  background: #fff;
+	  background: #f1f1f1;
 	  height: calc(100vh);
 	  -webkit-transform: translateX(110%);
 	  -ms-transform: translateX(110%);
@@ -414,12 +414,7 @@
 	}
 	</style>
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/style-font-nav.css')}}">
-	<script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script>
-	<script src="{{asset('frontend/assets/js/main-nav.js')}}"></script>
+	<!--script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script-->
 	<script src="{{asset('frontend/assets/js/jquery.sticky.js')}}"></script>
-	<script>
-	$(document).ready(function(){
-		console.log('dari nav');
-	});
-	</script>
+	<script src="{{asset('frontend/assets/js/main-nav.js')}}"></script>
 </div>

@@ -22,9 +22,8 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/responsive.css')}}">
 <script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script>
-<script src="{{asset('frontend/theme/js/vendor/bootstrap.min.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<!--script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script-->
+<!-- <script src="{{asset('frontend/theme/js/vendor/bootstrap.min.js')}}"></script> -->
+<script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
 	@isset($data['google_analytics'])
 	<!-- Google tag (gtag.js) -->
 	<script async src="{{ 'https://www.googletagmanager.com/gtag/js?id=' . $data['google_analytics'] }}"></script>
