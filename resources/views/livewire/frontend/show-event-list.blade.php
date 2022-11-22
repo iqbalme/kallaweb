@@ -94,12 +94,11 @@
 	.featured-courses.horizontal-column .course-content-wrap {
 		width: calc(50% + 30px);
 		padding-left: 30px;
-		border: 1px solid #ebebeb;
+		/* border: 1px solid #ebebeb; */
 		border-left: 0;
 	}
 	.course-content-wrap {
 		padding: 26px 30px 20px;
-		border: 1px solid #ebebeb;
 		border-top: 0;
 		background: #fff;
 	}
@@ -114,6 +113,7 @@
 	.course-content {
 		margin-top: 50px;
 		transition: all .35s;
+		border: 1px solid #ebebeb;
 	}
 	.course-thumbnail img {
 		display: block;
