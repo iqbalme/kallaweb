@@ -181,5 +181,8 @@
 			margin: 0 auto;
 			display: block;
 		}
+		p {
+			font-size: 16px;
+		}
 	</style>
 </div>
