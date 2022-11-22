@@ -3,8 +3,8 @@
 		<div class="card mb-4">
             <div class="card-body">
 				<div class="row justify-content-between p-3">
-					<div class="col-4"><h3>List Galeri</h3></div>
-					<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" wire:click="tambahGaleri">Tambah Galeri</button></div>
+					<div class="col-4"><h3>List Fasilitas</h3></div>
+					<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" wire:click="tambahGaleri">Tambah Gambar</button></div>
 					<hr>
 				</div>
 				<div class="table-responsive">

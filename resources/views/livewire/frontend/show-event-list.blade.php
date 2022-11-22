@@ -31,8 +31,8 @@
                         <figure class="course-thumbnail">
                             <a href="{{route('event.show', $event->id)}}"><img src="{{asset('storage/images/'.$event->gambar_event)}}" alt=""></a>
 							<div class="posted-date position-absolute">
-                                <div class="day">{{date('d',strtotime($event->waktu_mulai))}}</div>
-                                <div class="month">{{date('M',strtotime($event->waktu_mulai))}}</div>
+                                <div class="day">{{$event->waktu_mulai->format('d')}}</div>
+                                <div class="month">{{$event->waktu_mulai->format('M')}}</div>
                             </div>
                         </figure><!-- .course-thumbnail -->
 
@@ -51,8 +51,8 @@
                                 <h2 class="entry-title"><a href="{{route('event.show', $event->id)}}">{{substr($event->nama_event,0,37)}}</a></h2>
 
                                 <div class="entry-meta flex flex-wrap align-items-center">
-                                <div class="event-time-start"><i class="fa fa-calendar"></i>&nbsp;{{'Start: '.$event->waktu_mulai->format('d M Y H:i')}}</div>
-								<div class="event-time-end"><i class="fa fa-calendar"></i>&nbsp;{{'End: '.$event->waktu_berakhir->format('d M Y H:i')}}</div>
+                                <div class="event-time-start"><i class="fa fa-calendar"></i>&nbsp;{{'Mulai: '.$event->waktu_mulai->format('d M Y H:i')}}</div>
+								<div class="event-time-end"><i class="fa fa-calendar"></i>&nbsp;{{'Akhir: '.$event->waktu_berakhir->format('d M Y H:i')}}</div>
 								@if(isset($event->lokasi))
 								<div class="event-time"><i class="fa fa-map-marker"></i>&nbsp;{{ucfirst($event->lokasi)}}</div>
 								@endif

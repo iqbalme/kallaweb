@@ -891,42 +891,7 @@ a:hover, a:active {
     text-align: center;
 }
 
-/*--------------------------------------------------------------
-# Breadcrumb
---------------------------------------------------------------*/
-.breadcrumbs {
-    margin: 30px 0;
-}
 
-.breadcrumbs ul {
-    list-style: none;
-}
-
-.breadcrumbs li {
-    position: relative;
-    padding-right: 16px;
-    margin-right: 10px;
-    color: #c0c1cd;
-}
-
-.breadcrumbs li::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 6px;
-    height: 100%;
-    font-family: 'FontAwesome';
-}
-
-.breadcrumbs li:nth-last-of-type(1)::after {
-    display: none;
-}
-
-.breadcrumbs li a {
-    color: #383749;
-    text-decoration: none;
-}
 
 /*--------------------------------------------------------------
 # Pagination
