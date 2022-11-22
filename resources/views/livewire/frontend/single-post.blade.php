@@ -87,7 +87,7 @@
 									<div class="latest_image"><div><img src="{{asset('storage/images/'.$post_lain->thumbnail)}}" alt=""></div></div>
 									<div class="latest_content">
 										<div class="latest_title">
-										@if($data['setting_slug']->isi_setting){
+										@if($data['setting_slug']->isi_setting)
 											<a href="{{route('post.single', ['post_val' => $post_lain->slug])}}">
 										@else
 											<a href="{{route('post.single', ['post_val' => $post_lain->id])}}">
