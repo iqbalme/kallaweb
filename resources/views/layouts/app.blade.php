@@ -22,8 +22,10 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/responsive.css')}}">
 <script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script>
-<!-- <script src="{{asset('frontend/theme/js/vendor/bootstrap.min.js')}}"></script> -->
+
+<!-- <script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script> -->
 <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
+@stack('scripts')
 	@isset($data['google_analytics'])
 	<!-- Google tag (gtag.js) -->
 	<script async src="{{ 'https://www.googletagmanager.com/gtag/js?id=' . $data['google_analytics'] }}"></script>
@@ -66,13 +68,15 @@
 @include('layouts.footer')
 	
 </div>
+
 <!--script src="{{asset('frontend/theme/unicat/plugins/greensock/TweenMax.min.js')}}"></script>
 <script src="{{asset('frontend/theme/unicat/plugins/greensock/TimelineMax.min.js')}}"></script-->
-<script src="{{asset('frontend/theme/unicat/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
+
 <!--script src="{{asset('frontend/theme/unicat/plugins/greensock/animation.gsap.min.js')}}"></script>
 <script src="{{asset('frontend/theme/unicat/plugins/greensock/ScrollToPlugin.min.js')}}"></script>
 <script src="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
 <script src="{{asset('frontend/theme/unicat/plugins/easing/easing.js')}}"></script-->
+<script src="{{asset('frontend/theme/unicat/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
 <script src="{{asset('frontend/theme/unicat/plugins/parallax-js-master/parallax.min.js')}}"></script>
 <script src="{{asset('frontend/theme/unicat/js/custom.js')}}"></script>
 

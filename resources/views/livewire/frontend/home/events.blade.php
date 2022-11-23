@@ -176,11 +176,9 @@
 		list-style: none;
 	}
 	</style>
-	<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
+	<!-- <script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script> -->
 	<script>
-		jQuery( document ).ready(function() {
-			jQuery(".course-thumbnail img").height(jQuery(".course-thumbnail img").width());
-		});
+		jQuery(".course-thumbnail img").height(jQuery(".course-thumbnail img").width());
 	</script>
 	@endif
 </div>

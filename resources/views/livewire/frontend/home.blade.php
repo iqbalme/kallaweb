@@ -43,7 +43,7 @@
                 <div class="col-12 col-lg-6 flex align-content-center mt-5 mt-lg-0">
                     <div class="ezuca-video position-relative">
                         <div class="video-play-btn position-absolute">
-							<a class="btn-play" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							<a class="btn-play" data-toggle="modal" data-target="#exampleModal">
 								<img src="{{asset('frontend/assets/images/video-icon.png')}}" alt="Video Play">
 							</a>
                             
@@ -126,10 +126,6 @@
 	<livewire:frontend.home.testimonis />
 	<livewire:frontend.home.latest-news />
 	
-	<!--link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"-->
-	<!--script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script-->
-	<!--script src="{{asset('frontend/theme/js/vendor/bootstrap.min.js')}}"></script-->
-	
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
@@ -139,14 +135,14 @@
                     <iframe id="introVideo" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/dVCJlFXY9r0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
 		  </div>
 		</div>
 	  </div>
 	</div>
 	</div>
 	<!-- End Modal -->
-	
+
 	<script>
 		$(document).ready(function(){
 			jQuery('.top-div').height(jQuery('header .header').height());
@@ -170,6 +166,7 @@
 			}
 		});
 	</script>
+
 	<style>
 		.top-div {
 			height: 100px;
@@ -185,4 +182,10 @@
 			font-size: 16px;
 		}
 	</style>
+	<!-- <link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"> -->
+	<!-- <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script> -->
+	<!-- <script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script> -->
+	<!-- <script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script> -->
+	<!-- <script src="{{asset('frontend/theme/js/vendor/bootstrap.min.js')}}"></script> -->
+	
 </div>
