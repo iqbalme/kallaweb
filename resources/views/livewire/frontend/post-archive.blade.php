@@ -31,7 +31,7 @@
 										<div class="blog_post_title"><a href="{{route('post.single', ['post_val' => $post->slug])}}">{{$post->judul}}</a></div>
 										<div class="blog_post_meta">
 											<ul>
-												<li>admin</li>
+												<li>{{$post->post_user->nama}}</li>
 												<li>{{$post->created_at->format('d M Y H:i')}}</li>
 											</ul>
 										</div>

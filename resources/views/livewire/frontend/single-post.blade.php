@@ -92,7 +92,7 @@
 											<a href="{{route('post.single', ['post_val' => $post_lain->id])}}">
 										@endif
 										{{$post_lain->judul}}</a></div>
-										<div class="latest_date">{{date('d-m-Y', strtotime($post_lain->created_at))}}</div>
+										<div class="latest_date">{{$post_lain->created_at->format('d M Y H:i')}}</div>
 									</div>
 								</div>
 								@endforeach
