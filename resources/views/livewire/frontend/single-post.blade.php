@@ -179,11 +179,11 @@
 		max-width: -webkit-fill-available;
 	}
 	</style>
-	<script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script>
+	<!-- <script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script> -->
 	<script>
 	jQuery( document ).ready(function() {
 		$.getScript("{{asset('frontend/theme/unicat/plugins/colorbox/jquery.colorbox-min.js')}}");
-		$.getScript("{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}");
+		//$.getScript("{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}");
 		$.getScript("{{asset('frontend/theme/unicat/js/blog_single.js')}}");
 	});
 	// jQuery( document ).ready(function() {
