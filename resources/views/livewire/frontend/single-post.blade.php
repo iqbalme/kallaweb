@@ -8,7 +8,6 @@
 							<ul>
 								<li><a href="{{route('home')}}">Home</a></li>
 								<li><a href="{{route('post.list')}}">Publikasi</a></li>
-								<li>{{ucfirst($post->judul)}}</li>
 							</ul>
 						</div>
 					</div>
