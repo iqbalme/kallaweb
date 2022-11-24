@@ -62,6 +62,29 @@
 							  <input type="text" class="form-control" wire:model="settings.pesan_admisi_non_aktif">
 							</div>
 					</div>
+					<div class="row mt-1">
+						<div class="col-lg-4">
+							<h5 class="card-title mb-3">Gunakan webhook</h5>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-check mt-1">
+							  <input class="form-check-input" type="checkbox" wire:model="settings.admisi_webhook_status">
+							  <label class="form-check-label">
+							  <h6 class="card-title mb-0">&nbsp;&nbsp;Aktif</h6>
+							  </label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row mt-1">
+						<div class="col-lg-4">
+							<h5 class="card-title mb-2">Webhook URL</h5>
+						</div>
+						<div class="col-lg-4">
+							  <input type="text" class="form-control" wire:model="settings.admisi_webhook_url">
+							</div>
+					</div>
+					
 					<hr>
 					<div class="row mb-2">
 						<button type="submit" class="btn btn-primary btn-lg">Simpan</button>
