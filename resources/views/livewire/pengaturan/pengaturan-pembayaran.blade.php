@@ -64,10 +64,12 @@
 						<div class="col-lg-6">
 							<div class="input-group">
 							  <ul>
-								<li>Buka link ini: <a href="https://dashboard.xendit.co/settings/developers#callbacks" target="blank">https://dashboard.xendit.co/settings/developers#callbacks</a></li>
-								<li>Sebelumnya Anda harus memilih mode pembayaran. Jika akun live belum siap, maka Anda bisa memilih mode pembayaran "Test". Namun jika Anda memilih mode pembayaran "Live" maka pastikan <i>Xendit Callback Token</i> Anda adalah token untuk live, bukan token untuk demo/test.</li>
-								<li>Cari Invoices -> Invoice Terbayarkan, lalu isi <i>Xendit Invoice Callback</i> di atas pada kotak input tersebut dan atur pengaturan lainnya seperti gambar di bawah ini:<br><br><a href="https://i.postimg.cc/s2K0x0PJ/xendit-invoice-callback.png" target="blank"><img src="https://i.postimg.cc/s2K0x0PJ/xendit-invoice-callback.png" style="max-width:95%"></a></li>
+								<li>Untuk mendapatkan <i>Xendit Secret Key</i> dan <i>Xendit Callback Token</i>, silakan buka link ini: <a href="https://dashboard.xendit.co/settings/developers#callbacks" target="blank">https://dashboard.xendit.co/settings/developers#callbacks</a>.</li>
+								<li>Secret Key dan Callback Token untuk Data tes dan Data live berbeda. Untuk pembayaran secara real, maka harus menggunakan secret key dan callback token yang data live.</li>
+								<li>Sebelumnya lanjut, Anda harus memilih mode pembayaran. Jika akun live belum siap, maka Anda bisa memilih mode pembayaran "Test". Namun jika Anda memilih mode pembayaran "Live" maka pastikan <i>Xendit Callback Token</i> Anda adalah token untuk live, bukan token untuk demo/test.<br><br><a href="https://i.postimg.cc/fLNm4wS2/token-xendit.png" target="blank"><img src="https://i.postimg.cc/fLNm4wS2/token-xendit.png" style="max-width:95%"></a></li>
+								<li>Lalu scroll ke bawah dan cari <i>Invoices -> Invoice Terbayarkan</i>, lalu isi dengan<i>Xendit Invoice Callback</i> di atas pada kotak input tersebut dan atur pengaturan lainnya seperti gambar di bawah ini:<br><br><a href="https://i.postimg.cc/s2K0x0PJ/xendit-invoice-callback.png" target="blank"><img src="https://i.postimg.cc/s2K0x0PJ/xendit-invoice-callback.png" style="max-width:95%"></a></li>
 								<li>Selanjutnya tekan <i>"Tes dan Simpan"</i></li>
+								<li>Pastikan Anda mendapat response status 200 dan pesan "Sukses validasi callback" seperti gambar di bawah ini:<br><br><a href="https://i.postimg.cc/hv0H8PTH/respon-token.png" target="blank"><img src="https://i.postimg.cc/hv0H8PTH/respon-token.png" style="max-width:95%"></a></li>
 							  </ul>
 							</div>
 						</div>
