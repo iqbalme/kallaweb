@@ -15,7 +15,6 @@
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-school') }}"></use>
 		</svg> Prodi</a></li>
-	
 	<li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-note-add') }}"></use>
@@ -31,33 +30,15 @@
 		<li class="nav-item"><a class="nav-link" href="{{ route('fasilitas.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">gallery_thumbnail</i> Fasilitas</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('team.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">diversity_3</i> Tim</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('testimoni.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">forum</i> Testimoni</a></li>
-		<!--li class="nav-item"><a class="nav-link" href="{{ route('carousel.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-sliders nav-icon"></i> Carousel</a></li-->
+		<li class="nav-item"><a class="nav-link" href="{{ route('pengumuman.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">campaign</i> Pengumuman</a></li>
 	  </ul>
 	</li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('voucher.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-gift') }}"></use>
-		</svg> Voucher</a></li>
-		
-	<!--li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
-		<svg class="nav-icon">
-		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-notes') }}"></use>
-		</svg> Katalog</a>
-	  <ul class="nav-group-items">
-		<li class="nav-item"><a class="nav-link" href="{{ route('katalog.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bars-staggered nav-icon"></i> List</a></li>
-		<li class="nav-item"><a class="nav-link" href="{{ route('voucher.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg class="nav-icon">
-		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-gift') }}"></use>
-		</svg> Voucher</a></li>
-	  </ul>
-	</li-->
-	
+		</svg> Voucher</a></li>	
 	<li class="nav-item"><a class="nav-link" href="{{ route('pendaftar.index') }}">
 		<i class="fa-regular fa-address-card nav-icon"></i> Pendaftar</a></li>
-	
-	<!--li class="nav-item"><a class="nav-link" href="#">
-		<svg class="nav-icon">
-		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-chart-pie') }}"></use>
-		</svg> Statistik</a></li-->
 	<li class="nav-divider"></li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('role.index') }}">
 		<i class="fa-solid fa-list-check nav-icon"></i> Role</a></li>
@@ -65,7 +46,6 @@
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>
 		</svg> User</a></li>
-	
 	<li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-settings') }}"></use>
@@ -75,12 +55,11 @@
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.admisi') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">how_to_reg</i> Admisi</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.pembayaran') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">payments</i> Pembayaran</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.tema') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-display nav-icon"></i> Tema</a></li>
-			<!--li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.menu') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-brands fa-mendeley nav-icon"></i> Menu</a></li-->
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.mail') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">contact_mail</i> Mail</a></li>
 		  </ul>			
 	</li>
   </ul>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <style>
 	.sidebar {
 		--cui-sidebar-bg: {{ $data['theme_color_sidebar_bg'] }} !important;

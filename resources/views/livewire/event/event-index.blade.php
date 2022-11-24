@@ -7,6 +7,35 @@
 					<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" wire:click="bukaFormEvent">Tambah Event</button></div>
 					<hr>
 				</div>
+				<div class="row justify-content-md-between">
+				<!-- Perhalaman -->
+				<div class="col-lg-auto">
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<span class="input-group-text" id="basiaddon3">Perhalaman</span>
+					  </div>
+						  <select class="form-control" wire:model="perhalaman">
+							<option value="5" selected>5</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+						  </select>
+					</div>
+				</div>
+				<!-- End Perhalaman -->
+				
+				<!-- Pencarian -->
+				<div class="col-8">
+					<div class="input-group mb-3">
+					  <input type="text" class="form-control" placeholder="Ketik di sini..." wire:model="cari_event">
+					  <div class="input-group-append">
+						<span class="input-group-text" id="basiaddon2">Cari</span>
+					  </div>
+					</div>
+				</div>
+				<!-- End Pencarian -->
+			</div>
 				<div class="table-responsive">
                     <table class="table border mb-0 table-striped">
                       <thead class="table-light fw-semibold">
@@ -21,14 +50,14 @@
                         </tr>
                       </thead>
                       <tbody>
-					  @if(!$data->count())
+					  @if(!$data['events']->count())
 						<tr class="align-middle">
                           <td class="text-center" colspan="6">
 						  Tidak ada data
 						  </td>
 						</tr>
 					  @else
-						@foreach($data as $event)
+						@foreach($data['events'] as $event)
                         <tr class="align-middle">
                           <td class="text-center">
 						  {{ $loop->iteration }}
@@ -68,6 +97,8 @@
                   </div>
             </div>
           </div>
+		  <!-- Pagination -->
+		  {{ $data['events']->links('vendor.livewire.bootstrap') }}
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="eventModalHapus" tabindex="-1" wire:ignore.self>

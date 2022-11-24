@@ -26,6 +26,7 @@ use App\Http\Livewire\Frontend\Contact;
 use App\Http\Livewire\Frontend\PostArchive;
 use App\Http\Livewire\Frontend\TeamList;
 use App\Http\Livewire\Frontend\Fasilitas;
+use App\Http\Livewire\Frontend\Pengumuman;
 use App\Http\Livewire\Frontend\StrukturOrganisasi;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Profil;
@@ -54,6 +55,7 @@ use App\Http\Livewire\Event\EventIndex;
 use App\Http\Livewire\Facility\FacilityIndex;
 use App\Http\Livewire\Team\TeamIndex;
 use App\Http\Livewire\Testimoni\TestimoniIndex;
+use App\Http\Livewire\Pengumuman\PengumumanIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +91,7 @@ use App\Http\Livewire\Testimoni\TestimoniIndex;
 	Route::get('event/{event_id}/', ShowEventSingle::class)->name('event.show');
 	Route::get('kontak/', Contact::class)->name('kontak');
 	Route::get('struktur-organisasi/', StrukturOrganisasi::class)->name('struktur');
+	Route::get('pengumuman/', Pengumuman::class)->name('pengumuman');
 	Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 		Route::get('dashboard/', Dashboard::class)->name('dashboard.admin');
 		Route::get('prodi/', ProdiIndex::class)->name('prodi.index');
@@ -116,6 +119,7 @@ use App\Http\Livewire\Testimoni\TestimoniIndex;
 		Route::get('fasilitas/', FacilityIndex::class)->name('fasilitas.index');
 		Route::get('tim/', TeamIndex::class)->name('team.index');
 		Route::get('testimoni/', TestimoniIndex::class)->name('testimoni.index');
+		Route::get('pengumuman/', PengumumanIndex::class)->name('pengumuman.index');
 		
 		//for ckeditor upload file
 		Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('ckeditor.image-upload');

@@ -4,13 +4,18 @@ namespace App\Http\Livewire\Event;
 
 use Livewire\Component;
 use App\Models\Event;
+use Livewire\WithPagination;
 
 class EventIndex extends Component
 {
+	use WithPagination;
+	
 	public $data;
 	public $event_id = null;
 	public $event = null;
 	public $isUpdate = false;
+	public $perhalaman = 5;
+	public $cari_event = '';
 	
 	protected $listeners = [
 		'refreshEvent'
@@ -22,7 +27,7 @@ class EventIndex extends Component
 	
     public function render()
     {
-		$this->data = Event::orderBy('waktu_mulai', 'asc')->orderBy('waktu_berakhir', 'asc')->get();
+		$this->data['events'] = Event::orderBy('waktu_mulai', 'asc')->orderBy('waktu_berakhir', 'asc')->where('nama_event', 'LIKE', '%'.$this->cari_event.'%')->paginate($this->perhalaman);
 		//dd($this->data);
 		$this->emit('getEvent', $this->event);
         return view('livewire.event.event-index')
