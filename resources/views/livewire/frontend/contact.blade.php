@@ -49,10 +49,10 @@
 					<!-- Contact Info -->
 					<div class="col-lg-6">
 						<div class="contact_info">
-							<div class="contact_info_title">Contact Info</div>
-							<div class="contact_info_text">
+							<div class="contact_info_title">Info Kontak</div>
+							<!--div class="contact_info_text">
 								<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a distribution of letters.</p>
-							</div>
+							</div-->
 							<div class="contact_info_location">
 								<div class="contact_info_location_title">Alamat</div>
 								<ul class="location_list">
