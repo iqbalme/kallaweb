@@ -70,6 +70,7 @@
 								<li>Lalu scroll ke bawah dan cari <i>Invoices -> Invoice Terbayarkan</i>, lalu isi dengan<i>Xendit Invoice Callback</i> di atas pada kotak input tersebut dan atur pengaturan lainnya seperti gambar di bawah ini:<br><br><a href="https://i.postimg.cc/s2K0x0PJ/xendit-invoice-callback.png" target="blank"><img src="https://i.postimg.cc/s2K0x0PJ/xendit-invoice-callback.png" style="max-width:95%"></a></li>
 								<li>Selanjutnya tekan <i>"Tes dan Simpan"</i></li>
 								<li>Pastikan Anda mendapat response status 200 dan pesan "Sukses validasi callback" seperti gambar di bawah ini:<br><br><a href="https://i.postimg.cc/hv0H8PTH/respon-token.png" target="blank"><img src="https://i.postimg.cc/hv0H8PTH/respon-token.png" style="max-width:95%"></a></li>
+								<li>Jika terjadi perubahan secret key, atau Anda ingin menggunakan data live, maka Anda harus mengatur kembali seperti awal dan silakan sesuaikan pengaturan di halaman ini dengan pengaturan di halaman Xendit lalu menyimpannya kembali di kedua halaman tersebut.</li>
 							  </ul>
 							</div>
 						</div>
