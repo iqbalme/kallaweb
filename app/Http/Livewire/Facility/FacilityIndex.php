@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Galeri;
+namespace App\Http\Livewire\Facility;
 
 use Livewire\Component;
-use App\Models\Galeri;
+use App\Models\FasilitasModel;
 
-class GaleriIndex extends Component
+class FacilityIndex extends Component
 {
 	public $data;
 	public $galeri_id = null;
@@ -20,16 +20,16 @@ class GaleriIndex extends Component
 	
     public function render()
     {
-		$this->data = Galeri::orderByDesc('id')->get();
-        return view('livewire.galeri.galeri-index')
-			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Galeri']);
+		$this->data = FasilitasModel::orderByDesc('created_at')->get();
+        return view('livewire.facility.facility-index')
+			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Fasilitas']);
     }
 	
 	public function refreshGaleri(){
 		$this->reset();
 	}
 	
-	public function tambahGaleri(){
+	public function tambahFasilitas(){
 		$this->dispatchBrowserEvent('bukaFormGaleri');
 	}
 	
@@ -39,7 +39,7 @@ class GaleriIndex extends Component
 	}
 	
 	public function hapusGaleri(){
-		$galeri = Galeri::find($this->galeri_id);
+		$galeri = FasilitasModel::find($this->galeri_id);
 		$galeri->delete();
 		$this->galeri_id = null;
 		$this->closeFormHapus();

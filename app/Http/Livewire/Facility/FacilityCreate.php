@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\Galeri;
+namespace App\Http\Livewire\Facility;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Models\Galeri;
+use App\Models\FasilitasModel;
 
-class GaleriCreate extends Component
+class FacilityCreate extends Component
 {
 	use WithFileUploads;
 	
@@ -15,7 +15,7 @@ class GaleriCreate extends Component
 	
     public function render()
     {
-        return view('livewire.galeri.galeri-create');
+        return view('livewire.facility.facility-create');
     }
 	
 	public function hapusGambar(){
@@ -34,7 +34,7 @@ class GaleriCreate extends Component
 			'judul' => $this->judul,
 			'gambar' => $gambar
 		];
-		Galeri::create($data);
+		FasilitasModel::create($data);
 		$this->emit('refreshGaleri');
 		$this->reset();
 		$this->closeFormGaleri();

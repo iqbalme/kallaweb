@@ -130,13 +130,6 @@ class PendaftarForm extends Component
 				'price' => $this->biaya_layanan
 			];
 		}
-		$fees = [];
-		if($this->discount > 0){
-			$fees[] = [
-				'type' => 'Diskon Voucher',
-				'value' => '-'.$this->discount
-			];
-		}
 		$nama = $this->splitName($this->data['nama_lengkap']);
 		$external_id = $this->generateInvoiceNo();
 		if(count($nama) > 1){
@@ -180,9 +173,16 @@ class PendaftarForm extends Component
 			'failure_redirect_url' => route('xendit.failed.route'),
 			//'failure_redirect_url' => 'https://1a91-114-5-247-133.ngrok.io/api/failed_payment_callback',
 			'currency' => 'IDR',
-			'items' => $items,
-			'fees' => $fees
+			'items' => $items
 		  ];
+		  $fees = [];
+			if($this->discount > 0){
+				$fees[] = [
+					'type' => 'Diskon Voucher',
+					'value' => '-'.$this->discount
+				];
+				$params['fees'] = $fees;
+			}
 		  $isVoucher = false;
 		  if($this->kodeVoucher){
 			  $isVoucher = true;

@@ -55,7 +55,7 @@
                     <li><a href="#">Tentang Kampus</a></li>
                     <li><a href="{{route('struktur')}}">Struktur Organisasi</a></li>
                     <li><a href="{{route('team.show')}}">Profil Dosen</a></li>
-                    <li><a href="{{route('galeri.show')}}">Fasilitas</a></li>
+                    <li><a href="{{route('fasilitas.show')}}">Fasilitas</a></li>
                   </ul>
 				</li>
 				<li class="has-children @if((request()->route()->getName() == 'post.list')||(request()->route()->getName() == 'event.list')) active @else &nbsp; @endif"><a href="#"><span>Informasi</span></a>

@@ -28,7 +28,7 @@
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-library') }}"></use>
 		</svg> List Post</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('event.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-calendar-days nav-icon"></i> Event</a></li>
-		<li class="nav-item"><a class="nav-link" href="{{ route('galeri.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">gallery_thumbnail</i> Fasilitas</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ route('fasilitas.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">gallery_thumbnail</i> Fasilitas</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('team.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">diversity_3</i> Tim</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('testimoni.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">forum</i> Testimoni</a></li>
 		<!--li class="nav-item"><a class="nav-link" href="{{ route('carousel.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-sliders nav-icon"></i> Carousel</a></li-->
