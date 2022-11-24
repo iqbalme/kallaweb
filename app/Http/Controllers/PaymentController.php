@@ -31,7 +31,7 @@ class PaymentController extends Controller
 				return response()->json(['message' => 'for callback setting only'], 200);
 			}
 		}
-		return response()->json(['message' => 'verification failed'], 401);		
+		//return response()->json(['message' => 'verification failed'], 401);		
 	}
 	
 	public function success_payment_callback(){
