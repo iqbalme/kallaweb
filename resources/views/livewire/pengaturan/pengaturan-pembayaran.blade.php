@@ -65,7 +65,8 @@
 							<div class="input-group">
 							  <ul>
 								<li>Buka link ini: <a href="https://dashboard.xendit.co/settings/developers#callbacks" target="blank">https://dashboard.xendit.co/settings/developers#callbacks</a></li>
-								<li>Cari Invoices -> Invoice Terbayarkan, lalu isi <i>Xendit Invoice Callback</i> di atas pada kotak input tersebut dan atur pengaturan lainnya seperti gambar di bawah ini:<br><br><a href="{{asset('admin/xendit-invoice-callback.png')}}" target="blank"><img src="{{asset('admin/xendit-invoice-callback.png')}}" style="max-width:95%"></a></li>
+								<li>Sebelumnya Anda harus memilih mode pembayaran. Jika akun live belum siap, maka Anda bisa memilih mode pembayaran "Test". Namun jika Anda memilih mode pembayaran "Live" maka pastikan <i>Xendit Callback Token</i> Anda adalah token untuk live, bukan token untuk demo/test.</li>
+								<li>Cari Invoices -> Invoice Terbayarkan, lalu isi <i>Xendit Invoice Callback</i> di atas pada kotak input tersebut dan atur pengaturan lainnya seperti gambar di bawah ini:<br><br><a href="https://i.postimg.cc/s2K0x0PJ/xendit-invoice-callback.png" target="blank"><img src="https://i.postimg.cc/s2K0x0PJ/xendit-invoice-callback.png" style="max-width:95%"></a></li>
 								<li>Selanjutnya tekan <i>"Tes dan Simpan"</i></li>
 							  </ul>
 							</div>
