@@ -81,7 +81,7 @@
 							<h5 class="card-title mb-2">Webhook URL</h5>
 						</div>
 						<div class="col-lg-4">
-							  <input type="text" class="form-control" wire:model="settings.admisi_webhook_url">
+							  <input type="text" class="form-control" wire:model="settings.admisi_webhook_url" placeholder="https://">
 							</div>
 					</div>
 					@endif
