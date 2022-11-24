@@ -75,7 +75,7 @@
 							</div>
 						</div>
 					</div>
-					
+					@if($settings['admisi_webhook_status'])
 					<div class="row mt-1">
 						<div class="col-lg-4">
 							<h5 class="card-title mb-2">Webhook URL</h5>
@@ -84,7 +84,7 @@
 							  <input type="text" class="form-control" wire:model="settings.admisi_webhook_url">
 							</div>
 					</div>
-					
+					@endif
 					<hr>
 					<div class="row mb-2">
 						<button type="submit" class="btn btn-primary btn-lg">Simpan</button>
