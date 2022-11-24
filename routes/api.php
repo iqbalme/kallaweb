@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,4 @@ Route::post('upload-thumbnail', [PostController::class, 'upload_thumbnail'])->na
 Route::post('xendit_invoice_update', [PaymentController::class, 'updateInvoice'])->name('xendit.invoice.update');
 Route::get('success_payment_callback', [PaymentController::class, 'success_payment_callback'])->name('xendit.success.route');
 Route::get('failed_payment_callback', [PaymentController::class, 'failed_payment_callback'])->name('xendit.failed.route');
+Route::get('tes-hapus-file', [TestController::class, 'hapusfile']);

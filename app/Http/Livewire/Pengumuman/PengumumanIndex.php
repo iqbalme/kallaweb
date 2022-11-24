@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Pengumuman;
 
 use Livewire\Component;
 use App\Models\Pengumuman;
+use Illuminate\Support\Facades\Storage;
 
 class PengumumanIndex extends Component
 {
@@ -29,7 +30,9 @@ class PengumumanIndex extends Component
 	
 	public function hapusPengumumanItem(){
 		$pengumuman = Pengumuman::find($this->pengumuman_id);
+		$nama_file = $pengumuman->file_pengumuman;
 		$pengumuman->delete();
+		Storage::delete('public/files/'.$nama_file);
 		$this->reset();
 		$this->dispatchBrowserEvent('closeHapusPengumuman');
 	}

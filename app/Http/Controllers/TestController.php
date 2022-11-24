@@ -51,4 +51,8 @@ class TestController extends Controller
 	public function getredirect(Request $request){
 		dd(request()->headers->get('keyq'));
 	}
+	
+	public function hapusfile(){
+		Storage::delete('public/files/M8EiN5c9d0pQr3h1i7hBBeJnWQN1H9-metaemc3SzNDNWhrVmx5SlRzRGw1dGF4YUhJckxEZlp4RWJJUWh4YnNUbS5wZGY=-.pdf');
+	}
 }
