@@ -51,10 +51,10 @@
 									</div>
 									<div class="footer_social">
 										<ul>
-											<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+											<li><a href="{{'https://facebook.com/'.$data['facebook']}}" target="blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+											<li><a href="{{'https://youtube.com/'.$data['youtube']}}" target="blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+											<li><a href="{{'https://instagram.com/'.$data['instagram']}}" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+											<li><a href="{{'https://twitter.com/'.$data['twitter']}}" target="blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 										</ul>
 									</div>
 								</div>
@@ -81,17 +81,15 @@
 					
 								<!-- Footer links -->
 								<div class="footer_section footer_links">
-									<div class="footer_title">Contact Us</div>
+									<div class="footer_title">Halaman</div>
 									<div class="footer_links_container">
 										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="about.html">About</a></li>
-											<li><a href="contact.html">Contact</a></li>
-											<li><a href="#">Features</a></li>
-											<li><a href="courses.html">Courses</a></li>
-											<li><a href="#">Events</a></li>
-											<li><a href="#">Gallery</a></li>
-											<li><a href="#">FAQs</a></li>
+											<li><a href="{{route('home')}}">Beranda</a></li>
+											<li><a href="{{route('struktur')}}">Stuktur</a></li>
+											<li><a href="{{route('kontak')}}">Kontak</a></li>
+											<li><a href="{{route('fasilitas.show')}}">Fasilitas</a></li>
+											<li><a href="{{route('post.list')}}">Berita</a></li>
+											<li><a href="{{route('event.list')}}">Event</a></li>
 										</ul>
 									</div>
 								</div>

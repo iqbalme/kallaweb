@@ -1,5 +1,5 @@
 <div>
-	<div class="top-div" style="margin-bottom:25px;">&nbsp;</div>
+	<div class="top-div" style="margin-bottom:45px;">&nbsp;</div>
 	<section class="about-section">
         <div class="container">
             <div class="row">
