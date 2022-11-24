@@ -11,7 +11,6 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\Teslw;
-use App\Http\Livewire\Demo\TesComponent;
 use App\Http\Livewire\Frontend\Home;
 use App\Http\Livewire\Frontend\Home2;
 use App\Http\Livewire\Frontend\SinglePost;
@@ -68,7 +67,6 @@ use App\Http\Livewire\Pengumuman\PengumumanIndex;
 |
 */
 // Route::group(array('domain' => config('app.url')), function() {
-	Route::get('tes-component', TesComponent::class);
 	Route::get('tes1', [TestController::class, 'tesredirect']);
 	Route::get('tes2', [TestController::class, 'getredirect'])->name('tes2');
 	Route::get('teslw', Teslw::class);
