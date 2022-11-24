@@ -26,7 +26,6 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/icons@2.0.0-rc.0/css/free.min.css">
 	
 	@livewireStyles
-	@powerGridStyles
   </head>
   <body>
     @include('components.sidebar')
