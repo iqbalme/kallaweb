@@ -16,7 +16,7 @@
 		</div>			
 	</div>
 	
-   <div style="margin-top:40px;">
+   <div style="margin-top:40px;margin-bottom:40px;">
 		<div class="container">
 		<div class="row">
 			<!-- Blog Sidebar -->
