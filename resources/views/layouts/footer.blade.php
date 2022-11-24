@@ -1,3 +1,7 @@
+@php
+	$status_pendaftaran = (bool) $data['status_pendaftaran'];
+@endphp
+@if($status_pendaftaran)
 	<!-- Newsletter -->
 	@if(request()->route()->getName() != 'registrasi')
 	<div class="newsletter">
@@ -26,6 +30,7 @@
 		</div>
 	</div>
 	@endif
+@endisset
 
 	<!-- Footer -->
 
