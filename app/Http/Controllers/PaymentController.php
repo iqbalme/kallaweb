@@ -11,9 +11,13 @@ use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
     public function updateInvoice(Request $request){
-		$setting = Setting::where('nama_setting', 'xendit_callback_token');
-		if($setting->count()){
-			if($request->header('X-CALLBACK-TOKEN') == $setting->first()->isi_setting){
+		$setting_value = [];
+		$setting = Setting::whereIn('nama_setting', ['mode_pembayaran','xendit_callback_token'])->get();
+		foreach($setting as $val){
+			$setting_value[$val->nama_setting] = $val->isi_setting;
+		}
+		if($setting_value['mode_pembayaran'] == 'live'){
+			if($request->header('X-CALLBACK-TOKEN') == $setting_value['xendit_callback_token']){
 				$invoice = Invoice::where(['xendit_invoice_id' => $request->id, 'no_invoice' => $request->external_id]);
 				if($invoice->count()){
 					$invoice_data = $invoice->first();
@@ -29,9 +33,12 @@ class PaymentController extends Controller
 					return response()->json($invoice_data, 200);
 				};
 				return response()->json(['message' => 'Sukses validasi callback'], 200);
+			} else {
+				return response()->json(['message' => 'Gagal validasi callback'], 401);
 			}
+		} else {
+			return response()->json(['message' => 'Sukses validasi callback'], 200);
 		}
-		return response()->json(['message' => 'Gagal validasi callback'], 401);		
 	}
 	
 	public function success_payment_callback(){

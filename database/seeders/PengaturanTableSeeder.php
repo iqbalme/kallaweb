@@ -54,6 +54,7 @@ class PengaturanTableSeeder extends Seeder
 			['tiktok', 'ZSeGUBeem'],
 			['alamat', 'Nipah Mall Office Building, Lt.5 & 6'],
 			['biaya_layanan_admisi', 0],
+			['mode_pembayaran', 'test'],
 		];
 		foreach($settings as $setting){
 			\App\Models\Setting::create([

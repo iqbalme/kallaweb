@@ -11,7 +11,7 @@ class PengaturanPembayaran extends Component
 	public $messageSave;
 	
 	public function mount(){
-		$settings = Setting::whereIn('nama_setting', ['xendit_callback_token','xendit_key_secret','xendit_key_public'])->get();
+		$settings = Setting::whereIn('nama_setting', ['xendit_callback_token','xendit_key_secret','xendit_key_public','mode_pembayaran'])->get();
 		foreach($settings as $setting){
 			$this->settings[$setting->nama_setting] = $setting->isi_setting;
 		}

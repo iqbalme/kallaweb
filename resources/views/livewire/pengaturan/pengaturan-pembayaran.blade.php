@@ -36,6 +36,19 @@
 					</div>
 					<div class="row mt-3 mb-4">
 						<div class="col-lg-4 mt-1">
+							  <h5 class="card-title mb-0">Mode Pembayaran</h5>
+						</div>
+						<div class="col-lg-6">
+							<div class="input-group">
+							  <select class="form-control" wire:model="settings.mode_pembayaran">
+								<option value="test">Test</option>
+								<option value="live">Live</option>
+							  </select>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-3 mb-4">
+						<div class="col-lg-4 mt-1">
 							  <h5 class="card-title mb-0">Xendit Invoice Callback</h5>
 						</div>
 						<div class="col-lg-6">
