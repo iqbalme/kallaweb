@@ -38,7 +38,7 @@
 								<a class="colorbox" href="{{asset('storage/images/'.$fasilitas->gambar)}}" title="@if(isset($fasilitas->judul)) {{$fasilitas->judul}} @else {{''}} @endif">
 									<img src="{{asset('storage/images/'.$fasilitas->gambar)}}" alt="tes">
 								</a>
-								<div class="text-center"><strong>@if(isset($fasilitas->judul)) {{$fasilitas->judul}} @else {{'&nbsp;'}} @endif</strong></div>
+								<div class="text-center"><strong>@if(isset($fasilitas->judul)) {{$fasilitas->judul}} @else &nbsp @endif</strong></div>
 							</li>
 							@endforeach
 						</ul>
