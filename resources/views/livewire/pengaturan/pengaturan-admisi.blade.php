@@ -84,6 +84,14 @@
 							  <input type="text" class="form-control" wire:model="settings.admisi_webhook_url" placeholder="https://">
 							</div>
 					</div>
+					<div class="row mt-1">
+						<div class="col-lg-4">
+							<h5 class="card-title mb-2">Contoh Request</h5>
+						</div>
+						<div class="col-lg-4">
+							  <div class="form-control" id="webhook_req" style="background-color: #d8dbe0;border-color: #b1b7c1;opacity: 1;">{"nama" : "Budi Sudarto", "email" : "budisudarto@gmail.com", "hp" : "085362426119", "no_ktp" : "7326294748952100", "prodi" : "Bisnis Digital"}</div>
+						</div>
+					</div>
 					@endif
 					<hr>
 					<div class="row mb-2">
@@ -107,5 +115,14 @@
 	function refreshPage(){
 		location.reload();
 	}
+	function printTheJSONInPrettyFormat() {
+      var badJSON = document.getElementById('webhook_req').innerText;
+      var parseJSON = JSON.parse(badJSON);
+      var JSONInPrettyFormat = JSON.stringify(parseJSON, undefined, 4);
+      document.getElementById('webhook_req').innerText = JSONInPrettyFormat;
+   }
+    window.addEventListener('prettyReqForm', event => {
+		printTheJSONInPrettyFormat();
+	});
 	</script>
 </div>

@@ -30,7 +30,7 @@ class PengaturanAdmisi extends Component
 		$datas = [];
 
 		foreach($this->settings as $key => $val){
-			if(in_array($key, ['status_pendaftaran', 'is_voucher'])){
+			if(in_array($key, ['status_pendaftaran', 'is_voucher', 'admisi_webhook_status'])){
 				$val = (boolean) $val;
 			}
 			$datas[] = [$key, $val];

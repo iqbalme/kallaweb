@@ -13,8 +13,7 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
         "webreinvent/laravel-nestable": "^0.0.3",
-        "xendit/xendit-php": "^2.19",
-        "yoeunes/toastr": "^2.0"
+        "xendit/xendit-php": "^2.19"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
