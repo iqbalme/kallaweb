@@ -68,6 +68,7 @@
 					photo: true,
 					maxWidth: '90%'
 				});
+				$('.gallery_item img').height($('.gallery_item img').width()*0.65);
 			}
 		}
 		initColorbox();
