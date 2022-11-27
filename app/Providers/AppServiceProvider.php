@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Setting;
+use App\Models\Pendaftar;
+use App\Observers\PendaftarObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,5 +42,6 @@ class AppServiceProvider extends ServiceProvider
 		// $this->publishes([
 			// __DIR__.'/../../public' => resource_path('vendor/mervick'),
 		// ], 'material-design-icon');
+		Pendaftar::observe(PendaftarObserver::class);
     }
 }

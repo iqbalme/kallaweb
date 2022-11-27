@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Role;
-use App\Models\Category;
-use App\Models\PostCategory;
 use App\Models\Post;
+use App\Models\Category;
 use App\Models\Pendaftar;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
+use App\Models\PostCategory;
+use Illuminate\Http\Request;
+use App\Mail\registrationMail;
 use App\Http\Traits\CommonTrait;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class TestController extends Controller
 {
@@ -54,5 +56,30 @@ class TestController extends Controller
 	
 	public function hapusfile(){
 		Storage::delete('public/files/M8EiN5c9d0pQr3h1i7hBBeJnWQN1H9-metaemc3SzNDNWhrVmx5SlRzRGw1dGF4YUhJckxEZlp4RWJJUWh4YnNUbS5wZGY=-.pdf');
+	}
+	
+	public function tes_email(){
+		$data = [
+			'email' => 'pendaftar_satu@gmail.com',
+			'password' => 'JGAGEW562H4LL'
+		];
+		if($this->kirimEmail('webcracking@gmail.com', new registrationMail($data))){
+			return 'terkirim';
+		} else {
+			return 'gagal';
+		}
+	}
+	
+	public function pendaftar(Request $request){
+		//dd($request);
+		Pendaftar::create($request->all());
+		return 'sudah diinput';
+	}
+	
+	public function update_pendaftar(Request $request){
+		$pendaftar = Pendaftar::find($request->id);
+		$pendaftar->aktif = 1;
+		$pendaftar->save();
+		return 'sudah diupdate';
 	}
 }

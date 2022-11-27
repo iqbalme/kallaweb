@@ -6,6 +6,9 @@ use App\Models\Setting;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use App\Models\Pendaftar;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailable;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -107,5 +110,36 @@ trait CommonTrait
         $items = $items instanceof Collection ? $items : Collection::make($items);
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
+	
+	public function kirimEmail($email_tujuan, Mailable $mail_class){
+		$settings = Setting::whereIn('nama_setting', ['smtp_server','smtp_port','smtp_username','smtp_password','email_pengirim','email_nama','smtp_encryption'])->get();
+		foreach($settings as $setting){
+			$settings[$setting->nama_setting] = $setting->isi_setting;
+		}
+		$data_pengirim = [
+			'address' => $settings['email_pengirim'],
+			'name' => $settings['email_nama']
+		];
+		$data_smtp = [
+			'transport' => 'smtp',
+			'host' => $settings['smtp_server'],
+			'port' => $settings['smtp_port'],
+			'encryption' => $settings['smtp_encryption'],
+			'username' => $settings['smtp_username'],
+			'password' => $settings['smtp_password']
+		];
+		config()->set('mail.mailers', array_merge(config('mail.mailers'), [
+			'smtp2' => $data_smtp
+		]));
+		config(['mail.from' => $data_pengirim]);
+		try {
+			Mail::mailer('smtp2')->to(['webcracking@gmail.com'])->send($mail_class);
+			Log::info('Kirim email ke pendaftar');
+			return true;
+		} catch (exception $e) {
+			Log::error($e->message);
+			return false;
+		}
+	}
 	
 }

@@ -21,4 +21,8 @@ class Event extends Model
         return strip_tags($this->removeContentTag($this->deskripsi_event));
     }
 	
+	public function peserta_event(){
+		return $this->hasMany(PesertaEvent::class);
+	}
+	
 }

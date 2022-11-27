@@ -64,6 +64,26 @@
 							</div>
 						</div>
 					</div>
+					<div class="row mt-3 mb-4">
+						<div class="col-lg-4 mt-1">
+							  <h5 class="card-title mb-0">Nama Pengirim</h5>
+						</div>
+						<div class="col-lg-6">
+							<div class="input-group">
+							  <input type="text" class="form-control" wire:model.defer="settings.email_nama">
+							</div>
+						</div>
+					</div>
+					<div class="row mt-3 mb-4">
+						<div class="col-lg-4 mt-1">
+							  <h5 class="card-title mb-0">Email Pengirim</h5>
+						</div>
+						<div class="col-lg-6">
+							<div class="input-group">
+							  <input type="email" class="form-control" wire:model.defer="settings.email_pengirim">
+							</div>
+						</div>
+					</div>
 					<hr>
 					<div class="container p-3">
 					<div class="row mb-2">

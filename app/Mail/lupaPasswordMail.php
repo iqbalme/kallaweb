@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use Illuminate\Mail\Mailables\Address;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -10,19 +9,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class registrationMail extends Mailable
+class lupaPasswordMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-	public $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct()
     {
-        $this->data = $data;
+        //
     }
 
     /**
@@ -33,7 +31,7 @@ class registrationMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Informasi Login Kalla Institute'
+            subject: 'Lupa Password Mail',
         );
     }
 
@@ -45,7 +43,7 @@ class registrationMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'mail.login-info',
+            view: 'view.name',
         );
     }
 

@@ -45,6 +45,7 @@
                           </th>
                           <th class="text-center" colspan="2">Nama Event</th>
                           <th class="text-center">Tanggal</th>
+						  <th class="text-center">Pendaftar</th>
 						  <th class="text-center">Voucher</th>
 						  <th></th>
                         </tr>
@@ -77,6 +78,9 @@
 							<span class="badge text-bg-info text-white">{{ $event->waktu_mulai->format('d M Y H:i') }}</span></div>
 							<span class="badge text-bg-warning text-white">{{ $event->waktu_berakhir->format('d M Y H:i') }}</span>
 							<!--div class="small text-medium-emphasis">{{date('H:i', strtotime($event->waktu_mulai)).'-'.date('H:i', strtotime($event->waktu_berakhir))}}</div-->
+                          </td>
+						  <td class="text-center">
+							<button type="button" class="btn btn-info text-white" wire:click="lihatPesertaEvent({{ $event->id }})">{{$event->peserta_event->count()}}</button>
                           </td>
 						  <td class="text-center">
 							@if($event->voucher_id)
@@ -119,22 +123,20 @@
 	  </div>
 	</div>
 	
-	<!--div class="modal fade" id="roleModalView" tabindex="-1" wire:ignore.self>
+	<div class="modal fade" id="eventListPeserta" tabindex="-1" wire:ignore.self>
 	  <div class="modal-dialog">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLabel">Role</h5>
+			<h5 class="modal-title" id="exampleModalLabel">List Peserta Event</h5>
 			<button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
 		  </div>
 		  <div class="modal-body">
-			Apakah Anda yakin ingin menghapusnya?
-		  </div>
-		  <div class="modal-footer">
-			<button type="button" class="btn btn-primary text-white" data-coreui-dismiss="modal">Tutup</button>
+			<livewire:event.peserta-event :event_id="$event_id" />
 		  </div>
 		</div>
 	  </div>
-	</div-->
+	</div>
+	
 	@if($isUpdate)
 		<livewire:event.event-update />
 	@else
@@ -150,6 +152,9 @@
 	});
 	window.addEventListener('bukaFormEventEdit', event => {
 		jQuery('#eventModalEdit').modal('show');
+	});
+	window.addEventListener('bukaListPeserta', event => {
+		jQuery('#eventListPeserta').modal('show');
 	});
 	</script>
 </div>

@@ -11,7 +11,7 @@ class PengaturanMail extends Component
 	public $messageSave = false;
 	
 	public function mount(){
-		$settings = Setting::whereIn('nama_setting', ['smtp_server','smtp_port','smtp_username','smtp_password'])->get();
+		$settings = Setting::whereIn('nama_setting', ['smtp_server','smtp_port','smtp_username','smtp_password','email_nama','email_pengirim'])->get();
 		foreach($settings as $setting){
 			$this->settings[$setting->nama_setting] = $setting->isi_setting;
 		}

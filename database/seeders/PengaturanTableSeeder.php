@@ -44,6 +44,8 @@ class PengaturanTableSeeder extends Seeder
 			['smtp_username', ''],
 			['smtp_password', ''],
 			['smtp_encryption', 'tls'],
+			['email_pengirim', 'info@kallainstitute.ac.id'],
+			['email_nama', 'Kalla Institute'],
 			['pesan_admisi_non_aktif', 'Pendaftaran belum dibuka'],
 			['email', 'info@kallainstitute.ac.id'],
 			['no_kontak', '+(62) 811 4390 2019'],
@@ -57,6 +59,7 @@ class PengaturanTableSeeder extends Seeder
 			['mode_pembayaran', 'test'],
 			['admisi_webhook_status', 0],
 			['admisi_webhook_url', ''],
+			['event_webhook_url', ''],
 		];
 		foreach($settings as $setting){
 			\App\Models\Setting::create([

@@ -62,47 +62,10 @@
 							  <input type="text" class="form-control" wire:model="settings.pesan_admisi_non_aktif">
 							</div>
 					</div>
-					<div class="row mt-1">
-						<div class="col-lg-4">
-							<h5 class="card-title mb-3">Gunakan webhook</h5>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-check mt-1">
-							  <input class="form-check-input" type="checkbox" wire:model="settings.admisi_webhook_status">
-							  <label class="form-check-label">
-							  <h6 class="card-title mb-0">&nbsp;&nbsp;Aktif</h6>
-							  </label>
-							</div>
-						</div>
-					</div>
-					@if($settings['admisi_webhook_status'])
-					<div class="row mt-1">
-						<div class="col-lg-4">
-							<h5 class="card-title mb-2">Webhook URL</h5>
-						</div>
-						<div class="col-lg-4">
-							  <input type="text" class="form-control" wire:model="settings.admisi_webhook_url" placeholder="https://">
-							</div>
-					</div>
-					<div class="row mt-1">
-						<div class="col-lg-4">
-							<h5 class="card-title mb-2">Contoh Request</h5>
-						</div>
-						<div class="col-lg-4">
-							  <div class="form-control" id="webhook_req" style="background-color: #d8dbe0;border-color: #b1b7c1;opacity: 1;">{"nama" : "Budi Sudarto", "email" : "budisudarto@gmail.com", "hp" : "085362426119", "no_ktp" : "7326294748952100", "prodi" : "Bisnis Digital"}</div>
-						</div>
-					</div>
-					@endif
 					<hr>
 					<div class="row mb-2">
 						<button type="submit" class="btn btn-primary btn-lg">Simpan</button>
 					</div>
-					@if($messageSave)
-						<div class="alert alert-success alert-dismissible fade show" role="alert" id="alertsave">
-						  Pengaturan telah disimpan
-						  <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
-						</div>
-					@endif
 				</div>
             </form>
           </div>

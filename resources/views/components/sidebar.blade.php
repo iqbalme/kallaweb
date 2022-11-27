@@ -56,6 +56,7 @@
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.pembayaran') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">payments</i> Pembayaran</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.tema') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-display nav-icon"></i> Tema</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.mail') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">contact_mail</i> Mail</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.webhook') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">webhook</i> Webhook</a></li>
 		  </ul>			
 	</li>
   </ul>
