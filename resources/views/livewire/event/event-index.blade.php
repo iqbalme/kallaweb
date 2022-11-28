@@ -131,7 +131,9 @@
 			<button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
 		  </div>
 		  <div class="modal-body">
+			@isset($event_id)
 			<livewire:event.peserta-event :event_id="$event_id" />
+			@endisset
 		  </div>
 		</div>
 	  </div>

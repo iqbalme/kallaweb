@@ -33,4 +33,9 @@
 		  </tbody>
 		</table>
 	  </div>
+	  <div class="row">
+		<div class="col text-center">
+			{{ $data->links() }}
+		</div>
+	  </div>
 </div>

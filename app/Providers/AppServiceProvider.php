@@ -5,7 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Setting;
 use App\Models\Pendaftar;
+use App\Models\PesertaEvent;
 use App\Observers\PendaftarObserver;
+use App\Observers\PendaftarEventObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -43,5 +45,6 @@ class AppServiceProvider extends ServiceProvider
 			// __DIR__.'/../../public' => resource_path('vendor/mervick'),
 		// ], 'material-design-icon');
 		Pendaftar::observe(PendaftarObserver::class);
+		PesertaEvent::observe(PesertaEventObserver::class);
     }
 }

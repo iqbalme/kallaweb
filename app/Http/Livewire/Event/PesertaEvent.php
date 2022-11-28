@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Event;
 
 use Livewire\Component;
-use App\Models\Event;
+use App\Models\PesertaEvent;
 
 class PesertaEvent extends Component
 {
@@ -12,7 +12,7 @@ class PesertaEvent extends Component
 	protected $listeners = ['get_peserta_event'];
 	
 	public function mount($event_id){
-		$this->data = Event::find($event_id)->peserta_event;
+		$this->data = PesertaEvent::where('event_id', $event_id)->orderBy('nama', 'asc')->paginate(10);
 	}
 	
     public function render()
@@ -21,8 +21,8 @@ class PesertaEvent extends Component
     }
 	
 	public function get_peserta_event($event_id){
-		$event = Event::find($event_id);
-		dd($event->peserta_event);
+		// $event = Event::find($event_id);
+		// dd($event->peserta_event);
 		// foreach($event->peserta_event->get() as $peserta){
 			// $data[] = $peserta;
 		// }

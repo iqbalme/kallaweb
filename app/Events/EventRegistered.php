@@ -14,15 +14,15 @@ class EventRegistered
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 	
-	public $pendaftar_event;
+	public $data;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($pendaftar_event)
+    public function __construct($peserta_event)
     {
-        $this->pendaftar_event = $pendaftar_event;
+        $this->peserta_event = $peserta_event;
     }
 
     /**
