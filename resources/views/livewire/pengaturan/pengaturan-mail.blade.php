@@ -46,7 +46,7 @@
 						</div>
 						<div class="col-lg-6">
 							<div class="input-group">
-							  <input type="text" class="form-control" wire:model.defer="settings.smtp_password">
+							  <input type="password" class="form-control" wire:model.defer="settings.smtp_password">
 							</div>
 						</div>
 					</div>
