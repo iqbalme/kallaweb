@@ -50,6 +50,7 @@
                           <th class="text-center">Email</th>
                           <th class="text-center">No. HP</th>
                           <th class="text-center">No. KTP</th>
+                          <th class="text-center">Asal Sekolah</th>
                           <th class="text-center">Program Studi</th>
 						  <th class="text-center">Aktif</th>
 						  <!--th>Lihat</th-->
@@ -58,7 +59,7 @@
                       <tbody>
 					  @if(count($data['pendaftars'])==0)
 						<tr class="align-middle">
-                          <td class="text-center" colspan="8">
+                          <td class="text-center" colspan="9">
 						  Tidak ada data
 						  </td>
 						</tr>
@@ -73,6 +74,7 @@
 						  <td>{{ $pendaftar['email'] }}</td>
 						  <td>{{ $pendaftar['hp'] }}</td>
 						  <td>{{ $pendaftar['no_ktp'] }}</td>
+						  <td>{{ $pendaftar['asal_sekolah'] }}</td>
 						  <td>{{ $pendaftar['prodi']['nama_prodi'] }}</td>
 						  <td class="text-center">
 							@if($pendaftar['aktif'])

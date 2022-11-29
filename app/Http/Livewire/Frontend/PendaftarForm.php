@@ -30,7 +30,7 @@ class PendaftarForm extends Component
         'data.nama_lengkap' => 'required',
         'data.no_ktp' => 'required|max:16',
         'data.email' => 'required|email',
-        'data.no_hp' => 'required|max:15'
+        'data.no_hp' => 'required|max:15',
         'data.asal_sekolah' => 'required'
     ];
 	
