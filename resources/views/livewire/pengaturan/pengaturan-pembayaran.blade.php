@@ -64,6 +64,9 @@
 						<div class="col-lg-6">
 							<div class="input-group">
 							  <ul>
+								<li>
+									Pastikan telah memiliki akun Xendit. Jika belum terdaftar, Anda bisa membuat akun dnegan melakukan klik pada link ini: <a href="https://dashboard.xendit.co/register/" target="blank">Daftar Xendit</a>. Anda juga memiliki opsi untuk memasukkan kode Promo, silakan masukkan kode berikut ini: <strong><i>BB1192D5</i></strong>.
+								</li>
 								<li>Untuk mendapatkan <i>Xendit Secret Key</i> dan <i>Xendit Callback Token</i>, silakan buka link ini: <a href="https://dashboard.xendit.co/settings/developers#callbacks" target="blank">https://dashboard.xendit.co/settings/developers#callbacks</a>.</li>
 								<li>Secret Key dan Callback Token untuk Data tes dan Data live berbeda. Untuk pembayaran secara real, maka harus menggunakan secret key dan callback token yang data live.</li>
 								<li>Sebelumnya lanjut, Anda harus memilih mode pembayaran. Jika akun live belum siap, maka Anda bisa memilih mode pembayaran "Test". Namun jika Anda memilih mode pembayaran "Live" maka pastikan <i>Xendit Callback Token</i> Anda adalah token untuk live, bukan token untuk demo/test.<br><br><a href="https://i.postimg.cc/fLNm4wS2/token-xendit.png" target="blank"><img src="https://i.postimg.cc/fLNm4wS2/token-xendit.png" style="max-width:95%"></a></li>

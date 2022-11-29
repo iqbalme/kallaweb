@@ -37,6 +37,7 @@ use App\Http\Livewire\Pengaturan\PengaturanAdmisi;
 use App\Http\Livewire\Pengaturan\PengaturanPembayaran;
 use App\Http\Livewire\Pengaturan\PengaturanMail;
 use App\Http\Livewire\Pengaturan\PengaturanWebhook;
+use App\Http\Livewire\Pengaturan\DatabaseIndex;
 use App\Http\Livewire\User\UserIndex;
 use App\Http\Livewire\Role\RoleIndex;
 use App\Http\Livewire\Prodi\ProdiIndex;
@@ -56,6 +57,7 @@ use App\Http\Livewire\Facility\FacilityIndex;
 use App\Http\Livewire\Team\TeamIndex;
 use App\Http\Livewire\Testimoni\TestimoniIndex;
 use App\Http\Livewire\Pengumuman\PengumumanIndex;
+use App\Http\Livewire\Faq\FaqIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -113,6 +115,7 @@ use App\Http\Livewire\Pengumuman\PengumumanIndex;
 		Route::get('pengaturan/admisi/', PengaturanAdmisi::class)->name('pengaturan.admisi');
 		Route::get('pengaturan/mail/', PengaturanMail::class)->name('pengaturan.mail');
 		Route::get('pengaturan/webhook/', PengaturanWebhook::class)->name('pengaturan.webhook');
+		Route::get('pengaturan/database/', DatabaseIndex::class)->name('pengaturan.database');
 		Route::get('carousel/', CarouselIndex::class)->name('carousel.index');
 		Route::get('pendaftar/', PendaftarCtrl::class)->name('pendaftar.index');
 		Route::get('menu/', MenuIndex::class)->name('pengaturan.menu');
@@ -121,6 +124,7 @@ use App\Http\Livewire\Pengumuman\PengumumanIndex;
 		Route::get('tim/', TeamIndex::class)->name('team.index');
 		Route::get('testimoni/', TestimoniIndex::class)->name('testimoni.index');
 		Route::get('pengumuman/', PengumumanIndex::class)->name('pengumuman.index');
+		Route::get('faq/', FaqIndex::class)->name('faq.index');
 		
 		//for ckeditor upload file
 		Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('ckeditor.image-upload');

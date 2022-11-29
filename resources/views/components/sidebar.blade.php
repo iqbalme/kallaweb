@@ -31,6 +31,7 @@
 		<li class="nav-item"><a class="nav-link" href="{{ route('team.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">diversity_3</i> Tim</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('testimoni.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">forum</i> Testimoni</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('pengumuman.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">campaign</i> Pengumuman</a></li>
+		<li class="nav-item"><a class="nav-link" href="{{ route('faq.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">quiz</i> FAQ</a></li>
 	  </ul>
 	</li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('voucher.index') }}">
@@ -57,6 +58,7 @@
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.tema') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-display nav-icon"></i> Tema</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.mail') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">contact_mail</i> Mail</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.webhook') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">webhook</i> Webhook</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.database') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">delete_sweep</i> Database</a></li>
 		  </ul>			
 	</li>
   </ul>

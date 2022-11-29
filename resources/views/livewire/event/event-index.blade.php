@@ -124,7 +124,7 @@
 	</div>
 	
 	<div class="modal fade" id="eventListPeserta" tabindex="-1" wire:ignore.self>
-	  <div class="modal-dialog">
+	  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 		<div class="modal-content">
 		  <div class="modal-header">
 			<h5 class="modal-title" id="exampleModalLabel">List Peserta Event</h5>
