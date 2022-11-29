@@ -9,6 +9,7 @@ class PesertaEvent extends Model
 {
     use HasFactory;
 	
+	protected $table = 'peserta_events';
 	protected $guarded = [];
 	
 	public function event(){

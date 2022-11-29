@@ -131,9 +131,7 @@
 			<button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
 		  </div>
 		  <div class="modal-body">
-			@isset($event_id)
-			<livewire:event.peserta-event :event_id="$event_id" />
-			@endisset
+			<livewire:event.peserta-event-index />
 		  </div>
 		</div>
 	  </div>
@@ -156,6 +154,8 @@
 		jQuery('#eventModalEdit').modal('show');
 	});
 	window.addEventListener('bukaListPeserta', event => {
+		//console.log(event);
+		Livewire.emitTo('event.peserta-event-index', 'get_peserta', event.detail.event);
 		jQuery('#eventListPeserta').modal('show');
 	});
 	</script>

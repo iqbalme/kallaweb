@@ -47,8 +47,7 @@ class EventIndex extends Component
 	public function lihatPesertaEvent($id){
 		$event = Event::find($id);
 		if($event->peserta_event->count()){
-			$this->event_id = $id;
-			$this->bukaListPeserta();
+			$this->bukaListPeserta($event);
 		}
 	}
 	
@@ -75,8 +74,8 @@ class EventIndex extends Component
 		$this->dispatchBrowserEvent('bukaFormEventEdit');
 	}
 	
-	public function bukaListPeserta(){
-		$this->dispatchBrowserEvent('bukaListPeserta');
+	public function bukaListPeserta($event){
+		$this->dispatchBrowserEvent('bukaListPeserta', ['event' => $event]);
 	}
 
 }

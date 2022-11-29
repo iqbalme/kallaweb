@@ -29,13 +29,21 @@
 			  </td>
 			</tr>
 			@endforeach
+		   @else
+			  <tr class="align-middle">
+				<td class="text-center" colspan="4">
+					Tidak ada data
+				</td>
+			  </tr>
 		   @endif
 		  </tbody>
 		</table>
 	  </div>
+	  @if(isset($data))
 	  <div class="row">
 		<div class="col text-center">
-			{{ $data->links() }}
+			
 		</div>
 	  </div>
+	  @endif
 </div>
