@@ -33,14 +33,15 @@ class voucherMail extends Mailable
      */
     public function envelope()
     {
-        return new Envelope(
-			if(isset($this->data['voucher'])){
+		if(isset($this->data['voucher'])){
+			return new Envelope(
 				subject: 'Informasi Pendaftaran Event Anda dan Klaim Voucher Anda!!',
-			} else {
+			);
+		} else {
+			return new Envelope(
 				subject: 'Informasi Pendaftaran Event Anda',
-			}
-            
-        );
+			);
+		}
     }
 
     /**
