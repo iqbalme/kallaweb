@@ -163,6 +163,32 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 <div>
 <div>
 <div>
+<div>Halo <strong>{{$data['peserta_event']->nama}}</strong>, Anda telah terdaftar pada Event <a href="{{route('event.show', ['event_id' => $data['event']->id])}}">"{{$data['event']->nama_event}}"</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+  </h1>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  
+@isset($data['voucher'])
+<table style="font-family:'Open Sans',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+  <tbody>
+    <tr>
+      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:'Open Sans',sans-serif;" align="left">
+        
+  <h1 class="v-line-height" style="margin: 0px; line-height: 100%; text-align: center; word-wrap: break-word; font-weight: normal; font-size: 24px;">
+    <div>
+<div>
+<div>
+<div>
+<div>
+<div>
 <div><strong>Bonus Voucher</strong></div>
 </div>
 </div>
@@ -187,10 +213,10 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 <div>
 <div>
 <div>
-@if($data->tipe_diskon == 'persen')
-	<strong>{{$data->nominal_diskon}}% OFF</strong>
+@if($data['voucher']->tipe_diskon == 'persen')
+	<strong>{{$data['voucher']->nominal_diskon}}% OFF</strong>
 @else
-	<strong>Rp. {{number_format($data->nominal_diskon)}} OFF</strong>	
+	<strong>Rp. {{number_format($data['voucher']->nominal_diskon)}} OFF</strong>	
 @endif
 </div>
 </div>
@@ -258,7 +284,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <div>
 <div>
 <div>
-<div><strong>{{$data->kode_voucher}}</strong></div>
+<div><strong>{{$data['voucher']->kode_voucher}}</strong></div>
 </div>
 </div>
 </div>
@@ -332,7 +358,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     </div>
   </div>
 </div>
-
+@endisset
 
 
 <div class="u-row-container" style="padding: 0px;background-color: transparent">

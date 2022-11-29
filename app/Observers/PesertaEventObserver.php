@@ -18,10 +18,11 @@ class PesertaEventObserver
     public function created(PesertaEvent $pesertaEvent)
     {
         $event = Event::find($pesertaEvent->event_id);
+		$voucher = null;
 		if(isset($event->voucher_id)){
-			$voucher = Voucher::where('aktif', 1)->where('id', $event->voucher_id)->first();
-			event(new EventRegistered($voucher, $pesertaEvent));	
+			$voucher = Voucher::where('aktif', 1)->where('id', $event->voucher_id)->first();	
 		}
+		event(new EventRegistered($voucher, $event, $pesertaEvent));
     }
 
     /**

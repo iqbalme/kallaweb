@@ -19,9 +19,11 @@ class voucherMail extends Mailable
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($voucher, $event, $peserta_event)
     {
-        $this->data = $data;
+        $this->data['voucher'] = $voucher;
+        $this->data['event'] = $event;
+        $this->data['peserta_event'] = $peserta_event;
     }
 
     /**
@@ -32,7 +34,12 @@ class voucherMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Klaim Voucher Kalla Institute',
+			if(isset($this->data['voucher'])){
+				subject: 'Informasi Pendaftaran Event Anda dan Klaim Voucher Anda!!',
+			} else {
+				subject: 'Informasi Pendaftaran Event Anda',
+			}
+            
         );
     }
 

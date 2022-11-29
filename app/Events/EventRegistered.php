@@ -20,9 +20,10 @@ class EventRegistered
      *
      * @return void
      */
-    public function __construct($voucher, $peserta_event)
+    public function __construct($voucher, $event, $peserta_event)
     {
         $this->data['voucher'] = $voucher;
+        $this->data['event'] = $event;
         $this->data['peserta_event'] = $peserta_event;
     }
 
