@@ -3,19 +3,19 @@
 		<div class="wizard-v1-content">
 			<div class="wizard-form">
 		        <form class="form-register" wire:submit.prevent="registrasiBaru">
-		        	<div id="form-total" role="application" class="wizard clearfix"><div class="steps clearfix"><ul role="tablist"><li role="tab" class="first {{$currentStep == 1 ? 'current' : ''}}" aria-disabled="false" aria-selected="true"><a id="form-total-t-0" href="#form-total-h-0" aria-controls="form-total-p-0"><div class="title">
+		        	<div id="form-total" role="application" class="wizard clearfix"><div class="steps clearfix"><ul role="tablist"><li role="tab" class="first {{$currentStep == 1 ? 'current' : ''}}" aria-disabled="false" aria-selected="true"><div class="title">
 			            	<span class="step-icon"><i class="zmdi zmdi-account"></i></span>
 			            	<span class="step-number">Langkah 1</span>
 			            	<span class="step-text">Data Diri</span>
-			            </div></a></li><li role="tab" class="second {{$currentStep == 2 ? 'current' : ''}}" aria-disabled="false" aria-selected="false"><a id="form-total-t-1" href="#form-total-h-1" aria-controls="form-total-p-1"><div class="title">
+			            </div></li><li role="tab" class="second {{$currentStep == 2 ? 'current' : ''}}" aria-disabled="false" aria-selected="false"><div class="title">
 			            	<span class="step-icon"><i class="zmdi zmdi-card"></i></span>
 			            	<span class="step-number">Langkah 2</span>
 			            	<span class="step-text">Info Pembayaran</span>
-			            </div></a></li><li role="tab" class="last {{$currentStep == 3 ? 'current' : ''}}" aria-disabled="false" aria-selected="false"><a id="form-total-t-2" href="#form-total-h-2" aria-controls="form-total-p-2"><span class="current-info audible"> </span><div class="title">
+			            </div></li><li role="tab" class="last {{$currentStep == 3 ? 'current' : ''}}" aria-disabled="false" aria-selected="false"><span class="current-info audible"> </span><div class="title">
 			            	<span class="step-icon"><i class="zmdi zmdi-receipt"></i></span>
 			            	<span class="step-number">Langkah 3</span>
 			            	<span class="step-text">Konfirmasi</span>
-			            </div></a></li></ul></div><div class="content clearfix">
+			            </div></li></ul></div><div class="content clearfix">
 						@if($currentStep == 1)
 		        		<!-- SECTION 1 -->
 						<div>
