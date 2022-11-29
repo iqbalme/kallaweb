@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Pendaftar;
+use App\Models\PesertaEvent;
 use App\Models\PostCategory;
 use Illuminate\Http\Request;
 use App\Mail\registrationMail;
@@ -76,10 +77,9 @@ class TestController extends Controller
 		return 'sudah diinput';
 	}
 	
-	public function update_pendaftar(Request $request){
-		$pendaftar = Pendaftar::find($request->id);
-		$pendaftar->aktif = 1;
-		$pendaftar->save();
+	public function update_peserta(Request $request){
+		$pendaftar = PesertaEvent::find(4);
+		$pendaftar->update(['no_hp' => $request->no_hp]);
 		return 'sudah diupdate';
 	}
 }

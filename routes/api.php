@@ -29,4 +29,4 @@ Route::get('failed_payment_callback', [PaymentController::class, 'failed_payment
 Route::get('event/peserta', [EventController::class, 'addPendaftarEvent'])->name('event.peserta.add');
 
 
-Route::post('tes-event', [TestController::class, 'update_pendaftar']);
+Route::post('tes-event', [TestController::class, 'update_peserta']);

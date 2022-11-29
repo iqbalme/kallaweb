@@ -7,7 +7,7 @@ use App\Models\Setting;
 use App\Models\Pendaftar;
 use App\Models\PesertaEvent;
 use App\Observers\PendaftarObserver;
-use App\Observers\PendaftarEventObserver;
+use App\Observers\PesertaEventObserver;
 
 class AppServiceProvider extends ServiceProvider
 {

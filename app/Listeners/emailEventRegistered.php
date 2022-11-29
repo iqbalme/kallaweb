@@ -29,6 +29,7 @@ class emailEventRegistered
      */
     public function handle(EventRegistered $event)
     {
-        //$this->kirimEmail($event->event->email, new voucherMail($event->pendaftar));
+	   //dd($event->data['voucher']);
+       $this->kirimEmail($event->data['peserta_event']->email, new voucherMail($event->data['voucher']));
     }
 }
