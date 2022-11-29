@@ -28,7 +28,6 @@ class EventIndex extends Component
     public function render()
     {
 		$this->data['events'] = Event::orderBy('waktu_mulai', 'desc')->orderBy('waktu_berakhir', 'desc')->where('nama_event', 'LIKE', '%'.$this->cari_event.'%')->paginate($this->perhalaman);
-		//dd($this->data);
 		$this->emit('getEvent', $this->event);
         return view('livewire.event.event-index')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Event']);

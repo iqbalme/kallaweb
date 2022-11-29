@@ -23,6 +23,7 @@ return new class extends Migration
 			$table->boolean('aktif')->default(0);
 			$table->foreignId('invoice_id')->constrained()->cascadeOnDelete();
 			$table->string('no_ktp', 16)->unique();
+			$table->string('asal_sekolah');
             $table->timestamps();
         });
     }

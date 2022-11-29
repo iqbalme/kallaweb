@@ -31,6 +31,7 @@ class PendaftarForm extends Component
         'data.no_ktp' => 'required|max:16',
         'data.email' => 'required|email',
         'data.no_hp' => 'required|max:15'
+        'data.asal_sekolah' => 'required'
     ];
 	
 	public function mount(){
@@ -38,6 +39,7 @@ class PendaftarForm extends Component
 		$this->data['no_ktp'] = null;
 		$this->data['email'] = null;
 		$this->data['no_hp'] = null;
+		$this->data['asal_sekolah'] = null;
 		
 		$settings = Setting::whereIn('nama_setting', ['nominal_admisi','is_voucher','status_pendaftaran', 'biaya_layanan_admisi'])->get();
 		foreach($settings as $setting){

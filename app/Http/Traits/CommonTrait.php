@@ -49,7 +49,8 @@ trait CommonTrait
 			'email' => $data['email'],
 			'hp' => $data['no_hp'],
 			'prodi_id' => $data['prodi'],
-			'no_ktp' => $data['no_ktp']
+			'no_ktp' => $data['no_ktp'],
+			'asal_sekolah' => $data['asal_sekolah'],
 		];
 		$invoice_data = [ 'use_voucher' => $isVoucher ];
 		if($params['amount'] == 0){

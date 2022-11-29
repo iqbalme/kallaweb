@@ -45,6 +45,12 @@
 									</div>
 								</div>
 								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label for="email">Asal Sekolah*</label>
+										<input type="email" placeholder="Email" class="form-control valid" wire:model="data.asal_sekolah" required">
+									</div>
+								</div>
+								<div class="form-row">
 									<div class="form-holder">
 										<label for="password">No. HP.*</label>
 										<input type="text" placeholder="No. HP" class="form-control" maxlength="15"  wire:model="data.no_hp" required>

@@ -15,7 +15,7 @@ class PendaftarCtrl extends Component
 	
     public function render()
     {
-		$this->data['pendaftars'] = Pendaftar::orderBy('id', 'DESC')->where('nama', 'LIKE', '%'.$this->cari_pendaftar.'%')->orWhere('email', 'LIKE', '%'.$this->cari_pendaftar.'%')->orWhere('no_ktp', 'LIKE', '%'.$this->cari_pendaftar.'%')->orWhere('hp', 'LIKE', '%'.$this->cari_pendaftar.'%')->paginate($this->perhalaman);
+		$this->data['pendaftars'] = Pendaftar::orderBy('id', 'DESC')->where('nama', 'LIKE', '%'.$this->cari_pendaftar.'%')->orWhere('email', 'LIKE', '%'.$this->cari_pendaftar.'%')->orWhere('no_ktp', 'LIKE', '%'.$this->cari_pendaftar.'%')->orWhere('hp', 'LIKE', '%'.$this->cari_pendaftar.'%')->orWhere('asal_sekolah', 'LIKE', '%'.$this->cari_pendaftar.'%')->paginate($this->perhalaman);
         return view('livewire.admin.pendaftar')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Pendaftar']);
     }
