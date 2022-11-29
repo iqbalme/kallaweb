@@ -190,7 +190,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 @if($data->tipe_diskon == 'persen')
 	<strong>{{$data->nominal_diskon}}% OFF</strong>
 @else
-	<strong>Rp. {{$data->nominal_diskon}} OFF</strong>	
+	<strong>Rp. {{number_format($data->nominal_diskon)}} OFF</strong>	
 @endif
 </div>
 </div>
