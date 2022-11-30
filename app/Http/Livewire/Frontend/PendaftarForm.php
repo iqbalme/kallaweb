@@ -150,20 +150,20 @@ class PendaftarForm extends Component
 			],
 			'customer_notification_preference' => [
 				'invoice_created' => [
-					'whatsapp',
-					'sms',
+					// 'whatsapp',
+					// 'sms',
 					'email'
 				],
-				'invoice_reminder' => [
-					'whatsapp',
-					'sms',
-					'email'
-				],
-				'invoice_paid' => [
-					'whatsapp',
-					'sms',
-					'email'
-				],
+				// 'invoice_reminder' => [
+					// 'whatsapp',
+					// 'sms',
+					// 'email'
+				// ],
+				// 'invoice_paid' => [
+					// 'whatsapp',
+					// 'sms',
+					// 'email'
+				// ],
 				// 'invoice_expired' => [
 					// 'whatsapp',
 					// 'sms',
@@ -183,8 +183,13 @@ class PendaftarForm extends Component
 					'type' => 'Diskon Voucher',
 					'value' => '-'.$this->discount
 				];
-				$params['fees'] = $fees;
+			} else {
+				$fees[] = [
+					'type' => 'Potongan',
+					'value' => 0
+				];
 			}
+			$params['fees'] = $fees;
 		  $isVoucher = false;
 		  if($this->kodeVoucher){
 			  $isVoucher = true;
