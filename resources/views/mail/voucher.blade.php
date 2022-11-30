@@ -289,7 +289,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
 </div>
 </div>
   </h1>
-    <div style="font-size:15px;color:#ccc;">
+    <div style="font-size:15px;color:#5b5b5b;">
 	<center>
     @if((isset($data['voucher']->awal_berlaku)) && (!isset($data['voucher']->akhir_berlaku)))
 		{{'Berlaku mulai: '.$data['voucher']->awal_berlaku->format('d M Y')}}

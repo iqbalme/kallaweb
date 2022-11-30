@@ -50,13 +50,19 @@
 						</div>
 						<div class="row mt-2 justify-content-between">
 							<div class="col-md-2">&nbsp;</div>
-							<div class="col-md-5 text-end">
-							@if(isset($event->link_daftar))
-								<a type="button" class="btn btn-primary" href="{{$event->link_daftar}}" target="blank">BUKA LINK PENDAFTARAN</a>
+							@if((date('Y-m-d H:i') >= $event->waktu_mulai) && (date('Y-m-d H:i') <= $event->waktu_berakhir))
+								<div class="col-md-5 text-end">
+								@if(isset($event->link_daftar))
+									<a type="button" class="btn btn-primary" href="{{$event->link_daftar}}" target="blank">BUKA LINK PENDAFTARAN</a>
+								@else
+									<button type="button" class="btn btn-primary" onclick="showEventRegistration()">DAFTAR EVENT</button>
+								@endif
+								</div>
 							@else
-								<button type="button" class="btn btn-primary" onclick="showEventRegistration()">DAFTAR EVENT</button>
+								<div class="alert alert-warning" role="alert">
+								  Event telah berakhir
+								</div>
 							@endif
-							</div>
 						</div>
 						
 					</div>
