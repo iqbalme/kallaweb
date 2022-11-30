@@ -14,23 +14,23 @@ img {
 /*--------------------------------------------------------------
 # Links
 --------------------------------------------------------------*/
-a {
+.heading a {
     color: #383749;
 }
 
-a:visited {
+.heading a:visited {
     color: #757686;
 }
 
-a:hover, a:focus, a:active {
+.heading a:hover, a:focus, a:active {
     color: #383749;
 }
 
-a:focus {
+.heading a:focus {
     outline: thin dotted;
 }
 
-a:hover, a:active {
+.heading a:hover, a:active {
     outline: 0;
     list-style: none;
 }
