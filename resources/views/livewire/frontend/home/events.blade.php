@@ -8,7 +8,7 @@
                     <header class="heading-ctm heading flex justify-content-between align-items-center">
                         <h2 class="section_title">Upcoming Events</h2>
 
-                        <a class="btn mt-4 mt-sm-0" href="{{route('event.list')}}">Lihat Semua</a>
+                        <a class="btnc mt-4 mt-sm-0" href="{{route('event.list')}}">Lihat Semua</a>
                     </header><!-- .heading -->
                 </div><!-- .col -->
 				@foreach($data['events'] as $event)

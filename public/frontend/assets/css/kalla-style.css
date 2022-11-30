@@ -512,7 +512,7 @@
 		margin-bottom: 0px;
 	}
 	
-	.heading-ctm a.btn {
+	.heading-ctm a.btnc {
 		padding: 16px 48px;
 		border: 2px solid #34d986;
 		border-radius: 0;
@@ -524,7 +524,7 @@
 		color: #383749;
 		text-decoration: none;
 	}
-	.heading-ctm a.btn:hover {
+	.heading-ctm a.btnc:hover {
 		color: #fff;
 		background: #34d986;
 	}
