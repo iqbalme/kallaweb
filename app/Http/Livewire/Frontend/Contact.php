@@ -27,7 +27,7 @@ class Contact extends Component
     }
 	
 	public function kirimPesan(){
-		if($this->kirimEmail($this->data['email'], new ContactMail($this->data))){
+		if($this->kirimEmail('m.fachrul@kallabs.ac.id', new ContactMail($this->data))){
 			return redirect()->route('kontak');
 		}
 	}
