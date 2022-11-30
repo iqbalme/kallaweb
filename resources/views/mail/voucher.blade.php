@@ -292,11 +292,11 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <div style="font-size:15px;color:#ccc;">
 	<center>
     @if((isset($data['voucher']->awal_berlaku)) && (!isset($data['voucher']->akhir_berlaku)))
-		Berlaku mulai: {{$data['voucher']->awal_berlaku->format('d M Y')}}
+		{{'Berlaku mulai: '.$data['voucher']->awal_berlaku->format('d M Y')}}
 	@elseif((!isset($data['voucher']->awal_berlaku)) && (isset($data['voucher']->akhir_berlaku)))
-		Berlaku hingga: {{$data['voucher']->akhir_berlaku->format('d M Y')}}
+		{{'Berlaku hingga: '.$data['voucher']->akhir_berlaku->format('d M Y')}}
 	@elseif((isset($data['voucher']->awal_berlaku)) && (isset($data['voucher']->akhir_berlaku)))
-		Berlaku pada: {{$data['voucher']->awal_berlaku->format('d M Y').' - '.$data['voucher']->akhir_berlaku->format('d M Y')}}
+		{{'Berlaku pada: '.$data['voucher']->awal_berlaku->format('d M Y').' - '.$data['voucher']->akhir_berlaku->format('d M Y')}}
 	@endif
 	</center>
 	</div>
