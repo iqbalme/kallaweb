@@ -90,15 +90,39 @@ class PendaftarForm extends Component
 	public function radeemVoucher(){
 		$voucher = Voucher::where(['kode_voucher' => $this->kodeVoucher, 'aktif' => 1]);
 		if($voucher->count()){
-			if($voucher->first()->tipe_diskon == 'persen'){
-				$this->discount = $this->biaya_admisi / 100 * $voucher->first()->nominal_diskon;
+			$valid = false;
+			if((!isset($voucher->first()->awal_berlaku)) && (!isset($voucher->first()->akhir_berlaku))){
+				$valid = true;
+			} elseif ((isset($voucher->first()->awal_berlaku)) && (isset($voucher->first()->akhir_berlaku))){
+				if((date('Y-m-d') >= $voucher->first()->awal_berlaku) && (date('Y-m-d') <= $voucher->first()->akhir_berlaku)){
+					$valid = true;
+				}
+			} elseif ((isset($voucher->first()->awal_berlaku)) && (!isset($voucher->first()->akhir_berlaku))){
+				if(date('Y-m-d') >= $voucher->first()->awal_berlaku){
+					$valid = true;
+				}
+			} elseif ((!isset($voucher->first()->awal_berlaku)) && (isset($voucher->first()->akhir_berlaku))){
+				if(date('Y-m-d') <= $voucher->first()->akhir_berlaku){
+					$valid = true;
+				}
+			}
+			
+			if($valid){
+				if($voucher->first()->tipe_diskon == 'persen'){
+					$this->discount = $this->biaya_admisi / 100 * $voucher->first()->nominal_diskon;
+				} else {
+					$this->discount = $voucher->first()->nominal_diskon;
+				};
 			} else {
-				$this->discount = $voucher->first()->nominal_diskon;
-			};
+				$this->kodeVoucher = null;
+				$this->discount = 0;
+			}		
+			
 		} else {
 			$this->kodeVoucher = null;
 			$this->discount = 0;
 		}
+		//dd(date('Y-m-d') <= $voucher->first()->akhir_berlaku);
 		$this->total_after_voucher = $this->total - $this->discount;
 	}
 	

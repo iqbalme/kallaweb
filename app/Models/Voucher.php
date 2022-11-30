@@ -10,5 +10,6 @@ class Voucher extends Model
     use HasFactory;
 	
 	protected $guarded = [];
+	protected $dates = ['awal_berlaku', 'akhir_berlaku'];
 	
 }

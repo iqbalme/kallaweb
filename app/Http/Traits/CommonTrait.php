@@ -54,7 +54,7 @@ trait CommonTrait
 		];
 		$invoice_data = [ 'use_voucher' => $isVoucher ];
 		$isExist = (bool) Pendaftar::where('email', $data['email'])->count();
-		if(!isExist){
+		if(!$isExist){
 			if($params['amount'] == 0){
 				//dd('disini');
 				$invoice_data['no_invoice'] = $this->generateInvoiceNo();

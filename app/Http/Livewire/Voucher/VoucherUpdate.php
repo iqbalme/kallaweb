@@ -31,17 +31,9 @@ class VoucherUpdate extends Component
 		$this->tipe_diskon = $voucher['tipe_diskon'];
 		$this->deskripsi_voucher = $voucher['deskripsi_voucher'];
 		$this->nama_voucher = $voucher['nama_voucher'];
-		$this->awal_berlaku = $voucher['awal_berlaku'];
-		$this->akhir_berlaku = $voucher['akhir_berlaku'];
+		$this->awal_berlaku = isset($voucher['awal_berlaku']) ? date('Y-m-d', strtotime($voucher['awal_berlaku'])) : '';
+		$this->akhir_berlaku = isset($voucher['akhir_berlaku']) ? date('Y-m-d', strtotime($voucher['akhir_berlaku'])) : '';
 		$this->aktif = $voucher['aktif'];
-		// $katalogs = Katalog::whereIn('id', explode(',',$voucher['katalog_id']))->get();
-		// foreach($katalogs as $katalog){
-			// $this->katalog_id[] = $katalog->id;
-		// }
-	}
-	
-	public function mount(){
-		//$this->katalogs = Katalog::all();
 	}
 	
 	public function render()
@@ -64,24 +56,18 @@ class VoucherUpdate extends Component
 		$this->awal_berlaku = null;
 		$this->akhir_berlaku = null;
 		$this->aktif = false;
-		//$this->katalog_id = [];
 	}
 	
 	public function update(){
-		//$katalog_id = 0;
-		// if(count($this->katalog_id)){
-			// $katalog_id = implode(',',$this->katalog_id);
-		// }
 		$data = [
 			'kode_voucher' => $this->kode_voucher,
 			'nominal_diskon' => $this->nominal_diskon,
 			'tipe_diskon' => $this->tipe_diskon,
 			'deskripsi_voucher' => $this->deskripsi_voucher,
 			'nama_voucher' => $this->nama_voucher,
-			'awal_berlaku' => $this->awal_berlaku,
-			'akhir_berlaku' => $this->akhir_berlaku,
+			'awal_berlaku' => ($this->awal_berlaku == '') ? null : $this->awal_berlaku,
+			'akhir_berlaku' => ($this->akhir_berlaku == '') ? null : $this->akhir_berlaku,
 			'aktif' => $this->aktif
-			//'katalog_id' => $katalog_id
 		];
 		$voucher = Voucher::find($this->voucher_id);
 		$voucher->update($data);
