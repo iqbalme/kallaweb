@@ -73,11 +73,12 @@ class EventCreate extends Component
 			'link_daftar' => $link_daftar,
 			'voucher_id' => $voucher_id
 		];
-		//dd($data);
-		Event::create($data);
-		$this->emit('refreshEvent');
-		$this->reset();
-		$this->closeModal();
+		if($data['waktu_mulai'] <= $data['waktu_berakhir']){
+			Event::create($data);
+			$this->emit('refreshEvent');
+			$this->reset();
+			$this->closeModal();
+		}		
 	}
 	
 	public function closeModal(){

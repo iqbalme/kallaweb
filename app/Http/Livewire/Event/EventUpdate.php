@@ -112,11 +112,12 @@ class EventUpdate extends Component
 		} else {
 			$data['gambar_event'] = null;
 		}
-		//dd($data);
-		Event::find($this->event_id)->update($data);
-		$this->emit('refreshEvent');
-		$this->reset();
-		$this->closeModal();
+		if($data['waktu_mulai'] <= $data['waktu_berakhir']){
+			Event::find($this->event_id)->update($data);
+			$this->emit('refreshEvent');
+			$this->reset();
+			$this->closeModal();
+		}
 	}
 	
 	public function closeModal(){
