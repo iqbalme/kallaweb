@@ -112,7 +112,7 @@
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 						<div class="ml-lg-auto cr_links">
-							Created by <a href="https://mediadatait.com/" target="_blank">MediaDataIT</a>
+							Created by <a href="https://mediadatait.com/" target="_blank" style="color:#fff;">MediaDataIT</a>
 						</div>
 					</div>
 				</div>
