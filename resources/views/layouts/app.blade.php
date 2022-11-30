@@ -55,9 +55,7 @@
 	</noscript>
 	<!-- End Facebook Pixel Code -->
 	@endisset
-	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="{{asset('frontend/assets/css/style-ezuca.css')}}">
-	@livewireStyles
+	
 </head>
 <body>
 <div class="super_container">
@@ -67,7 +65,9 @@
 @include('layouts.footer')
 	
 </div>
-
+<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{{asset('frontend/assets/css/style-ezuca.css')}}">
+@livewireStyles
 <!--script src="{{asset('frontend/theme/unicat/plugins/greensock/TweenMax.min.js')}}"></script>
 <script src="{{asset('frontend/theme/unicat/plugins/greensock/TimelineMax.min.js')}}"></script-->
 
