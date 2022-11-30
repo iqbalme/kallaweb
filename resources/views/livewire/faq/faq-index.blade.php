@@ -114,7 +114,7 @@
 	window.addEventListener('bukaFormFaqEdit', event => {
 		jQuery('#faqModalEdit').modal('show');
 	});
-	const myModalCreate = document.getElementById('faqModal')
+	const myModalCreate = document.getElementById('faqModal');
 	myModalCreate.addEventListener('hidden.coreui.modal', event => {
 	  Livewire.emitTo('faq.faq-create', 'resetFaq');
 	});

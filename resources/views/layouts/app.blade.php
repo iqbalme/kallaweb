@@ -20,8 +20,10 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/animate.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/responsive.css')}}">
+<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{{asset('frontend/assets/css/style-ezuca.css')}}">
+@livewireStyles
 <script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script>
-
 <!-- <script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script> -->
 <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
 @stack('scripts')
@@ -65,9 +67,7 @@
 @include('layouts.footer')
 	
 </div>
-<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="{{asset('frontend/assets/css/style-ezuca.css')}}">
-@livewireStyles
+
 <!--script src="{{asset('frontend/theme/unicat/plugins/greensock/TweenMax.min.js')}}"></script>
 <script src="{{asset('frontend/theme/unicat/plugins/greensock/TimelineMax.min.js')}}"></script-->
 

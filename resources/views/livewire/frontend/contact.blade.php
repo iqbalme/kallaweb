@@ -26,18 +26,19 @@
 					<div class="col-lg-6">
 						<div class="contact_form">
 							<div class="contact_info_title">Hubungi Kami</div>
-							<form action="#" class="comment_form">
+							<form class="comment_form" wire:submit.prevent="kirimPesan">
+							@csrf
 								<div>
 									<div class="form_title">Nama</div>
-									<input type="text" class="comment_input" required="required">
+									<input type="text" class="comment_input" wire:model="nama" required>
 								</div>
 								<div>
 									<div class="form_title">Email</div>
-									<input type="text" class="comment_input" required="required">
+									<input type="email" class="comment_input" wire:model="email" required>
 								</div>
 								<div>
 									<div class="form_title">Pesan</div>
-									<textarea class="comment_input comment_textarea" required="required"></textarea>
+									<textarea class="comment_input comment_textarea" wire:model="pesan" required></textarea>
 								</div>
 								<div>
 									<button type="submit" class="comment_button trans_200">Kirim Pesan</button>

@@ -45,5 +45,7 @@ class FaqIndex extends Component
 		$this->dispatchBrowserEvent('closeHapusFaq');
 	}
 	
-	public function refreshFaq(){}
+	public function refreshFaq(){
+		$this->isUpdate = false;
+	}
 }
