@@ -28,9 +28,15 @@ class FaqUpdate extends Component
     }
 	
 	public function update(){
-		$faq = FAQ::find($this->faq['id']);
-		$faq->update($this->faq);
-		$this->emitUp('refreshFaq');
-		$this->dispatchBrowserEvent('closeEditFaq');
+		try{
+			$faq = FAQ::find($this->faq['id']);
+			$faq->update($this->faq);
+			$this->emitUp('refreshFaq');
+			$this->dispatchBrowserEvent('setPesanNotif', ['judul' => 'Update Data', 'pesan' => 'Data telah diperbarui', 'tipe' => 'success']);
+			$this->dispatchBrowserEvent('closeEditFaq');
+		} catch (\Illuminate\Database\QueryException $e){
+			$this->dispatchBrowserEvent('setPesanNotif', ['judul' => 'Update Data Gagal', 'pesan' => $e->message, 'tipe' => 'error']);
+		}
+		
 	}
 }

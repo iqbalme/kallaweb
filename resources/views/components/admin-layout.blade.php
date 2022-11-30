@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
     <link href="{{ asset('admin/css/examples.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/icons@2.0.0-rc.0/css/free.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 	
 	@livewireStyles
   </head>
@@ -60,6 +61,34 @@
 
 	<!-- Focus plugin -->
 	<script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+	<script src="https://codeseven.github.io/toastr/build/toastr.min.js"></script>
+	<script>
+		function setToastr(judul,pesan,tipe){
+			//tipe: success, info, warning, error
+			toastr.options = {
+			  "closeButton": false,
+			  "debug": false,
+			  "newestOnTop": false,
+			  "progressBar": true,
+			  "positionClass": "toast-bottom-right",
+			  "preventDuplicates": true,
+			  "onclick": null,
+			  "showDuration": "300",
+			  "hideDuration": "1000",
+			  "timeOut": "5000",
+			  "extendedTimeOut": "1000",
+			  "showEasing": "swing",
+			  "hideEasing": "linear",
+			  "showMethod": "fadeIn",
+			  "hideMethod": "fadeOut"
+			};
+			toastr[tipe](pesan, judul);
+		}
+		window.addEventListener('setPesanNotif', event => {
+			setToastr(event.detail.judul, event.detail.pesan, event.detail.tipe);
+		});
+	</script>
+	
 	@livewireScripts
   </body>
 </html>

@@ -29,19 +29,72 @@
 							<form class="comment_form" wire:submit.prevent="kirimPesan">
 							@csrf
 								<div>
-									<div class="form_title">Nama</div>
-									<input type="text" class="comment_input" wire:model="nama" required>
+									<div class="form_title">Saya adalah</div>
+									<select class="comment_input" wire:model="data.entitas">
+										<option value="Siswa">Siswa</option>
+										<option value="Orang Tua">Orang Tua</option>
+										<option value="Lainnya">Lainnya</option>
+									</select>
 								</div>
 								<div>
-									<div class="form_title">Email</div>
-									<input type="email" class="comment_input" wire:model="email" required>
+									<div class="form_title">Nama Lengkap</div>
+									<input type="text" class="comment_input" wire:model="data.nama" required>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<div class="form_title">Email</div>
+										<input type="email" class="comment_input" wire:model="data.email" required>
+									</div>
+									<div class="col-6">
+										<div class="form_title">No. Telp./HP</div>
+										<input type="text" class="comment_input" wire:model="data.no_hp" maxLength="15" required>
+									</div>
+								</div>
+								<div>
+									<div class="form_title">Asal Sekolah</div>
+									<input type="text" class="comment_input" wire:model="data.asal_sekolah" required>
+								</div>
+								<div>
+									<div class="form_title">Dari mana Anda tahu Kalla Institute?</div>
+									<select class="comment_input" wire:model="data.sumber_info">
+										<option value="Guru BK Sekolah">Guru BK Sekolah</option>
+										<option value="Brosur">Brosur</option>
+										<option value="Billboard">Billboard</option>
+										<option value="Mahasiswa UC">Mahasiswa UC</option>
+										<option value="Education Fair / Expo">Education Fair / Expo</option>
+										<option value="Facebook">Facebook</option>
+										<option value="Instagram">Instagram</option>
+										<option value="Teman / Keluarga yang tinggal di Makassar">Teman / Keluarga yang tinggal di Makassar</option>
+										<option value="Website">Website</option>
+										<option value="Koran">Koran</option>
+										<option value="Radio">Radio</option>
+									</select>
+								</div>
+								<div>
+									<div class="form_title">Apakah Anda penduduk Indonesia?</div>
+									<select class="comment_input" wire:model="data.is_wni">
+										<option value="WNI">Ya</option>
+										<option value="WNA">Tidak</option>
+									</select>
+								</div>
+								<div>
+									<div class="form_title">Kapan Anda tertarik masuk Kalla Institute?</div>
+									<select class="comment_input" wire:model="data.angkatan">
+										<option value="Angkatan 2022">Angkatan 2022</option>
+										<option value="Angkatan 2023">Angkatan 2023</option>
+										<option value="Angkatan 2024">Angkatan 2024</option>
+										<option value="Angkatan 2025">Angkatan 2025</option>
+									</select>
 								</div>
 								<div>
 									<div class="form_title">Pesan</div>
-									<textarea class="comment_input comment_textarea" wire:model="pesan" required></textarea>
+									<textarea class="comment_input comment_textarea" wire:model="data.pesan" required></textarea>
 								</div>
-								<div>
+								<div class="row justify-content-between">
+									<div class="col-4">&nbsp;</div>
+									<div class="col-4">
 									<button type="submit" class="comment_button trans_200">Kirim Pesan</button>
+									</div>
 								</div>
 							</form>
 						</div>
@@ -70,7 +123,7 @@
 		
 		<!-- Contact Map -->
 
-		<div class="contact_map" style="margin-top:20px">
+		<div class="contact_map" style="margin-top:30px">
 
 			<!-- Google Map -->
 			
@@ -94,6 +147,9 @@
 		width: 100%;
 		padding-top: 0;
 		padding-bottom: 0;
+	}
+	.form_title {
+		font-weight: bold;
 	}
 	</style>
 </div>
