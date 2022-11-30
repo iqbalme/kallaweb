@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <header class="heading flex justify-content-between align-items-center">
+                    <header class="heading-ctm heading flex justify-content-between align-items-center">
                         <h2 class="section_title">Upcoming Events</h2>
 
                         <a class="btn mt-4 mt-sm-0" href="{{route('event.list')}}">Lihat Semua</a>
@@ -155,26 +155,7 @@
 	img {
 		vertical-align: baseline;
 	}
-	a.btn {
-		padding: 16px 48px;
-		border: 2px solid #34d986;
-		border-radius: 0;
-		font-size: 13px;
-		font-weight: bold;
-		line-height: 1;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: #383749;
-		text-decoration: none;
-	}
-	a.btn:hover {
-		color: #fff;
-		background: #34d986;
-	}
-	a:hover, a:active {
-		outline: 0;
-		list-style: none;
-	}
+	
 	</style>
 	<!-- <script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script> -->
 	<script>

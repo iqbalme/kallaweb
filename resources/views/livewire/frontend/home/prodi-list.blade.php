@@ -33,6 +33,6 @@
 			jQuery(".blog_prodi_image").height(jQuery(".blog_prodi_list").width()*0.53);
 		});
 	</script>
-	<link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css">	
+	<!--link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css"-->	
 	@endisset
 </div>

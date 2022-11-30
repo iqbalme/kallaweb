@@ -12,30 +12,6 @@ img {
 }
 
 /*--------------------------------------------------------------
-# Links
---------------------------------------------------------------*/
-.heading a {
-    color: #383749;
-}
-
-.heading a:visited {
-    color: #757686;
-}
-
-.heading a:hover, a:focus, a:active {
-    color: #383749;
-}
-
-.heading a:focus {
-    outline: thin dotted;
-}
-
-.heading a:hover, a:active {
-    outline: 0;
-    list-style: none;
-}
-
-/*--------------------------------------------------------------
 # Helper Utilities
 --------------------------------------------------------------*/
 .flex {
