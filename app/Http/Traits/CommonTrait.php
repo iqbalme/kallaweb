@@ -53,50 +53,50 @@ trait CommonTrait
 			'asal_sekolah' => $data['asal_sekolah'],
 		];
 		$invoice_data = [ 'use_voucher' => $isVoucher ];
-		if($params['amount'] == 0){
-			//dd('disini');
-			$invoice_data['no_invoice'] = $this->generateInvoiceNo();
-			$invoice_data['total'] = 0;
-			$invoice_data['xendit_invoice_id'] = null;
-			$invoice_data['status_payment'] = 'PAID';
-			$data_pendaftar['aktif'] = true;
-			if($this->createDataPendaftar($invoice_data, $data_pendaftar)){
-				//header('Key: W79AU8HOVKAIIWJIV5F0U57BWEB2ON4UWE5SJ6G3O1JLWSJHZNFSXEACDTUO5456A4V9F6M77LQYMX45NPBVAJCDMSJ913OG0WTLFMXIY42L8A4ESDL0VI7I');
-				return redirect()->route('registration.success');
+		$isExist = (bool) Pendaftar::where('email', $data['email'])->count();
+		if(!isExist){
+			if($params['amount'] == 0){
+				//dd('disini');
+				$invoice_data['no_invoice'] = $this->generateInvoiceNo();
+				$invoice_data['total'] = 0;
+				$invoice_data['xendit_invoice_id'] = null;
+				$invoice_data['status_payment'] = 'PAID';
+				$data_pendaftar['aktif'] = true;
+				if($this->createDataPendaftar($invoice_data, $data_pendaftar)){
+					//header('Key: W79AU8HOVKAIIWJIV5F0U57BWEB2ON4UWE5SJ6G3O1JLWSJHZNFSXEACDTUO5456A4V9F6M77LQYMX45NPBVAJCDMSJ913OG0WTLFMXIY42L8A4ESDL0VI7I');
+					return redirect()->route('registration.success');
+				}
+			} else {
+				Xendit::setApiKey($this->xenditApiKey);
+				$createdInvoice = \Xendit\Invoice::create($params);
+				if($createdInvoice){
+					$invoice_data['no_invoice'] = $params['external_id'];
+					$invoice_data['total'] = $params['amount'];
+					$invoice_data['xendit_invoice_id'] = $createdInvoice['id'];
+					$invoice_data['status_payment'] = $createdInvoice['status'];
+					$data_pendaftar['aktif'] = false;
+					if($this->createDataPendaftar($invoice_data, $data_pendaftar)){
+						return redirect()->away($createdInvoice['invoice_url']);
+					}
+				}	
 			}
 		} else {
-			Xendit::setApiKey($this->xenditApiKey);
-			$createdInvoice = \Xendit\Invoice::create($params);
-			if($createdInvoice){
-				$invoice_data['no_invoice'] = $params['external_id'];
-				$invoice_data['total'] = $params['amount'];
-				$invoice_data['xendit_invoice_id'] = $createdInvoice['id'];
-				$invoice_data['status_payment'] = $createdInvoice['status'];
-				$data_pendaftar['aktif'] = false;
-				if($this->createDataPendaftar($invoice_data, $data_pendaftar)){
-					return redirect()->away($createdInvoice['invoice_url']);
-				}
-			}	
+			return false;
 		}
 	}
 	
 	public function createDataPendaftar($invoice_data, $data_pendaftar){
-		$isExist = (bool) Pendaftar::where('email', $data_pendaftar['email'])->count();
-		if(!$isExist){
-			try{
-				$invoice = Invoice::create($invoice_data);
-				$pendaftar = new Pendaftar($data_pendaftar);
-				$invoice->pendaftar()->save($pendaftar);
-				return true;
-			} catch (\Illuminate\Database\QueryException $e){
-				$errorCode = $e->errorInfo[1];
-				if($errorCode == 1062){
-					return false;
-				}
+		try{
+			$invoice = Invoice::create($invoice_data);
+			$pendaftar = new Pendaftar($data_pendaftar);
+			$invoice->pendaftar()->save($pendaftar);
+			return true;
+		} catch (\Illuminate\Database\QueryException $e){
+			$errorCode = $e->errorInfo[1];
+			if($errorCode == 1062){
+				return false;
 			}
-		} else {
-			return false;
-		}		
+		}	
 	}
 	
 	public function paginate2($items, $perPage = 5, $page = null)
