@@ -150,25 +150,25 @@ class PendaftarForm extends Component
 			],
 			'customer_notification_preference' => [
 				'invoice_created' => [
-					// 'whatsapp',
-					// 'sms',
+					'whatsapp',
+					'sms',
 					'email'
 				],
-				// 'invoice_reminder' => [
-					// 'whatsapp',
-					// 'sms',
-					// 'email'
-				// ],
-				// 'invoice_paid' => [
-					// 'whatsapp',
-					// 'sms',
-					// 'email'
-				// ],
-				// 'invoice_expired' => [
-					// 'whatsapp',
-					// 'sms',
-					// 'email'
-				// ]
+				'invoice_reminder' => [
+					'whatsapp',
+					'sms',
+					'email'
+				],
+				'invoice_paid' => [
+					'whatsapp',
+					'sms',
+					'email'
+				],
+				'invoice_expired' => [
+					'whatsapp',
+					'sms',
+					'email'
+				]
 			],
 			'success_redirect_url' => route('xendit.success.route'),
 			//'success_redirect_url' => 'https://1a91-114-5-247-133.ngrok.io/api/success_payment_callback',
