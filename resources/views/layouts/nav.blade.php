@@ -50,7 +50,7 @@
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="@if(request()->route()->getName() == 'home') active @else &nbsp; @endif"><a href="{{route('home')}}"><span>Beranda</span></a></li>
-				<li class="has-children @if((request()->route()->getName() == 'struktur')||(request()->route()->getName() == 'team.show')||(request()->route()->getName() == 'galeri.show')) active @else &nbsp; @endif"><a href="#"><span>Profil</span></a>
+				<li class="has-children @if((request()->route()->getName() == 'struktur')||(request()->route()->getName() == 'team.show')||(request()->route()->getName() == 'galeri.show')||(request()->route()->getName() == 'galeri.detail')) active @else &nbsp; @endif"><a href="#"><span>Profil</span></a>
 					<ul class="dropdown arrow-top">
                     <li><a href="#">Tentang Kampus</a></li>
                     <li><a href="{{route('struktur')}}">Struktur Organisasi</a></li>
