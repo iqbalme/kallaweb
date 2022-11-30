@@ -41,9 +41,9 @@
 		editor.on('change', function (event) {
 			@this.set('faq.jawaban', event.editor.getData());
 		});
-		// window.addEventListener('setInitialJawaban', event => {
-			// CKEDITOR.instances['editor-jawaban-update'].setData(event.detail.jawaban);
-		// });
+		window.addEventListener('setInitialJawaban', event => {
+			CKEDITOR.instances['editor-jawaban-update'].setData(event.detail.jawaban);
+		});
 	});	
 	const myModalUpdate = document.getElementById('faqModalEdit');
 	myModalUpdate.addEventListener('hidden.coreui.modal', event => {

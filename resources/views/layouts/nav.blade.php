@@ -63,6 +63,7 @@
                     <li><a href="{{route('post.list')}}">Berita</a></li>
                     <li><a href="{{route('event.list')}}">Event</a></li>
                     <li><a href="{{route('pengumuman')}}">Pengumuman</a></li>
+                    <li><a href="{{route('faq')}}">F A Q</a></li>
                   </ul>
 				</li>
 				<li class="@if(request()->route()->getName() == 'kontak') active @else &nbsp; @endif"><a href="{{route('kontak')}}"><span>Kontak</span></a></li>

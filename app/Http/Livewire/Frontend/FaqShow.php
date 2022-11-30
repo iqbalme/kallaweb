@@ -12,6 +12,8 @@ class FaqShow extends Component
     public function render()
     {
 		$this->data['faqs'] = FAQ::all();
-        return view('livewire.frontend.faq-show');
+        return view('livewire.frontend.faq-show')
+			->extends('layouts.app', ['title' => 'FAQ (Frequently Asked Questions)'])
+			->section('content');
     }
 }
