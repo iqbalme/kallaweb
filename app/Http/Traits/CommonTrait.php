@@ -81,18 +81,22 @@ trait CommonTrait
 	}
 	
 	public function createDataPendaftar($invoice_data, $data_pendaftar){
-		try{
-			$invoice = Invoice::create($invoice_data);
-			$pendaftar = new Pendaftar($data_pendaftar);
-			$invoice->pendaftar()->save($pendaftar);
-			return true;
-		} catch (\Illuminate\Database\QueryException $e){
-			$errorCode = $e->errorInfo[1];
-			if($errorCode == 1062){
-				return false;
-				
+		$isExist = (bool) Pendaftar::where('email', $data_pendaftar['email'])->count();
+		if(!$isExist){
+			try{
+				$invoice = Invoice::create($invoice_data);
+				$pendaftar = new Pendaftar($data_pendaftar);
+				$invoice->pendaftar()->save($pendaftar);
+				return true;
+			} catch (\Illuminate\Database\QueryException $e){
+				$errorCode = $e->errorInfo[1];
+				if($errorCode == 1062){
+					return false;
+				}
 			}
-		}
+		} else {
+			return false;
+		}		
 	}
 	
 	public function paginate2($items, $perPage = 5, $page = null)
