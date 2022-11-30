@@ -1,5 +1,5 @@
 <div>
-	<div class="home-breadcrumb">
+    <div class="home-breadcrumb">
 		<div class="breadcrumbs_container">
 			<div class="container">
 				<div class="row">
@@ -15,22 +15,25 @@
 			</div>
 		</div>			
 	</div>
-    <section id="team" class="team ">
+	<div id="bagian-faq">
+    <section id="faq" class="faq">
       <div class="container">
-
+        <div class="section-title">
+          <h2>Profil Dosen</h2>
+          <p>{{$data->nama}}</p>
+        </div>
         <div class="row">
-		@if($teams->count())
-          @foreach($teams as $team)
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{{asset('storage/images/'.$team->gambar)}}" class="img-fluid" alt="" style="height:140px;width:140px;"></div>
-              <div class="member-info">
-                <a href="{{route('team.detail', ['team_id' => $team->id])}}"><h4>{{$team->nama}}</h4></a>
-                <span>{{$team->jabatan}}</span>
-                <!--p>Dolorum tempora officiis odit laborum officiis</p-->
-				@if(count(unserialize($team->media_sosial)))
+			<div class="col-lg-3 gambar-dosen">
+				<img src="{{asset('storage/images/'.$data->gambar)}}">
+			</div>
+			<div class="col-lg-9 deskripsi-dosen">
+			{!!$data->deskripsi!!}
+			<br />
+			<hr>
+			<strong>Kontak:</strong>
+			@if(count(unserialize($data->media_sosial)))
                 <div class="social">
-					@foreach(unserialize($team->media_sosial) as $key => $medsos)
+					@foreach(unserialize($data->media_sosial) as $key => $medsos)
 						@if($key == 'facebook')
 						  <a href="{{'https://facebook.com/'.$medsos}}" target="blank"><i class="ri-facebook-fill"></i></a>
 						@endif
@@ -45,21 +48,25 @@
 						@endif
 				  @endforeach
                 </div>
-				@endif
-              </div>
-            </div>
-          </div>
-		  @endforeach
-		@endif
-        </div>
-
-      </div>
-    </section>
+			@endif
+			</div>
+		</div>
+	  </div>
+	</section>
+	</div>
 	<link href="{{asset('frontend/assets/css/remixicon.css')}}" rel="stylesheet">
 	<style>
-	section {
-		padding: 60px 0;
-		overflow: hidden;
-	}
-	</style>
+		.gambar-dosen img {
+			max-width: 90%;
+		}
+		.deskripsi-dosen .social a i {
+			color: black;
+			font-size: 30px;
+		}
+		
+		.deskripsi-dosen .social a:hover i {
+			color: red;
+			font-size: 30px;
+		}
+	<style>
 </div>

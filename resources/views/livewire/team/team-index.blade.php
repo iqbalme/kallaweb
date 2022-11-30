@@ -47,24 +47,28 @@
                             {{ $team->jabatan }}
                           </td>
 						  <td class="text-center">
-							@if(count(unserialize($team->media_sosial)))
-								@foreach(unserialize($team->media_sosial) as $key => $medsos)
-									@if($key == 'facebook')
-										<a href="{{'https://facebook.com/'.$medsos}}" target="_blank"><i class="fa-brands fa-facebook"></i></a>&nbsp;
-									@endif
-									@if($key == 'instagram')
-										<a href="{{'https://instagram.com/'.$medsos}}" target="_blank"><i class="fa-brands fa-instagram"></i></a>&nbsp;
-									@endif
-									@if($key == 'linkedin')
-										<a href="{{'https://linkedin.com/in/'.$medsos}}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>&nbsp;
-									@endif
-									@if($key == 'email')
-										<a href="{{'mailto:'.$medsos}}" target="_blank"><i class="fa-solid fa-envelope"></i></a>&nbsp;
-									@endif
-								@endforeach
-							@else
-								-
-							@endif
+							<div class="row justify-align-center">
+								<div class="col">
+								@if(count(unserialize($team->media_sosial)))
+									@foreach(unserialize($team->media_sosial) as $key => $medsos)
+										@if($key == 'facebook')
+											<a href="{{'https://facebook.com/'.$medsos}}" target="_blank"><i class="fa-brands fa-facebook"></i></a>&nbsp;
+										@endif
+										@if($key == 'instagram')
+											<a href="{{'https://instagram.com/'.$medsos}}" target="_blank"><i class="fa-brands fa-instagram"></i></a>&nbsp;
+										@endif
+										@if($key == 'linkedin')
+											<a href="{{'https://linkedin.com/in/'.$medsos}}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>&nbsp;
+										@endif
+										@if($key == 'email')										
+											<a href="{{'mailto:'.$medsos}}" target="_blank"><i class="fa-solid fa-envelope"></i></a>&nbsp;										
+										@endif
+									@endforeach
+								@else
+									-
+								@endif
+								</div>
+							</div>
                           </td>
                           <td class="text-center">
 							<button type="button" class="btn btn-dark" wire:click="getTeam({{ $team->id }})">Edit</button>

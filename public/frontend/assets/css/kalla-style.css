@@ -533,4 +533,99 @@
 		list-style: none;
 	}
 	
-	
+	/*--------------------------------------------------------------
+# Frequently Asked Questions
+--------------------------------------------------------------*/
+.faq .faq-item {
+  margin: 20px 0;
+  padding: 20px 0;
+  border-bottom: 1px solid white;
+}
+
+.faq .faq-item i {
+  color: #dee2e6;
+  font-size: 20px;
+  float: left;
+  line-height: 0;
+  padding: 13px 0 0 0;
+  margin: 0;
+}
+
+.faq .faq-item h4 {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  margin: 0 0 10px 28px;
+  font-family: "Poppins", sans-serif;
+}
+
+.faq .faq-item p {
+  font-size: 15px;
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+#bagian-faq section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+#bagian-faq .section-bg,
+.services .icon-box {
+  background-color: #f8f9fa;
+}
+
+#bagian-faq .section-title {
+  padding-bottom: 40px;
+}
+
+#bagian-faq .section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 5px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  font-family: "Poppins", sans-serif;
+}
+
+#bagian-faq .section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #e6636a;
+  margin: 4px 10px;
+}
+
+#bagian-faq .section-title p {
+  margin: 0;
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #556270;
+}
+
+#bagian-faq {
+	font-family: "Open Sans", sans-serif;
+	color: #444444;
+}
+
+#bagian-faq a {
+  text-decoration: none;
+  color: #d9232d;
+}
+
+#bagian-faq a:hover {
+  color: #e24d55;
+  text-decoration: none;
+}
+
+#bagian-faq h1,h2,h3,h4,h5,h6 {
+  font-family: "Raleway", sans-serif;
+}

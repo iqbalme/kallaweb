@@ -16,7 +16,7 @@ class TeamList extends Component
 	public function render()
     {
         return view('livewire.frontend.team-list')
-			->extends('layouts.app', ['title' => 'List Team'])
+			->extends('layouts.app', ['title' => 'List Tim'])
 			->section('content');
     }
 }

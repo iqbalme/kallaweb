@@ -85,6 +85,7 @@
 
 		</div>
 		
+		<livewire:frontend.faq-show />
 	</div>
 	<!--link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css"-->
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/styles/contact.css')}}">
