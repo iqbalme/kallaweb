@@ -91,7 +91,7 @@ class PendaftarForm extends Component
 		$voucher = Voucher::where(['kode_voucher' => $this->kodeVoucher, 'aktif' => 1]);
 		if($voucher->count()){
 			if($voucher->first()->tipe_diskon == 'persen'){
-				$this->discount = $this->total / 100 * $voucher->first()->nominal_diskon;
+				$this->discount = $this->biaya_admisi / 100 * $voucher->first()->nominal_diskon;
 			} else {
 				$this->discount = $voucher->first()->nominal_diskon;
 			};
