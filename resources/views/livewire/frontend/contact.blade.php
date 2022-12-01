@@ -56,7 +56,7 @@
 								</div>
 								<div>
 									<div class="form_title">Dari mana Anda tahu Kalla Institute?</div>
-									<select class="comment_input" wire:model="data.sumber_info">
+									<select class="comment_input" wire:model="sumber_info">
 										<option value="Guru Sekolah">Guru Sekolah</option>
 										<option value="Brosur">Brosur</option>
 										<option value="Billboard">Billboard</option>

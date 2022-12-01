@@ -11,11 +11,13 @@ class Contact extends Component
 	use CommonTrait;
 	
 	public $data;
+	public $sumber_info;
 	
 	public function mount(){
 		$this->data['entitas'] = "Siswa";
 		$this->data['angkatan'] = "Angkatan 2022";
 		$this->data['sumber_info'] = "Guru Sekolah";
+		$this->sumber_info = $this->data['sumber_info'];
 	}
 	
     public function render()
@@ -31,6 +33,13 @@ class Contact extends Component
 		$mail_ct->cc('webcracking@gmail.com', 'Muhammad Iqbal');
 		if($this->kirimEmail('m.fachrul@kallabs.ac.id', $mail_ct)){
 			return redirect()->route('kontak');
+		}
+	}
+	
+	public function updatedSumberInfo(){
+		$this->data['sumber_info'] = $this->sumber_info;
+		if($this->sumber_info !== 'Mahasiswa Kalla Institute'){
+			$this->data['mahasiswa_penunjuk'] = null;
 		}
 	}
 }
