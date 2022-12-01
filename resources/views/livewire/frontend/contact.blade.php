@@ -70,10 +70,12 @@
 										<option value="Radio">Radio</option>
 									</select>
 								</div>
+								@if($data['sumber_info'] == 'Mahasiswa Kalla Institute')
 								<div>
 									<div class="form_title">Jika dari Mahasiswa Kalla Institute, sebutkan nama Mahasiswa tersebut</div>
-									<input type="text" class="comment_input" wire:model="data.mahasiswa_penunjuk" required>
+									<input type="text" class="comment_input" wire:model="data.mahasiswa_penunjuk">
 								</div>
+								@endif
 								<div>
 									<div class="form_title">Kapan Anda tertarik masuk Kalla Institute?</div>
 									<select class="comment_input" wire:model="data.angkatan">

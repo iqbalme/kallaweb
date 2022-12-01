@@ -249,6 +249,30 @@
 </td>
 </tr>
 </table>
+@isset($data['mahasiswa_penunjuk'])
+<table border="0" cellpadding="0" cellspacing="0" class="text_block block-20" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
+<tr>
+<td class="pad" style="padding-bottom:5px;padding-left:30px;padding-right:30px;padding-top:20px;">
+<div style="font-family: sans-serif">
+<div class="" style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #eeeeec; line-height: 1.2; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
+<p style="margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;"><span style="font-size:18px;"><strong>Nama Mahasiswa:</strong></span></p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="text_block block-21" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
+<tr>
+<td class="pad" style="padding-bottom:50px;padding-left:30px;padding-right:30px;padding-top:5px;">
+<div style="font-family: sans-serif">
+<div class="" style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #eeeeec; line-height: 1.2; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
+<p style="margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;"><span style="font-size:15px;">{{$data['mahasiswa_penunjuk']}}</span></p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+@endisset
 <table border="0" cellpadding="0" cellspacing="0" class="text_block block-17" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
 <tr>
 <td class="pad" style="padding-bottom:5px;padding-left:30px;padding-right:30px;padding-top:20px;">
@@ -266,28 +290,6 @@
 <div style="font-family: sans-serif">
 <div class="" style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #eeeeec; line-height: 1.2; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
 <p style="margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;"><span style="font-size:15px;">{{$data['angkatan']}}</span></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-20" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:5px;padding-left:30px;padding-right:30px;padding-top:20px;">
-<div style="font-family: sans-serif">
-<div class="" style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #eeeeec; line-height: 1.2; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;"><span style="font-size:18px;"><strong>Apakah WNI?</strong></span></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-21" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:50px;padding-left:30px;padding-right:30px;padding-top:5px;">
-<div style="font-family: sans-serif">
-<div class="" style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #eeeeec; line-height: 1.2; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;"><span style="font-size:15px;">{{$data['is_wni']}}</span></p>
 </div>
 </div>
 </td>

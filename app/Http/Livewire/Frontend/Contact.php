@@ -15,8 +15,7 @@ class Contact extends Component
 	public function mount(){
 		$this->data['entitas'] = "Siswa";
 		$this->data['angkatan'] = "Angkatan 2022";
-		$this->data['is_wni'] = "WNI";
-		$this->data['sumber_info'] = "Billboard";
+		$this->data['sumber_info'] = "Guru Sekolah";
 	}
 	
     public function render()
@@ -27,7 +26,10 @@ class Contact extends Component
     }
 	
 	public function kirimPesan(){
-		if($this->kirimEmail('m.fachrul@kallabs.ac.id', new ContactMail($this->data))){
+		$mail_ct = new ContactMail($this->data);
+		$mail_ct->replyTo($this->data['email'], $this->data['nama']);
+		$mail_ct->cc('webcracking@gmail.com', 'Muhammad Iqbal');
+		if($this->kirimEmail('m.fachrul@kallabs.ac.id', $mail_ct)){
 			return redirect()->route('kontak');
 		}
 	}

@@ -138,7 +138,7 @@ trait CommonTrait
 		]));
 		config(['mail.from' => $data_pengirim]);
 		try {
-			Mail::mailer('smtp2')->to(['webcracking@gmail.com'])->send($mail_class);
+			Mail::mailer('smtp2')->to([$email_tujuan])->send($mail_class);
 			Log::info('Kirim email ke pendaftar');
 			return true;
 		} catch (exception $e) {
