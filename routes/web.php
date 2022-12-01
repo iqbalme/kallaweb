@@ -28,6 +28,7 @@ use App\Http\Livewire\Frontend\TeamDetail;
 use App\Http\Livewire\Frontend\Fasilitas;
 use App\Http\Livewire\Frontend\Pengumuman;
 use App\Http\Livewire\Frontend\StrukturOrganisasi;
+use App\Http\Livewire\Frontend\TentangKampus;
 use App\Http\Livewire\Frontend\FaqShow;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Profil;
@@ -98,6 +99,7 @@ use App\Http\Livewire\Faq\FaqIndex;
 	Route::get('struktur-organisasi/', StrukturOrganisasi::class)->name('struktur');
 	Route::get('pengumuman/', Pengumuman::class)->name('pengumuman');
 	Route::get('faq/', FaqShow::class)->name('faq');
+	Route::get('tentang-kampus/', TentangKampus::class)->name('tentang-kampus');
 	Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 		Route::get('dashboard/', Dashboard::class)->name('dashboard.admin');
 		Route::get('prodi/', ProdiIndex::class)->name('prodi.index');
