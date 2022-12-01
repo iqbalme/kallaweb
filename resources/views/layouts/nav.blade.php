@@ -67,7 +67,7 @@
                   </ul>
 				</li>
 				<li class="@if(request()->route()->getName() == 'kontak') active @else &nbsp; @endif"><a href="{{route('kontak')}}"><span>Kontak</span></a></li>
-                <li class="has-children"><a href="#"><span>Admisi</span></a>
+                <li class="has-children @if((request()->route()->getName() == 'registrasi')) active @else &nbsp; @endif"><a href="#"><span>Admisi</span></a>
 					<ul class="dropdown arrow-top">
                     <li><a href="{{route('registrasi')}}">Pendaftaran Mahasiswa Baru</a></li>
                     <li><a href="#">Biaya Kuliah</a></li>
