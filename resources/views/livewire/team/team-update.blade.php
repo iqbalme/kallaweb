@@ -16,7 +16,7 @@
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Deskripsi</h6>
 					<div class="form-group" wire:ignore>
-						<textarea name="deskripsi" id="editor" required>{{ $deskripsi }}</textarea>
+						<textarea name="deskripsi" id="editor-tim" wire:model="deskripsi" required></textarea>
 					</div>
 				</div>
 				<div class="mb-3">
@@ -86,7 +86,7 @@
 		jQuery('.modal-backdrop').hide();
 	});
 	ClassicEditor
-			.create( document.querySelector( '#editor' ), {
+			.create( document.querySelector( '#editor-tim' ), {
 				ckfinder: {
 					uploadUrl: "{{route('ckeditor.image-upload') .'?_token='.csrf_token()}}"
 				}

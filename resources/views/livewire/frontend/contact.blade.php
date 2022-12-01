@@ -57,25 +57,22 @@
 								<div>
 									<div class="form_title">Dari mana Anda tahu Kalla Institute?</div>
 									<select class="comment_input" wire:model="data.sumber_info">
-										<option value="Guru BK Sekolah">Guru BK Sekolah</option>
+										<option value="Guru Sekolah">Guru Sekolah</option>
 										<option value="Brosur">Brosur</option>
 										<option value="Billboard">Billboard</option>
-										<option value="Mahasiswa UC">Mahasiswa UC</option>
+										<option value="Mahasiswa Kalla Institute">Mahasiswa Kalla Institute</option>
 										<option value="Education Fair / Expo">Education Fair / Expo</option>
 										<option value="Facebook">Facebook</option>
 										<option value="Instagram">Instagram</option>
-										<option value="Teman / Keluarga yang tinggal di Makassar">Teman / Keluarga yang tinggal di Makassar</option>
+										<option value="Teman/Kerabat/Keluarga">Teman/Kerabat/Keluarga</option>
 										<option value="Website">Website</option>
 										<option value="Koran">Koran</option>
 										<option value="Radio">Radio</option>
 									</select>
 								</div>
 								<div>
-									<div class="form_title">Apakah Anda penduduk Indonesia?</div>
-									<select class="comment_input" wire:model="data.is_wni">
-										<option value="WNI">Ya</option>
-										<option value="WNA">Tidak</option>
-									</select>
+									<div class="form_title">Jika dari Mahasiswa Kalla Institute, sebutkan nama Mahasiswa tersebut</div>
+									<input type="text" class="comment_input" wire:model="data.mahasiswa_penunjuk" required>
 								</div>
 								<div>
 									<div class="form_title">Kapan Anda tertarik masuk Kalla Institute?</div>
