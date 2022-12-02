@@ -16,7 +16,7 @@
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Deskripsi</h6>
 					<div class="form-group" wire:ignore>
-						<textarea id="editor-tim-update" wire:model="deskripsi_tim" required></textarea>
+						<textarea id="editor-tim-update"></textarea>
 					</div>
 				</div>
 				<div class="mb-3">
@@ -85,20 +85,27 @@
 		jQuery('#TeamModalEdit').modal('hide');
 		jQuery('.modal-backdrop').hide();
 	});
-	ClassicEditor
+    let cckeditor = ClassicEditor
 			.create( document.querySelector( '#editor-tim-update' ), {
 				ckfinder: {
 					uploadUrl: "{{route('ckeditor.image-upload') .'?_token='.csrf_token()}}"
 				}
-			})
-			.then( editor => {
+			});
+
+	cckeditor.then( editor => {
 				editor.model.document.on('change:data', () => {
 					@this.set('deskripsi_tim', editor.getData());
-				})
+				});
+                editor.setData();
 			})
 			.catch( error => {
 				//console.error( error );
 		});
+        window.addEventListener('setInitialDataTim', event => {
+            cckeditor.then(editor => {
+                editor.setData(event.detail.deskripsi_tim);
+            });
+        });
 	</script>
 	<style>
 		.ck-editor__editable_inline {

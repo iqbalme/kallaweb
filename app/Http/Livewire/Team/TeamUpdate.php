@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Team;
 
 use Livewire\Component;
-use App\Models\Voucher;
 use Livewire\WithFileUploads;
 use App\Models\Team;
 
@@ -45,6 +44,7 @@ class TeamUpdate extends Component
 		$this->deskripsi_tim = $team['deskripsi'];
 		$this->jabatan = $team['jabatan'];
 		$this->gambar = $team['gambar'];
+        $this->dispatchBrowserEvent('setInitialDataTim', ['deskripsi_tim' => $team['deskripsi']]);
 
 		$media_sosial = unserialize($team['media_sosial']);
 		foreach($media_sosial as $key => $medsos){
