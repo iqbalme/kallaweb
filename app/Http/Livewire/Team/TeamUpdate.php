@@ -10,10 +10,10 @@ use App\Models\Team;
 class TeamUpdate extends Component
 {
 	use WithFileUploads;
-	
+
 	public $team_id = null;
 	public $nama = null;
-	public $deskripsi = null;
+	public $deskripsi_tim = null;
 	public $jabatan = null;
 	public $facebook = null;
 	public $instagram = null;
@@ -21,16 +21,16 @@ class TeamUpdate extends Component
 	public $email = null;
 	public $gambar = null;
 	public $initGambar = true;
-	
+
 	protected $listeners = [
 		'getTeam'
 	];
-	
+
     public function render()
     {
         return view('livewire.team.team-update');
     }
-	
+
 	public function hapusGambar(){
 		if(!$this->initGambar){
 			$this->gambar->delete();
@@ -38,14 +38,14 @@ class TeamUpdate extends Component
 		$this->initGambar = false;
 		$this->gambar = null;
 	}
-	
+
 	public function getTeam($team){
 		$this->team_id = $team['id'];
 		$this->nama = $team['nama'];
 		$this->deskripsi = $team['deskripsi'];
 		$this->jabatan = $team['jabatan'];
 		$this->gambar = $team['gambar'];
-		
+
 		$media_sosial = unserialize($team['media_sosial']);
 		foreach($media_sosial as $key => $medsos){
 			if($key == 'facebook'){
@@ -59,7 +59,7 @@ class TeamUpdate extends Component
 			}
 		}
 	}
-	
+
 	public function update(){
 		$gambar = null;
 		$media_sosial = [];
@@ -97,11 +97,11 @@ class TeamUpdate extends Component
 		$this->reset();
 		$this->closeModal();
 	}
-	
+
 	public function closeModal(){
 		$this->dispatchBrowserEvent('closeModalTeamUpdate');
 	}
-	
+
 	public function updatedIsVoucher(){
 		if($this->vouchers){
 			if($this->is_voucher){
