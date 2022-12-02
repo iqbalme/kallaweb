@@ -16,7 +16,7 @@
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Deskripsi</h6>
 				  <div class="form-group" wire:ignore>
-						<textarea name="deskripsi" id="editor" wire:model="deskripsi" required></textarea>
+						<textarea id="editor-tim-create" wire:model="deskripsi" required></textarea>
 					</div>
 				</div>
 				<div class="mb-3">
@@ -70,7 +70,7 @@
 				<button type="button" class="btn btn-secondary text-white" wire:click="closeModal">Tidak</button>
 				<button type="submit" class="btn btn-primary text-white">Simpan</button>
 			</div>
-			</form>			
+			</form>
           </div>
 		</div>
 	</div>
@@ -81,7 +81,7 @@
 		jQuery('.modal-backdrop').hide();
 	});
 	ClassicEditor
-			.create( document.querySelector( '#editor' ), {
+			.create( document.querySelector( '#editor-tim-create' ), {
 				ckfinder: {
 					uploadUrl: "{{route('ckeditor.image-upload') .'?_token='.csrf_token()}}"
 				}

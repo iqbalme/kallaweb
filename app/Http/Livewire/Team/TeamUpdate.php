@@ -42,7 +42,7 @@ class TeamUpdate extends Component
 	public function getTeam($team){
 		$this->team_id = $team['id'];
 		$this->nama = $team['nama'];
-		$this->deskripsi = $team['deskripsi'];
+		$this->deskripsi_tim = $team['deskripsi'];
 		$this->jabatan = $team['jabatan'];
 		$this->gambar = $team['gambar'];
 
@@ -86,7 +86,7 @@ class TeamUpdate extends Component
 		}
 		$data = [
 			'nama' => $this->nama,
-			'deskripsi' => $this->deskripsi,
+			'deskripsi' => $this->deskripsi_tim,
 			'jabatan' => $this->jabatan,
 			'media_sosial' => count($media_sosial) ? serialize($media_sosial) : null,
 			'gambar' => $gambar

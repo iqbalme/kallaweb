@@ -13,7 +13,7 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
 	<div id="bagian-faq">
     <section id="faq" class="faq">
@@ -63,7 +63,7 @@
 			color: black;
 			font-size: 30px;
 		}
-		
+
 		.deskripsi-dosen .social a:hover i {
 			color: red;
 			font-size: 30px;
