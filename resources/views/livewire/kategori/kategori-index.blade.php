@@ -48,7 +48,7 @@
 						  <td>
                             {{ ucfirst($category->deskripsi_kategori) }}
                           </td>
-                          <td>
+                          <td class="text-end">
 							<button type="button" class="btn btn-dark" wire:click="getKategori({{ $category->id }})" @if($isFormVisible) disabled @endif>Edit</button>
 							<button wire:click="setKategorId({{$category->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#categoryModalEdit" @if($isFormVisible) disabled @endif>Hapus</button>
                           </td>
