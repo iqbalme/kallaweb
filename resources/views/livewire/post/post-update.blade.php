@@ -56,7 +56,7 @@
 					@endforeach
 					@endif
 				</div>
-				
+
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Tag (Pisahkan dengan koma)</h6>
 				  <input type="text" class="form-control" wire:model.lazy="tags">
@@ -86,7 +86,22 @@
 							</div>
 						</div>
 					@endif
-					<div class="row mt-5">
+                    @if ($errors->any())
+                    <div class="row mt-2">
+                        <div class="col-sm-6">
+
+                                <div class="alert alert-danger" role="alert">
+                                <ul style="margin:0;">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                                </div>
+
+                        </div>
+                    </div>
+                    @endif
+					<div class="row mt-2">
 					<hr>
 					<div class="col-lg-6 mb-2">
 							<button type="button" class="btn btn-warning btn-lg text-white w-100" wire:click="updatePost(false)">Simpan</button>
@@ -95,9 +110,9 @@
 						<button type="submit" class="btn btn-primary btn-lg w-100">Publish</button>
 					</div>
 					</div>
-				</div>	
+				</div>
             </div>
-			</form>			
+			</form>
           </div>
 		</div>
 	</div>

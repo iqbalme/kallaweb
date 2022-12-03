@@ -9,19 +9,26 @@
 				  <p class="text-medium-emphasis">Masuk ke dalam dashboard</p>
 				  <form wire:submit.prevent="authenticate">
 				  @csrf
+                  @if ($errors->any())
+                  <div class="alert alert-danger" role="alert">
+                    <ul style="margin:0;">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                  </div>
+                  @endif
 				  <div class="input-group mb-3"><span class="input-group-text">
 					  <svg class="icon">
 						<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>
 					  </svg></span>
 					<input class="form-control" type="text" wire:model="email" placeholder="Email">
-					@error('email') <span class="error">{{ $message }}</span> @enderror
 				  </div>
 				  <div class="input-group mb-4"><span class="input-group-text">
 					  <svg class="icon">
 						<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-lock-locked') }}"></use>
 					  </svg></span>
 					<input class="form-control" type="password" wire:model="password" placeholder="Password">
-					@error('password') <span class="error">{{ $message }}</span> @enderror
 				  </div>
 				  <div class="row">
 					<div class="col-6">

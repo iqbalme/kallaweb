@@ -78,7 +78,22 @@
 						</div>
 						@endif
 					</div>
-					<div class="row mt-5">
+                    @if ($errors->any())
+                    <div class="row mt-5">
+                        <div class="col-sm-6">
+
+                                <div class="alert alert-danger" role="alert">
+                                <ul style="margin:0;">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                                </div>
+
+                        </div>
+                    </div>
+                    @endif
+					<div class="row mt-2">
 						<hr>
 						<div class="col-lg-6 mb-2">
 								<button type="button" class="btn btn-warning btn-lg text-white w-100" wire:click="publishPost(false)">Simpan</button>

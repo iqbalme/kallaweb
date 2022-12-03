@@ -93,4 +93,13 @@
 		</div>
 	  </div>
 	</div>
+    <style>
+        .avatar img {
+            height: 32px;
+        }
+    </style>
+    <!--script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script>
+    <script>
+        //$('.avatar-img').height($('.avatar-img').width()*0.7);
+    </script-->
 </div>
