@@ -10,23 +10,32 @@ use App\Models\Testimoni;
 class TestimoniUpdate extends Component
 {
 	use WithFileUploads;
-	
+
 	public $testimoni_id = null;
 	public $nama = null;
 	public $deskripsi = null;
 	public $keterangan = null;
 	public $gambar = null;
 	public $initGambar = true;
-	
+
 	protected $listeners = [
 		'getTestimoni'
 	];
-	
+
+    protected $rules = [
+        'testimoni_id' => 'required',
+        'nama' => 'required',
+        'deskripsi' => 'required',
+        'keterangan' => 'required',
+        'gambar' => 'required'
+    ];
+
+
     public function render()
     {
         return view('livewire.testimoni.testimoni-update');
     }
-	
+
 	public function hapusGambar(){
 		if(!$this->initGambar){
 			$this->gambar->delete();
@@ -34,7 +43,7 @@ class TestimoniUpdate extends Component
 		$this->initGambar = false;
 		$this->gambar = null;
 	}
-	
+
 	public function getTestimoni($testimoni){
 		$this->testimoni_id = $testimoni['id'];
 		$this->nama = $testimoni['nama'];
@@ -45,8 +54,9 @@ class TestimoniUpdate extends Component
 			$this->initGambar = true;
 		}
 	}
-	
+
 	public function simpan(){
+        $this->validate();
 		$gambar = null;
 		if(isset($this->gambar)){
 			if(!$this->initGambar){
@@ -69,7 +79,7 @@ class TestimoniUpdate extends Component
 		$this->reset();
 		$this->closeModal();
 	}
-	
+
 	public function closeModal(){
 		$this->dispatchBrowserEvent('closeModalTestimoniUpdate');
 	}

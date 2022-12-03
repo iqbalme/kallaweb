@@ -18,22 +18,30 @@ class PostUpdate extends Component
 {
 	use WithFileUploads;
 	use AuthorizesRequests;
-	
+
 	public $data;
 	public $isUpdate;
 	public $thumbnail;
 	public $first_thumbnail = true;
 	public $judul;
 	public $konten;
-	public $categories = []; 
+	public $categories = [];
 	public $tags;
 	public $prodis = [];
 	public $post_id;
 	public $post_prodi;
 	public $is_headline = false;
-	
+
 	protected $listeners = ['setKonten'];
-	
+
+    protected $rules = [
+        'judul' => 'required',
+        'post_prodi' => 'required',
+        'categories' => 'required',
+        'thumbnail' => 'required',
+        'post_id' => 'required'
+    ];
+
 	public function mount($post){
 		$this->post_id = $post;
 		$updatingPost = Post::find($post);
@@ -57,7 +65,7 @@ class PostUpdate extends Component
 		}
 		$this->post_prodi = $updatingPost->post_prodi->prodi_id;
 	}
-	
+
     public function render()
     {
 		$this->data['categories'] = Category::all();
@@ -65,7 +73,7 @@ class PostUpdate extends Component
         return view('livewire.post.post-update')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / Update Post']);
     }
-	
+
 	public function removeThumbnail(){
 		if(!$this->first_thumbnail){
 			$this->thumbnail->delete();
@@ -73,12 +81,13 @@ class PostUpdate extends Component
 		$this->first_thumbnail = false;
 		$this->thumbnail = null;
 	}
-	
+
 	public function setKonten($value){
 		$this->konten = $value;
 	}
-	
+
 	public function updatePost($isPublished=true){
+        $this->validate();
 		$post_tags = [];
 		$post_categories = [];
 		$thumbnail = null;
@@ -113,7 +122,7 @@ class PostUpdate extends Component
 		if($this->is_headline) {
 			Post::where('id', '!=', $this->post_id)->update(['is_headline' => false]);
 		};
-		
+
 		$post->post_categories_data()->delete();
 		if(isset($this->categories)){
 			foreach($this->categories as $post_category){

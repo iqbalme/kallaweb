@@ -60,8 +60,8 @@
 										@if($key == 'linkedin')
 											<a href="{{'https://linkedin.com/in/'.$medsos}}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>&nbsp;
 										@endif
-										@if($key == 'email')										
-											<a href="{{'mailto:'.$medsos}}" target="_blank"><i class="fa-solid fa-envelope"></i></a>&nbsp;										
+										@if($key == 'email')
+											<a href="{{'mailto:'.$medsos}}" target="_blank"><i class="fa-solid fa-envelope"></i></a>&nbsp;
 										@endif
 									@endforeach
 								@else
@@ -70,7 +70,7 @@
 								</div>
 							</div>
                           </td>
-                          <td class="text-center">
+                          <td class="text-end">
 							<button type="button" class="btn btn-dark" wire:click="getTeam({{ $team->id }})">Edit</button>
 							<button wire:click="hapusTeam({{$team->id}})" type="button" class="btn btn-danger text-white">Hapus</button>
                           </td>
@@ -101,7 +101,7 @@
 		</div>
 	  </div>
 	</div>
-	
+
 	@if($isUpdate)
 		<livewire:team.team-update />
 	@else

@@ -25,6 +25,14 @@ class TeamUpdate extends Component
 		'getTeam'
 	];
 
+    protected $rules = [
+        'team_id' => 'required',
+        'nama' => 'required',
+        'deskripsi' => 'required',
+        'jabatan' => 'required',
+        'gambar' => 'required'
+    ];
+
     public function render()
     {
         return view('livewire.team.team-update');
@@ -61,6 +69,7 @@ class TeamUpdate extends Component
 	}
 
 	public function update(){
+        $this->validate();
 		$gambar = null;
 		$media_sosial = [];
 		if(isset($this->gambar)){

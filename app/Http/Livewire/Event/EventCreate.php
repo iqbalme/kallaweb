@@ -10,7 +10,7 @@ use App\Models\Event;
 class EventCreate extends Component
 {
 	use WithFileUploads;
-	
+
 	public $is_voucher = false;
 	public $voucher_id = null;
 	public $vouchers = null;
@@ -24,28 +24,38 @@ class EventCreate extends Component
 	public $event_voucher = null;
 	public $is_link = false;
 	public $link_daftar = null;
-	
+
 	protected $listeners = ['setEvent'];
-	
+
+    protected $rules = [
+        'nama_event' => 'required',
+        'deskripsi_event' => 'required',
+        'waktu_mulai' => 'required',
+        'waktu_akhir' => 'required',
+        'gambar' => 'required',
+        'link_daftar' => 'requiredIf:islink,true'
+    ];
+
 	public function mount(){
 		$this->vouchers = Voucher::where('aktif', 1)->get();
 	}
-	
+
     public function render()
     {
         return view('livewire.event.event-create');
     }
-	
+
 	public function hapusGambar(){
 		$this->gambar->delete();
 		$this->gambar = null;
 	}
-	
+
 	public function setEvent($value){
 		$this->deskripsi_event = $value;
 	}
-	
+
 	public function simpan(){
+        $this->validate();
 		$gambar = null;
 		$voucher_id = null;
 		$link_daftar = null;
@@ -78,13 +88,13 @@ class EventCreate extends Component
 			$this->emit('refreshEvent');
 			$this->reset();
 			$this->closeModal();
-		}		
+		}
 	}
-	
+
 	public function closeModal(){
 		$this->dispatchBrowserEvent('closeModalEvent');
 	}
-	
+
 	public function updatedIsLink($value){
 		if($value){
 			$this->is_voucher = false;

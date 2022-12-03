@@ -36,16 +36,10 @@
 						@endforeach
 					</div>
 					@endif
-					
+
 					<div class="mb-3">
 						<h6 class="card-title mb-1">Tampilkan pada</h6>
-						<div class="form-check" wire:ignore>
-						  <input class="form-check-input" type="radio" value="0" wire:model="post_prodi">
-						  <label class="form-check-label">
-						  Web Utama
-						  </label>
-						</div>
-						@if(count($data['prodis']))
+						@if(count($data['prodis'])>1)
 						@foreach($data['prodis'] as $prodi)
 						<div class="form-check" wire:ignore>
 						  <input class="form-check-input" type="radio" value="{{ $prodi['id'] }}" wire:model="post_prodi">
@@ -94,8 +88,8 @@
 						</div>
 					</div>
 				</div>
-			</form>	
-            </div>		
+			</form>
+            </div>
         </div>
 	</div>
 	<!--script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script-->

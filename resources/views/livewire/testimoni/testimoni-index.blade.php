@@ -45,7 +45,7 @@
 						  <td>
                             {{ $testimoni->keterangan }}
                           </td>
-                          <td class="text-center">
+                          <td class="text-end">
 							<button type="button" class="btn btn-dark" wire:click="getTestimoni({{ $testimoni->id }})">Edit</button>
 							<button wire:click="hapusTestimoni({{$testimoni->id}})" type="button" class="btn btn-danger text-white">Hapus</button>
                           </td>
@@ -76,7 +76,7 @@
 		</div>
 	  </div>
 	</div>
-	
+
 	@if($isUpdate)
 		<livewire:testimoni.testimoni-update />
 	@else

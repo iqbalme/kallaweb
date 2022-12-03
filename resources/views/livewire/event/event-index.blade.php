@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<!-- End Perhalaman -->
-				
+
 				<!-- Pencarian -->
 				<div class="col-8">
 					<div class="input-group mb-3">
@@ -89,7 +89,7 @@
 								<span class="badge text-bg-danger text-white">Tidak</span>
 							@endif
                           </td>
-                          <td class="text-center">
+                          <td class="text-end">
 							<button type="button" class="btn btn-dark" wire:click="getEvent({{ $event->id }})">Edit</button>
 							<button wire:click="hapusEvent({{$event->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#eventModalHapus">Hapus</button>
                           </td>
@@ -122,7 +122,7 @@
 		</div>
 	  </div>
 	</div>
-	
+
 	<div class="modal fade" id="eventListPeserta" tabindex="-1" wire:ignore.self>
 	  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 		<div class="modal-content">
@@ -136,7 +136,7 @@
 		</div>
 	  </div>
 	</div>
-	
+
 	@if($isUpdate)
 		<livewire:event.event-update />
 	@else

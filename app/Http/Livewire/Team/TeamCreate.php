@@ -10,7 +10,7 @@ use App\Models\Team;
 class TeamCreate extends Component
 {
 	use WithFileUploads;
-	
+
 	public $nama = null;
 	public $deskripsi = null;
 	public $jabatan = null;
@@ -19,22 +19,30 @@ class TeamCreate extends Component
 	public $linkedin = null;
 	public $email = null;
 	public $gambar = null;
-	
+
+    protected $rules = [
+        'nama' => 'required',
+        'deskripsi' => 'required',
+        'jabatan' => 'required',
+        'gambar' => 'required'
+    ];
+
 	public function mount(){
 		$this->reset();
 	}
-	
+
     public function render()
     {
         return view('livewire.team.team-create');
     }
-	
+
 	public function hapusGambar(){
 		$this->gambar->delete();
 		$this->gambar = null;
 	}
-	
+
 	public function simpan(){
+        $this->validate();
 		$gambar = null;
 		$media_sosial = [];
 		if(isset($this->gambar)){
@@ -66,7 +74,7 @@ class TeamCreate extends Component
 		$this->reset();
 		$this->closeModal();
 	}
-	
+
 	public function closeModal(){
 		$this->dispatchBrowserEvent('closeModalTeam');
 	}

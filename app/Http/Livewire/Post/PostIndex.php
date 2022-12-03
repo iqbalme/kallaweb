@@ -15,7 +15,7 @@ use Livewire\WithPagination;
 class PostIndex extends Component
 {
 	use WithPagination;
-	
+
 	public $data;
 	public $isUpdate = false;
 	public $isFormVisible = false;
@@ -23,11 +23,11 @@ class PostIndex extends Component
 	public $perhalaman = 5;
 	public $cari_post = '';
 	public $isPostSlug = false;
-	
+
 	protected $listeners = [
 		'refreshPost'
 	];
-	
+
 	public function mount(){
 		$setting_slug = Setting::where('nama_setting', 'post_slug')->first();
 		if(!$setting_slug){
@@ -40,7 +40,7 @@ class PostIndex extends Component
 			}
 		}
 	}
-	
+
     public function render()
     {
 		$posts = Post::orderBy('id', 'DESC')->where('judul', 'LIKE', '%'.$this->cari_post.'%')->paginate($this->perhalaman);
@@ -58,7 +58,7 @@ class PostIndex extends Component
 			$posts_categories[] = $categories;
 			$posts_prodis[] = Prodi::find($post->post_prodi->prodi_id)->nama_prodi;
 		}
-		
+
 		$this->data['posts'] = $posts;
 		$this->data['nama_kategori'] = $posts_categories;
 		//dd($posts_categories);
@@ -66,15 +66,15 @@ class PostIndex extends Component
         return view('livewire.post.post-index')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / List']);
     }
-	
+
 	public function setPostId($id){
 		$this->post_id = $id;
 	}
-	
+
 	public function hapusPost($id){
 		Post::find($id)->delete();
 	}
-	
+
 	public function getPost($id){
 		$this->isUpdate = true; //jika ini edit, bukan tambah
 		$this->isFormVisible = true;

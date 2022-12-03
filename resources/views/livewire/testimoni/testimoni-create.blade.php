@@ -19,7 +19,7 @@
 				</div>
 				<div class="mb-3">
 				  <h6 class="card-title mb-2">Keterangan</h6>
-				  <input type="text" class="form-control" wire:model="keterangan" required>
+				  <input type="text" class="form-control" wire:model="keterangan" placeholder="Contoh: Pelajar, CEO, dll" required>
 				</div>
 				<div class="row mt-3">
 					<div class="d-flex justify-content-between">
@@ -49,7 +49,7 @@
 				<button type="button" class="btn btn-secondary text-white" wire:click="closeModal">Tidak</button>
 				<button type="submit" class="btn btn-primary text-white">Simpan</button>
 			</div>
-			</form>			
+			</form>
           </div>
 		</div>
 	</div>

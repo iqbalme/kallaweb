@@ -5,21 +5,20 @@ namespace App\Http\Livewire\Event;
 use Livewire\Component;
 use App\Models\PesertaEvent;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\DB;
 
 class PesertaEventIndex extends Component
 {
 	use WithPagination;
-	
+
 	public $data;
 	public $links;
 	public $listeners = ['get_peserta'];
-	
+
     public function render()
     {
         return view('livewire.event.peserta-event-index');
     }
-	
+
 	public function get_peserta($event){
 		//dd($event);
 		//$datapeserta = PesertaEvent::orderBy('nama', 'asc')->where('event_id', $event['id'])->paginate(10);

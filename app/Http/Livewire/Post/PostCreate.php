@@ -19,18 +19,25 @@ class PostCreate extends Component
 {
 	use CommonTrait;
 	use WithFileUploads;
-	
+
 	public $data;
 	public $thumbnail;
 	public $judul;
 	public $konten;
-	public $categories = []; 
+	public $categories = [];
 	public $tags;
 	public $post_prodi = null;
 	public $is_headline = false;
-	
+
 	protected $listeners = ['setKonten'];
-	
+
+    protected $rules = [
+        'judul' => 'required',
+        'post_prodi' => 'required',
+        'categories' => 'required',
+        'thumbnail' => 'required'
+    ];
+
 	public function mount(){
 		$this->data['categories'] = Category::all();
 		$prodis = Prodi::all();
@@ -39,23 +46,24 @@ class PostCreate extends Component
 			$this->post_prodi = 0; //tidak berlaku jika bukan super admin, nnt diedit
 		}
 	}
-	
+
     public function render()
     {
         return view('livewire.post.post-create')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / Buat Baru']);
     }
-	
+
 	public function setKonten($value){
 		$this->konten = $value;
 	}
-	
+
 	public function removeThumbnail(){
 		$this->thumbnail->delete();
 		$this->thumbnail = null;
 	}
-	
+
 	public function publishPost($isPublished=true){
+        $this->validate();
 		$post_tags = [];
 		$post_categories = [];
 		$thumbnail = null;
@@ -95,5 +103,5 @@ class PostCreate extends Component
 		$createdPost->post_tags_data()->createMany($post_tags);
 		return redirect()->route('post.index');
 	}
-	
+
 }

@@ -14,7 +14,8 @@
                           <th class="text-center">
                             No
                           </th>
-                          <th class="text-center" colspan="2">Judul Gambar</th>
+                          <th></th>
+                          <th>Judul Gambar</th>
 						  <th></th>
                         </tr>
                       </thead>
@@ -38,10 +39,10 @@
 							  <div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('admin/thumbnail-default.jpg') }}"></div>
 						  @endif
 						  </td>
-                          <td>
-                            {{ $galeri->judul }}
-                          </td>
                           <td class="text-center">
+                            @if(isset($galeri->judul)) {{$galeri->judul}} @else {{'-'}} @endif
+                          </td>
+                          <td class="text-end">
 							<button wire:click="setGaleriId({{$galeri->id}})" type="button" class="btn btn-danger text-white">Hapus</button>
                           </td>
                         </tr>
@@ -71,7 +72,7 @@
 		</div>
 	  </div>
 	</div>
-	
+
 	<livewire:facility.facility-create />
 	<script>
 	window.addEventListener('bukaModalHapus', event => {

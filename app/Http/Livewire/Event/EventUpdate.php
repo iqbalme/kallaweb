@@ -10,7 +10,7 @@ use App\Models\Event;
 class EventUpdate extends Component
 {
 	use WithFileUploads;
-	
+
 	public $is_voucher = false;
 	public $voucher_id = null;
 	public $vouchers;
@@ -26,20 +26,30 @@ class EventUpdate extends Component
 	public $is_link = false;
 	public $link_daftar = null;
 	public $deskripsi;
-	
+
 	protected $listeners = [
 		'getEvent', 'setEventUpdate'
 	];
-	
+
+    protected $rules = [
+        'event_id' => 'required',
+        'nama_event' => 'required',
+        'deskripsi_event' => 'required',
+        'waktu_mulai' => 'required',
+        'waktu_akhir' => 'required',
+        'gambar' => 'required',
+        'link_daftar' => 'requiredIf:islink,true'
+    ];
+
 	public function mount(){
 		$this->vouchers = Voucher::where('aktif', 1)->get();
 	}
-	
+
     public function render()
     {
         return view('livewire.event.event-update');
     }
-	
+
 	public function hapusGambar(){
 		if(!$this->initGambar){
 			$this->gambar->delete();
@@ -47,11 +57,11 @@ class EventUpdate extends Component
 		$this->initGambar = false;
 		$this->gambar = null;
 	}
-	
+
 	public function setEventUpdate($value){
 		$this->deskripsi_event = $value;
 	}
-	
+
 	public function getEvent($event){
 		//dd(gettype($event['waktu_mulai']));
 		$this->is_voucher = false;
@@ -77,8 +87,9 @@ class EventUpdate extends Component
 		}
 		$this->dispatchBrowserEvent('setInitialEventDescription', ['deskripsi_event' => $event['deskripsi_event']]);
 	}
-	
+
 	public function update(){
+        $this->validate();
 		$gambar = null;
 		$voucher_id = null;
 		$link_daftar = null;
@@ -90,7 +101,7 @@ class EventUpdate extends Component
 			if(isset($this->voucher_id)){
 				$voucher_id = $this->voucher_id;
 			}
-		}		
+		}
 		$data = [
 			'nama_event' => $this->nama_event,
 			'deskripsi_event' => $this->deskripsi_event,
@@ -119,11 +130,11 @@ class EventUpdate extends Component
 			$this->closeModal();
 		}
 	}
-	
+
 	public function closeModal(){
 		$this->dispatchBrowserEvent('closeModalEventUpdate');
 	}
-	
+
 	public function updatedIsVoucher(){
 		if($this->vouchers){
 			if($this->is_voucher){
@@ -133,7 +144,7 @@ class EventUpdate extends Component
 			}
 		}
 	}
-	
+
 	public function updatedIsLink($value){
 		if($value){
 			$this->is_voucher = false;
