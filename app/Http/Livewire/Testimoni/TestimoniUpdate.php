@@ -30,7 +30,6 @@ class TestimoniUpdate extends Component
         'gambar' => 'required'
     ];
 
-
     public function render()
     {
         return view('livewire.testimoni.testimoni-update');

@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<!-- End Perhalaman -->
-				
+
 				<!-- Pencarian -->
 				<div class="col-6">
 					<div class="input-group mb-3">
@@ -75,7 +75,7 @@
 						  {{'-'}}
 						  @endif
 						  </td>
-                          <td class="text-center">
+                          <td class="text-end">
 							<button wire:click="hapusPengumuman({{$pengumuman->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#pengumumanModalHapus">Hapus</button>
                           </td>
                         </tr>
@@ -117,7 +117,7 @@
 		jQuery('#pengumumanModal').modal('hide');
 		jQuery('.modal-backdrop').hide();
 	});
-	
+
 	const myModalEl = document.getElementById('pengumumanModal')
 	myModalEl.addEventListener('hidden.coreui.modal', event => {
 	  Livewire.emitTo('pengumuman.pengumuman-create', 'resetPengumuman');

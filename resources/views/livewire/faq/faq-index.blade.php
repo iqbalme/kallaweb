@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<!-- End Perhalaman -->
-				
+
 				<!-- Pencarian -->
 				<div class="col-8">
 					<div class="input-group mb-3">
@@ -67,7 +67,7 @@
 						  <td class="text-center">
 							{!! $faq->jawaban !!}
                           </td>
-                          <td class="text-end">
+                          <td class="faq-action text-end">
 							<button type="button" class="btn btn-dark" wire:click="getFaq({{ $faq->id }})">Edit</button>
 							<button wire:click="hapusFaq({{$faq->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#faqModalHapus">Hapus</button>
                           </td>
@@ -100,12 +100,17 @@
 		</div>
 	  </div>
 	</div>
-	
+
 	@if($isUpdate)
 		<livewire:faq.faq-update />
 	@else
 		<livewire:faq.faq-create />
 	@endif
+    <style>
+        .faq-action button {
+            margin-bottom: 3px;
+        }
+    </style>
 	<script>
 	window.addEventListener('closeHapusFaq', event => {
 		jQuery('#faqModalHapus').modal('hide');

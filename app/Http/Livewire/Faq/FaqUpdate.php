@@ -9,7 +9,13 @@ class FaqUpdate extends Component
 {
 	public $faq;
 	public $listeners = ['setFaq', 'setJawabanUpdate'];
-	
+
+    protected $rules = [
+        'faq.id' => 'required',
+        'faq.soal' => 'required',
+        'faq.jawaban' => 'required'
+    ];
+
 	public function setFaq($faq){
 		$this->faq = [
 			'id' => $faq['id'],
@@ -17,17 +23,18 @@ class FaqUpdate extends Component
 		];
 		$this->dispatchBrowserEvent('setInitialJawaban', ['jawaban' => $faq['jawaban']]);
 	}
-	
+
 	public function setJawabanUpdate($jawaban){
 		$this->faq['jawaban'] = $jawaban;
 	}
-	
+
     public function render()
     {
         return view('livewire.faq.faq-update');
     }
-	
+
 	public function update(){
+        $this->validate();
 		try{
 			$faq = FAQ::find($this->faq['id']);
 			$faq->update($this->faq);
@@ -37,6 +44,6 @@ class FaqUpdate extends Component
 		} catch (\Illuminate\Database\QueryException $e){
 			$this->dispatchBrowserEvent('setPesanNotif', ['judul' => 'Update Data Gagal', 'pesan' => $e->message, 'tipe' => 'error']);
 		}
-		
+
 	}
 }
