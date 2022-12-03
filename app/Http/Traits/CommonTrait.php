@@ -4,7 +4,6 @@ namespace App\Http\Traits;
 use Xendit\Xendit;
 use App\Models\Setting;
 use App\Models\Invoice;
-use App\Models\InvoiceItem;
 use App\Models\Pendaftar;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -12,37 +11,39 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+//use Livewire\ComponentConcerns\ReceivesEvents;
 
 trait CommonTrait
 {
+    //use ReceivesEvents;
 	public $xenditApiKey;
-	
+
 	public function __construct(){
 		$this->xenditApiKey = Setting::where('nama_setting', 'xendit_key_secret')->first()->isi_setting;
 	}
-	
+
 	public function setSlug($string) {
 	   $string = str_replace(' ', '-', $string);
 	   $string_slug = substr($string,0,100); // Replaces all spaces with hyphens with max 100 characters
 	   return preg_replace('/[^A-Za-z0-9\-]/', '', strtolower(trim($string_slug))); // Removes special chars.
 	}
-	
+
 	public function removeContentTag($string){
 		$content = preg_replace("/<img[^>]+\>/i", "", $string);
 		return $content;
 	}
-	
+
 	public function getParagraphTag($string){
-		$content = preg_match_all("~^<p[^>]*>.*?</p>~im", $string, $output); 
+		$content = preg_match_all("~^<p[^>]*>.*?</p>~im", $string, $output);
 		return $output[0];
-		
+
 	}
-	
+
 	public function generateInvoiceNo(){
 		$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
 		return strtoupper(substr(str_shuffle($permitted_chars), 0, 17));
 	}
-	
+
 	public function buatInvoice($params, $data, $isVoucher){
 		$data_pendaftar = [
 			'nama' => $data['nama_lengkap'],
@@ -78,13 +79,17 @@ trait CommonTrait
 					if($this->createDataPendaftar($invoice_data, $data_pendaftar)){
 						return redirect()->away($createdInvoice['invoice_url']);
 					}
-				}	
+				}
 			}
 		} else {
 			return false;
 		}
 	}
-	
+
+    public function setActionNotif($judul, $pesan, $tipe){
+        $this->dispatchBrowserEvent('setPesanNotif', ['judul' => $judul, 'pesan' => $pesan, 'tipe' => $tipe]);
+    }
+
 	public function createDataPendaftar($invoice_data, $data_pendaftar){
 		try{
 			$invoice = Invoice::create($invoice_data);
@@ -96,9 +101,9 @@ trait CommonTrait
 			if($errorCode == 1062){
 				return false;
 			}
-		}	
+		}
 	}
-	
+
 	public function paginate2($items, $perPage = 5, $page = null)
     {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
@@ -108,14 +113,14 @@ trait CommonTrait
         $itemstoshow = array_slice($items , $offset , $perPage);
         return new LengthAwarePaginator($itemstoshow ,$total ,$perPage);
     }
-	
+
 	public function paginate($items, $perPage = 5, $page = null, $options = [])
     {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
-	
+
 	public function kirimEmail($email_tujuan, Mailable $mail_class){
 		$settings = Setting::whereIn('nama_setting', ['smtp_server','smtp_port','smtp_username','smtp_password','email_pengirim','email_nama','smtp_encryption'])->get();
 		foreach($settings as $setting){
@@ -141,10 +146,10 @@ trait CommonTrait
 			Mail::mailer('smtp2')->to([$email_tujuan])->send($mail_class);
 			Log::info('Kirim email ke pendaftar');
 			return true;
-		} catch (exception $e) {
+		} catch (\Exception $e) {
 			Log::error($e->message);
 			return false;
 		}
 	}
-	
+
 }

@@ -6,9 +6,11 @@ use Livewire\Component;
 use App\Models\Voucher;
 use Livewire\WithFileUploads;
 use App\Models\Event;
+use App\Http\Traits\CommonTrait;
 
 class EventUpdate extends Component
 {
+    use CommonTrait;
 	use WithFileUploads;
 
 	public $is_voucher = false;
@@ -127,6 +129,7 @@ class EventUpdate extends Component
 			Event::find($this->event_id)->update($data);
 			$this->emit('refreshEvent');
 			$this->reset();
+            $this->setActionNotif('Update Event', 'Update event berhasil!', 'success');
 			$this->closeModal();
 		}
 	}
