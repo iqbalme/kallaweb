@@ -18,7 +18,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<label class="col-form-label">Program Studi</label>
+		<label class="col-form-label">Gambar</label>
 		<div class="col-sm-5">
 			@if(isset($thumbnail))
 				<div class="mb-1 rounded">

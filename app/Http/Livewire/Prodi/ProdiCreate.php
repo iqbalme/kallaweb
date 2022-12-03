@@ -11,19 +11,26 @@ class ProdiCreate extends Component
 {
 	use CommonTrait;
 	use WithFileUploads;
-	
+
 	public $nama_prodi = null;
 	public $deskripsi_prodi = null;
 	public $slug = null;
 	public $thumbnail = null;
 	public $subdomain = null;
-	
+
+    protected $rules = [
+        'nama_prodi' => 'required',
+        'thumbnail' => 'required',
+        'subdomain' => 'required|unique:prodis,slug',
+    ];
+
     public function render()
     {
         return view('livewire.prodi.prodi-create');
     }
-	
+
 	public function create(){
+        $this->validate();
 		$thumbnail = null;
 		if(isset($this->thumbnail)){
 			$thumbnail = $this->thumbnail->getFilename();
@@ -40,7 +47,7 @@ class ProdiCreate extends Component
 		$this->emit('refreshProdi', $prodi);
 		$this->removeThumbnail();
 	}
-	
+
 	public function removeThumbnail(){
 		$this->thumbnail->delete();
 		$this->thumbnail = null;

@@ -26,6 +26,7 @@
 						  <th></th>
                           <th class="text-center">Prodi</th>
                           <th class="text-center">Deskripsi</th>
+                          <th class="text-center">Subdomain</th>
 						  <th></th>
                         </tr>
                       </thead>
@@ -37,11 +38,12 @@
 						  </td>
 						</tr>
 					  @endif
-					  @isset($data)
+					  @if($data->count()>1)
 						@foreach($data as $prodi)
+                            @if($prodi->id > 1)
                         <tr class="align-middle">
                           <td class="text-center">
-						  {{ $loop->iteration }}
+						  {{ $loop->index }}
                           </td>
                           <td>
                             @if(isset($prodi->thumbnail))
@@ -57,12 +59,16 @@
                             {{ substr($prodi->deskripsi_prodi,0,45) }}
                           </td>
                           <td>
+                            {{ $prodi->slug}}
+                          </td>
+                          <td class="text-end">
 							<button type="button" class="btn btn-dark" wire:click="getProdi({{ $prodi->id }})" @if($isFormVisible) disabled @endif>Edit</button>
 							<button wire:click="setProdiId({{$prodi->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#prodiModalEdit">Hapus</button>
                           </td>
                         </tr>
+                            @endif
 						@endforeach
-					@endisset
+					@endif
                       </tbody>
                     </table>
                   </div>

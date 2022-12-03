@@ -9,23 +9,29 @@ use Livewire\WithFileUploads;
 class ProdiUpdate extends Component
 {
 	use WithFileUploads;
-	
+
 	public $nama_prodi = null;
 	public $deskripsi_prodi = null;
 	public $prodi_id = null;
 	public $thumbnail = null;
 	public $first_thumbnail = false;
 	public $subdomain = null;
-	
+
+    protected $rules = [
+        'nama_prodi' => 'required',
+        'thumbnail' => 'required',
+        'subdomain' => 'required',
+    ];
+
 	protected $listeners = [
 		'getProdi' => 'showProdi'
 	];
-	
+
     public function render()
     {
         return view('livewire.prodi.prodi-update');
     }
-	
+
 	public function showProdi($prodi){
 		$this->nama_prodi = $prodi['nama_prodi'];
 		$this->prodi_id = $prodi['id'];
@@ -34,10 +40,11 @@ class ProdiUpdate extends Component
 			$this->thumbnail = $prodi['thumbnail'];
 			$this->first_thumbnail = true;
 		}
-		$this->subdomain = $prodi['subdomain'];
+		$this->subdomain = $prodi['slug'];
 	}
-	
+
 	public function update(){
+        $this->validate();
 		$thumbnail = null;
 		$data = [];
 		if(isset($this->thumbnail)){
@@ -51,7 +58,7 @@ class ProdiUpdate extends Component
 		$data['thumbnail'] = $thumbnail;
 		$data['nama_prodi'] = $this->nama_prodi;
 		$data['deskripsi_prodi'] = $this->deskripsi_prodi;
-		$data['subdomain'] = $this->subdomain;
+		$data['slug'] = $this->subdomain;
 		if($this->prodi_id){
 			$prodi = Prodi::find($this->prodi_id);
 			$prodi->update($data);
@@ -63,7 +70,7 @@ class ProdiUpdate extends Component
 			$this->thumbnail = null;
 		}
 	}
-	
+
 	public function removeThumbnail(){
 		if(!$this->first_thumbnail){
 			$this->thumbnail->delete();
