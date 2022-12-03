@@ -17,27 +17,28 @@ class VoucherCreate extends Component
 	public $awal_berlaku = null;
 	public $akhir_berlaku = null;
 	public $aktif = false;
-	//public $katalog_id = [];
-	
-	protected $listeners = [
-		
-	];
-	
+
+	protected $rules = [
+        'nama_voucher' => 'required',
+        'deskripsi_voucher' => 'required',
+        'nominal_diskon' => 'required',
+        'kode_voucher' => 'required',
+    ];
+
 	public function mount(){
 		$this->resetInput();
-		//$this->katalogs = Katalog::all();
 	}
-	
+
     public function render()
-    {	
+    {
         return view('livewire.voucher.voucher-create');
     }
-	
+
 	public function generateVoucher(){
 		$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
 		$this->kode_voucher = strtoupper(substr(str_shuffle($permitted_chars), 0, 10));
 	}
-	
+
 	public function resetInput(){
 		$this->kode_voucher = null;
 		$this->nominal_diskon  = null;
@@ -47,16 +48,12 @@ class VoucherCreate extends Component
 		$this->awal_berlaku = null;
 		$this->akhir_berlaku = null;
 		$this->aktif = false;
-		//$this->katalog_id = [];
 	}
-	
+
 	public function create(){
-		// $katalog_id = 0;
+        $this->validate();
 		$awal_berlaku = null;
 		$akhir_berlaku = null;
-		// if(count($this->katalog_id)){
-			// $katalog_id = implode(',',$this->katalog_id);
-		// }
 		if((!isset($this->awal_berlaku)) || ($this->awal_berlaku == '')){
 			$awal_berlaku = null;
 		} else {
@@ -69,7 +66,6 @@ class VoucherCreate extends Component
 		}
 		$data = [
 			'kode_voucher' => $this->kode_voucher,
-			//'katalog_id' => $katalog_id,
 			'nominal_diskon' => $this->nominal_diskon,
 			'tipe_diskon' => $this->tipe_diskon,
 			'deskripsi_voucher' => $this->deskripsi_voucher,
@@ -78,7 +74,6 @@ class VoucherCreate extends Component
 			'akhir_berlaku' => $akhir_berlaku,
 			'aktif' => $this->aktif
 		];
-		//dd($data);
 		Voucher::create($data);
 		$this->resetInput();
 		$this->emit('refreshVoucher');

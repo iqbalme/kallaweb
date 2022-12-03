@@ -18,12 +18,19 @@ class VoucherUpdate extends Component
 	public $akhir_berlaku;
 	public $aktif;
 	public $voucher = null;
-	//public $katalog_id = [];
-	
+
 	protected $listeners = [
 		'getVoucher'
 	];
-	
+
+    protected $rules = [
+        'voucher_id' => 'required',
+        'nama_voucher' => 'required',
+        'deskripsi_voucher' => 'required',
+        'nominal_diskon' => 'required',
+        'kode_voucher' => 'required',
+    ];
+
 	public function setData($voucher){
 		$this->voucher_id = $voucher['id'];
 		$this->kode_voucher = $voucher['kode_voucher'];
@@ -35,17 +42,17 @@ class VoucherUpdate extends Component
 		$this->akhir_berlaku = isset($voucher['akhir_berlaku']) ? date('Y-m-d', strtotime($voucher['akhir_berlaku'])) : '';
 		$this->aktif = $voucher['aktif'];
 	}
-	
+
 	public function render()
     {
         return view('livewire.voucher.voucher-update');
     }
-	
+
 	public function generateVoucher(){
 		$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
 		$this->kode_voucher = strtoupper(substr(str_shuffle($permitted_chars), 0, 10));
 	}
-	
+
 	public function resetInput(){
 		$this->voucher_id = null;
 		$this->kode_voucher = null;
@@ -57,8 +64,9 @@ class VoucherUpdate extends Component
 		$this->akhir_berlaku = null;
 		$this->aktif = false;
 	}
-	
+
 	public function update(){
+        $this->validate();
 		$data = [
 			'kode_voucher' => $this->kode_voucher,
 			'nominal_diskon' => $this->nominal_diskon,

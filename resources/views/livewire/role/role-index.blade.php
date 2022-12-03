@@ -9,7 +9,7 @@
 					@endif
 					<hr>
 				</div>
-				
+
 				@if($isFormVisible)
 					@if($isUpdate)
 						<livewire:role.role-update :role="$role"/>
@@ -54,7 +54,7 @@
 							  <td>
 								{{ $role->prodi->nama_prodi }}
 							  </td>
-							  <td>
+							  <td class="text-end">
 								<button type="button" class="btn btn-dark" wire:click="getrole({{ $role->id }})" @if($isFormVisible) disabled @endif>Edit</button>
 								<button wire:click="setroleId({{$role->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#roleModalHapus" @if($isFormVisible) disabled @endif>Hapus</button>
 							  </td>

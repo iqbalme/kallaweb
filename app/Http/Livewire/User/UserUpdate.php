@@ -11,7 +11,7 @@ use App\Models\RoleUser;
 class UserUpdate extends Component
 {
 	use WithFileUploads;
-	//public $user;
+
 	public $avatar = null;
 	public $nama;
 	public $email;
@@ -21,20 +21,28 @@ class UserUpdate extends Component
 	public $roles = [];
 	public $user_roles = [];
 	public $first_thumbnail = false;
-	
+
 	protected $listeners = [
 		'getUser', 'updateUser'
 	];
-	
+
+    protected $rules = [
+        'user_id' => 'required',
+        'nama' => 'required',
+        'email' => 'required',
+        'password' => 'required',
+        'user_roles' => 'required',
+    ];
+
 	public function mount(){
 		$this->roles = Role::all();
 	}
-	
+
     public function render()
     {
         return view('livewire.user.user-update');
     }
-	
+
 	public function getUser($user){
 		$this->user_roles = [];
 		$this->user_id = $user['id'];
@@ -50,11 +58,11 @@ class UserUpdate extends Component
 			$this->user_roles[] = $user_role->role_id;
 		}
 	}
-	
+
 	public function updatedAvatar(){
 		//$this->emit('refreshUser');
 	}
-	
+
 	public function removeAvatar(){
 		if(!$this->first_thumbnail){
 			$this->avatar->delete();
@@ -62,9 +70,10 @@ class UserUpdate extends Component
 		$this->first_thumbnail = false;
 		$this->avatar = null;
 	}
-	
-	
+
+
 	public function update(){
+        $this->validate();
 		$this->loading = true;
 		$avatar = null;
 		if(isset($this->avatar)){
@@ -92,7 +101,7 @@ class UserUpdate extends Component
 		$this->emit('refreshUser');
 		$this->closeModal();
 	}
-	
+
 	public function closeModal(){
 		$this->loading = false;
 		$this->dispatchBrowserEvent('closeModalUserUpdate');

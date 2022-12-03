@@ -11,33 +11,37 @@ use App\Models\Role;
 class UserCreate extends Component
 {
 	use WithFileUploads;
-	
+
 	public $avatar = null;
 	public $nama = null;
 	public $email = null;
 	public $password = null;
 	public $roles = [];
 	public $user_roles = [];
-	
+
+    protected $rules = [
+        'nama' => 'required',
+        'email' => 'required|unique:user,email',
+        'password' => 'required',
+        'user_roles' => 'required',
+    ];
+
 	public function mount(){
 		$this->roles = Role::all();
-		// $this->avatar = null;
-		// $this->nama = null;
-		// $this->email = null;
-		// $this->password = null;
 	}
-	
+
     public function render()
     {
         return view('livewire.user.user-create');
     }
-	
+
 	public function removeAvatar(){
 		$this->avatar->delete();
 		$this->avatar = null;
 	}
-	
+
 	public function tambahUser(){
+        $this->validate();
 		$roles = [];
 		foreach($this->user_roles as $role){
 			$roles[] = ['role_id' => $role];

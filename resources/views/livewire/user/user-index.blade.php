@@ -51,7 +51,7 @@
 						  <td>
 							<button type="button" class="btn btn-info text-white" wire:click="getUserRole({{$user->id}})">Lihat</button>
                           </td>
-                          <td class="text-center">
+                          <td class="text-end">
 							<button type="button" class="btn btn-dark" wire:click="getUser({{ $user->id }})"  data-coreui-toggle="modal" data-coreui-target="#userModalEdit">Edit</button>
 							<button wire:click="setUserId({{$user->id}})" type="button" class="btn btn-danger text-white">Hapus</button>
                           </td>
@@ -83,7 +83,7 @@
 		</div>
 	  </div>
 	</div>
-	
+
 	<div class="modal fade" id="roleModalView" tabindex="-1" wire:ignore.self>
 	  <div class="modal-dialog">
 		<div class="modal-content">
