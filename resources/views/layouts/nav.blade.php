@@ -9,7 +9,7 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 	<header class="header site-navbar">
-			
+
 		<!-- Top Bar -->
 		<div class="top_bar">
 			<div class="top_bar_container">
@@ -34,14 +34,14 @@
 						</div>
 					</div>
 				</div>
-			</div>				
+			</div>
 		</div>
 
 		<!-- Header Content -->
 		<div class="header_container">
 		<div class="container">
         <div class="row-nav align-items-center">
-          
+
           <div class="col-11 col-xl-2">
             <div class="mb-0 site-logo"><a href="{{route('home')}}" class="text-white mb-0"><img src="{{ asset('storage/images/'.$data['web_logo']) }}"></a></div>
           </div>
@@ -70,9 +70,9 @@
                 <li class="has-children @if((request()->route()->getName() == 'registrasi')) active @else &nbsp; @endif"><a href="#"><span>Admisi</span></a>
 					<ul class="dropdown arrow-top">
                     <li><a href="{{route('registrasi')}}">Pendaftaran Mahasiswa Baru</a></li>
-                    <li><a href="#">Biaya Kuliah</a></li>
-                    <li><a href="#">Informasi Beasiswa</a></li>
-                    <li><a href="#">Registrasi Ulang</a></li>
+                    <li><a href="{{route('biaya.kuliah')}}">Biaya Kuliah</a></li>
+                    <li><a href="{{route('info.beasiswa')}}">Informasi Beasiswa</a></li>
+                    <li><a href="{{route('registrasi.ulang')}}">Registrasi Ulang</a></li>
                   </ul>
 				</li>
               </ul>

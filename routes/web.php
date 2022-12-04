@@ -30,6 +30,9 @@ use App\Http\Livewire\Frontend\Pengumuman;
 use App\Http\Livewire\Frontend\StrukturOrganisasi;
 use App\Http\Livewire\Frontend\TentangKampus;
 use App\Http\Livewire\Frontend\FaqShow;
+use App\Http\Livewire\Frontend\BiayaKuliah;
+use App\Http\Livewire\Frontend\InfoBeasiswa;
+use App\Http\Livewire\Frontend\RegistrasiUlang;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Profil;
 use App\Http\Livewire\Admin\PendaftarCtrl;
@@ -97,6 +100,9 @@ use App\Http\Livewire\Faq\FaqIndex;
 	Route::get('event/{event_id}/', ShowEventSingle::class)->name('event.show');
 	Route::get('kontak/', Contact::class)->name('kontak');
 	Route::get('struktur-organisasi/', StrukturOrganisasi::class)->name('struktur');
+	Route::get('biaya-kuliah/', BiayaKuliah::class)->name('biaya.kuliah');
+	Route::get('info-beasiswa/', InfoBeasiswa::class)->name('info.beasiswa');
+	Route::get('registrasi-ulang/', RegistrasiUlang::class)->name('registrasi.ulang');
 	Route::get('pengumuman/', Pengumuman::class)->name('pengumuman');
 	Route::get('faq/', FaqShow::class)->name('faq');
 	Route::get('tentang-kampus/', TentangKampus::class)->name('tentang-kampus');
@@ -131,7 +137,7 @@ use App\Http\Livewire\Faq\FaqIndex;
 		Route::get('testimoni/', TestimoniIndex::class)->name('testimoni.index');
 		Route::get('pengumuman/', PengumumanIndex::class)->name('pengumuman.index');
 		Route::get('faq/', FaqIndex::class)->name('faq.index');
-		
+
 		//for ckeditor upload file
 		Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('ckeditor.image-upload');
 		Route::post('upload-thumbnail', [PostController::class, 'upload_thumbnail'])->name('thumbnail.upload');
@@ -141,5 +147,5 @@ use App\Http\Livewire\Faq\FaqIndex;
 //route for subdomain
 // Route::group(array('domain' => '{subdomain}.'.config('app.url')), function() {
     // Place your routes in here, like for example
-    // Route::get('/tes', [TestController::class, 'subdomain']); 
+    // Route::get('/tes', [TestController::class, 'subdomain']);
 // });
