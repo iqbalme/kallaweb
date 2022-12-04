@@ -18,7 +18,7 @@
     <div class="container">
 		<div class="row justify-align-center">
 			<div class="col struktur">
-				<img src="{{asset('frontend/assets/images/registrasi-ulang.jpg')}}">
+				<a href="https://bit.ly/RegulKallaInstitute23" target="blank"><img src="{{asset('frontend/assets/images/registrasi-ulang.jpg')}}"></a>
 			</div>
 		</div>
 	</div>
