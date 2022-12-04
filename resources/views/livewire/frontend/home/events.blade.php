@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <header class="heading-ctm heading flex justify-content-between align-items-center">
-                        <h2 class="section_title">Upcoming Events</h2>
+                        <h2 class="section_title">Kalender Event</h2>
 
                         <a class="btnc mt-4 mt-sm-0" href="{{route('event.list')}}">Lihat Semua</a>
                     </header><!-- .heading -->
@@ -64,7 +64,7 @@
                     </div><!-- .course-content -->
                 </div><!-- .col -->
 				@endforeach
-				
+
             </div><!-- .row -->
         </div><!-- .container -->
     </section>
@@ -155,7 +155,7 @@
 	img {
 		vertical-align: baseline;
 	}
-	
+
 	</style>
 	<!-- <script src="{{asset('frontend/theme/unicat/js/jquery-3.2.1.min.js')}}"></script> -->
 	<script>

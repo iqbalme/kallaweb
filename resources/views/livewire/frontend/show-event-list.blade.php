@@ -13,7 +13,7 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
     @if($data['events']->count())
 	<!-- Events -->
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-12">
                     <header class="heading flex justify-content-between align-items-center">
-                        <h2 class="section_title">Upcoming Events</h2>
+                        <h2 class="section_title">Kalender Event</h2>
                     </header><!-- .heading -->
                 </div><!-- .col -->
 				@foreach($data['events'] as $event)
@@ -71,7 +71,7 @@
                     </div><!-- .course-content -->
                 </div><!-- .col -->
 				@endforeach
-				
+
             </div><!-- .row -->
 			<div class="row">
 				<!-- Pagination -->
