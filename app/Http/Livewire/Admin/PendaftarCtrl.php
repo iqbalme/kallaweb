@@ -5,8 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use App\Models\Pendaftar;
 use App\Http\Traits\CommonTrait;
-use App\Exports\PendaftarExport;
-use Maatwebsite\Excel\Facades\Excel;
+use Rap2hpoutre\FastExcel\FastExcel;
 
 class PendaftarCtrl extends Component
 {
@@ -24,7 +23,20 @@ class PendaftarCtrl extends Component
 
     public function exportPendaftar(){
         try {
-            return Excel::download(new PendaftarExport, 'pendaftar.xlsx');
+            return response()->streamDownload(function () {
+                $pendaftar = Pendaftar::where('aktif', 1)->orderBy('created_at', 'asc')->get();
+                return (new FastExcel($pendaftar))->export('php://output', function ($camaba) {
+                    return [
+                        'Nama Lengkap' => ucwords($camaba->nama),
+                        'Email' => strtolower($camaba->email),
+                        'No. KTP' => $camaba->no_ktp,
+                        'No. HP' => $camaba->hp,
+                        'Asal Sekolah' => $camaba->asal_sekolah,
+                        'Program Studi' => ucwords($camaba->nama_prodi),
+                        'Waktu Pendaftaran' => $camaba->created_at->format('d-m-Y H:i')
+                    ];
+                });
+            }, sprintf('calon-mahasiswa-kalla-institute-%s.xlsx', date('d-m-Y')));
         } catch(\Exception $e){
             dd($e->getMessage());
         }
