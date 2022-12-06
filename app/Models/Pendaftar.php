@@ -23,6 +23,6 @@ class Pendaftar extends Model
 
     public function getPendaftarProdiAttribute()
     {
-        return $this->prodi;
+        return $this->prodi->nama_prodi;
     }
 }
