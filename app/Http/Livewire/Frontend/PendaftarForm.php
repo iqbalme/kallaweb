@@ -12,7 +12,7 @@ use App\Http\Traits\CommonTrait;
 class PendaftarForm extends Component
 {
 	use CommonTrait;
-	
+
 	public $currentStep = 1;
 	public $total = 0;
 	public $total_after_voucher = 0;
@@ -25,7 +25,7 @@ class PendaftarForm extends Component
 	public $data;
 	public $isDataBenar = false;
 	public $prodis;
-	
+
 	protected $rules = [
         'data.nama_lengkap' => 'required',
         'data.no_ktp' => 'required|max:16',
@@ -33,14 +33,14 @@ class PendaftarForm extends Component
         'data.no_hp' => 'required|max:15',
         'data.asal_sekolah' => 'required'
     ];
-	
+
 	public function mount(){
 		$this->data['nama_lengkap'] = null;
 		$this->data['no_ktp'] = null;
 		$this->data['email'] = null;
 		$this->data['no_hp'] = null;
 		$this->data['asal_sekolah'] = null;
-		
+
 		$settings = Setting::whereIn('nama_setting', ['nominal_admisi','is_voucher','status_pendaftaran', 'biaya_layanan_admisi'])->get();
 		foreach($settings as $setting){
 			if(in_array($setting->nama_setting, ['status_pendaftaran', 'is_voucher'])){
@@ -55,26 +55,26 @@ class PendaftarForm extends Component
 		if(!$this->settings['status_pendaftaran']){
 			return redirect()->route('admisi-non-aktif');
 		}
-		$this->prodis = Prodi::all();
+		$this->prodis = Prodi::where('nama_prodi', '!=', 'Web Utama')->get();
 		if($this->prodis->count()){
-			$this->data['prodi'] = 1;
+			$this->data['prodi'] = $this->prodis[0]->id;
 		}
 	}
-	
+
     public function render()
     {
         return view('livewire.frontend.pendaftar-form')
 			->extends('layouts.app', ['title' => 'Pendaftaran'])
 			->section('content');
     }
-	
+
 	public function previous(){
 		if($this->currentStep > 0){
 			$this->currentStep--;
 		}
 		$this->render();
 	}
-	
+
 	public function next(){
 		$this->validate();
 		if($this->currentStep < 3){
@@ -82,11 +82,11 @@ class PendaftarForm extends Component
 		}
 		$this->render();
 	}
-	
+
 	public function registrasiBaru(){
 		$this->payment();
 	}
-	
+
 	public function radeemVoucher(){
 		$voucher = Voucher::where(['kode_voucher' => $this->kodeVoucher, 'aktif' => 1]);
 		if($voucher->count()){
@@ -106,7 +106,7 @@ class PendaftarForm extends Component
 					$valid = true;
 				}
 			}
-			
+
 			if($valid){
 				if($voucher->first()->tipe_diskon == 'persen'){
 					$this->discount = $this->biaya_admisi / 100 * $voucher->first()->nominal_diskon;
@@ -116,8 +116,8 @@ class PendaftarForm extends Component
 			} else {
 				$this->kodeVoucher = null;
 				$this->discount = 0;
-			}		
-			
+			}
+
 		} else {
 			$this->kodeVoucher = null;
 			$this->discount = 0;
@@ -125,7 +125,7 @@ class PendaftarForm extends Component
 		//dd(date('Y-m-d') <= $voucher->first()->akhir_berlaku);
 		$this->total_after_voucher = $this->total - $this->discount;
 	}
-	
+
 	public function splitName($name){
 		$splittedName = [];
 		if(strrpos(trim($name), ' ')){
@@ -140,7 +140,7 @@ class PendaftarForm extends Component
 		}
 		return $splittedName;
 	}
-	
+
 	public function payment(){
 		$items = [
 			[
@@ -161,7 +161,7 @@ class PendaftarForm extends Component
 		if(count($nama) > 1){
 			$params['customer']['surname'] = $nama[1];
 		}
-		$params = [ 
+		$params = [
 			'external_id' => $external_id,
 			'amount' => $this->total_after_voucher,
 			'description' => 'Invoice Pendaftaran Mahasiswa Baru',
