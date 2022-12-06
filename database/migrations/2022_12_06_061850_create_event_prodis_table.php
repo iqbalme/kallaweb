@@ -13,15 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prodis', function (Blueprint $table) {
+        Schema::create('event_prodis', function (Blueprint $table) {
             $table->id();
-			$table->string('nama_prodi');
-			$table->longText('deskripsi_prodi')->nullable();
-			$table->string('thumbnail')->nullable();
-			$table->string('logo_prodi')->nullable();
-			$table->longText('visi_misi')->nullable();
-			$table->string('slug')->unique();
-			$table->string('subdomain')->unique()->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prodis');
+        Schema::dropIfExists('event_prodis');
     }
 };

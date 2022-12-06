@@ -13,15 +13,15 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
-	
+
    <div style="margin-top:40px;margin-bottom:10px;" id="blog" class="blog">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<!--Content-->
-					
+
 					<article class="entry entry-single">
 
               <div class="entry-content">
@@ -44,7 +44,7 @@
 
             </article>
 
-					
+
 					<!-- End Content-->
 				</div>
 			</div>
@@ -57,7 +57,7 @@
 		  font-family: "Open Sans", sans-serif;
 		  color: #444444;
 		}
-		
+
 		.blog h1,h2,h3,h4,h5,h6 {
 		  font-family: "Raleway", sans-serif;
 		  margin-bottom: 20px;
@@ -71,6 +71,7 @@
 
 		.blog .entry .entry-content p {
 		  line-height: 24px;
+          text-align-last: initial;
 		}
 
 		.blog .entry .entry-content h3 {

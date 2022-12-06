@@ -5,10 +5,10 @@
             <div class="card-body">
 			<div class="row justify-content-between p-3">
 				<div class="col-4"><h3>List Pendaftar</h3></div>
-					<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" data-coreui-toggle="modal" data-coreui-target="#voucherModal" wire:click="addFormVoucher">Ekspor Data</button></div>
+					<div class="col-auto"><button type="button" class="btn btn-success text-white mb-2" wire:click="exportPendaftar">Ekspor Data</button></div>
 				<hr>
 			</div>
-				
+
 			<div class="row justify-content-md-between">
 				<!-- Perhalaman -->
 				<div class="col-lg-auto">
@@ -26,7 +26,7 @@
 					</div>
 				</div>
 				<!-- End Perhalaman -->
-				
+
 				<!-- Pencarian -->
 				<div class="col-8">
 					<div class="input-group mb-3">
@@ -38,7 +38,7 @@
 				</div>
 				<!-- End Pencarian -->
 			</div>
-				
+
 				<div class="table-responsive">
                     <table class="table border mb-0 table-striped">
                       <thead class="table-light fw-semibold">
@@ -89,7 +89,7 @@
 						@endforeach
 					  @endisset
                       </tbody>
-                    </table>					
+                    </table>
                   </div>
             </div>
         </div>
