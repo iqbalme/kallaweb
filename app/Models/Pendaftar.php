@@ -11,7 +11,7 @@ class Pendaftar extends Model
 
 	protected $guarded = [];
 
-    protected $appends = array('pendaftar_prodi');
+    protected $appends = array('nama_prodi');
 
 	public function invoice(){
 		return $this->belongsTo(Invoice::class);
@@ -21,7 +21,7 @@ class Pendaftar extends Model
 		return $this->belongsTo(Prodi::class);
 	}
 
-    public function getPendaftarProdiAttribute()
+    public function getNamaProdiAttribute()
     {
         return $this->prodi->nama_prodi;
     }
