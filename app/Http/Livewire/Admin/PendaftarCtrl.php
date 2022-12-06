@@ -23,7 +23,7 @@ class PendaftarCtrl extends Component
 
     public function exportPendaftar(){
         $pendaftar = Pendaftar::where('aktif', 1)->orderBy('created_at', 'asc')->get();
-
+        dd($pendaftar);
         (new FastExcel($pendaftar))->export('calon-mahasiswa-kalla-institute.xlsx', function ($camaba) {
             return [
                 'Nama Lengkap' => strtoupper($camaba->nama),
