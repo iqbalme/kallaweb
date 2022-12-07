@@ -24,6 +24,7 @@ class PaymentController extends Controller
 					if($request->status == 'PAID'){
 						$invoice_data->status_payment = $request->status;
 						$invoice_data->channel_pembayaran = $request->payment_channel;
+						$invoice_data->waktu_pembayaran = $request->updated;
 						$invoice_data->save();
 						$pendaftar = $invoice_data->pendaftar;
 						$pendaftar->aktif = true;
