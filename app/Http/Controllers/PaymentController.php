@@ -23,6 +23,7 @@ class PaymentController extends Controller
 					$invoice_data = $invoice->first();
 					if($request->status == 'PAID'){
 						$invoice_data->status_payment = $request->status;
+						$invoice_data->channel_pembayaran = $request->payment_channel;
 						$invoice_data->save();
 						$pendaftar = $invoice_data->pendaftar;
 						$pendaftar->aktif = true;
@@ -40,7 +41,7 @@ class PaymentController extends Controller
 			return response()->json(['message' => 'Sukses validasi callback'], 200);
 		}
 	}
-	
+
 	public function success_payment_callback(){
 		$referer = request()->headers->get('referer');
 		if(str_contains($referer, 'xendit.co')){ //jika referer dari xendit
@@ -48,7 +49,7 @@ class PaymentController extends Controller
 		};
 		return redirect()->route('home');
 	}
-	
+
 	public function failed_payment_callback(Request $request){
 		return redirect()->route('payment.expired');
 	}

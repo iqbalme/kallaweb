@@ -62,6 +62,7 @@ trait CommonTrait
 				$invoice_data['total'] = 0;
 				$invoice_data['xendit_invoice_id'] = null;
 				$invoice_data['status_payment'] = 'PAID';
+				$invoice_data['channel_pembayaran'] = null;
 				$data_pendaftar['aktif'] = true;
 				if($this->createDataPendaftar($invoice_data, $data_pendaftar)){
 					//header('Key: W79AU8HOVKAIIWJIV5F0U57BWEB2ON4UWE5SJ6G3O1JLWSJHZNFSXEACDTUO5456A4V9F6M77LQYMX45NPBVAJCDMSJ913OG0WTLFMXIY42L8A4ESDL0VI7I');
@@ -75,6 +76,7 @@ trait CommonTrait
 					$invoice_data['total'] = $params['amount'];
 					$invoice_data['xendit_invoice_id'] = $createdInvoice['id'];
 					$invoice_data['status_payment'] = $createdInvoice['status'];
+                    $invoice_data['channel_pembayaran'] = null;
 					$data_pendaftar['aktif'] = false;
 					if($this->createDataPendaftar($invoice_data, $data_pendaftar)){
 						return redirect()->away($createdInvoice['invoice_url']);
@@ -147,7 +149,7 @@ trait CommonTrait
 			Log::info('Kirim email ke pendaftar');
 			return true;
 		} catch (\Exception $e) {
-			Log::error($e->message);
+			Log::error($e->getMessage());
 			return false;
 		}
 	}
