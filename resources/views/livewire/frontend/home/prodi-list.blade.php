@@ -3,10 +3,11 @@
     <div class="prodi">
 		<div class="container overflow-hidden">
 			<div class="row justify-content-between">
-				
+
 					<!--div class="blog_prodi_container" style="position:relative;height:auto;"-->
 					<!--div class="col-lg-6"-->
 							@foreach($data['prodis'] as $prodi)
+                                @if($prodi->id != 1)
 								<!--div class="blog_prodi trans_200" style="position:relative;" id="post-{{$loop->iteration}}" data-index="{{$loop->iteration}}"-->
 								<div class="col-lg-3 col-md-6 col-sm-12 col-12 trans_200 p-2">
 									<div class="blog_prodi_list">
@@ -21,9 +22,10 @@
 										</div>
 									</div>
 								</div>
+                                @endif
 							@endforeach
 					<!--/div-->
-				
+
 			</div>
 		</div>
 	</div>
@@ -33,6 +35,6 @@
 			jQuery(".blog_prodi_image").height(jQuery(".blog_prodi_list").width()*0.53);
 		});
 	</script>
-	<!--link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css"-->	
+	<!--link href="{{asset('frontend/assets/css/kalla-style.css')}}" rel="stylesheet" type="text/css"-->
 	@endisset
 </div>
