@@ -23,6 +23,7 @@ class PaymentController extends Controller
 				if($invoice->count()){
 					$invoice_data = $invoice->first();
 					if($request->status == 'PAID'){
+                        dd('satu');
 						$invoice_data->status_payment = $request->status;
 						$invoice_data->channel_pembayaran = $request->payment_channel;
 						$invoice_data->waktu_pembayaran = date('Y-m-d H:i:s', strtotime($request->updated));
