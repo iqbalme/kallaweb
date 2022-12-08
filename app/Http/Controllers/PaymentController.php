@@ -16,8 +16,6 @@ class PaymentController extends Controller
 		foreach($setting as $val){
 			$setting_value[$val->nama_setting] = $val->isi_setting;
 		}
-        return $request->header('X-CALLBACK-TOKEN');
-        die;
 		if($setting_value['mode_pembayaran'] == 'live'){
 			if($request->header('X-CALLBACK-TOKEN') == $setting_value['xendit_callback_token']){
 				$invoice = Invoice::where(['xendit_invoice_id' => $request->id, 'no_invoice' => $request->external_id]);
