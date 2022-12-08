@@ -30,7 +30,8 @@ class PaymentController extends Controller
 						$invoice_data->save();
 						$pendaftar = $invoice_data->pendaftar;
 						$pendaftar->aktif = true;
-						$invoice_data->pendaftar()->save($pendaftar);
+						$hasil = $invoice_data->pendaftar()->save($pendaftar);
+                        dd($hasil);
 					} elseif ($request->status == 'EXPIRED'){
 						$invoice_data->delete();
 					};
