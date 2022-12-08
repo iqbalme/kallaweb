@@ -8,6 +8,7 @@
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-home') }}"></use>
 		</svg> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('home') }}" target="blank"><i class="material-symbols-outlined nav-icon" style="font-size:25px;">preview</i> Preview Web</a></li>
 	<li class="nav-title">MENU</li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('kategori.index') }}">
 		<i class="fa-solid fa-code-branch nav-icon"></i> Kategori</a></li>
@@ -37,7 +38,7 @@
 	<li class="nav-item"><a class="nav-link" href="{{ route('voucher.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-gift') }}"></use>
-		</svg> Voucher</a></li>	
+		</svg> Voucher</a></li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('pendaftar.index') }}">
 		<i class="fa-regular fa-address-card nav-icon"></i> Pendaftar</a></li>
 	<li class="nav-divider"></li>
@@ -59,7 +60,7 @@
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.mail') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">contact_mail</i> Mail</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.webhook') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">webhook</i> Webhook</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.database') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">delete_sweep</i> Database</a></li>
-		  </ul>			
+		  </ul>
 	</li>
   </ul>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
