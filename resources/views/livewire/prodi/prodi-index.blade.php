@@ -25,7 +25,7 @@
                           </th>
 						  <th></th>
                           <th class="text-center">Prodi</th>
-                          <th class="text-center">Deskripsi</th>
+                          <th class="text-center">Logo</th>
                           <th class="text-center">Visi Misi</th>
                           <th class="text-center">Subdomain</th>
 						  <th></th>
@@ -34,7 +34,7 @@
                       <tbody>
 					  @if(count($data) === 0)
 						<tr class="align-middle">
-                          <td class="text-center" colspan="6">
+                          <td class="text-center" colspan="7">
 						  Tidak ada data
 						  </td>
 						</tr>
@@ -57,7 +57,11 @@
                             {{ $prodi->nama_prodi }}
                           </td>
 						  <td>
-                            {{ substr($prodi->deskripsi_prodi,0,45) }}
+                            @if(isset($prodi->logo_prodi))
+								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('storage/images/'.$prodi->logo_prodi) }}"></div>
+							@else
+								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('admin/thumbnail-default.jpg') }}"></div>
+							@endif
                           </td>
                           <td>
                             @if(isset($prodi->visi_misi))
