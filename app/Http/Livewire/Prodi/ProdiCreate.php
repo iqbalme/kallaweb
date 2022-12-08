@@ -17,11 +17,13 @@ class ProdiCreate extends Component
 	public $slug = null;
 	public $thumbnail = null;
 	public $subdomain = null;
+    public $visi_misi = null;
+    public $logo_prodi = null;
 
     protected $rules = [
         'nama_prodi' => 'required',
         'thumbnail' => 'required',
-        'subdomain' => 'required|unique:prodis,slug',
+        'subdomain' => 'required|unique:prodis,slug'
     ];
 
     public function render()
@@ -32,16 +34,28 @@ class ProdiCreate extends Component
 	public function create(){
         $this->validate();
 		$thumbnail = null;
+        $visi_misi = null;
+        $logo_prodi = null;
 		if(isset($this->thumbnail)){
 			$thumbnail = $this->thumbnail->getFilename();
 			$this->thumbnail->storeAs('public/images', $thumbnail);
+		}
+        if(isset($this->visi_misi)){
+			$visi_misi = $this->visi_misi->getFilename();
+			$this->visi_misi->storeAs('public/images', $visi_misi);
+		}
+        if(isset($this->logo_prodi)){
+			$logo_prodi = $this->logo_prodi->getFilename();
+			$this->logo_prodi->storeAs('public/images', $logo_prodi);
 		}
 		$prodi = Prodi::create([
 			'nama_prodi' => $this->nama_prodi,
 			'deskripsi_prodi' => $this->deskripsi_prodi,
 			'slug' => $this->setSlug($this->nama_prodi),
 			'thumbnail' => $thumbnail,
-			'subdomain' => $this->subdomain
+			'subdomain' => $this->subdomain,
+            'visi_misi' => $visi_misi,
+            'logo_prodi' => $logo_prodi
 		]);
 		$this->reset();
 		$this->emit('refreshProdi', $prodi);
@@ -51,5 +65,15 @@ class ProdiCreate extends Component
 	public function removeThumbnail(){
 		$this->thumbnail->delete();
 		$this->thumbnail = null;
+	}
+
+    public function removeVisimisi(){
+		$this->visi_misi->delete();
+		$this->visi_misi = null;
+	}
+
+    public function removeLogoprodi(){
+		$this->logo_prodi->delete();
+		$this->logo_prodi = null;
 	}
 }

@@ -2,19 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\TagController;
-use App\Http\Controllers\PendaftarController;
-use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\MenuController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\SubdomainController;
 use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\Teslw;
 use App\Http\Livewire\Frontend\Home;
-use App\Http\Livewire\Frontend\Home2;
 use App\Http\Livewire\Frontend\SinglePost;
-use App\Http\Livewire\Frontend\SinglePost2;
 use App\Http\Livewire\Frontend\Login;
 use App\Http\Livewire\Frontend\Arsip;
 use App\Http\Livewire\Frontend\PendaftarForm;
@@ -87,7 +81,6 @@ use App\Http\Livewire\Faq\FaqIndex;
 	Route::get('fasilitas/', Fasilitas::class)->name('fasilitas.show');
 	Route::get('post/{post_val}', SinglePost::class)->name('post.single');
 	Route::get('post/', PostArchive::class)->name('post.list');
-	Route::get('tes/', [TestController::class, 'index']);
 	Route::get('arsip/{meta_type}/{meta_val}', Arsip::class)->name('arsip');
 	Route::get('registrasi/', PendaftarForm::class)->name('registrasi');
 	Route::get('admisi-tidak-aktif/', AdmisiNonAktif::class)->name('admisi-non-aktif');
@@ -145,7 +138,7 @@ use App\Http\Livewire\Faq\FaqIndex;
 // });
 
 //route for subdomain
-// Route::group(array('domain' => '{subdomain}.'.config('app.url')), function() {
-    // Place your routes in here, like for example
-    // Route::get('/tes', [TestController::class, 'subdomain']);
-// });
+Route::group(array('domain' => '{subdomain}.'.config('app.url')), function() {
+    //Place your routes in here, like for example
+    Route::get('/tes', [SubdomainController::class, 'getSubdomain']);
+});

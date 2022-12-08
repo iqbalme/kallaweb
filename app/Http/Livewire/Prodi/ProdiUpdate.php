@@ -16,11 +16,15 @@ class ProdiUpdate extends Component
 	public $thumbnail = null;
 	public $first_thumbnail = false;
 	public $subdomain = null;
+    public $first_visimisi = null;
+    public $visi_misi = null;
+    public $first_logoprodi = null;
+    public $logo_prodi = null;
 
     protected $rules = [
         'nama_prodi' => 'required',
         'thumbnail' => 'required',
-        'subdomain' => 'required',
+        'subdomain' => 'required'
     ];
 
 	protected $listeners = [
@@ -40,12 +44,22 @@ class ProdiUpdate extends Component
 			$this->thumbnail = $prodi['thumbnail'];
 			$this->first_thumbnail = true;
 		}
+        if(isset($prodi['visi_misi'])){
+			$this->visi_misi = $prodi['visi_misi'];
+			$this->first_visimisi = true;
+		}
+        if(isset($prodi['logo_prodi'])){
+			$this->logo_prodi = $prodi['logo_prodi'];
+			$this->first_logoprodi = true;
+		}
 		$this->subdomain = $prodi['slug'];
 	}
 
 	public function update(){
         $this->validate();
 		$thumbnail = null;
+        $visi_misi = null;
+        $logo_prodi = null;
 		$data = [];
 		if(isset($this->thumbnail)){
 			if(!$this->first_thumbnail){
@@ -55,10 +69,28 @@ class ProdiUpdate extends Component
 				$thumbnail = $this->thumbnail;
 			}
 		}
+        if(isset($this->visi_misi)){
+			if(!$this->first_visimisi){
+				$visi_misi = $this->visi_misi->getFilename();
+				$this->visi_misi->storeAs('public/images', $visi_misi);
+			} else {
+				$visi_misi = $this->visi_misi;
+			}
+		}
+        if(isset($this->logo_prodi)){
+			if(!$this->first_logoprodi){
+				$logo_prodi = $this->logo_prodi->getFilename();
+				$this->logo_prodi->storeAs('public/images', $logo_prodi);
+			} else {
+				$logo_prodi = $this->logo_prodi;
+			}
+		}
 		$data['thumbnail'] = $thumbnail;
 		$data['nama_prodi'] = $this->nama_prodi;
 		$data['deskripsi_prodi'] = $this->deskripsi_prodi;
 		$data['slug'] = $this->subdomain;
+        $data['visi_misi'] = $visi_misi;
+        $data['logo_prodi'] = $logo_prodi;
 		if($this->prodi_id){
 			$prodi = Prodi::find($this->prodi_id);
 			$prodi->update($data);
@@ -77,5 +109,21 @@ class ProdiUpdate extends Component
 		}
 		$this->first_thumbnail = false;
 		$this->thumbnail = null;
+	}
+
+    public function removeVisimisi(){
+		if(!$this->first_visimisi){
+			$this->visi_misi->delete();
+		}
+		$this->first_visimisi = false;
+		$this->visi_misi = null;
+	}
+
+    public function removeLogoprodi(){
+		if(!$this->first_logoprodi){
+			$this->logo_prodi->delete();
+		}
+		$this->first_logoprodi = false;
+		$this->logo_prodi = null;
 	}
 }

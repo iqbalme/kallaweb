@@ -44,6 +44,24 @@
 		</div>
 	</div>
     <div class="row">
+		<label class="col-form-label">Visi Misi</label>
+		<div class="col-sm-5">
+			@if(isset($visi_misi))
+				<div class="mb-1 rounded">
+					<img src="{{ $visi_misi->temporaryUrl() }}" alt="Thumbnail" width="200" height="200">
+				</div>
+				<div class="d-grid gap-2 d-md-block mb-3">
+				  <button class="btn btn-danger text-white" type="button" wire:click="removeVisimisi">Hapus</button>
+				</div>
+			@else
+				<div class="input-group mb-3 mt-2">
+				  <input type="file" class="form-control" wire:model.defer="visi_misi">
+				  <label class="input-group-text">Upload</label>
+				</div>
+			@endif
+		</div>
+	</div>
+    <div class="row">
         <div class="col-sm-6">
             @if ($errors->any())
                 <div class="alert alert-danger" role="alert">
