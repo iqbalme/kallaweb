@@ -28,6 +28,8 @@ class PaymentController extends Controller
 						$invoice_data->waktu_pembayaran = date('Y-m-d H:i:s', strtotime($request->updated));
                         // dd(date('Y-m-d H:i:s', strtotime($request->updated)));
 						$invoice_data->save();
+                        //ini debug
+                        dd('coba');
 						$pendaftar = $invoice_data->pendaftar;
 						$pendaftar->aktif = true;
 						$hasil = $invoice_data->pendaftar()->save($pendaftar);
