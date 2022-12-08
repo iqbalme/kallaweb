@@ -39,7 +39,7 @@ class PaymentController extends Controller
 					};
 					return response()->json($invoice_data, 200);
 				};
-				return response()->json(['message' => 'Sukses validasi callback'], 200);
+				//return response()->json(['message' => 'Sukses validasi callback'], 200);
 			} else {
 				return response()->json(['message' => 'Gagal validasi callback'], 401);
 			}
