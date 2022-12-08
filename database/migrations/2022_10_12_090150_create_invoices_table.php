@@ -21,7 +21,7 @@ return new class extends Migration
 			$table->string('xendit_invoice_id')->nullable();
 			$table->string('channel_pembayaran')->nullable();
 			$table->enum('status_payment', ['PENDING', 'PAID', 'EXPIRED'])->default('PENDING');
-            $table->dateTime('waktu_pembayaran')->nullable();
+            $table->dateTimeTz('waktu_pembayaran')->nullable();
             $table->timestamps();
         });
     }

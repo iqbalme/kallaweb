@@ -19,12 +19,14 @@ class PaymentController extends Controller
 		if($setting_value['mode_pembayaran'] == 'live'){
 			if($request->header('X-CALLBACK-TOKEN') == $setting_value['xendit_callback_token']){
 				$invoice = Invoice::where(['xendit_invoice_id' => $request->id, 'no_invoice' => $request->external_id]);
+
 				if($invoice->count()){
 					$invoice_data = $invoice->first();
 					if($request->status == 'PAID'){
 						$invoice_data->status_payment = $request->status;
 						$invoice_data->channel_pembayaran = $request->payment_channel;
-						$invoice_data->waktu_pembayaran = $request->updated;
+						$invoice_data->waktu_pembayaran = date('Y-m-d H:i:s', strtotime($request->updated));
+                        // dd(date('Y-m-d H:i:s', strtotime($request->updated)));
 						$invoice_data->save();
 						$pendaftar = $invoice_data->pendaftar;
 						$pendaftar->aktif = true;
