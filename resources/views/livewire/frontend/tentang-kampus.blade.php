@@ -71,7 +71,7 @@
 
 		.blog .entry .entry-content p {
 		  line-height: 24px;
-          text-align-last: initial;
+          text-align: justify;
 		}
 
 		.blog .entry .entry-content h3 {
