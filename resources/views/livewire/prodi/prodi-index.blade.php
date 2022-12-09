@@ -27,7 +27,7 @@
                           <th class="text-center">Prodi</th>
                           <th class="text-center">Logo</th>
                           <th class="text-center">Visi Misi</th>
-                          <th class="text-center">Subdomain</th>
+                          <th class="text-center">Struktur</th>
 						  <th></th>
                         </tr>
                       </thead>
@@ -53,29 +53,40 @@
 								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('admin/thumbnail-default.jpg') }}"></div>
 							@endif
                           </td>
-						  <td>
+						  <td class="text-center">
                             {{ $prodi->nama_prodi }}
                           </td>
-						  <td>
+						  <td class="text-center">
                             @if(isset($prodi->logo_prodi))
 								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('storage/images/'.$prodi->logo_prodi) }}"></div>
 							@else
 								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('admin/thumbnail-default.jpg') }}"></div>
 							@endif
                           </td>
-                          <td>
+                          <td class="text-center">
                             @if(isset($prodi->visi_misi))
 								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('storage/images/'.$prodi->visi_misi) }}"></div>
 							@else
 								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('admin/thumbnail-default.jpg') }}"></div>
 							@endif
                           </td>
-                          <td>
-                            {{ $prodi->slug}}
+                          <td class="text-center">
+                            @if(isset($prodi->struktur))
+								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('storage/images/'.$prodi->struktur) }}"></div>
+							@else
+								<div class="avatar avatar-lg"><img class="avatar-img" src="{{ asset('admin/thumbnail-default.jpg') }}"></div>
+							@endif
                           </td>
                           <td class="text-end">
-							<button type="button" class="btn btn-dark" wire:click="getProdi({{ $prodi->id }})" @if($isFormVisible) disabled @endif>Edit</button>
-							<button wire:click="setProdiId({{$prodi->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#prodiModalEdit">Hapus</button>
+                            <a href="{{ 'http://'.$prodi->subdomain.'.'.config('app.url') }}" target="blank" type="button" class="btn btn-dark"><span class="material-symbols-outlined">
+                                visibility
+                                </span></a>
+							<button type="button" class="btn btn-dark" wire:click="getProdi({{ $prodi->id }})" @if($isFormVisible) disabled @endif><span class="material-symbols-outlined">
+                                edit
+                                </span></button>
+							<button wire:click="setProdiId({{$prodi->id}})" type="button" class="btn btn-danger text-white" data-coreui-toggle="modal" data-coreui-target="#prodiModalEdit"><span class="material-symbols-outlined">
+                                delete
+                                </span></button>
                           </td>
                         </tr>
                             @endif

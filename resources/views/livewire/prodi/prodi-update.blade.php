@@ -92,6 +92,28 @@
 		</div>
 	</div>
     <div class="row">
+		<label class="col-form-label">Stuktur</label>
+		<div class="col-sm-5">
+			@if(isset($stuktur))
+				<div class="mb-1 rounded">
+					@if($first_logoprodi)
+						<img src="{{ asset('storage/images/'.$stuktur) }}" alt="thumbnail prodi" width="200" height="200">
+					@else
+						<img src="{{ $stuktur->temporaryUrl() }}" alt="thumbnail prodi" width="200" height="200">
+					@endif
+				</div>
+				<div class="d-grid gap-2 d-md-block mb-3">
+				  <button class="btn btn-danger text-white" type="button" wire:click="removeStuktur">Hapus</button>
+				</div>
+			@else
+				<div class="input-group mb-3 mt-2">
+				  <input type="file" class="form-control" wire:model.defer="stuktur">
+				  <label class="input-group-text">Upload</label>
+				</div>
+			@endif
+		</div>
+	</div>
+    <div class="row">
         <div class="col-sm-6">
             @if ($errors->any())
                 <div class="alert alert-danger" role="alert">

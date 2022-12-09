@@ -20,6 +20,7 @@ return new class extends Migration
 			$table->string('thumbnail')->nullable();
 			$table->string('logo_prodi')->nullable();
 			$table->string('visi_misi')->nullable();
+			$table->string('struktur')->nullable();
 			$table->string('slug')->unique();
 			$table->string('subdomain')->unique()->nullable();
             $table->timestamps();

@@ -20,6 +20,8 @@ class ProdiUpdate extends Component
     public $visi_misi = null;
     public $first_logoprodi = null;
     public $logo_prodi = null;
+    public $first_struktur = null;
+    public $struktur = null;
 
     protected $rules = [
         'nama_prodi' => 'required',
@@ -51,6 +53,10 @@ class ProdiUpdate extends Component
         if(isset($prodi['logo_prodi'])){
 			$this->logo_prodi = $prodi['logo_prodi'];
 			$this->first_logoprodi = true;
+		}
+        if(isset($prodi['struktur'])){
+			$this->struktur = $prodi['struktur'];
+			$this->first_struktur = true;
 		}
 		$this->subdomain = $prodi['slug'];
 	}
@@ -85,12 +91,21 @@ class ProdiUpdate extends Component
 				$logo_prodi = $this->logo_prodi;
 			}
 		}
+        if(isset($this->struktur)){
+			if(!$this->first_struktur){
+				$struktur = $this->struktur->getFilename();
+				$this->struktur->storeAs('public/images', $struktur);
+			} else {
+				$struktur = $this->struktur;
+			}
+		}
 		$data['thumbnail'] = $thumbnail;
 		$data['nama_prodi'] = $this->nama_prodi;
 		$data['deskripsi_prodi'] = $this->deskripsi_prodi;
 		$data['slug'] = $this->subdomain;
         $data['visi_misi'] = $visi_misi;
         $data['logo_prodi'] = $logo_prodi;
+        $data['struktur'] = $struktur;
 		if($this->prodi_id){
 			$prodi = Prodi::find($this->prodi_id);
 			$prodi->update($data);
@@ -125,5 +140,13 @@ class ProdiUpdate extends Component
 		}
 		$this->first_logoprodi = false;
 		$this->logo_prodi = null;
+	}
+
+    public function removeStruktur(){
+		if(!$this->first_struktur){
+			$this->struktur->delete();
+		}
+		$this->first_struktur = false;
+		$this->struktur = null;
 	}
 }

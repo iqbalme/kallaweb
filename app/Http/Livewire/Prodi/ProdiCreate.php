@@ -19,6 +19,7 @@ class ProdiCreate extends Component
 	public $subdomain = null;
     public $visi_misi = null;
     public $logo_prodi = null;
+    public $struktur = null;
 
     protected $rules = [
         'nama_prodi' => 'required',
@@ -36,6 +37,7 @@ class ProdiCreate extends Component
 		$thumbnail = null;
         $visi_misi = null;
         $logo_prodi = null;
+        $struktur = null;
 		if(isset($this->thumbnail)){
 			$thumbnail = $this->thumbnail->getFilename();
 			$this->thumbnail->storeAs('public/images', $thumbnail);
@@ -48,6 +50,10 @@ class ProdiCreate extends Component
 			$logo_prodi = $this->logo_prodi->getFilename();
 			$this->logo_prodi->storeAs('public/images', $logo_prodi);
 		}
+        if(isset($this->struktur)){
+			$struktur = $this->struktur->getFilename();
+			$this->struktur->storeAs('public/images', $struktur);
+		}
 		$prodi = Prodi::create([
 			'nama_prodi' => $this->nama_prodi,
 			'deskripsi_prodi' => $this->deskripsi_prodi,
@@ -55,7 +61,8 @@ class ProdiCreate extends Component
 			'thumbnail' => $thumbnail,
 			'subdomain' => $this->subdomain,
             'visi_misi' => $visi_misi,
-            'logo_prodi' => $logo_prodi
+            'logo_prodi' => $logo_prodi,
+            'struktur' => $struktur
 		]);
 		$this->reset();
 		$this->emit('refreshProdi', $prodi);
@@ -75,5 +82,10 @@ class ProdiCreate extends Component
     public function removeLogoprodi(){
 		$this->logo_prodi->delete();
 		$this->logo_prodi = null;
+	}
+
+    public function removeStruktur(){
+		$this->struktur->delete();
+		$this->struktur = null;
 	}
 }
