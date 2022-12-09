@@ -80,18 +80,18 @@
 		</div>
 	</div>
     <div class="row">
-		<label class="col-form-label">Stuktur</label>
+		<label class="col-form-label">Struktur</label>
 		<div class="col-sm-5">
-			@if(isset($stuktur))
+			@if(isset($struktur))
 				<div class="mb-1 rounded">
-					<img src="{{ $stuktur->temporaryUrl() }}" alt="Thumbnail" width="200" height="200">
+					<img src="{{ $struktur->temporaryUrl() }}" alt="Thumbnail" width="200" height="200">
 				</div>
 				<div class="d-grid gap-2 d-md-block mb-3">
-				  <button class="btn btn-danger text-white" type="button" wire:click="removeStuktur">Hapus</button>
+				  <button class="btn btn-danger text-white" type="button" wire:click="removeStruktur">Hapus</button>
 				</div>
 			@else
 				<div class="input-group mb-3 mt-2">
-				  <input type="file" class="form-control" wire:model.defer="stuktur">
+				  <input type="file" class="form-control" wire:model.defer="struktur">
 				  <label class="input-group-text">Upload</label>
 				</div>
 			@endif
