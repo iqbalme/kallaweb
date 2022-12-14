@@ -25,8 +25,8 @@ class IdDomainMiddleware
     public function handle(Request $request, Closure $next)
     {
         $domainId = [];
-        //$pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?('.config('app.url').')#i'; //for production
-        $pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?(localhost.test)#i'; //for testing only
+        $pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?('.config('app.url').')#i'; //for production
+        // $pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?(localhost.test)#i'; //for testing only
         preg_match($pattern, $request->fullUrl(), $domainId, PREG_UNMATCHED_AS_NULL);
         dd($domainId);
         if(isset($domainId[1])){
