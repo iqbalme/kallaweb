@@ -28,7 +28,7 @@ class IdDomainMiddleware
         $pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?('.config('app.url').')#i'; //for production
         // $pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?(localhost.test)#i'; //for testing only
         preg_match($pattern, $request->fullUrl(), $domainId, PREG_UNMATCHED_AS_NULL);
-        dd($pattern);
+        //dd($pattern);
         if(isset($domainId[1])){
             //subdomain
             $prodi = Prodi::where('subdomain', $domainId[1])->where('id', '!=', 1);
