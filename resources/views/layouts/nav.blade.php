@@ -68,7 +68,7 @@
                             <ul class="dropdown arrow-top">
                                 @foreach($data['prodis'] as $prodi)
                                     @if($prodi->id != 1)
-                                        <li><a href="#">{{$prodi->nama_prodi}}</a></li>
+                                        <li><a href="{{'https://'.$prodi->subdomain.'.'.config('app.url')}}">{{$prodi->nama_prodi}}</a></li>
                                     @endif
                                 @endforeach
                         </ul>
