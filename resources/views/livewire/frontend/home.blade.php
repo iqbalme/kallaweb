@@ -46,7 +46,7 @@
 							<a class="btn-play" data-toggle="modal" data-target="#exampleModal">
 								<img src="{{asset('frontend/assets/images/video-icon.png')}}" alt="Video Play">
 							</a>
-                            
+
                         </div><!-- .video-play-btn -->
 
                         <img src="https://i3.ytimg.com/vi/dVCJlFXY9r0/maxresdefault.jpg" alt="">
@@ -55,7 +55,8 @@
             </div><!-- .row -->
         </div><!-- .container -->
     </section>
-	
+
+    @if(Request()->request->all()['is_main_domain'])
 	<div class="features" style="margin-top: 25px;">
 		<div class="container">
 			<div class="row mb-5">
@@ -70,6 +71,7 @@
 			</div>
 		</div>
 	</div>
+
 	<!-- Features -->
 	<div class="features" style="margin-top: 25px;">
 		<div class="container">
@@ -81,7 +83,7 @@
 				</div>
 			</div>
 			<div class="row features_row">
-				
+
 				<!-- Features Item -->
 				<div class="col-lg-3 feature_col">
 					<div class="feature text-center trans_400">
@@ -121,11 +123,12 @@
 			</div>
 		</div>
 	</div>
+    @endif
 
-	<livewire:frontend.home.events />	
+	<livewire:frontend.home.events />
 	<livewire:frontend.home.testimonis />
 	<livewire:frontend.home.latest-news />
-	
+
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered" role="document">
@@ -149,13 +152,13 @@
 			/* Get iframe src attribute value i.e. YouTube video url
 			and store it in a variable */
 			var url = jQuery("#introVideo").attr('src');
-			
+
 			/* Assign empty url value to the iframe src attribute when
 			modal hide, which stop the video playing */
 			jQuery("#exampleModal").on('hide.bs.modal', function(){
 				jQuery("#introVideo").attr('src', '');
 			});
-			
+
 			/* Assign the initially stored url back to the iframe src
 			attribute when modal is displayed again */
 			jQuery("#exampleModal").on('show.bs.modal', function(){
@@ -187,5 +190,5 @@
 	<!-- <script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script> -->
 	<!-- <script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script> -->
 	<!-- <script src="{{asset('frontend/theme/js/vendor/bootstrap.min.js')}}"></script> -->
-	
+
 </div>
