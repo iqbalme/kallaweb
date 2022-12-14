@@ -55,9 +55,26 @@
                     <li><a href="{{route('tentang-kampus')}}">Tentang Kampus</a></li>
                     <li><a href="{{route('struktur')}}">Struktur Organisasi</a></li>
                     <li><a href="{{route('team.show')}}">Profil Dosen</a></li>
-                    <li><a href="{{route('fasilitas.show')}}">Fasilitas</a></li>
+                    @if(Request()->request->all()['is_main_domain'])
+                        <li><a href="{{route('fasilitas.show')}}">Fasilitas</a></li>
+                    @else
+                        <li><a href="{{route('info.beasiswa')}}">Informasi Beasiswa</a></li>
+                    @endif
                   </ul>
 				</li>
+                @if(Request()->request->all()['is_main_domain'])
+                    @isset($data['prodis'])
+                        <li class="has-children"><a href="#"><span>Program Studi</span></a>
+                            <ul class="dropdown arrow-top">
+                                @foreach($data['prodis'] as $prodi)
+                                    @if($prodi->id != 1)
+                                        <li><a href="{{'https://'.$prodi->subdomain.'.'.Request()->request->all()['main_domain']}}">{{$prodi->nama_prodi}}</a></li>
+                                    @endif
+                                @endforeach
+                        </ul>
+                        </li>
+                    @endisset
+                @endif
 				<li class="has-children @if((request()->route()->getName() == 'post.list')||(request()->route()->getName() == 'event.list')||(request()->route()->getName() == 'faq')) active @else &nbsp; @endif"><a href="#"><span>Informasi</span></a>
 					<ul class="dropdown arrow-top">
                     <li><a href="{{route('post.list')}}">Berita</a></li>
@@ -66,6 +83,7 @@
                     <li><a href="{{route('faq')}}">F A Q</a></li>
                   </ul>
 				</li>
+                @if(Request()->request->all()['is_main_domain'])
 				<li class="@if(request()->route()->getName() == 'kontak') active @else &nbsp; @endif"><a href="{{route('kontak')}}"><span>Kontak</span></a></li>
                 <li class="has-children @if((request()->route()->getName() == 'registrasi')) active @else &nbsp; @endif"><a href="#"><span>Admisi</span></a>
 					<ul class="dropdown arrow-top">
@@ -75,6 +93,7 @@
                     <li><a href="{{route('registrasi.ulang')}}">Registrasi Ulang</a></li>
                   </ul>
 				</li>
+                @endif
               </ul>
             </nav>
           </div>

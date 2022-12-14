@@ -22,22 +22,26 @@ class ProdiTableSeeder extends Seeder
         \App\Models\Prodi::create([
 			'id' => 2,
 			'nama_prodi' => 'Bisnis Digital',
-			'slug' => 'bisnis-digital'
+			'slug' => 'bisnis-digital',
+            'subdomain' => 'bisdig'
 		]);
 		\App\Models\Prodi::create([
 			'id' => 3,
 			'nama_prodi' => 'Kewirausahaan',
-			'slug' => 'kewirausahaan'
+			'slug' => 'kewirausahaan',
+            'subdomain' => 'kewirausahaan'
 		]);
 		\App\Models\Prodi::create([
 			'id' => 4,
 			'nama_prodi' => 'Sistem Informasi',
-			'slug' => 'sistem-informasi'
+			'slug' => 'sistem-informasi',
+            'subdomain' => 'sistem-informasi'
 		]);
 		\App\Models\Prodi::create([
 			'id' => 5,
 			'nama_prodi' => 'Manajemen Retail',
-			'slug' => 'manajemen-retail'
+			'slug' => 'manajemen-retail',
+            'subdomain' => 'manajemen-retail'
 		]);
     }
 }
