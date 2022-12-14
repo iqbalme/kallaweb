@@ -32,6 +32,7 @@ class IdDomainMiddleware
         if(isset($domainId[1])){
             $pattern_admin = '#(?:^https?:\/\/)?([a-zA-Z0-9_-]+).(kallainstitute.ac.id)\/admin/.*#i';
             if(preg_match($pattern_admin, $request->fullUrl())){
+                dd('betul');
                 return redirect(config('app.url').'/admin/dashboard');
             } else {
                 //subdomain
