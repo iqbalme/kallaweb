@@ -12,10 +12,10 @@
 								<div class="col-lg-3 col-md-6 col-sm-12 col-12 trans_200 p-2">
 									<div class="blog_prodi_list">
 										@isset($prodi->thumbnail)
-											<a href="{{route('post.single', ['post_val' => $prodi->slug])}}"><div class="blog_prodi_image" style="background-image:url('{{asset('storage/images/'.$prodi->thumbnail)}}');background-size:cover;"></div></a>
+											<a href="{{'https://'.$prodi->subdomain.'.'.config('app.url')}}"><div class="blog_prodi_image" style="background-image:url('{{asset('storage/images/'.$prodi->thumbnail)}}');background-size:cover;"></div></a>
 										@endisset
 										<div class="blog_post_body">
-											<div class="blog_post_title text-center"><a href="#">{{$prodi->nama_prodi}}</a></div>
+											<div class="blog_post_title text-center"><a href="{{'https://'.$prodi->subdomain.'.'.config('app.url')}}">{{$prodi->nama_prodi}}</a></div>
 											<div class="blog_post_text">
 											{{substr($prodi->deskripsi_prodi,0,77).'...'}}
 											</div>
