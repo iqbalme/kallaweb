@@ -30,15 +30,20 @@ class IdDomainMiddleware
         preg_match($pattern, $request->fullUrl(), $domainId, PREG_UNMATCHED_AS_NULL);
         //dd($pattern);
         if(isset($domainId[1])){
-            //subdomain
-            $prodi = Prodi::where('subdomain', $domainId[1])->where('id', '!=', 1);
-            if($prodi->count()){
-                //tambah new value untuk identifikasi subdomain
-                $request->request->add(['is_main_domain' => false, 'subdomain' => $prodi->first(), 'main_domain' => $domainId[2]]);
-                $this->inisiasi_layout_data();
-                return $next($request);
+            $pattern_admin = '#(?:^https?:\/\/)?([a-zA-Z0-9_-]+).(kallainstitute.ac.id)\/admin/.*#i';
+            if(preg_match($pattern_admin, $request->fullUrl())){
+                return redirect()->to(config('app.url').'/admin/dashboard');
             } else {
-                abort(404);
+                //subdomain
+                $prodi = Prodi::where('subdomain', $domainId[1])->where('id', '!=', 1);
+                if($prodi->count()){
+                    //tambah new value untuk identifikasi subdomain
+                    $request->request->add(['is_main_domain' => false, 'subdomain' => $prodi->first(), 'main_domain' => $domainId[2]]);
+                    $this->inisiasi_layout_data();
+                    return $next($request);
+                } else {
+                    abort(404);
+                }
             }
         } else {
             //domain utama
