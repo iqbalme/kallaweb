@@ -30,7 +30,7 @@ class IdDomainMiddleware
         preg_match($pattern, $request->fullUrl(), $domainId, PREG_UNMATCHED_AS_NULL);
         //dd($pattern);
         if(isset($domainId[1])){
-            $pattern_admin = '#(?:^https?:\/\/)?([a-zA-Z0-9_-]+).('.config('app.url').')\/admin\/.*#i';
+            $pattern_admin = '#(?:^https?:\/\/)?([a-zA-Z0-9_-]+)\.('.config('app.url').')\/admin\/.*#i';
             if(preg_match($pattern_admin, $request->fullUrl())){
                 dd('betul');
                 return redirect(config('app.url').'/admin/dashboard/');
