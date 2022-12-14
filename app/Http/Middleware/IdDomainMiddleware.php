@@ -28,10 +28,10 @@ class IdDomainMiddleware
         //$pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?('.config('app.url').')#i'; //for production
         $pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?(localhost.test)#i'; //for testing only
         preg_match($pattern, $request->fullUrl(), $domainId, PREG_UNMATCHED_AS_NULL);
+        dd($domainId);
         if(isset($domainId[1])){
             //subdomain
             $prodi = Prodi::where('subdomain', $domainId[1])->where('id', '!=', 1);
-            dd($domainId[2]);
             if($prodi->count()){
                 //tambah new value untuk identifikasi subdomain
                 $request->request->add(['is_main_domain' => false, 'subdomain' => $prodi->first(), 'main_domain' => $domainId[2]]);
