@@ -32,7 +32,7 @@ class IdDomainMiddleware
         if(isset($domainId[1])){
             $pattern_admin = '#(?:^https?:\/\/)?([a-zA-Z0-9_-]+).(kallainstitute.ac.id)\/admin/.*#i';
             if(preg_match($pattern_admin, $request->fullUrl())){
-                return redirect()->to(config('app.url').'/admin/dashboard');
+                return redirect(config('app.url').'/admin/dashboard');
             } else {
                 //subdomain
                 $prodi = Prodi::where('subdomain', $domainId[1])->where('id', '!=', 1);
