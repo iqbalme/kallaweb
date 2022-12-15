@@ -70,6 +70,7 @@ use App\Http\Livewire\Faq\FaqIndex;
 |
 */
 // Route::group(array('domain' => config('app.url')), function() {
+    Route::get('todo', [TestController::class, 'todo']);
 	Route::get('tes1', [TestController::class, 'tesredirect']);
 	Route::get('tes2', [TestController::class, 'getredirect'])->name('tes2');
 	Route::get('tes-email', [TestController::class, 'tes_email']);
