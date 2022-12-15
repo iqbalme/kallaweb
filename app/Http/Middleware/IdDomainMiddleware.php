@@ -25,20 +25,20 @@ class IdDomainMiddleware
     public function handle(Request $request, Closure $next)
     {
         $domainId = [];
-        // $pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?('.config('app.url').')#i'; //for production
-        $pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?(localhost.test)#i'; //for testing only
+        $pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?('.config('app.url').')#i'; //for production
+        // $pattern = '#(?:https?:\/\/)?([a-zA-Z0-9_-]+)?.?(localhost.test)#i'; //for testing only
         preg_match($pattern, $request->fullUrl(), $domainId, PREG_UNMATCHED_AS_NULL);
         //dd($pattern);
         if(isset($domainId[1])){
-            // $pattern_admin = '#(?:^https?:\/\/)?([a-zA-Z0-9_-]+)\.('.config('app.url').')\/admin\/.*#i';
+            $pattern_admin = '#(?:^https?:\/\/)?([a-zA-Z0-9_-]+)\.('.config('app.url').')\/admin\/.*#i';
             // $pattern_admin = '#(?:^https?:\/\/)?([a-zA-Z0-9_-]+)\.(locahost.test)\/admin\/.*#i';
-            $pattern_admin = '#(?:^https?:\/\/)?([a-zA-Z0-9_-]+)\.(locahost.test)\/login#i';
+            // $pattern_admin = '#(?:^https?:\/\/)?([a-zA-Z0-9_-]+)\.(locahost.test)\/login#i';
             //dd(preg_match($pattern_admin, $request->fullUrl()));
             if(preg_match($pattern_admin, $request->fullUrl())){
-                dd('betul');
+                // dd('betul');
                 //return redirect(config('app.url').'/admin/dashboard/');
             } else {
-                dd('salah');
+                // dd('salah');
                 //subdomain
                 $prodi = Prodi::where('subdomain', $domainId[1])->where('id', '!=', 1);
                 if($prodi->count()){
