@@ -1,0 +1,10 @@
+Todo:
+1. Buat database
+2. Setting file .env, masukkan pengaturan host server, port, nama database, username dan password database
+3. Jalankan perintah: composer install
+4. Jalankan perintah: php artisan migrate --seed
+5. Edit file /etc/hosts, masukkan: 127.0.0.1    *.kallainstitute.ac.id
+6. Edit DNS pada domain, masukkan A record, dengan host = * dan value = alamat_ip_server
+7. Atur setting subdomain pada file konfigurasi sesuai dengan server yang dipake, apakah nginx atau apache2
+
+untuk update file, bisa menjalankan perintah: git push
