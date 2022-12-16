@@ -4,7 +4,7 @@
             <div class="card-body">
 				<h3>Daftar Publikasi</h3>
 				<hr>
-				
+
 			<div class="row justify-content-md-between">
 				<!-- Perhalaman -->
 				<div class="col-lg-auto">
@@ -22,7 +22,7 @@
 					</div>
 				</div>
 				<!-- End Perhalaman -->
-				
+
 				<!-- Pencarian -->
 				<div class="col-8">
 					<div class="input-group mb-3">
@@ -34,7 +34,7 @@
 				</div>
 				<!-- End Pencarian -->
 			</div>
-				
+
 				<div class="table-responsive">
                     <table class="table border mb-0 table-striped">
                       <thead class="table-light fw-semibold">
@@ -74,7 +74,7 @@
 						  <td>
                             <div>{{ ucfirst($post->judul) }}</div>
 							@if($isPostSlug)
-								<a href="{{ route('post.single', ['post_val' => $post->slug]) }}" target="_blank"><span class="badge text-bg-warning text-white">Lihat</span></a>	
+								<a href="{{ route('post.single', ['post_val' => $post->slug]) }}" target="_blank"><span class="badge text-bg-warning text-white">Lihat</span></a>
 							@else
 								<a href="{{ route('post.single', ['post_val' => $post->id]) }}" target="_blank"><span class="badge text-bg-warning text-white">Lihat</span></a>
 							@endif
@@ -94,20 +94,20 @@
 							  @endif
                           </td>
 						  <td>
-						  @if(isset($data['nama_prodi']))
-							  @if($post->post_prodi->prodi_id != 0)
-								{{ $data['nama_prodi'][$loop->index] }}
-							  @endif
-						  @else
-							-
-						  @endif
+                            @if(count($data['nama_prodi'][$loop->index]) == 1)
+                                {{ $data['nama_prodi'][$loop->index][0] }}
+                            @elseif(count($data['nama_prodi'][$loop->index]) > 1)
+                                {{ implode(', ',$data['nama_prodi'][$loop->index]) }}
+                            @else
+                                {{ '-' }}
+                            @endif
                           </td>
 						  <td>
 							@if($post->status_post == 'published')
 								<span class="badge text-bg-success text-white">{{ ucfirst($post->status_post) }}</span>
 							@else
 								<span class="badge text-bg-dark">{{ ucfirst($post->status_post) }}</span>
-							@endif                            
+							@endif
                             <div class="small text-medium-emphasis">{{ date('d-m-Y', strtotime($post->created_at)) }}</div>
                           </td>
 						  <td>
@@ -115,20 +115,20 @@
 								<span class="badge text-bg-success text-white">Ya</span>
 							@else
 								<span class="badge text-bg-dark">Tidak</span>
-							@endif                            
+							@endif
                           </td>
                         </tr>
 						@endforeach
 					@endisset
                       </tbody>
-                    </table>					
+                    </table>
                   </div>
             </div>
         </div>
-		  
+
 		  <!-- Pagination -->
 		  {{ $data['posts']->links('vendor.livewire.bootstrap') }}
-		  
+
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="postModalEdit" tabindex="-1" wire:ignore.self>
