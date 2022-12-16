@@ -29,14 +29,14 @@ class PostUpdate extends Component
 	public $tags;
 	public $prodis = [];
 	public $post_id;
-	public $post_prodi;
+	public $post_prodis = [];
 	public $is_headline = false;
 
 	protected $listeners = ['setKonten'];
 
     protected $rules = [
         'judul' => 'required',
-        'post_prodi' => 'required',
+        'post_prodis' => 'required',
         'categories' => 'required',
         'thumbnail' => 'required',
         'post_id' => 'required'
@@ -63,7 +63,9 @@ class PostUpdate extends Component
 		foreach($updatingPost->post_categories as $post_category){
 			$this->categories[] = $post_category->category_id;
 		}
-		$this->post_prodi = $updatingPost->post_prodi->prodi_id;
+        foreach($updatingPost->post_prodi as $post_prodis){
+			$this->post_prodis[] = $post_prodis->prodi_id;
+		}
 	}
 
     public function render()
@@ -90,6 +92,7 @@ class PostUpdate extends Component
         $this->validate();
 		$post_tags = [];
 		$post_categories = [];
+        $post_prodis = [];
 		$thumbnail = null;
 		if(isset($this->tags)){
 			foreach(explode(',',$this->tags) as $tag){
@@ -129,9 +132,14 @@ class PostUpdate extends Component
 				$post_categories[] = ['category_id' => $post_category];
 			}
 		}
-		$post->post_prodi_data()->update(['prodi_id' => $this->post_prodi]);
+        $post->post_prodi_data()->delete();
+		if(isset($this->post_prodis)){
+			foreach($this->post_prodis as $post_prodi){
+				$post_prodis[] = ['prodi_id' => $post_prodi];
+			}
+		}
 		$post->post_tags_data()->delete();
-		$post->post_prodi_data()->create(['prodi_id' => $this->post_prodi]);
+		$post->post_prodi_data()->createMany($post_prodis);
 		$post->post_categories_data()->createMany($post_categories);
 		$post->post_tags_data()->createMany($post_tags);
 		return redirect()->route('post.index');

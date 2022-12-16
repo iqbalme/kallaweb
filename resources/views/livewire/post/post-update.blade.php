@@ -39,20 +39,16 @@
 
 				<div class="mb-3">
 					<h6 class="card-title mb-1">Tampilkan pada</h6>
-					<div class="form-check" wire:ignore>
-					  <input class="form-check-input" type="radio" value="0" wire:model="post_prodi">
-					  <label class="form-check-label">
-					  Web Utama
-					  </label>
-					</div>
 					@if(count($data['prodis']))
 					@foreach($data['prodis'] as $prodi)
+                    @if($prodi->id != 1)
 					<div class="form-check" wire:ignore>
-					  <input class="form-check-input" type="radio" value="{{ $prodi->id }}" wire:model="post_prodi">
+					  <input class="form-check-input" type="checkbox" value="{{ $prodi->id }}" wire:model="post_prodis">
 					  <label class="form-check-label">
 					  {{ ucfirst($prodi->nama_prodi)}}
 					  </label>
 					</div>
+                    @endif
 					@endforeach
 					@endif
 				</div>
