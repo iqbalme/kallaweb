@@ -26,14 +26,14 @@ class PostCreate extends Component
 	public $konten;
 	public $categories = [];
 	public $tags;
-	public $post_prodi = null;
+	public $post_prodis = [1];
 	public $is_headline = false;
 
 	protected $listeners = ['setKonten'];
 
     protected $rules = [
         'judul' => 'required',
-        'post_prodi' => 'required',
+        'post_prodis' => 'required',
         'categories' => 'required',
         'thumbnail' => 'required'
     ];
@@ -43,7 +43,7 @@ class PostCreate extends Component
 		$prodis = Prodi::all();
 		$this->data['prodis'] = $prodis;
 		if($prodis->count()){
-			$this->post_prodi = 0; //tidak berlaku jika bukan super admin, nnt diedit
+			$this->post_prodis = [1]; //tidak berlaku jika bukan super admin, nnt diedit
 		}
 	}
 
@@ -66,6 +66,7 @@ class PostCreate extends Component
         $this->validate();
 		$post_tags = [];
 		$post_categories = [];
+        $post_prodis = [];
 		$thumbnail = null;
 		if(isset($this->tags)){
 			foreach(explode(',',$this->tags) as $tag){
@@ -98,7 +99,10 @@ class PostCreate extends Component
 				$post_categories[] = ['category_id' => $post_category];
 			}
 		}
-		$createdPost->post_prodi_data()->create(['prodi_id' => $this->post_prodi]);
+        foreach($this->post_prodis as $post_prodi){
+            $post_prodis[] = ['prodi_id' => (int) $post_prodi];
+        }
+		$createdPost->post_prodi_data()->createMany($post_prodis);
 		$createdPost->post_categories_data()->createMany($post_categories);
 		$createdPost->post_tags_data()->createMany($post_tags);
 		return redirect()->route('post.index');

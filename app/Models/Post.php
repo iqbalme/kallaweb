@@ -23,7 +23,7 @@ class Post extends Model
 	}
 
 	public function post_prodi_data(){
-		return $this->hasOne(PostProdis::class);
+		return $this->hasMany(PostProdis::class);
 	}
 
 	public function post_categories_data(){

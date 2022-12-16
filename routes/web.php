@@ -69,38 +69,46 @@ use App\Http\Livewire\Faq\FaqIndex;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::group(array('domain' => config('app.url')), function() {
-    Route::get('todo', [TestController::class, 'todo']);
-	Route::get('tes1', [TestController::class, 'tesredirect']);
-	Route::get('tes2', [TestController::class, 'getredirect'])->name('tes2');
-	Route::get('tes-email', [TestController::class, 'tes_email']);
-	Route::get('teslw', Teslw::class);
-	Route::get('/', Home::class)->name('home');
-	//Route::get('/', Home2::class)->name('home');
-	Route::get('team/', TeamList::class)->name('team.show');
-	Route::get('team/{team_id}', TeamDetail::class)->name('team.detail');
-	Route::get('fasilitas/', Fasilitas::class)->name('fasilitas.show');
-	Route::get('post/{post_val}', SinglePost::class)->name('post.single');
-	Route::get('post/', PostArchive::class)->name('post.list');
-	Route::get('arsip/{meta_type}/{meta_val}', Arsip::class)->name('arsip');
-	Route::get('registrasi/', PendaftarForm::class)->name('registrasi');
+
+Route::get('/', Home::class)->name('home');
+Route::get('todo', [TestController::class, 'todo']);
+Route::get('tes1', [TestController::class, 'tesredirect']);
+Route::get('tes2', [TestController::class, 'getredirect'])->name('tes2');
+Route::get('tes-email', [TestController::class, 'tes_email']);
+Route::get('teslw', Teslw::class);
+Route::get('team/', TeamList::class)->name('team.show');
+Route::get('team/{team_id}', TeamDetail::class)->name('team.detail');
+Route::get('post/{post_val}', SinglePost::class)->name('post.single');
+Route::get('post/', PostArchive::class)->name('post.list');
+Route::get('arsip/{meta_type}/{meta_val}', Arsip::class)->name('arsip');
+Route::get('event/', ShowEventList::class)->name('event.list');
+Route::get('event/{event_id}/', ShowEventSingle::class)->name('event.show');
+Route::get('kontak/', Contact::class)->name('kontak');
+Route::get('struktur-organisasi/', StrukturOrganisasi::class)->name('struktur');
+Route::get('pengumuman/', Pengumuman::class)->name('pengumuman');
+Route::get('faq/', FaqShow::class)->name('faq');
+Route::get('tentang-kampus/', TentangKampus::class)->name('tentang-kampus');
+
+//route for subdomain
+// Route::group(array('domain' => '{subdomain}.'.config('app.url')), function() {
+//     //Place your routes in here, like for example
+//     Route::get('/tes', [SubdomainController::class, 'getSubdomain']);
+// });
+
+//route for admin
+Route::group(array('domain' => config('app.url')), function() {
+    Route::get('fasilitas/', Fasilitas::class)->name('fasilitas.show');
+    Route::get('biaya-kuliah/', BiayaKuliah::class)->name('biaya.kuliah');
+	Route::get('info-beasiswa/', InfoBeasiswa::class)->name('info.beasiswa');
+	Route::get('registrasi-ulang/', RegistrasiUlang::class)->name('registrasi.ulang');
+    Route::get('registrasi/', PendaftarForm::class)->name('registrasi');
 	Route::get('admisi-tidak-aktif/', AdmisiNonAktif::class)->name('admisi-non-aktif');
 	Route::get('success-payment/', SuccessPaymentPage::class)->name('payment.success');
 	Route::get('expired-payment/', ExpiredPaymentPage::class)->name('payment.expired');
 	Route::get('success-registration/', RegistrasiBerhasil::class)->name('registration.success');
 	Route::get('login/', Login::class)->name('login');
 	Route::post('login/', [UserController::class, 'authenticate']);
-	Route::get('event/', ShowEventList::class)->name('event.list');
-	Route::get('event/{event_id}/', ShowEventSingle::class)->name('event.show');
-	Route::get('kontak/', Contact::class)->name('kontak');
-	Route::get('struktur-organisasi/', StrukturOrganisasi::class)->name('struktur');
-	Route::get('biaya-kuliah/', BiayaKuliah::class)->name('biaya.kuliah');
-	Route::get('info-beasiswa/', InfoBeasiswa::class)->name('info.beasiswa');
-	Route::get('registrasi-ulang/', RegistrasiUlang::class)->name('registrasi.ulang');
-	Route::get('pengumuman/', Pengumuman::class)->name('pengumuman');
-	Route::get('faq/', FaqShow::class)->name('faq');
-	Route::get('tentang-kampus/', TentangKampus::class)->name('tentang-kampus');
-	Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
+    Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 		Route::get('dashboard/', Dashboard::class)->name('dashboard.admin');
 		Route::get('prodi/', ProdiIndex::class)->name('prodi.index');
 		Route::get('kategori/', KategoriIndex::class)->name('kategori.index');
@@ -136,10 +144,4 @@ use App\Http\Livewire\Faq\FaqIndex;
 		Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('ckeditor.image-upload');
 		Route::post('upload-thumbnail', [PostController::class, 'upload_thumbnail'])->name('thumbnail.upload');
 	});
-// });
-
-//route for subdomain
-Route::group(array('domain' => '{subdomain}.'.config('app.url')), function() {
-    //Place your routes in here, like for example
-    Route::get('/tes', [SubdomainController::class, 'getSubdomain']);
 });
