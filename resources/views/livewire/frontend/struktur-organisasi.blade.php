@@ -13,12 +13,12 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
     <div class="container">
 		<div class="row justify-align-center">
 			<div class="col struktur">
-				<img src="{{asset('frontend/assets/images/struktur-organisasi-ki.png')}}">
+				<img src="{{asset('frontend/assets/images/'.$gambar_struktur)}}">
 			</div>
 		</div>
 	</div>
