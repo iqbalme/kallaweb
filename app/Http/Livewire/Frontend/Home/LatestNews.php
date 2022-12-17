@@ -23,10 +23,10 @@ class LatestNews extends Component
     {
 		$is_seo = (int) Setting::where('nama_setting','post_slug')->first()->isi_setting;
 		$this->is_seo = $is_seo;
-        if($this->initial_data_req->is_main_domain){
-
+        if($this->initial_data_req['is_main_domain']){
+            getPostList(true);
         } else {
-
+            getPostList(false);
         }
 
 
@@ -38,7 +38,7 @@ class LatestNews extends Component
         if($is_main_domain){
             $is_headline_exist = Post::where('is_headline', 1);
         } else {
-            $post_ids = PostProdis::where('prodi_id', $this->initial_data_req->subdomain->id)->get();
+            $post_ids = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
             $ids_post = [];
             foreach($post_ids as $ids){
                 $ids_post[] = $ids->post_id;
