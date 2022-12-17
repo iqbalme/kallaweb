@@ -60,6 +60,18 @@
 						</div>
 					@endif
 				</div>
+                <div class="mt-3 mb-3">
+                    <h6 class="card-title mb-1">Tampilkan pada</h6>
+                    @foreach($data['prodis'] as $prodi)
+                    <div class="form-check" wire:ignore>
+                      <input class="form-check-input" type="checkbox" value="{{ $prodi['id'] }}" wire:model="event_prodis">
+                      <label class="form-check-label">
+                      {{ ucfirst($prodi['nama_prodi'])}}
+                      </label>
+                    </div>
+                    @endforeach
+                </div>
+                <hr>
 				<div class="mt-2 mb-3">
 					<div class="form-check">
 					  <input class="form-check-input" type="checkbox" wire:model="is_link">
@@ -112,7 +124,7 @@
 				<button type="button" class="btn btn-secondary text-white" data-dismiss="modal" wire:click="closeModal">Tidak</button>
 				<button type="submit" class="btn btn-primary text-white">Simpan</button>
 			</div>
-			</form>			
+			</form>
           </div>
 		</div>
 	</div>

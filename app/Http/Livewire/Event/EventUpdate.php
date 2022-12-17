@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Voucher;
 use Livewire\WithFileUploads;
 use App\Models\Event;
+use App\Models\Prodi;
 use App\Http\Traits\CommonTrait;
 
 class EventUpdate extends Component
@@ -28,6 +29,8 @@ class EventUpdate extends Component
 	public $is_link = false;
 	public $link_daftar = null;
 	public $deskripsi;
+    public $event_prodis = [];
+    public $data;
 
 	protected $listeners = [
 		'getEvent', 'setEventUpdate'
@@ -44,6 +47,7 @@ class EventUpdate extends Component
     ];
 
 	public function mount(){
+        $this->data['prodis'] = Prodi::all();
 		$this->vouchers = Voucher::where('aktif', 1)->get();
 	}
 
@@ -65,29 +69,32 @@ class EventUpdate extends Component
 	}
 
 	public function getEvent($event){
-		//dd(gettype($event['waktu_mulai']));
+		// dd($event);
 		$this->is_voucher = false;
-		$this->event_id = $event['id'];
-		$this->voucher_id = $event['voucher_id'];
-		$this->nama_event = $event['nama_event'];
-		$this->deskripsi_event = $event['deskripsi_event'];
-		$this->waktu_mulai = date('Y-m-d\TH:i', strtotime($event['waktu_mulai'])); //2019-08-18T00:00;
-		$this->waktu_akhir = date('Y-m-d\TH:i', strtotime($event['waktu_berakhir']));
-		$this->gambar = $event['gambar_event'];
-		$this->lokasi = $event['lokasi'];
-		$this->link_daftar = $event['link_daftar'];
-		if(isset($event['link_daftar'])){
+		$this->event_id = $event['event']['id'];
+		$this->voucher_id = $event['event']['voucher_id'];
+		$this->nama_event = $event['event']['nama_event'];
+		$this->deskripsi_event = $event['event']['deskripsi_event'];
+		$this->waktu_mulai = date('Y-m-d\TH:i', strtotime($event['event']['waktu_mulai'])); //2019-08-18T00:00;
+		$this->waktu_akhir = date('Y-m-d\TH:i', strtotime($event['event']['waktu_berakhir']));
+		$this->gambar = $event['event']['gambar_event'];
+		$this->lokasi = $event['event']['lokasi'];
+		$this->link_daftar = $event['event']['link_daftar'];
+        foreach($event['prodi_ids'] as $prodi_id){
+            $this->event_prodis[] = $prodi_id;
+        }
+		if(isset($event['event']['link_daftar'])){
 			$this->is_link = true;
 		} else {
 			$this->is_link = false;
 		}
-		if(isset($event['gambar_event'])){
+		if(isset($event['event']['gambar_event'])){
 			$this->initGambar = true;
 		}
-		if(isset($event['voucher_id'])){
+		if(isset($event['event']['voucher_id'])){
 			$this->is_voucher = true;
 		}
-		$this->dispatchBrowserEvent('setInitialEventDescription', ['deskripsi_event' => $event['deskripsi_event']]);
+		$this->dispatchBrowserEvent('setInitialEventDescription', ['deskripsi_event' => $event['event']['deskripsi_event']]);
 	}
 
 	public function update(){
@@ -95,6 +102,7 @@ class EventUpdate extends Component
 		$gambar = null;
 		$voucher_id = null;
 		$link_daftar = null;
+        $event_prodis = [];
 		if($this->is_link){
 			$voucher_id = null;
 			$link_daftar = $this->link_daftar;
@@ -125,10 +133,16 @@ class EventUpdate extends Component
 		} else {
 			$data['gambar_event'] = null;
 		}
+        foreach($this->event_prodis as $e_prodis){
+            $event_prodis[] = ['prodi_id' => $e_prodis];
+        }
 		if($data['waktu_mulai'] <= $data['waktu_berakhir']){
-			Event::find($this->event_id)->update($data);
+			$event = Event::find($this->event_id);
+            $event->update($data);
+            $event->event_prodi()->delete();
+            $event->event_prodi()->createMany($event_prodis);
 			$this->emit('refreshEvent');
-			$this->reset();
+			$this->resetExcept('data');
             $this->setActionNotif('Update Event', 'Update event berhasil!', 'success');
 			$this->closeModal();
 		}

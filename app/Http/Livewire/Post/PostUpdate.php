@@ -36,7 +36,7 @@ class PostUpdate extends Component
 
     protected $rules = [
         'judul' => 'required',
-        'post_prodis' => 'required',
+        // 'post_prodis' => 'required',
         'categories' => 'required',
         'thumbnail' => 'required',
         'post_id' => 'required'
@@ -116,7 +116,7 @@ class PostUpdate extends Component
 			'konten' => $this->konten,
 			'thumbnail' => $thumbnail,
 			'status_post' => ($isPublished) ? 'published' : 'draft',
-			'user_id' => Auth::user()->id,
+			//'user_id' => Auth::user()->id,
 			'is_headline' => $this->is_headline
 		];
 		$post = Post::find($this->post_id);

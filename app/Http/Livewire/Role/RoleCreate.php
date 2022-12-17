@@ -12,7 +12,6 @@ class RoleCreate extends Component
 
     protected $rules = [
         'roles.nama_role' => 'required',
-        'roles.deskripsi_role' => 'required',
         'roles.prodi' => 'required',
     ];
 

@@ -26,14 +26,14 @@ class PostCreate extends Component
 	public $konten;
 	public $categories = [];
 	public $tags;
-	public $post_prodis = [1];
+	public $post_prodis = [];
 	public $is_headline = false;
 
 	protected $listeners = ['setKonten'];
 
     protected $rules = [
         'judul' => 'required',
-        'post_prodis' => 'required',
+        // 'post_prodis' => 'required',
         'categories' => 'required',
         'thumbnail' => 'required'
     ];
@@ -42,9 +42,6 @@ class PostCreate extends Component
 		$this->data['categories'] = Category::all();
 		$prodis = Prodi::all();
 		$this->data['prodis'] = $prodis;
-		if($prodis->count()){
-			$this->post_prodis = [1]; //tidak berlaku jika bukan super admin, nnt diedit
-		}
 	}
 
     public function render()

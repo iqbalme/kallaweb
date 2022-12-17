@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Voucher;
 use Livewire\WithFileUploads;
 use App\Models\Team;
+use App\Models\Prodi;
 
 class TeamCreate extends Component
 {
@@ -19,6 +20,8 @@ class TeamCreate extends Component
 	public $linkedin = null;
 	public $email = null;
 	public $gambar = null;
+    public $team_prodis = [];
+    public $data;
 
     protected $rules = [
         'nama' => 'required',
@@ -28,7 +31,8 @@ class TeamCreate extends Component
     ];
 
 	public function mount(){
-		$this->reset();
+		$this->resetExcept('data');
+        $this->data['prodis'] = Prodi::all();
 	}
 
     public function render()
@@ -45,6 +49,7 @@ class TeamCreate extends Component
         $this->validate();
 		$gambar = null;
 		$media_sosial = [];
+        $team_prodis = [];
 		if(isset($this->gambar)){
 			$gambar = $this->gambar->getFilename();
 			$this->gambar->storeAs('public/images', $gambar);
@@ -69,9 +74,13 @@ class TeamCreate extends Component
 			'media_sosial' => count($media_sosial) ? serialize($media_sosial) : null,
 			'gambar' => $gambar
 		];
-		Team::create($data);
+        foreach($this->team_prodis as $team_prodi){
+            $team_prodis[] = ['prodi_id' => $team_prodi];
+        }
+		$team = Team::create($data);
+        $team->team_prodi()->createMany($team_prodis);
 		$this->emit('refreshTeam');
-		$this->reset();
+		$this->resetExcept('data');
 		$this->closeModal();
 	}
 

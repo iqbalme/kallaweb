@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Team;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Team;
+use App\Models\Prodi;
 
 class TeamUpdate extends Component
 {
@@ -20,6 +21,8 @@ class TeamUpdate extends Component
 	public $email = null;
 	public $gambar = null;
 	public $initGambar = true;
+    public $team_prodis = [];
+    public $data;
 
 	protected $listeners = [
 		'getTeam'
@@ -28,10 +31,14 @@ class TeamUpdate extends Component
     protected $rules = [
         'team_id' => 'required',
         'nama' => 'required',
-        'deskripsi' => 'required',
+        'deskripsi_tim' => 'required',
         'jabatan' => 'required',
         'gambar' => 'required'
     ];
+
+    public function mount(){
+        $this->data['prodis'] = Prodi::all();
+    }
 
     public function render()
     {
@@ -47,14 +54,16 @@ class TeamUpdate extends Component
 	}
 
 	public function getTeam($team){
-		$this->team_id = $team['id'];
-		$this->nama = $team['nama'];
-		$this->deskripsi_tim = $team['deskripsi'];
-		$this->jabatan = $team['jabatan'];
-		$this->gambar = $team['gambar'];
-        $this->dispatchBrowserEvent('setInitialDataTim', ['deskripsi_tim' => $team['deskripsi']]);
-
-		$media_sosial = unserialize($team['media_sosial']);
+		$this->team_id = $team['team']['id'];
+		$this->nama = $team['team']['nama'];
+		$this->deskripsi_tim = $team['team']['deskripsi'];
+		$this->jabatan = $team['team']['jabatan'];
+		$this->gambar = $team['team']['gambar'];
+        $this->dispatchBrowserEvent('setInitialDataTim', ['deskripsi_tim' => $team['team']['deskripsi']]);
+        foreach($team['prodi_ids'] as $prodi_id){
+            $this->team_prodis[] = $prodi_id;
+        }
+		$media_sosial = unserialize($team['team']['media_sosial']);
 		foreach($media_sosial as $key => $medsos){
 			if($key == 'facebook'){
 				$this->facebook = $medsos;
@@ -72,6 +81,7 @@ class TeamUpdate extends Component
         $this->validate();
 		$gambar = null;
 		$media_sosial = [];
+        $team_prodis = [];
 		if(isset($this->gambar)){
 			if($this->initGambar){
 				$gambar = $this->gambar;
@@ -100,10 +110,15 @@ class TeamUpdate extends Component
 			'media_sosial' => count($media_sosial) ? serialize($media_sosial) : null,
 			'gambar' => $gambar
 		];
+        foreach($this->team_prodis as $team_prodi){
+            $team_prodis[] = ['prodi_id' => $team_prodi];
+        }
 		$team = Team::find($this->team_id);
 		$team->update($data);
+        $team->team_prodi()->delete();
+        $team->team_prodi()->createMany($team_prodis);
 		$this->emit('refreshTeam');
-		$this->reset();
+		$this->resetExcept('data');
 		$this->closeModal();
 	}
 

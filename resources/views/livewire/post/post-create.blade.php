@@ -41,14 +41,12 @@
 						<h6 class="card-title mb-1">Tampilkan pada</h6>
 						@if(count($data['prodis'])>1)
 						@foreach($data['prodis'] as $prodi)
-                        @if($prodi['id'] != 1)
 						<div class="form-check" wire:ignore>
 						  <input class="form-check-input" type="checkbox" value="{{ $prodi['id'] }}" wire:model="post_prodis">
 						  <label class="form-check-label">
 						  {{ ucfirst($prodi['nama_prodi'])}}
 						  </label>
 						</div>
-                        @endif
 						@endforeach
 						@endif
 					</div>

@@ -31,7 +31,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        //
+        $this->cek_izin($user, $post);
     }
 
     /**
@@ -42,7 +42,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-				
+        $this->cek_izin($user, $post);
     }
 
     /**
@@ -54,14 +54,8 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        $post_roles = [];
-        $roles = $user->role_users;
-		foreach($roles as $role){
-			$post_roles[] = $role->role_id;
-		}
-		$prodi_id = $post->post_prodi_data->prodi_id;
-		$is_true = Role::whereIn('id', $post_roles)->where('prodi_id', $prodi_id)->exists();
-		return $is_true;	
+        return true;
+        // $this->cek_izin($user, $post);
     }
 
     /**
@@ -73,7 +67,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        //
+        $this->cek_izin($user, $post);
     }
 
     /**
@@ -98,5 +92,25 @@ class PostPolicy
     public function forceDelete(User $user, Post $post)
     {
         //
+    }
+
+    public function cek_izin($user, $post){
+        return true;
+        // $prodi_ids = [1];
+        // if($user->id == 1){
+        //     return true;
+        // } else {
+        //     $post_roles = [];
+        //     $roles = $user->role_users;
+        //     $prodi_ids = [];
+        //     foreach($roles as $role){
+        //         $post_roles[] = $role->role_id;
+        //     }
+        //     foreach($post->post_prodi_data as $prodi){
+        //         $prodi_ids[] = $prodi->prodi_id;
+        //     }
+        //     $is_true = Role::whereIn('id', $post_roles)->whereIn('prodi_id', $prodi_ids)->exists();
+        //     return $is_true;
+        // }
     }
 }

@@ -30,7 +30,6 @@ class UserUpdate extends Component
         'user_id' => 'required',
         'nama' => 'required',
         'email' => 'required',
-        'password' => 'required',
         'user_roles' => 'required',
     ];
 

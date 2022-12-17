@@ -17,7 +17,6 @@ class RoleUpdate extends Component
     protected $rules = [
         'role_id' => 'required',
         'nama_role' => 'required',
-        'deskripsi_role' => 'required',
         'prodi_id' => 'required',
     ];
 

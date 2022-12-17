@@ -11,10 +11,12 @@ use App\Models\User;
 use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class PostIndex extends Component
 {
 	use WithPagination;
+    use AuthorizesRequests;
 
 	public $data;
 	public $isUpdate = false;
@@ -44,6 +46,7 @@ class PostIndex extends Component
     public function render()
     {
 		$posts = Post::orderBy('id', 'DESC')->where('judul', 'LIKE', '%'.$this->cari_post.'%')->paginate($this->perhalaman);
+        //$this->authorize('view', $posts);
 		$posts_categories = [];
 		$posts_prodis = [];
 		$posts_user = [];
@@ -59,7 +62,7 @@ class PostIndex extends Component
 			$posts_categories[] = $categories;
             if($post->post_prodi->count()){
 				foreach($post->post_prodi_data as $post_prodis){
-					$prodis[] = ucfirst(Prodi::find($post_prodis->prodi_id)->nama_prodi);
+                    $prodis[] = ucfirst(Prodi::find($post_prodis->prodi_id)->nama_prodi);
 				}
 			}
 			$posts_prodis[] = $prodis;
@@ -67,7 +70,6 @@ class PostIndex extends Component
 
 		$this->data['posts'] = $posts;
 		$this->data['nama_kategori'] = $posts_categories;
-		//dd($posts_categories);
 		$this->data['nama_prodi'] = $posts_prodis;
         return view('livewire.post.post-index')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / List']);

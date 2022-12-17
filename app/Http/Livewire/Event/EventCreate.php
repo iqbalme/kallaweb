@@ -6,10 +6,13 @@ use Livewire\Component;
 use App\Models\Voucher;
 use Livewire\WithFileUploads;
 use App\Models\Event;
+use App\Models\Prodi;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class EventCreate extends Component
 {
 	use WithFileUploads;
+    use AuthorizesRequests;
 
 	public $is_voucher = false;
 	public $voucher_id = null;
@@ -24,6 +27,8 @@ class EventCreate extends Component
 	public $event_voucher = null;
 	public $is_link = false;
 	public $link_daftar = null;
+    public $data;
+    public $event_prodis = [1];
 
 	protected $listeners = ['setEvent'];
 
@@ -38,6 +43,7 @@ class EventCreate extends Component
 
 	public function mount(){
 		$this->vouchers = Voucher::where('aktif', 1)->get();
+        $this->data['prodis'] = Prodi::all();
 	}
 
     public function render()
@@ -59,6 +65,7 @@ class EventCreate extends Component
 		$gambar = null;
 		$voucher_id = null;
 		$link_daftar = null;
+        $event_prodis = [];
 		if($this->is_link){
 			$voucher_id = null;
 			$link_daftar = $this->link_daftar;
@@ -83,10 +90,15 @@ class EventCreate extends Component
 			'link_daftar' => $link_daftar,
 			'voucher_id' => $voucher_id
 		];
+        foreach ($this->event_prodis as $prodis) {
+            $event_prodis[] = ['prodi_id' => $prodis];
+        }
 		if($data['waktu_mulai'] <= $data['waktu_berakhir']){
-			Event::create($data);
+
+			$event = Event::create($data);
+            $event->event_prodi()->createMany($event_prodis);
 			$this->emit('refreshEvent');
-			$this->reset();
+			$this->resetExcept('data');
 			$this->closeModal();
 		}
 	}

@@ -32,19 +32,11 @@
                         </tr>
                       </thead>
                       <tbody>
-					  @if(count($data) === 0)
-						<tr class="align-middle">
-                          <td class="text-center" colspan="7">
-						  Tidak ada data
-						  </td>
-						</tr>
-					  @endif
-					  @if($data->count()>1)
+					  @if($data->count())
 						@foreach($data as $prodi)
-                            @if($prodi->id > 1)
                         <tr class="align-middle">
                           <td class="text-center">
-						  {{ $loop->index }}
+						  {{ $loop->iteration }}
                           </td>
                           <td>
                             @if(isset($prodi->thumbnail))
@@ -89,9 +81,14 @@
                                 </span></button>
                           </td>
                         </tr>
-                            @endif
 						@endforeach
-					@endif
+					    @else
+						<tr class="align-middle">
+                          <td class="text-center" colspan="7">
+						  Tidak ada data
+						  </td>
+						</tr>
+					  @endif
                       </tbody>
                     </table>
                   </div>

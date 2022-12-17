@@ -70,6 +70,18 @@
 						</div>
 					@endif
 				</div>
+                <hr>
+                <div class="mt-3 mb-3">
+                    <h6 class="card-title mb-1">Tampilkan pada</h6>
+                    @foreach($data['prodis'] as $prodi)
+                    <div class="form-check" wire:ignore>
+                      <input class="form-check-input" type="checkbox" value="{{ $prodi['id'] }}" wire:model="team_prodis">
+                      <label class="form-check-label">
+                      {{ ucfirst($prodi['nama_prodi'])}}
+                      </label>
+                    </div>
+                    @endforeach
+                </div>
             </div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary text-white" wire:click="closeModal">Tidak</button>

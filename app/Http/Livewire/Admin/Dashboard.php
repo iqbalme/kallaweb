@@ -9,12 +9,13 @@ use App\Models\Post;
 use App\Models\Event;
 use App\Models\Category;
 use App\Models\Pendaftar;
+use Illuminate\Http\Request;
 
 
 class Dashboard extends Component
 {
 	public $data;
-	
+
 	public function mount(){
 		$this->data['posts'] = Post::all();
 		$this->data['events'] = Event::all();
@@ -27,7 +28,7 @@ class Dashboard extends Component
         return view('livewire.admin.dashboard')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Dashboard']);
     }
-	
+
 	public function logout()
 	{
 		Auth::logout();

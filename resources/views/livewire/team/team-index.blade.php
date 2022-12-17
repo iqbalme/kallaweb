@@ -16,19 +16,20 @@
                           </th>
                           <th class="text-center" colspan="2">Nama</th>
                           <th class="text-center">Jabatan</th>
+                          <th class="text-center">Prodi</th>
 						  <th class="text-center">Media Sosial</th>
 						  <th></th>
                         </tr>
                       </thead>
                       <tbody>
-					  @if(!$data->count())
+					  @if(!$data['teams']->count())
 						<tr class="align-middle">
-                          <td class="text-center" colspan="6">
+                          <td class="text-center" colspan="7">
 						  Tidak ada data
 						  </td>
 						</tr>
 					  @else
-						@foreach($data as $team)
+						@foreach($data['teams'] as $team)
                         <tr class="align-middle">
                           <td class="text-center">
 						  {{ $loop->iteration }}
@@ -41,10 +42,17 @@
 						  @endif
 						  </td>
                           <td>
-                            {{ $team->nama }}
+                            {{ ucwords($team->nama) }}
                           </td>
 						  <td>
-                            {{ $team->jabatan }}
+                            {{ ucwords($team->jabatan) }}
+                          </td>
+                          <td>
+                            @if(count($team->team_prodi))
+                                {{implode(', ', $data['nama_prodi'][$loop->index])}}
+                            @else
+                                {{'-'}}
+                            @endif
                           </td>
 						  <td class="text-center">
 							<div class="row justify-align-center">

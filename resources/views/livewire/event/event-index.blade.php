@@ -45,6 +45,7 @@
                           </th>
                           <th class="text-center" colspan="2">Nama Event</th>
                           <th class="text-center">Tanggal</th>
+                          <th class="text-center">Prodi</th>
 						  <th class="text-center">Pendaftar</th>
 						  <th class="text-center">Voucher</th>
 						  <th></th>
@@ -53,7 +54,7 @@
                       <tbody>
 					  @if(!$data['events']->count())
 						<tr class="align-middle">
-                          <td class="text-center" colspan="6">
+                          <td class="text-center" colspan="8">
 						  Tidak ada data
 						  </td>
 						</tr>
@@ -78,6 +79,13 @@
 							<span class="badge text-bg-info text-white">{{ $event->waktu_mulai->format('d M Y H:i') }}</span></div>
 							<span class="badge text-bg-warning text-white">{{ $event->waktu_berakhir->format('d M Y H:i') }}</span>
 							<!--div class="small text-medium-emphasis">{{date('H:i', strtotime($event->waktu_mulai)).'-'.date('H:i', strtotime($event->waktu_berakhir))}}</div-->
+                          </td>
+                          <td class="text-center">
+                            @if(count($event->event_prodi))
+                                {{implode(', ', $data['nama_prodi'][$loop->index])}}
+                            @else
+                                {{'-'}}
+                            @endif
                           </td>
 						  <td class="text-center">
 							<button type="button" class="btn btn-info text-white" wire:click="lihatPesertaEvent({{ $event->id }})">{{$event->peserta_event->count()}}</button>

@@ -21,7 +21,7 @@ class UserCreate extends Component
 
     protected $rules = [
         'nama' => 'required',
-        'email' => 'required|unique:user,email',
+        'email' => 'required|unique:users,email',
         'password' => 'required',
         'user_roles' => 'required',
     ];
@@ -60,6 +60,7 @@ class UserCreate extends Component
 		];
 		$user = User::create($newUser);
 		$user->role_users()->createMany($roles);
+        $this->reset();
 		$this->emitUp('refreshUser');
 	}
 }
