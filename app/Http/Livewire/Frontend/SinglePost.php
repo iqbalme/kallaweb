@@ -60,12 +60,12 @@ class SinglePost extends Component
             $id_post_cats = [];
             $ids_post = [];
             $post_ids = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
-            $post_cats = PostCategory::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
             foreach($post_ids as $ids){
                 $ids_post[] = $ids->post_id;
             }
+            $post_cats = PostCategory::where('post_id', $ids_post)->get();
             foreach($post_cats as $id_cats){
-                $id_post_cats[] = $id_cats->post_id;
+                $id_post_cats[] = $id_cats->category_id;
             }
             $this->data['categories'] = Category::whereIn('id', $id_post_cats)->get();
             $this->data['post_lain'] = Post::whereNot('id', $post->id)->whereIn('id', $ids_post)->orderByDesc('created_at')->limit(3)->get();
