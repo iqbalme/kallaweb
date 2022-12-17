@@ -13,7 +13,7 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
     <div class="blog">
 		<div class="container">
@@ -68,7 +68,11 @@
 							<div class="sidebar_categories">
 								<ul class="categories_list">
 									@foreach($data['categories'] as $category)
-									<li><a href="{{route('arsip', ['meta_type' => 'kategori', 'meta_val' => $category->slug])}}" class="clearfix">{{strtoupper($category->nama_kategori)}}<span>({{$category->post_category->count()}})</span></a></li>
+									<li><a href="{{route('arsip', ['meta_type' => 'kategori', 'meta_val' => $category->slug])}}" class="clearfix">{{strtoupper($category->nama_kategori)}}<span>
+                                        @if($this->initial_data_req['is_main_domain'])
+                                            ({{$category->post_category->count()}})
+                                        @endif
+                                    </span></a></li>
 									@endforeach
 								</ul>
 							</div>
