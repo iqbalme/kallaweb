@@ -40,9 +40,9 @@
 							</div>
 							<div class="news_post_link">
 							@if($is_seo)
-								<a href="{{route('post.single', ['post_val' => $headlined_post->slug])}}" class="btn btn-sm btn-info">
+								<a href="{{route('post.single', ['post_val' => $headlined_post->slug])}}" class="btn btn-sm btn-info text-white">
 							@else
-								<a href="{{route('post.single', ['post_val' => $headlined_post->id])}}" class="btn btn-sm btn-info">
+								<a href="{{route('post.single', ['post_val' => $headlined_post->id])}}" class="btn btn-sm btn-info text-white">
 							@endif
 							Selengkapnya</a></div>
 						</div>
