@@ -60,7 +60,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-6 align-content-lg-stretch">
-                        <img src="test.jpg">
+                        @isset($data['visi_misi'])
+                            <img src="{{asset('storage/images/'.$data['visi_misi'])}}">
+                        @endisset
                     </div>
                 </div>
             </div>
