@@ -24,9 +24,9 @@ class LatestNews extends Component
 		$is_seo = (int) Setting::where('nama_setting','post_slug')->first()->isi_setting;
 		$this->is_seo = $is_seo;
         if($this->initial_data_req['is_main_domain']){
-            getPostList(true);
+            $this->getPostList(true);
         } else {
-            getPostList(false);
+            $this->getPostList(false);
         }
 
 
