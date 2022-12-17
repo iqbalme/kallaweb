@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Frontend;
 
 use Livewire\Component;
 use App\Models\Post;
+use App\Models\PostProdis;
 use Livewire\WithPagination;
 use Illuminate\Http\Request;
 
