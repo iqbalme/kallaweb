@@ -9,9 +9,11 @@ use App\Models\Tag;
 use App\Models\Prodi;
 use App\Models\PostProdis;
 use App\Models\Setting;
+use App\Models\User;
 use Livewire\WithPagination;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostIndex extends Component
 {
@@ -47,11 +49,16 @@ class PostIndex extends Component
 
     public function render()
     {
-        if($this->initial_data_req['is_main_domain']){
+        if(Auth::user()->id == 1){
             $posts = Post::orderBy('id', 'DESC')->where('judul', 'LIKE', '%'.$this->cari_post.'%')->paginate($this->perhalaman);
         } else {
             $ids_post = [];
-            $post_ids = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
+            $ids_prodi = [];
+            $current_user_roles = Auth::user()->role_users;
+            foreach($current_user_roles as $current_role){
+                $ids_prodi[] = $current_role->roles->prodi_id;
+            }
+            $post_ids = PostProdis::whereIn('prodi_id', $ids_prodi)->get();
             foreach($post_ids as $ids){
                 $ids_post[] = $ids->post_id;
             }
