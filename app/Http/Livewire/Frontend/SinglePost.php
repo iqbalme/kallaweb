@@ -5,11 +5,11 @@ namespace App\Http\Livewire\Frontend;
 use Livewire\Component;
 use App\Models\Post;
 use App\Models\Tag;
-use App\Models\User;
 use App\Models\Category;
 use App\Models\Prodi;
 use App\Models\Setting;
 use App\Models\PostProdis;
+use App\Models\PostCategory;
 use Illuminate\Http\Request;
 
 class SinglePost extends Component
@@ -51,18 +51,23 @@ class SinglePost extends Component
 		$this->post = $post;
 		$this->tags = $tags;
 		$this->categories = $categories;
-		// $this->prodi = Prodi::find($post->post_prodi_data);
 		$this->data['setting_slug'] = $setting_slug;
 		$this->data['prodis'] = Prodi::all();
-		$this->data['categories'] = Category::all();
         if($this->initial_data_req['is_main_domain']){
+            $this->data['categories'] = Category::all();
             $this->data['post_lain'] = Post::whereNot('id', $post->id)->orderByDesc('created_at')->limit(3)->get();
         } else {
+            $id_post_cats = [];
             $ids_post = [];
             $post_ids = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
+            $post_cats = PostCategory::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
             foreach($post_ids as $ids){
                 $ids_post[] = $ids->post_id;
             }
+            foreach($post_cats as $id_cats){
+                $id_post_cats[] = $id_cats->post_id;
+            }
+            $this->data['categories'] = Category::whereIn('id', $id_post_cats)->get();
             $this->data['post_lain'] = Post::whereNot('id', $post->id)->whereIn('id', $ids_post)->orderByDesc('created_at')->limit(3)->get();
         }
 	}
