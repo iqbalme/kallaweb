@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Prodi;
 use App\Models\Setting;
+use App\Models\PostProdis;
+use Illuminate\Http\Request;
 
 class SinglePost extends Component
 {
@@ -19,8 +21,10 @@ class SinglePost extends Component
 	public $categories;
 	public $author;
 	public $data;
+    public $initial_data_req = null;
 
-	public function mount($post_val){
+	public function mount($post_val, Request $request){
+        $this->initial_data_req = $request->request->all();
 		$post = null;
 		$setting_slug = Setting::where('nama_setting', 'post_slug')->first();
 		if($setting_slug){
@@ -51,7 +55,16 @@ class SinglePost extends Component
 		$this->data['setting_slug'] = $setting_slug;
 		$this->data['prodis'] = Prodi::all();
 		$this->data['categories'] = Category::all();
-		$this->data['post_lain'] = Post::whereNot('id', $post->id)->orderByDesc('created_at')->limit(3)->get();
+        $ids_post = [];
+        $post_ids = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
+        foreach($post_ids as $ids){
+            $ids_post[] = $ids->post_id;
+        }
+        if($this->initial_data_req['is_main_domain']){
+            $this->data['post_lain'] = Post::whereNot('id', $post->id)->orderByDesc('created_at')->limit(3)->get();
+        } else {
+            $this->data['post_lain'] = Post::whereNot('id', $post->id)->whereIn('id', $ids_post)->orderByDesc('created_at')->limit(3)->get();
+        }
 	}
 
     public function render()
