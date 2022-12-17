@@ -59,7 +59,7 @@
         @else
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-6 align-content-lg-stretch">
+                    <div class="col-12 col-lg-6 align-content-lg-stretch visi_misi">
                         @isset($data['visi_misi'])
                             <img src="{{asset('storage/images/'.$data['visi_misi'])}}">
                         @endisset
@@ -197,6 +197,9 @@
 		p {
 			font-size: 16px;
 		}
+        .visi_misi img {
+            max-width: -webkit-fill-available;ssssssssssss
+        }
 	</style>
 	<!-- <link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"> -->
 	<!-- <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script> -->
