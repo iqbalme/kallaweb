@@ -21,14 +21,14 @@
 							<div class="news_post_image_thumbnail" style="background-image:url('{{asset('storage/images/'.$headlined_post->thumbnail)}}');background-size:cover;"></div>
 							@endisset
 							</div>
-							
+
 							<div class="news_post_large_title">
 							@if($is_seo)
 								<a href="{{route('post.single', ['post_val' => $headlined_post->slug])}}">
 							@else
 								<a href="{{route('post.single', ['post_val' => $headlined_post->id])}}">
 							@endif
-							{{ucfirst($headlined_post->judul)}}</a></div>
+							{{ucwords($headlined_post->judul)}}</a></div>
 							<div class="news_post_meta">
 								<ul>
 									<li>{{$headlined_post->post_user->nama}}</li>

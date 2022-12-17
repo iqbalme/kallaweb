@@ -55,10 +55,12 @@ class LatestNews extends Component
 		} else {
             if($is_main_domain){
                 $this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->orderByDesc('created_at')->skip(1)->limit(3)->get();
+                $this->headlined_post = Post::latest()->where('status_post', 'published')->first();
             } else {
                 $this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->whereIn('id', $ids_post)->orderByDesc('created_at')->skip(1)->limit(3)->get();
+                $this->headlined_post = Post::latest()->where('status_post', 'published')->whereIn('id', $ids_post)->first();
             }
-			$this->headlined_post = Post::latest()->where('status_post', 'published')->first();
+
 		}
     }
 }
