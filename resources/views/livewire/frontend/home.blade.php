@@ -59,7 +59,7 @@
         @else
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-6 align-content-lg-stretch visi_misi">
+                    <div class="col-12 col-lg-12 align-content-lg-stretch visi_misi">
                         @isset($data['visi_misi'])
                             <img src="{{asset('storage/images/'.$data['visi_misi'])}}">
                         @endisset
