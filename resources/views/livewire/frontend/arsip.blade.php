@@ -13,7 +13,7 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
 	<div class="blog">
 		<div class="container">
@@ -42,14 +42,16 @@
 								</div>
 							@endforeach
 						@else
-							
+
 						@endif
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<!-- Pagination -->
-				{{ $data['posts']->links('vendor.livewire.bootstrap') }}
+                @if(count($data['posts']))
+				    {{ $data['posts']->links('vendor.livewire.bootstrap') }}
+                @endif
 			</div>
 		</div>
 	</div>
