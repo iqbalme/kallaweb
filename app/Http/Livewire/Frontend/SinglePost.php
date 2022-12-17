@@ -55,14 +55,14 @@ class SinglePost extends Component
 		$this->data['setting_slug'] = $setting_slug;
 		$this->data['prodis'] = Prodi::all();
 		$this->data['categories'] = Category::all();
-        $ids_post = [];
-        $post_ids = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
-        foreach($post_ids as $ids){
-            $ids_post[] = $ids->post_id;
-        }
         if($this->initial_data_req['is_main_domain']){
             $this->data['post_lain'] = Post::whereNot('id', $post->id)->orderByDesc('created_at')->limit(3)->get();
         } else {
+            $ids_post = [];
+            $post_ids = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
+            foreach($post_ids as $ids){
+                $ids_post[] = $ids->post_id;
+            }
             $this->data['post_lain'] = Post::whereNot('id', $post->id)->whereIn('id', $ids_post)->orderByDesc('created_at')->limit(3)->get();
         }
 	}
