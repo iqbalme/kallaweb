@@ -29,6 +29,7 @@ class ShowEventList extends Component
             foreach($event_ids as $ids){
                 $ids_event[] = $ids->event_id;
             }
+            dd($ids_event);
             $this->data['events'] = Event::orderBy('waktu_mulai')->whereIn('id', $ids_event)->paginate(10);
         }
 
