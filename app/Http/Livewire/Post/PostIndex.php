@@ -7,11 +7,11 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Prodi;
-use App\Models\User;
+use App\Models\PostProdis;
 use App\Models\Setting;
-use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
 
 class PostIndex extends Component
 {
@@ -25,12 +25,14 @@ class PostIndex extends Component
 	public $perhalaman = 5;
 	public $cari_post = '';
 	public $isPostSlug = false;
+    public $initial_data_req = null;
 
 	protected $listeners = [
 		'refreshPost'
 	];
 
-	public function mount(){
+	public function mount(Request $request){
+        $this->initial_data_req = $request->request->all();
 		$setting_slug = Setting::where('nama_setting', 'post_slug')->first();
 		if(!$setting_slug){
 			$this->isPostSlug = false;
@@ -45,7 +47,17 @@ class PostIndex extends Component
 
     public function render()
     {
-		$posts = Post::orderBy('id', 'DESC')->where('judul', 'LIKE', '%'.$this->cari_post.'%')->paginate($this->perhalaman);
+        if($this->initial_data_req['is_main_domain']){
+            $posts = Post::orderBy('id', 'DESC')->where('judul', 'LIKE', '%'.$this->cari_post.'%')->paginate($this->perhalaman);
+        } else {
+            $ids_post = [];
+            $post_ids = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
+            foreach($post_ids as $ids){
+                $ids_post[] = $ids->post_id;
+            }
+            $posts = Post::orderBy('id', 'DESC')->whereIn('id', $ids_post)->where('judul', 'LIKE', '%'.$this->cari_post.'%')->paginate($this->perhalaman);
+        }
+
         //$this->authorize('view', $posts);
 		$posts_categories = [];
 		$posts_prodis = [];

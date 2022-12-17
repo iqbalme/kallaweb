@@ -15,6 +15,7 @@
 								<textarea name="konten" id="editor" required></textarea>
 							</div>
 					</div>
+                    @if(Auth::user()->role_users[0]->role_id == 1)
 					<div class="mb-3">
 						<div class="form-check">
 						  <input class="form-check-input" type="checkbox" wire:model="is_headline">
@@ -23,6 +24,7 @@
 						  </label>
 						</div>
 					</div>
+                    @endif
 					@if(count($data['categories']))
 					<div class="mb-3">
 						<h6 class="card-title mb-2">Kategori</h6>

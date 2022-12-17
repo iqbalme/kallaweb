@@ -10,12 +10,14 @@
 		</svg> Home</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('home') }}" target="blank"><i class="material-symbols-outlined nav-icon" style="font-size:25px;">preview</i> Preview Web</a></li>
 	<li class="nav-title">MENU</li>
+    @if(Auth::user()->role_users[0]->role_id == 1)
 	<li class="nav-item"><a class="nav-link" href="{{ route('kategori.index') }}">
 		<i class="fa-solid fa-code-branch nav-icon"></i> Kategori</a></li>
 	<li class="nav-item"><a class="nav-link" href="{{ route('prodi.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-school') }}"></use>
 		</svg> Prodi</a></li>
+    @endif
 	<li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-note-add') }}"></use>
@@ -28,13 +30,16 @@
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-library') }}"></use>
 		</svg> List Post</a></li>
 		<li class="nav-item"><a class="nav-link" href="{{ route('event.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-calendar-days nav-icon"></i> Event</a></li>
-		<li class="nav-item"><a class="nav-link" href="{{ route('fasilitas.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">gallery_thumbnail</i> Fasilitas</a></li>
-		<li class="nav-item"><a class="nav-link" href="{{ route('team.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">diversity_3</i> Tim</a></li>
-		<li class="nav-item"><a class="nav-link" href="{{ route('testimoni.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">forum</i> Testimoni</a></li>
-		<li class="nav-item"><a class="nav-link" href="{{ route('pengumuman.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">campaign</i> Pengumuman</a></li>
-		<li class="nav-item"><a class="nav-link" href="{{ route('faq.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">quiz</i> FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('team.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">diversity_3</i> Tim</a></li>
+        @if(Auth::user()->role_users[0]->role_id == 1)
+            <li class="nav-item"><a class="nav-link" href="{{ route('fasilitas.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">gallery_thumbnail</i> Fasilitas</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('testimoni.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">forum</i> Testimoni</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('pengumuman.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">campaign</i> Pengumuman</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('faq.index') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">quiz</i> FAQ</a></li>
+        @endif
 	  </ul>
 	</li>
+    @if(Auth::user()->role_users[0]->role_id == 1)
 	<li class="nav-item"><a class="nav-link" href="{{ route('voucher.index') }}">
 		<svg class="nav-icon">
 		  <use xlink:href="{{ asset('admin/coreui-icons/sprites/free.svg#cil-gift') }}"></use>
@@ -62,6 +67,7 @@
 			<li class="nav-item"><a class="nav-link" href="{{ route('pengaturan.database') }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="material-symbols-outlined nav-icon" style="font-size:25px;">delete_sweep</i> Database</a></li>
 		  </ul>
 	</li>
+    @endif
   </ul>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <style>

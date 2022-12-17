@@ -31,11 +31,11 @@
 			<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-user') }}"></use>
 		  </svg> Profile</a>
 		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">
+			{{-- <a class="dropdown-item" href="#">
 			  <svg class="icon me-2">
 				<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-lock-locked') }}"></use>
 			  </svg> Lock Account
-			</a>
+			</a> --}}
 			<a class="dropdown-item" href="{{route('logout')}}">
 			  <svg class="icon me-2">
 				<use xlink:href="{{ asset('admin/vendors/@coreui/icons/svg/free.svg#cil-account-logout') }}"></use>
