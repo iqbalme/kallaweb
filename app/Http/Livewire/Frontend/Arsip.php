@@ -60,15 +60,15 @@ class Arsip extends Component
 			}
             $ids_post = [];
             $new_ids_post = [];
-            $post_identity = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
-            foreach($post_identity as $ids){
-                $ids_post[] = $ids->post_id;
-            }
             if($this->initial_data_req['is_main_domain']){
                 if(count($post_ids)){
                     $posts = Post::whereIn('id', $post_ids)->paginate($this->perhalaman);
                 }
             } else {
+                $post_identity = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
+                foreach($post_identity as $ids){
+                    $ids_post[] = $ids->post_id;
+                }
                 foreach($post_ids as $filtered_ids){
                     $pp = 0;
                     foreach($ids_post as $filter_target_id){
