@@ -56,13 +56,13 @@ class PostIndex extends Component
             $prodis = [];
 			if($post->post_categories->count()){
 				foreach($post->post_categories_data as $post_category){
-					$categories[] = ucfirst(Category::find($post_category->category_id)->nama_kategori);
+					$categories[] = ucwords(Category::find($post_category->category_id)->nama_kategori);
 				}
 			}
 			$posts_categories[] = $categories;
             if($post->post_prodi->count()){
 				foreach($post->post_prodi_data as $post_prodis){
-                    $prodis[] = ucfirst(Prodi::find($post_prodis->prodi_id)->nama_prodi);
+                    $prodis[] = ucwords(Prodi::find($post_prodis->prodi_id)->nama_prodi);
 				}
 			}
 			$posts_prodis[] = $prodis;
