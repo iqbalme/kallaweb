@@ -18,7 +18,7 @@
     <div class="container">
 		<div class="row justify-align-center">
 			<div class="col struktur">
-				<img src="{{asset('frontend/assets/images/'.$gambar_struktur)}}">
+				<img src="{{asset($gambar_struktur)}}">
 			</div>
 		</div>
 	</div>

@@ -18,10 +18,10 @@ class StrukturOrganisasi extends Component
     public function render()
     {
         if($this->initial_data_req['is_main_domain']){
-            $this->gambar_struktur = 'struktur-organisasi-ki.png';
+            $this->gambar_struktur = 'frontend/assets/images/struktur-organisasi-ki.png';
         } else {
             $prodi = Prodi::find($this->initial_data_req['subdomain']['id'])->first();
-            $this->gambar_struktur = $prodi->struktur;
+            $this->gambar_struktur = 'storage/images/'.$prodi->struktur;
         }
         return view('livewire.frontend.struktur-organisasi')
 			->extends('layouts.app', ['title' => 'Struktur Organisasi'])
