@@ -35,22 +35,29 @@ class LatestNews extends Component
 
     public function getPostList($is_main_domain){
         $is_headline_exist;
+        $ids_post = [];
         if($is_main_domain){
             $is_headline_exist = Post::where('is_headline', 1);
         } else {
             $post_ids = PostProdis::where('prodi_id', $this->initial_data_req['subdomain']['id'])->get();
-            $ids_post = [];
             foreach($post_ids as $ids){
                 $ids_post[] = $ids->post_id;
             }
             $is_headline_exist = Post::where('is_headline', 1)->whereIn('id', $id_post)->get();
         }
-
 		if($is_headline_exist->count()){
-			$this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->orderByDesc('created_at')->limit(3)->get();
+            if($is_main_domain){
+                $this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->orderByDesc('created_at')->limit(3)->get();
+            } else {
+                $this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->whereIn('id', $ids_post)->orderByDesc('created_at')->limit(3)->get();
+            }
 			$this->headlined_post = $is_headline_exist->first();
 		} else {
-			$this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->orderByDesc('created_at')->skip(1)->limit(3)->get();
+            if($is_main_domain){
+                $this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->orderByDesc('created_at')->skip(1)->limit(3)->get();
+            } else {
+                $this->posts = Post::where('is_headline', 0)->where('status_post', 'published')->whereIn('id', $ids_post)->orderByDesc('created_at')->skip(1)->limit(3)->get();
+            }
 			$this->headlined_post = Post::latest()->where('status_post', 'published')->first();
 		}
     }
