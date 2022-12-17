@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 class Home extends Component
 {
 	public $data;
-    public $request;
+    public $requestdata;
 
 	public function mount(Request $request){
-		$this->request = $request;
+		$this->requestdata = $request;
 	}
 
     public function render()
@@ -21,7 +21,7 @@ class Home extends Component
 		//$this->data['posts'] = Post::where('status_post', 'published')->orderBy('id', 'DESC')->take(5)->get();
 		//dd(date('H:m:s'));
 		//dd($this->data['events']);
-        if($this->request->request->all()['is_main_domain']){
+        if($this->requestdata->request->all()['is_main_domain']){
             $this->data['testimonis'] = Testimoni::all();
         }
         return view('livewire.frontend.home')
