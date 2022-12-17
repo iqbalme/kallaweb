@@ -43,7 +43,7 @@ class LatestNews extends Component
             foreach($post_ids as $ids){
                 $ids_post[] = $ids->post_id;
             }
-            $is_headline_exist = Post::where('is_headline', 1)->whereIn('id', $id_post)->get();
+            $is_headline_exist = Post::where('is_headline', 1)->whereIn('id', $ids_post)->get();
         }
 		if($is_headline_exist->count()){
             if($is_main_domain){
