@@ -20,8 +20,8 @@ class StrukturOrganisasi extends Component
         if($this->initial_data_req['is_main_domain']){
             $this->gambar_struktur = 'frontend/assets/images/struktur-organisasi-ki.png';
         } else {
-            dd($this->initial_data_req['subdomain']['id']);
             $prodi = Prodi::find($this->initial_data_req['subdomain']['id'])->first();
+            dd($prodi);
             $this->gambar_struktur = 'storage/images/'.$prodi->struktur;
         }
         return view('livewire.frontend.struktur-organisasi')
