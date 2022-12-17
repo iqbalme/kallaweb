@@ -15,7 +15,7 @@
 			</div>
 		</div>
 	</div>
-    @if($data['events']->count())
+
 	<!-- Events -->
 	<section class="featured-courses horizontal-column courses-wrap">
         <div class="container">
@@ -25,6 +25,7 @@
                         <h2 class="section_title">Kalender Event</h2>
                     </header><!-- .heading -->
                 </div><!-- .col -->
+                @if($data['events']->count())
 				@foreach($data['events'] as $event)
                 <div class="col-12 col-lg-6">
                     <div class="course-content flex flex-wrap justify-content-between align-content-lg-stretch">
@@ -71,6 +72,7 @@
                     </div><!-- .course-content -->
                 </div><!-- .col -->
 				@endforeach
+                @endif
 
             </div><!-- .row -->
 			<div class="row">
@@ -175,5 +177,4 @@
 			jQuery(".course-thumbnail img").height(jQuery(".course-thumbnail img").width());
 		});
 	</script>
-	@endif
 </div>
