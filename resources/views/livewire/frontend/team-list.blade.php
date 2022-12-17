@@ -13,7 +13,7 @@
 					</div>
 				</div>
 			</div>
-		</div>			
+		</div>
 	</div>
     <section id="team" class="team ">
       <div class="container">
@@ -22,6 +22,7 @@
 		@if($teams->count())
           @foreach($teams as $team)
           <div class="col-lg-6 mt-4">
+            <div class="card">
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="{{asset('storage/images/'.$team->gambar)}}" class="img-fluid" alt="" style="height:140px;width:140px;"></div>
               <div class="member-info">
@@ -47,6 +48,7 @@
                 </div>
 				@endif
               </div>
+            </div>
             </div>
           </div>
 		  @endforeach
