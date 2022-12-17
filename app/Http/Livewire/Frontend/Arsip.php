@@ -80,6 +80,7 @@ class Arsip extends Component
                         $new_ids_post[] = $filtered_ids;
                     }
                 }
+                dd($new_ids_post);
                 if(count($new_ids_post)){
                     $posts = Post::whereIn('id', $new_ids_post)->paginate($this->perhalaman);
                 }
