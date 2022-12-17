@@ -21,7 +21,6 @@ class StrukturOrganisasi extends Component
             $this->gambar_struktur = 'frontend/assets/images/struktur-organisasi-ki.png';
         } else {
             $prodi = Prodi::where('id', $this->initial_data_req['subdomain']['id'])->first();
-            dd($prodi);
             $this->gambar_struktur = 'storage/images/'.$prodi->struktur;
         }
         return view('livewire.frontend.struktur-organisasi')
