@@ -34,7 +34,7 @@ class LatestNews extends Component
     }
 
     public function getPostList($is_main_domain){
-        $is_headline_exist;
+        $is_headline_exist = null;
         $ids_post = [];
         if($is_main_domain){
             $is_headline_exist = Post::where('is_headline', 1);
