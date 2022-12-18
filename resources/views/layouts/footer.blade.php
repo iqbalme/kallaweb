@@ -43,13 +43,19 @@
 						<div class="row">
 
 							<div class="col-lg-3 footer_col">
-					
+
 								<!-- Footer About -->
 								<div class="footer_section footer_about">
 									<div class="footer_logo_container">
-										<a href="{{route('home')}}">
-											<div class="footer_logo_text"><img src="{{ asset('storage/images/'.$data['web_logo']) }}"></div>
-										</a>
+                                        @if(Request()->request->all()['is_main_domain'])
+                                            <a href="{{route('home')}}">
+                                                <div class="footer_logo_text"><img src="{{ asset('storage/images/'.$data['web_logo']) }}"></div>
+                                            </a>
+                                        @else
+                                            <a href="{{route('home')}}">
+                                                <div class="footer_logo_text"><img src="{{ asset('storage/images/'.Request()->request->all()['subdomain']['logo_prodi']) }}"></div>
+                                            </a>
+                                        @endif
 									</div>
 									<div class="footer_about_text">
 										<p>{{$data['web_description']}}</p>
@@ -63,11 +69,11 @@
 										</ul>
 									</div>
 								</div>
-								
+
 							</div>
 
 							<div class="col-lg-3 footer_col">
-					
+
 								<!-- Footer Contact -->
 								<div class="footer_section footer_contact">
 									<div class="footer_title">Hubungi Kami</div>
@@ -79,11 +85,11 @@
 										</ul>
 									</div>
 								</div>
-								
+
 							</div>
 
 							<div class="col-lg-3 footer_col">
-					
+
 								<!-- Footer links -->
 								<div class="footer_section footer_links">
 									<div class="footer_title">Halaman</div>
@@ -98,7 +104,7 @@
 										</ul>
 									</div>
 								</div>
-								
+
 							</div>
 						</div>
 					</div>
