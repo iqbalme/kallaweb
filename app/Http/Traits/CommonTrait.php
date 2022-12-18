@@ -11,6 +11,8 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Prodi;
 //use Livewire\ComponentConcerns\ReceivesEvents;
 
 trait CommonTrait
@@ -155,5 +157,20 @@ trait CommonTrait
 			return false;
 		}
 	}
+
+    public function getAdminProdi(){
+        $user = Auth::user();
+        $ids_prodi = [];
+        if($user->id == 1){
+            $prodis = Prodi::all();
+        } else {
+            $current_user_roles = $user->role_users;
+            foreach($current_user_roles as $current_role){
+                $ids_prodi[] = $current_role->roles->prodi_id;
+            }
+            $prodis = Prodi::whereIn('id', array_unique($ids_prodi))->get();
+        }
+        return $prodis;
+    }
 
 }

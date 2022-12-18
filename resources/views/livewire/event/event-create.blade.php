@@ -56,6 +56,7 @@
 						</div>
 					@endif
 				</div>
+                @if($data['prodis']->count()>1)
                 <div class="mt-3 mb-3">
                     <h6 class="card-title mb-1">Tampilkan pada</h6>
                     @foreach($data['prodis'] as $prodi)
@@ -67,6 +68,7 @@
                     </div>
                     @endforeach
                 </div>
+                @endif
                 <hr>
 				<div class="mt-2 mb-3">
 					<div class="form-check">

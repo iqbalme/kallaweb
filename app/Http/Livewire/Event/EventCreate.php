@@ -8,9 +8,11 @@ use Livewire\WithFileUploads;
 use App\Models\Event;
 use App\Models\Prodi;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use App\Http\Traits\CommonTrait;
 
 class EventCreate extends Component
 {
+    use CommonTrait;
 	use WithFileUploads;
     use AuthorizesRequests;
 
@@ -43,7 +45,7 @@ class EventCreate extends Component
 
 	public function mount(){
 		$this->vouchers = Voucher::where('aktif', 1)->get();
-        $this->data['prodis'] = Prodi::all();
+        $this->data['prodis'] = $this->getAdminProdi();
 	}
 
     public function render()
