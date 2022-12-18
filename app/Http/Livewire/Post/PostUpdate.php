@@ -5,19 +5,17 @@ namespace App\Http\Livewire\Post;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Prodi;
-use App\Models\PostCategory;
-use App\Models\PostProdis;
-use App\Models\PostTags;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Traits\CommonTrait;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class PostUpdate extends Component
 {
 	use WithFileUploads;
 	use AuthorizesRequests;
+    use CommonTrait;
 
 	public $data;
 	public $isUpdate;
@@ -71,7 +69,7 @@ class PostUpdate extends Component
     public function render()
     {
 		$this->data['categories'] = Category::all();
-		$this->data['prodis'] = Prodi::all();
+		$this->data['prodis'] = $this->getAdminProdi();
         return view('livewire.post.post-update')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Publikasi / Update Post']);
     }
@@ -133,11 +131,15 @@ class PostUpdate extends Component
 			}
 		}
         $post->post_prodi_data()->delete();
-		if(isset($this->post_prodis)){
-			foreach($this->post_prodis as $post_prodi){
-				$post_prodis[] = ['prodi_id' => $post_prodi];
-			}
-		}
+        if(count($this->data['prodis']) == 1){
+            $post_prodis[] = ['prodi_id' => (int) $this->data['prodis'][0]['id']];
+        } else {
+            if(isset($this->post_prodis)){
+                foreach($this->post_prodis as $post_prodi){
+                    $post_prodis[] = ['prodi_id' => $post_prodi];
+                }
+            }
+        }
 		$post->post_tags_data()->delete();
 		$post->post_prodi_data()->createMany($post_prodis);
 		$post->post_categories_data()->createMany($post_categories);

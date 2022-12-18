@@ -65,6 +65,7 @@
 						</div>
 					@endif
 				</div>
+                @if(count($data['prodis']) >1)
                 <hr>
                 <div class="mt-3 mb-3">
                     <h6 class="card-title mb-1">Tampilkan pada</h6>
@@ -77,6 +78,7 @@
                     </div>
                     @endforeach
                 </div>
+                @endif
             </div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary text-white" wire:click="closeModal">Tidak</button>

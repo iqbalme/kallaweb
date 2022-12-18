@@ -38,7 +38,7 @@
 						@endforeach
 					</div>
 					@endif
-
+                    @if(count($data['prodis']) >1)
 					<div class="mb-3">
 						<h6 class="card-title mb-1">Tampilkan pada</h6>
 						@if(count($data['prodis'])>1)
@@ -52,6 +52,7 @@
 						@endforeach
 						@endif
 					</div>
+                    @endif
 					<div class="mb-3">
 					  <h6 class="card-title mb-2">Tag (Pisahkan dengan koma)</h6>
 					  <input type="text" class="form-control" wire:model.lazy="tags">

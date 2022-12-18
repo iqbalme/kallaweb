@@ -4,16 +4,11 @@ namespace App\Http\Livewire\Post;
 
 use App\Models\Tag;
 use App\Models\Post;
-use App\Models\Prodi;
-use App\Models\PostCategory;
-use App\Models\PostProdis;
-use App\Models\PostTags;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
 use App\Http\Traits\CommonTrait;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class PostCreate extends Component
 {
@@ -40,7 +35,7 @@ class PostCreate extends Component
 
 	public function mount(){
 		$this->data['categories'] = Category::all();
-		$prodis = Prodi::all();
+		$prodis = $this->getAdminProdi();
 		$this->data['prodis'] = $prodis;
 	}
 
@@ -96,8 +91,12 @@ class PostCreate extends Component
 				$post_categories[] = ['category_id' => $post_category];
 			}
 		}
-        foreach($this->post_prodis as $post_prodi){
-            $post_prodis[] = ['prodi_id' => (int) $post_prodi];
+        if(count($this->data['prodis']) == 1){
+            $post_prodis[] = ['prodi_id' => (int) $this->data['prodis'][0]['id']];
+        } else {
+            foreach($this->post_prodis as $post_prodi){
+                $post_prodis[] = ['prodi_id' => (int) $post_prodi];
+            }
         }
 		$createdPost->post_prodi_data()->createMany($post_prodis);
 		$createdPost->post_categories_data()->createMany($post_categories);

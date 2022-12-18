@@ -6,10 +6,12 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Team;
 use App\Models\Prodi;
+use App\Http\Traits\CommonTrait;
 
 class TeamUpdate extends Component
 {
 	use WithFileUploads;
+    use CommonTrait;
 
 	public $team_id = null;
 	public $nama = null;
@@ -37,7 +39,7 @@ class TeamUpdate extends Component
     ];
 
     public function mount(){
-        $this->data['prodis'] = Prodi::all();
+        $this->data['prodis'] = $this->getAdminProdi();
     }
 
     public function render()
@@ -110,8 +112,12 @@ class TeamUpdate extends Component
 			'media_sosial' => count($media_sosial) ? serialize($media_sosial) : null,
 			'gambar' => $gambar
 		];
-        foreach($this->team_prodis as $team_prodi){
-            $team_prodis[] = ['prodi_id' => $team_prodi];
+        if(count($this->data['prodis']) == 1){
+            $team_prodis[] = ['prodi_id' => $this->data['prodis'][0]['id']];
+        } else {
+            foreach($this->team_prodis as $team_prodi){
+                $team_prodis[] = ['prodi_id' => $team_prodi];
+            }
         }
 		$team = Team::find($this->team_id);
 		$team->update($data);

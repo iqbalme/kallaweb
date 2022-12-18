@@ -6,7 +6,6 @@ use Livewire\Component;
 use App\Models\Voucher;
 use Livewire\WithFileUploads;
 use App\Models\Event;
-use App\Models\Prodi;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Http\Traits\CommonTrait;
 
@@ -92,11 +91,14 @@ class EventCreate extends Component
 			'link_daftar' => $link_daftar,
 			'voucher_id' => $voucher_id
 		];
-        foreach ($this->event_prodis as $prodis) {
-            $event_prodis[] = ['prodi_id' => $prodis];
+        if(count($this->data['prodis']) == 1){
+            $event_prodis[] = ['prodi_id' => $this->data['prodis'][0]['id']];
+        } else {
+            foreach ($this->event_prodis as $prodis) {
+                $event_prodis[] = ['prodi_id' => $prodis];
+            }
         }
 		if($data['waktu_mulai'] <= $data['waktu_berakhir']){
-
 			$event = Event::create($data);
             $event->event_prodi()->createMany($event_prodis);
 			$this->emit('refreshEvent');

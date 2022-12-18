@@ -6,7 +6,6 @@ use Livewire\Component;
 use App\Models\Voucher;
 use Livewire\WithFileUploads;
 use App\Models\Event;
-use App\Models\Prodi;
 use App\Http\Traits\CommonTrait;
 
 class EventUpdate extends Component
@@ -47,7 +46,7 @@ class EventUpdate extends Component
     ];
 
 	public function mount(){
-        $this->data['prodis'] = Prodi::all();
+        $this->data['prodis'] = $this->getAdminProdi();
 		$this->vouchers = Voucher::where('aktif', 1)->get();
 	}
 
@@ -133,8 +132,12 @@ class EventUpdate extends Component
 		} else {
 			$data['gambar_event'] = null;
 		}
-        foreach($this->event_prodis as $e_prodis){
-            $event_prodis[] = ['prodi_id' => $e_prodis];
+        if(count($this->data['prodis']) == 1){
+            $event_prodis[] = ['prodi_id' => $this->data['prodis'][0]['id']];
+        } else {
+            foreach($this->event_prodis as $e_prodis){
+                $event_prodis[] = ['prodi_id' => (int) $e_prodis];
+            }
         }
 		if($data['waktu_mulai'] <= $data['waktu_berakhir']){
 			$event = Event::find($this->event_id);
@@ -143,6 +146,7 @@ class EventUpdate extends Component
             $event->event_prodi()->createMany($event_prodis);
 			$this->emit('refreshEvent');
 			$this->resetExcept('data');
+            $this->event_prodis = [];
             $this->setActionNotif('Update Event', 'Update event berhasil!', 'success');
 			$this->closeModal();
 		}
