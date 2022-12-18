@@ -46,9 +46,12 @@
             <div class="mb-0 site-logo">
                 @if(Request()->request->all()['is_main_domain'])
                     <a href="{{route('home')}}" class="text-white mb-0">
-                    <img src="{{ asset('storage/images/'.$data['web_logo']) }}"></a>
+                        <img src="{{ asset('storage/images/'.$data['web_logo']) }}">
+                    </a>
                 @else
-                    {{'tes'}}
+                    <a href="{{route('home')}}" class="text-white mb-0">
+                        <img src="{{ asset('storage/images/'.Request()->request->all()['subdomain']['logo_prodi']) }}">
+                    </a>
                 @endif
             </div>
           </div>
