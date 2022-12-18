@@ -28,6 +28,9 @@
 								<li>Oleh: {{$post->post_user->nama}}</li>
 							</ul>
 						</div>
+                    <div>
+                        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=639df90de6edea00197b1823&product=image-share-buttons&source=platform" async="async"></script>
+                    </div>
 						@isset($post->thumbnail)
 							<div class="blog_image"><img src="{{asset('storage/images/'.$post->thumbnail)}}" alt=""></div>
 						@endisset

@@ -5,6 +5,9 @@ namespace App\Http\Livewire\Team;
 use Livewire\Component;
 use App\Models\Team;
 use App\Models\Prodi;
+use App\Models\TimProdi;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeamIndex extends Component
 {
@@ -14,18 +17,35 @@ class TeamIndex extends Component
 	public $isUpdate = false;
     public $team_prodis = [];
     public $single_team;
+    public $initial_data_req = null;
 
 	protected $listeners = [
 		'refreshTeam'
 	];
 
-	public function mount(){
-
+	public function mount(Request $request){
+        $this->initial_data_req = $request->request->all();
 	}
 
     public function render()
     {
-        $teams = Team::all();
+        $teams = null;
+        if(Auth::user()->id == 1){
+            $teams = Team::all();
+        } else {
+            $ids_team = [];
+            $ids_prodi = [];
+            $current_user_roles = Auth::user()->role_users;
+            foreach($current_user_roles as $current_role){
+                $ids_prodi[] = $current_role->roles->prodi_id;
+            }
+            $prodi_ids = TimProdi::whereIn('prodi_id', $ids_prodi)->get();
+            foreach($prodi_ids as $ids){
+                $ids_team[] = $ids->team_id;
+            }
+            $teams = Team::whereIn('id', array_unique($ids_team))->get();
+        }
+
         $team_prodis = [];
 		$this->data['teams'] = $teams;
         foreach($teams as $team){

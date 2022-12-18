@@ -49,6 +49,7 @@ class PostIndex extends Component
 
     public function render()
     {
+        $posts = null;
         if(Auth::user()->id == 1){
             $posts = Post::orderBy('id', 'DESC')->where('judul', 'LIKE', '%'.$this->cari_post.'%')->paginate($this->perhalaman);
         } else {
@@ -62,7 +63,7 @@ class PostIndex extends Component
             foreach($post_ids as $ids){
                 $ids_post[] = $ids->post_id;
             }
-            $posts = Post::orderBy('id', 'DESC')->whereIn('id', $ids_post)->where('judul', 'LIKE', '%'.$this->cari_post.'%')->paginate($this->perhalaman);
+            $posts = Post::orderBy('id', 'DESC')->whereIn('id', array_unique($ids_post))->where('judul', 'LIKE', '%'.$this->cari_post.'%')->paginate($this->perhalaman);
         }
 
         //$this->authorize('view', $posts);

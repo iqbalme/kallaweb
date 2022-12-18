@@ -6,6 +6,9 @@ use Livewire\Component;
 use App\Models\Event;
 use Livewire\WithPagination;
 use App\Models\Prodi;
+use App\Models\EventProdi;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventIndex extends Component
 {
@@ -19,19 +22,35 @@ class EventIndex extends Component
 	public $cari_event = '';
     public $event_prodis = [];
     public $single_event;
+    public $initial_data_req = null;
 
 	protected $listeners = [
 		'refreshEvent'
 	];
 
-	public function mount(){
-
+	public function mount(Request $request){
+        $this->initial_data_req = $request->request->all();
 	}
 
     public function render()
     {
+        $events = null;
 		$event_prodis = [];
-        $events = Event::orderBy('waktu_mulai', 'desc')->orderBy('waktu_berakhir', 'desc')->where('nama_event', 'LIKE', '%'.$this->cari_event.'%')->paginate($this->perhalaman);
+        if(Auth::user()->id == 1){
+            $events = Event::orderBy('waktu_mulai', 'desc')->orderBy('waktu_berakhir', 'desc')->where('nama_event', 'LIKE', '%'.$this->cari_event.'%')->paginate($this->perhalaman);
+        } else {
+            $ids_event = [];
+            $ids_prodi = [];
+            $current_user_roles = Auth::user()->role_users;
+            foreach($current_user_roles as $current_role){
+                $ids_prodi[] = $current_role->roles->prodi_id;
+            }
+            $prodi_evt_ids = EventProdi::whereIn('prodi_id', $ids_prodi)->get();
+            foreach($prodi_evt_ids as $ids){
+                $ids_event[] = $ids->event_id;
+            }
+            $events = Event::orderBy('waktu_mulai', 'desc')->orderBy('waktu_berakhir', 'desc')->whereIn('id', array_unique($ids_event))->where('nama_event', 'LIKE', '%'.$this->cari_event.'%')->paginate($this->perhalaman);
+        }
         $this->data['events'] = $events;
         foreach($events as $event){
             $prodi_ids = [];

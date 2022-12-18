@@ -57,7 +57,7 @@
 	</noscript>
 	<!-- End Facebook Pixel Code -->
 	@endisset
-	
+
 </head>
 <body>
 <div class="super_container">
@@ -65,7 +65,7 @@
 @include('layouts.nav')
 @yield('content')
 @include('layouts.footer')
-	
+
 </div>
 
 <!--script src="{{asset('frontend/theme/unicat/plugins/greensock/TweenMax.min.js')}}"></script>
