@@ -43,7 +43,14 @@
         <div class="row-nav align-items-center">
 
           <div class="col-11 col-xl-2">
-            <div class="mb-0 site-logo"><a href="{{route('home')}}" class="text-white mb-0"><img src="{{ asset('storage/images/'.$data['web_logo']) }}"></a></div>
+            <div class="mb-0 site-logo">
+                @if(Request()->request->all()['is_main_domain'])
+                    <a href="{{route('home')}}" class="text-white mb-0">
+                    <img src="{{ asset('storage/images/'.$data['web_logo']) }}"></a>
+                @else
+                    {{'tes'}}
+                @endif
+            </div>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation-nav position-relative text-right" role="navigation">
