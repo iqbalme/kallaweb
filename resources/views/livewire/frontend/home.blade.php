@@ -14,7 +14,7 @@
                             <div class="stats-count">
                                 50<span>M+</span>
                                 <p>STUDENTS LEARNING</p>
-                            </div>
+      p                      </div>
 
                             <div class="stats-count">
                                 30<span>K+</span>
