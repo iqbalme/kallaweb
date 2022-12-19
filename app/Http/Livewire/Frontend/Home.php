@@ -27,7 +27,7 @@ class Home extends Component
         }
         $this->data['testimonis'] = Testimoni::all();
         if(!$this->initial_data_req['is_main_domain']){
-            $this->data['visi_misi'] = Prodi::find($this->initial_data_req['subdomain']['id'])->visi_misi;
+            $this->data['visi_misi'] = Prodi::find($this->initial_data_req['subdomain']['id'])->visi_misi_text;
         }
         return view('livewire.frontend.home')
 			->extends('layouts.app', ['title' => 'Beranda'])
