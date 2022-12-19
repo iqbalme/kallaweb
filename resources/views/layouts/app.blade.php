@@ -15,6 +15,7 @@
 
 <link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('frontend/theme/unicat/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('frontend/assets/css/remixicon.css')}}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/theme/unicat/plugins/OwlCarousel2-2.2.1/animate.css')}}">
@@ -26,6 +27,7 @@
 <script src="{{asset('frontend/theme/js/vendor/jquery.min.js')}}"></script>
 <!-- <script src="{{asset('frontend/assets/js/jquery-3.3.1.min.js')}}"></script> -->
 <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
+<script src="https://kit.fontawesome.com/8b91ad4956.js" crossorigin="anonymous"></script>
 @stack('scripts')
 	@isset($data['google_analytics'])
 	<!-- Google tag (gtag.js) -->
