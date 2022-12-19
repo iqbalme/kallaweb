@@ -19,6 +19,7 @@
    <div style="margin-top:40px;margin-bottom:10px;" id="blog" class="blog">
 		<div class="container">
 			<div class="row">
+                @if(Request()->request->all()['is_main_domain'])
 				<div class="col">
 					<!--Content-->
 
@@ -47,11 +48,22 @@
 
 					<!-- End Content-->
 				</div>
+                @else
+                    <div class="col tentang">
+                        <img src="{{asset($gambar_tentang_prodi)}}">
+                    </div>
+                @endif
 			</div>
 		</div>
 	</div>
 	 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	<style>
+        .tentang {
+			padding: 20px 10px;
+		}
+		.tentang img {
+			max-width: -webkit-fill-available;
+		}
 		.blog {
 		  padding: 10px 0 20px 0;
 		  font-family: "Open Sans", sans-serif;

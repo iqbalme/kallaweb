@@ -62,7 +62,11 @@
                 <li class="@if(request()->route()->getName() == 'home') active @else &nbsp; @endif"><a href="{{route('home')}}"><span>Beranda</span></a></li>
 				<li class="has-children @if((request()->route()->getName() == 'struktur')||(request()->route()->getName() == 'team.show')||(request()->route()->getName() == 'galeri.show')||(request()->route()->getName() == 'team.detail')||(request()->route()->getName() == 'tentang-kampus')) active @else &nbsp; @endif"><a href="#"><span>Profil</span></a>
 					<ul class="dropdown arrow-top">
-                    <li><a href="{{route('tentang-kampus')}}">Tentang Kampus</a></li>
+                    @if(Request()->request->all()['is_main_domain'])
+                        <li><a href="{{route('tentang-kampus')}}">Tentang Kampus</a></li>
+                    @else
+                        <li><a href="{{route('tentang-kampus')}}">Tentang Prodi</a></li>
+                    @endif
                     <li><a href="{{route('struktur')}}">Struktur Organisasi</a></li>
                     <li><a href="{{route('team.show')}}">Profil Dosen</a></li>
                     @if(Request()->request->all()['is_main_domain'])
