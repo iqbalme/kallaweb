@@ -60,6 +60,7 @@ class PengaturanTableSeeder extends Seeder
 			['admisi_webhook_status', 0],
 			['admisi_webhook_url', ''],
 			['event_webhook_url', ''],
+            ['visi_misi', '<h2 class="entry-title">Kalla Institute</h2><p><h4>VISI:</h4></p><p>Menjadi perguruan tinggi unggul dalam pengembangan kewirausahaan berbasis teknologi yang inovatif berlandaskan moral agama pada tahun 2034</p><p><h4>MISI:</h4></p><p><ul><li>Menyelenggarakan Pendidikan Tinggi dengan tata kelola yang baik, ditunjang Teknologi Informasi dan Sistem Manajemen Mutu</li><li>Melaksanakan Penelitian Terapan dan Pengabdian, dalam Bidang Bisnis dan Teknologi, untuk meningkatkan kesejahteraan masyarakat</li><li>Membangun sumber daya manusia yang berkarakter insan KALLA, berjiwa kepemimpinan dan kewirausahaan yang berbasis teknologi</li></ul></p>']
 		];
 		foreach($settings as $setting){
 			\App\Models\Setting::create([

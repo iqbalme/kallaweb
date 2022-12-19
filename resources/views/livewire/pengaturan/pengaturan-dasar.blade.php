@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="card mb-4">
             <form wire:submit.prevent="saveSettings">
-			@csrf			
+			@csrf
 				<div class="card-body p-5">
 					<div class="d-flex justify-content-between">
 						<div>
@@ -105,7 +105,19 @@
 							</div>
 						</div>
 					</div>
-					
+                    <div class="row mt-3">
+						<div class="d-flex justify-content-between">
+							<div>
+							  <h4 class="card-title mb-0">Visi Misi Kampus</h4>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<div class="input-group mb-3 mt-2">
+							  <textarea class="form-control" wire:model.defer="settings.visi_misi"></textarea>
+							</div>
+						</div>
+					</div>
+
 					<div class="row mt-3">
 						<div class="col-lg-12">
 							<div>
