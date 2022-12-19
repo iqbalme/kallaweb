@@ -2,7 +2,6 @@
 	<div class="top-div" style="margin-bottom:45px;">&nbsp;</div>
 
 	<section class="about-section">
-        @if($initial_data_req['is_main_domain'])
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6 align-content-lg-stretch judulbesar">
@@ -49,17 +48,6 @@
                 </div><!-- .col -->
             </div><!-- .row -->
         </div><!-- .container -->
-        @else
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-12 align-content-lg-stretch visi_misi">
-                        @isset($data['visi_misi'])
-                            <img src="{{asset('storage/images/'.$data['visi_misi'])}}">
-                        @endisset
-                    </div>
-                </div>
-            </div>
-        @endif
     </section>
 
     @if(Request()->request->all()['is_main_domain'])
