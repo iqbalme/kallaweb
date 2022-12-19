@@ -86,7 +86,7 @@ class TestController extends Controller
     public function todo(){
         $content = "<h1>Todo:</h1>
         <p><ol>
-        <li>Clone repository dengan menjalankan perintah: <i>git clone https://iqbalme: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@github.com/iqbalme/kallaweb.git</i></li>
+        <li>Clone repository</li>
         <li>Buat database</li>
         <li>Setting file .env, masukkan pengaturan host server, port, nama database, username dan password database</li>
         <li>Jalankan perintah: <i>composer install</i></li>
