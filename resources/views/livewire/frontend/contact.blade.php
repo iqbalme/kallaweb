@@ -127,7 +127,7 @@
 								<div class="row justify-content-between">
 									<div class="col-4">&nbsp;</div>
 									<div class="col-6 text-right">
-									<button type="submit" class="btn btn-md btn-primary">Kirim Pesan</button>
+									<button type="submit" class="btn btn-md btn-success">Kirim Pesan</button>
 									</div>
 								</div>
 							</form>
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                         <div class="col-md-5 d-flex align-items-stretch">
-                            <div class="info-wrap bg-primary w-100 p-lg-5 p-4">
+                            <div class="info-wrap bg-success w-100 p-lg-5 p-4">
                         @isset($data['alamat'])
                             <div class="dbox w-100 d-flex align-items-start">
                                 <div class="icon d-flex align-items-center justify-content-center">
