@@ -4,42 +4,33 @@ namespace App\Http\Livewire\Pengaturan;
 
 use Livewire\Component;
 use App\Models\Setting;
+use App\Http\Traits\CommonTrait;
 
 class PengaturanWebhook extends Component
 {
-	public $settings;
-	
+    use CommonTrait;
+	public $setting;
+
 	public function mount(){
-		$settings = Setting::whereIn('nama_setting', ['admisi_webhook_url'])->get();
-		foreach($settings as $setting){
-			// if(in_array($setting->nama_setting, ['status_pendaftaran', 'is_voucher','admisi_webhook_status'])){
-				// $setting->isi_setting = (boolean) $setting->isi_setting;
-			// }
-			$this->settings[$setting->nama_setting] = $setting->isi_setting;
-		}
+		$this->setting = Setting::where('nama_setting', 'admisi_webhook_url')->first()->isi_setting;
 	}
-	
+
     public function render()
     {
         return view('livewire.pengaturan.pengaturan-webhook')
 			->layout(\App\View\Components\AdminLayout::class, ['breadcrumb' => 'Pengaturan / Webhook']);
     }
-	
-	public function saveSettings(){
-		$datas = [];
 
-		foreach($this->settings as $key => $val){
-			// if(in_array($key, ['status_pendaftaran', 'is_voucher', 'admisi_webhook_status'])){
-				// $val = (boolean) $val;
-			// }
-			$datas[] = [$key, $val];
-		}
-		//dd($datas);
-		foreach($datas as $data){
-			Setting::updateOrCreate(
-				['nama_setting' => $data[0]], ['isi_setting' => $data[1]]
-			);			
-		}
+	public function saveSettings(){
+
+        try{
+            Setting::updateOrCreate(
+				['nama_setting' => 'admisi_webhook_url'], ['isi_setting' => $this->setting]
+			);
+            $this->setActionNotif('Berhasil', 'Webhook admisi setting telah disimpan', 'success');
+        } catch(\Exception $e){
+            $this->setActionNotif('Error', 'Gagal menyimpan pengaturan webhoook admisi', 'error');
+        }
 		return redirect()->route('pengaturan.webhook');
 	}
 }
