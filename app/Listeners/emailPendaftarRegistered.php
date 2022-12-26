@@ -11,8 +11,9 @@ use Ixudra\Curl\Facades\Curl;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Log;
 
-class emailPendaftarRegistered
+class emailPendaftarRegistered implements ShouldQueue
 {
+    use InteractsWithQueue;
 	use CommonTrait;
     public $admisi_webhook_url = null;
 
